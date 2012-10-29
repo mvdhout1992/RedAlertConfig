@@ -58,11 +58,24 @@ namespace RedAlertConfig
             {
                 this.radiob_resoCustom.Checked = true;
             }
+            Update_Use_RA_Aspect_Ratio();
 
-            Update_Use_RA_Aspect_Ratio_Text();
+            this.txtb_StretchCustomWidth.Enabled = false;
+            this.txtb_StretchCustomHeight.Enabled = false;
+            
+            int StretchWidth = Files.DDrawINI.getIntValue("ddraw", "width", 0);
+            int StretchHeight = Files.DDrawINI.getIntValue("ddraw", "height", 0);
+
+            this.txtb_StretchCustomWidth.Text = StretchWidth.ToString();
+            this.txtb_StretchCustomHeight.Text = StretchHeight.ToString();
+
+            if (this.txtb_StretchCustomWidth.Text == "0") this.txtb_StretchCustomWidth.Text = "";
+            if (this.txtb_StretchCustomHeight.Text == "0") this.txtb_StretchCustomHeight.Text = "";
+
+            txtb_Handle.Text = Files.RedAlertINI.getStringValue("Multiplayer", "Handle", "");
         }
 
-        private void Update_Use_RA_Aspect_Ratio_Text()
+        private void Update_Use_RA_Aspect_Ratio()
         {
             this.chb_UseRAAspectRatio.Enabled = true;
             this.label18.Enabled = true;
@@ -178,11 +191,6 @@ namespace RedAlertConfig
 
         }
 
-        private void checkBox13_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -285,11 +293,29 @@ namespace RedAlertConfig
                 int RAWidth = Files.RedAlertINI.getIntValue("Options", "Width", 0);
                 Files.DDrawINI.setIntValue("ddraw", "width", RAWidth);
             }
-            else
+            else if (this.chb_StretchCustom.Checked == true)
             {
-                Files.DDrawINI.setIntValue("ddraw", "height", 0);
-                Files.DDrawINI.setIntValue("ddraw", "width", 0);
+                int StretchWidth;
+                if (Int32.TryParse(this.txtb_StretchCustomWidth.Text, out StretchWidth) == false)
+                {
+                    StretchWidth = 0;
+                }
+                Files.DDrawINI.setIntValue("ddraw", "width", StretchWidth);
+
+                int StretchHeight;
+                if (Int32.TryParse(this.txtb_StretchCustomHeight.Text, out StretchHeight) == false)
+                {
+                    StretchHeight = 0;
+                }
+                Files.DDrawINI.setIntValue("ddraw", "height", StretchHeight);
             }
+//            else
+//            {
+//                Files.DDrawINI.setIntValue("ddraw", "height", 0);
+//                Files.DDrawINI.setIntValue("ddraw", "width", 0);
+//            }
+
+            Files.RedAlertINI.setStringValue("Multiplayer", "Handle", txtb_Handle.Text);
 
             Files.RedAlertINI.writeIni();
             Files.DDrawINI.writeIni();
@@ -340,7 +366,7 @@ namespace RedAlertConfig
             {
                 this.txtb_resoCustomWidth.Text = "0";
             } */
-            Update_Use_RA_Aspect_Ratio_Text();
+            Update_Use_RA_Aspect_Ratio();
         }
 
         private void txtb_resoCustomHeight_TextChanged(object sender, EventArgs e)
@@ -349,7 +375,7 @@ namespace RedAlertConfig
             {
                 this.txtb_resoCustomHeight.Text = "0";
             } */
-            Update_Use_RA_Aspect_Ratio_Text();
+            Update_Use_RA_Aspect_Ratio();
         }
 
         private void radiob_resoCustom_CheckedChanged_1(object sender, EventArgs e)
@@ -377,22 +403,46 @@ namespace RedAlertConfig
 
         private void radiob_reso640x400_CheckedChanged_1(object sender, EventArgs e)
         {
-            Update_Use_RA_Aspect_Ratio_Text();
+            Update_Use_RA_Aspect_Ratio();
         }
 
         private void radiob_reso640x480_CheckedChanged_1(object sender, EventArgs e)
         {
-            Update_Use_RA_Aspect_Ratio_Text();
+            Update_Use_RA_Aspect_Ratio();
         }
 
         private void radiob_reso800x600_CheckedChanged_1(object sender, EventArgs e)
         {
-            Update_Use_RA_Aspect_Ratio_Text();
+            Update_Use_RA_Aspect_Ratio();
         }
 
         private void radiob_reso1024x768_CheckedChanged_1(object sender, EventArgs e)
         {
-            Update_Use_RA_Aspect_Ratio_Text();
+            Update_Use_RA_Aspect_Ratio();
+        }
+
+        private void chb_UseRAAspectRatio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chb_UseRAAspectRatio.Checked == true)
+            {
+                this.chb_StretchCustom.Checked = false;
+            }
+        }
+
+        private void chb_StretchCustom_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chb_StretchCustom.Checked == true)
+            {
+                this.chb_UseRAAspectRatio.Checked = false;
+
+                this.txtb_StretchCustomHeight.Enabled = true;
+                this.txtb_StretchCustomWidth.Enabled = true;
+            }
+            else
+            {
+                this.txtb_StretchCustomHeight.Enabled = false;
+                this.txtb_StretchCustomWidth.Enabled = false;
+            }
         }
     }
 }

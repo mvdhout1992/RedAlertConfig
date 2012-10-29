@@ -76,6 +76,8 @@ namespace RedAlertConfig
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
@@ -113,17 +115,15 @@ namespace RedAlertConfig
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.chb_StretchCustom = new System.Windows.Forms.CheckBox();
+            this.txtb_StretchCustomHeight = new System.Windows.Forms.TextBox();
+            this.txtb_StretchCustomWidth = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.txt_UseRAAspectRatio = new System.Windows.Forms.Label();
             this.chb_UseRAAspectRatio = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Slider_MusicVolume)).BeginInit();
@@ -665,9 +665,9 @@ namespace RedAlertConfig
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.label21);
             this.tabPage1.Controls.Add(this.comboBox3);
-            this.tabPage1.Controls.Add(this.checkBox12);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox5);
+            this.tabPage1.Controls.Add(this.chb_StretchCustom);
+            this.tabPage1.Controls.Add(this.txtb_StretchCustomHeight);
+            this.tabPage1.Controls.Add(this.txtb_StretchCustomWidth);
             this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.txt_UseRAAspectRatio);
@@ -682,6 +682,22 @@ namespace RedAlertConfig
             this.tabPage1.Text = "Video options";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(354, 309);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(33, 20);
+            this.textBox1.TabIndex = 87;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(217, 311);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(131, 13);
+            this.label14.TabIndex = 86;
+            this.label14.Text = "Max FPS  (helps scrolling):";
             // 
             // panel3
             // 
@@ -1061,29 +1077,30 @@ namespace RedAlertConfig
             this.comboBox3.Size = new System.Drawing.Size(153, 21);
             this.comboBox3.TabIndex = 53;
             // 
-            // checkBox12
+            // chb_StretchCustom
             // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(10, 233);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(160, 17);
-            this.checkBox12.TabIndex = 52;
-            this.checkBox12.Text = "Stretch to custom resolution:";
-            this.checkBox12.UseVisualStyleBackColor = true;
+            this.chb_StretchCustom.AutoSize = true;
+            this.chb_StretchCustom.Location = new System.Drawing.Point(10, 233);
+            this.chb_StretchCustom.Name = "chb_StretchCustom";
+            this.chb_StretchCustom.Size = new System.Drawing.Size(160, 17);
+            this.chb_StretchCustom.TabIndex = 52;
+            this.chb_StretchCustom.Text = "Stretch to custom resolution:";
+            this.chb_StretchCustom.UseVisualStyleBackColor = true;
+            this.chb_StretchCustom.CheckedChanged += new System.EventHandler(this.chb_StretchCustom_CheckedChanged);
             // 
-            // textBox4
+            // txtb_StretchCustomHeight
             // 
-            this.textBox4.Location = new System.Drawing.Point(108, 254);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(51, 20);
-            this.textBox4.TabIndex = 51;
+            this.txtb_StretchCustomHeight.Location = new System.Drawing.Point(108, 254);
+            this.txtb_StretchCustomHeight.Name = "txtb_StretchCustomHeight";
+            this.txtb_StretchCustomHeight.Size = new System.Drawing.Size(51, 20);
+            this.txtb_StretchCustomHeight.TabIndex = 51;
             // 
-            // textBox5
+            // txtb_StretchCustomWidth
             // 
-            this.textBox5.Location = new System.Drawing.Point(35, 254);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(51, 20);
-            this.textBox5.TabIndex = 50;
+            this.txtb_StretchCustomWidth.Location = new System.Drawing.Point(35, 254);
+            this.txtb_StretchCustomWidth.Name = "txtb_StretchCustomWidth";
+            this.txtb_StretchCustomWidth.Size = new System.Drawing.Size(51, 20);
+            this.txtb_StretchCustomWidth.TabIndex = 50;
             // 
             // label20
             // 
@@ -1122,7 +1139,7 @@ namespace RedAlertConfig
             this.chb_UseRAAspectRatio.Size = new System.Drawing.Size(15, 14);
             this.chb_UseRAAspectRatio.TabIndex = 46;
             this.chb_UseRAAspectRatio.UseVisualStyleBackColor = true;
-            this.chb_UseRAAspectRatio.CheckedChanged += new System.EventHandler(this.checkBox13_CheckedChanged);
+            this.chb_UseRAAspectRatio.CheckedChanged += new System.EventHandler(this.chb_UseRAAspectRatio_CheckedChanged);
             // 
             // panel1
             // 
@@ -1141,22 +1158,6 @@ namespace RedAlertConfig
             this.chb_EnableCnCDDraw.TabIndex = 0;
             this.chb_EnableCnCDDraw.Text = "Use CnC-DDraw (enables advanced options)";
             this.chb_EnableCnCDDraw.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(217, 311);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(131, 13);
-            this.label14.TabIndex = 86;
-            this.label14.Text = "Max FPS  (helps scrolling):";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(354, 309);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(33, 20);
-            this.textBox1.TabIndex = 87;
             // 
             // Form1
             // 
@@ -1256,9 +1257,9 @@ namespace RedAlertConfig
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label txt_UseRAAspectRatio;
         private System.Windows.Forms.CheckBox chb_UseRAAspectRatio;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.CheckBox chb_StretchCustom;
+        private System.Windows.Forms.TextBox txtb_StretchCustomHeight;
+        private System.Windows.Forms.TextBox txtb_StretchCustomWidth;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
