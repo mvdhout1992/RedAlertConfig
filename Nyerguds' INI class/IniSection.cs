@@ -15,7 +15,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace Nyerguds.ini
+namespace Nyerguds.Ini
 {
 
     /// <summary>
@@ -31,6 +31,8 @@ namespace Nyerguds.ini
         private List<String> iniKeysLower;
         /// <summary>The values associated to the keys</summary>
         private List<String> iniValues;
+        /// <summary>List of deleted keys</summary>
+        private List<String> iniKeysDeleted;
         /// <summary>The name of the ini section</summary>
         private String name;
 
@@ -53,9 +55,10 @@ namespace Nyerguds.ini
         public IniSection(String name)
         {
             this.name = name;
-            iniKeys = new List<String>();
-            iniKeysLower = new List<String>();
-            iniValues = new List<String>();
+            this.iniKeys = new List<String>();
+            this.iniKeysLower = new List<String>();
+            this.iniValues = new List<String>();
+            this.iniKeysDeleted = new List<String>();
         }
 
         /// <summary>Gets a String from the ini section</summary>
@@ -67,10 +70,10 @@ namespace Nyerguds.ini
         {
             if (key == null || key.Length == 0)
                 throw new ArgumentException("Key can not be empty");
-            int index = iniKeysLower.IndexOf(key.ToLower());
+            int index = this.iniKeysLower.IndexOf(key.ToLowerInvariant());
             success = index > -1;
             if (success)
-                return iniValues[index];
+                return this.iniValues[index];
             return defaultValue;
         }
 
@@ -81,15 +84,17 @@ namespace Nyerguds.ini
         {
             if (key == null || key.Length == 0)
                 throw new ArgumentException("Key can not be empty");
-            int index = iniKeysLower.IndexOf(key.ToLower());
+            String keyLower = key.ToLowerInvariant();
+            int index = this.iniKeysLower.IndexOf(keyLower);
             Boolean success = index > -1;
             if (success)
-                iniValues[index] = value;
+                this.iniValues[index] = value;
             else
             {
-                iniKeys.Add(key);
-                iniKeysLower.Add(key.ToLower());
-                iniValues.Add(value);
+                this.iniKeys.Add(key);
+                this.iniKeysLower.Add(keyLower);
+                this.iniValues.Add(value);
+                this.iniKeysDeleted.Remove(keyLower);
             }
         }
 
@@ -109,7 +114,7 @@ namespace Nyerguds.ini
                     int intvalue = int.Parse(value);
                     return intvalue;
                 }
-                catch (Exception e)
+                catch
                 {
                     success = false;
                 }
@@ -207,7 +212,7 @@ namespace Nyerguds.ini
                             else if (intvalue == 1) returnvalue = true;
                             else success = false;
                         }
-                        catch (Exception e)
+                        catch
                         {
                             success = false;
                         }
@@ -256,7 +261,7 @@ namespace Nyerguds.ini
         /// <summary>Splits the comment off the given string value, and returns the two parts in a String array.</summary>
         /// <param name="value">The string to split</param>
         /// <returns>A 2-element string array with the value as first element and the split off comment as second value.</returns>
-        private String[] splitOffComment(String value)
+        protected String[] splitOffComment(String value)
         {
 
             int spaceOffset = value.IndexOf(" ");
@@ -265,7 +270,9 @@ namespace Nyerguds.ini
             // whitespace section before the semicolon. 
             // Code is currently disabled, because this function should only be used
             // for compact values like bools, ints and chars that don't use spaces.
-            //*/
+            // Strings should be able to contain semicolons without the trailing
+            // text being seen as comments.
+            /*/
             if (semicolonOffset > spaceOffset)
                 while (!Regex.Match(value.Substring(spaceOffset, semicolonOffset), "^[ \t]*$").Success)
                 {
@@ -297,11 +304,11 @@ namespace Nyerguds.ini
         /// <param name="key">The key to remove</param>
         public void removeKey(String key)
         {
-            key = key.ToLower();
+            key = key.ToLowerInvariant();
             int index = -1;
-            for (int i = 0; i < iniKeysLower.Count; i++)
+            for (int i = 0; i < this.iniKeysLower.Count; i++)
             {
-                if (iniKeysLower[i].Equals(key))
+                if (this.iniKeysLower[i].Equals(key))
                 {
                     index = i;
                     break;
@@ -309,32 +316,34 @@ namespace Nyerguds.ini
             }
             if (index > -1)
             {
-                iniKeys.RemoveAt(index);
-                iniKeysLower.RemoveAt(index);
-                iniValues.RemoveAt(index);
+                this.iniKeys.RemoveAt(index);
+                this.iniKeysLower.RemoveAt(index);
+                this.iniValues.RemoveAt(index);
+                this.iniKeysDeleted.Add(key);
             }
         }
 
         /// <summary>Removes all keys in the ini section.</summary>
         public void clear()
         {
-            iniKeys.Clear();
-            iniKeysLower.Clear();
-            iniValues.Clear();
+            this.iniKeysDeleted.AddRange(this.iniKeysLower);
+            this.iniKeys.Clear();
+            this.iniKeysLower.Clear();
+            this.iniValues.Clear();
         }
 
         /// <summary>Gets all keys from the ini section.</summary>
         /// <returns>A copy of the list of all key names in the ini section</returns>
         public List<String> getKeys()
         {
-            return new List<String>(iniKeys);
+            return new List<String>(this.iniKeys);
         }
 
         /// <summary>Gets all lower case keys from the ini section.</summary>
         /// <returns>A copy of the list of all lower case key names in the ini section</returns>
         public List<String> getLowerCaseKeys()
         {
-            return new List<String>(iniKeysLower);
+            return new List<String>(this.iniKeysLower);
         }
 
         /// <summary>Returns a copy of the ini section's key-value pairs map.</summary>
@@ -344,21 +353,33 @@ namespace Nyerguds.ini
             return getKeyValuePairs(false);
         }
 
+        /// <summary>Returns a copy of the deleted keys list.</summary>
+        /// <returns>An array of all keys that were deleted.</returns>
+        public List<String> getDeletedKeys()
+        {
+            return new List<String>(this.iniKeysDeleted);
+        }
+
+        /// <summary>
+        ///     Clears the internal list of deleted keys.
+        ///     Probably shouldn't be called since section
+        ///     objects aren't recycled on re-read.
+        /// </summary>
+        public void clearDeletedKeys()
+        {
+            this.iniKeysDeleted.Clear();
+        }
+
+
         /// <summary>Returns a copy of the ini section's key-value pairs map.</summary>
         /// <param name="lowercasekeys">True to return the keys as lowercase strings, for easier case-insensitive search.</param>
         /// <returns>A Dictionary with the key-value pairs</returns>
         public Dictionary<String, String> getKeyValuePairs(Boolean lowercasekeys)
         {
             Dictionary<String, String> dictionary = new Dictionary<String, String>();
-            for (int i = 0; i < iniKeys.Count; i++)
-                dictionary.Add((lowercasekeys ? iniKeysLower[i] : iniKeys[i]), iniValues[i]);
+            for (int i = 0; i < this.iniKeys.Count; i++)
+                dictionary.Add((lowercasekeys ? this.iniKeysLower[i] : this.iniKeys[i]), this.iniValues[i]);
             return dictionary;
-            /*
-            // Requires .net 3.5 to work. Replaced because it's the only thing keeping it from running on 2.0.
-            return iniKeys
-                    .Select((k, i) => new { k, v = iniValues[i] })
-                        .ToDictionary(x => (lowercasekeys ? x.k.ToLower() : x.k), x => x.v);
-            //*/
         }
 
         public String toString()

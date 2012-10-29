@@ -15,7 +15,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Nyerguds.ini
+namespace Nyerguds.Ini
 {
 	/// <summary>
 	/// <p>This class represents a standard type ini file, which uses sections specified
@@ -36,52 +36,29 @@ namespace Nyerguds.ini
     /// </summary>
 	public class IniFile
 	{
-	    protected String filePath;
-	
-	    public static BooleanMode DEFAULT_BOOLEANMODE = BooleanMode.YES_NO;
-	    public static Boolean DEFAULT_REMOVECOMMENTS = false;
+        public static BooleanMode DEFAULT_BOOLEANMODE = BooleanMode.YES_NO;
+        public static Boolean DEFAULT_REMOVECOMMENTS = false;
+        public static Boolean DEFAULT_INITIALCAPS = true;
 	    public static Encoding ENCODING_DOS_US() { return Encoding.GetEncoding(437); }
 	    public static Encoding DEFAULT_ENCODING = Encoding.UTF8;
 	
 	    protected List<IniSection> iniSections;
         protected List<String> removedSections;
+        protected String fileContents = null;
         
 	    /// <summary>When enabled, this makes sure all ini keys that get saved start with a capital letter.</summary>
-	    protected Boolean initialCaps=true;
-	    protected Encoding encoding;
-	    protected String fileContents=null;
-	    
-	    /// <summary>When enabled, this makes sure all ini keys that get saved start with a capital letter.</summary>
-	    /// <returns>true if the ini is set to convert the first letter of every key to upper case when writing to the file</returns>
-	    public Boolean getInitialCaps()
-	    {
-	        return initialCaps;
-	    }
-	
-	    /// <summary>When enabled, this makes sure all ini keys that get saved start with a capital letter.</summary>
-	    /// <param name="initialCaps">Boolean that determines whether the ini will convert the first letter of every key to upper case when writing to the file</param>
-	    public void setInitialCaps(Boolean initialCaps)
-	    {
-	        this.initialCaps = initialCaps;
-	    }
-	
-	    /// <summary>Returns the path used as input and output file.</summary>
-	    /// <returns>The path used as input and output file.</returns>
-	    public String getFilePath()
-	    {
-	        return filePath;
-	    }
-	    
-	    /// <summary>
-	    /// Changes the file path to use as input and output file. This does not
+        public Boolean InitialCaps = DEFAULT_INITIALCAPS;
+        /// <summary>Default true/false set to use when writing booleans to the ini file.</summary>
+        public BooleanMode BooleanMode = DEFAULT_BOOLEANMODE;
+        /// <summary>Text encoding for reading and writing the ini file</summary>
+        public Encoding TextEncoding = ENCODING_DOS_US();
+        /// <summary>
+        /// The path used as input and output file. Changing this does not
         /// do an automatic read or write of that path. Use <b>readIniFile</b>
         /// to change the path and do an automatic read.
         /// </summary>
-        /// @param filePath  the path to use as input and output file.
-	    public void setFilePath(String filePath)
-	    {
-	        this.filePath = filePath;
-	    }
+        public String filePath;
+        
 	    
 	    /// <summary>Retrieves the virtual file contents of the INI object. Can only be used if no path was given to the ini file.</summary>
 	    /// <returns>The contents of the ini file object.</returns>
@@ -90,33 +67,19 @@ namespace Nyerguds.ini
 	        return fileContents;
 	    }
 	    
-	    /// <summary>Gets the character encoding currently set to be used by the IniFile object for I/O operations.</summary>
-	    /// <returns>the character encoding used for handling I/O</returns>
-	    public Encoding getEncoding()
-	    {
-	        return encoding;
-	    }
-	
-	    /// <summary>Sets the character encoding to be used by the IniFile object for I/O operations.</summary>
-        /// @param encoding  the character encoding to be used for handling I/O
-	    public void setEncoding(Encoding encoding)
-	    {
-	        this.encoding = encoding;
-	    }
-	
-
         /// <summary>
         ///     Creates an object for reading, editing and writing an ini file.
         /// </summary>
         /// <param name="filePath">Path of the file to read</param>
         /// <param name="initialCaps">Write back all ini keys with initial capital letter</param>
         /// <param name="textEncoding">Text encoding to use for reading (and writing) the file</param>
-        public IniFile(String filePath, Boolean initialCaps, Encoding textEncoding)
+        /// <param name="booleanMode">Default true/false set to use when writing booleans to the ini file.</param>
+        public IniFile(String filePath, Boolean initialCaps, BooleanMode booleanMode, Encoding textEncoding)
         {
             if (textEncoding == null) throw new ArgumentNullException("textEncoding");
             if (filePath == null)     throw new ArgumentNullException("filePath");
-            this.removedSections = new List<String>(); 
-            this.initialCaps = initialCaps;
+            this.InitialCaps = initialCaps;
+            this.BooleanMode = booleanMode;
             readIniFile(filePath, textEncoding);
         }
 
@@ -126,15 +89,35 @@ namespace Nyerguds.ini
         /// </summary>
         /// <param name="filePath">Path of the file to read</param>
         /// <param name="initialCaps">Write back all ini keys with initial capital letter</param>
-        public IniFile(String filePath, Boolean initialCaps) : this(filePath, initialCaps, DEFAULT_ENCODING) { }
+        /// <param name="booleanMode">Default true/false set to use when writing booleans to the ini file.</param>
+        public IniFile(String filePath, Boolean initialCaps, BooleanMode booleanMode) : this(filePath, initialCaps, booleanMode, DEFAULT_ENCODING) { }
+
+        /// <summary>
+        ///     Creates an object for reading, editing and writing an ini file,
+        ///     with the default DOS U.S. ASCII-437 encoding,
+        ///     and using Yes/No as boolean writing mode.
+        /// </summary>
+        /// <param name="filePath">Path of the file to read</param>
+        /// <param name="initialCaps">Write back all ini keys with initial capital letter</param>
+        public IniFile(String filePath, Boolean initialCaps) : this(filePath, initialCaps, DEFAULT_BOOLEANMODE, DEFAULT_ENCODING) { }
 
         /// <summary>
         ///     Creates an object for reading, editing and writing an ini file.
         ///     set to write back all ini keys with initial capital letter.
         /// </summary>
         /// <param name="filePath">Path of the file to read</param>
+        /// <param name="booleanMode">Default true/false set to use when writing booleans to the ini file.</param>
         /// <param name="textEncoding">Text encoding to use for reading (and writing) the file</param>
-        public IniFile(String filePath, Encoding textEncoding): this(filePath, true, textEncoding) { }
+        public IniFile(String filePath, BooleanMode booleanMode, Encoding textEncoding) : this(filePath, DEFAULT_INITIALCAPS, booleanMode, textEncoding) { }
+
+        /// <summary>
+        ///     Creates an object for reading, editing and writing an ini file,
+        ///     set to write back all ini keys with initial capital letter,
+        ///     and using Yes/No as boolean writing mode.
+        /// </summary>
+        /// <param name="filePath">Path of the file to read</param>
+        /// <param name="textEncoding">Text encoding to use for reading (and writing) the file</param>
+        public IniFile(String filePath, Encoding textEncoding) : this(filePath, DEFAULT_INITIALCAPS, DEFAULT_BOOLEANMODE, textEncoding) { }
 
         /// <summary>
         ///     Creates an object for reading, editing and writing an ini file,
@@ -142,7 +125,17 @@ namespace Nyerguds.ini
         ///     with the default DOS U.S. ASCII-437 encoding.
         /// </summary>
         /// <param name="filePath">Path of the file to read</param>
-        public IniFile(String filePath) : this(filePath, true, DEFAULT_ENCODING) { }
+        /// <param name="booleanMode">Default true/false set to use when writing booleans to the ini file.</param>
+        public IniFile(String filePath, BooleanMode booleanMode) : this(filePath, DEFAULT_INITIALCAPS, booleanMode, DEFAULT_ENCODING) { }
+
+        /// <summary>
+        ///     Creates an object for reading, editing and writing an ini file,
+        ///     set to write back all ini keys with initial capital letter, 
+        ///     using Yes/No as boolean writing mode, and
+        ///     with the default DOS U.S. ASCII-437 encoding.
+        /// </summary>
+        /// <param name="filePath">Path of the file to read</param>
+        public IniFile(String filePath) : this(filePath, DEFAULT_INITIALCAPS, DEFAULT_BOOLEANMODE, DEFAULT_ENCODING) { }
 
         /// <summary>
         ///     Creates an object for reading, editing and writing an ini file
@@ -151,37 +144,62 @@ namespace Nyerguds.ini
         /// <param name="filePath">Path of the file to read</param>
         /// <param name="filecontents">String with the file contents in it</param>
         /// <param name="initialCaps">Write back all ini keys with initial capital letter</param>
+        /// <param name="booleanMode">Default true/false set to use when writing booleans to the ini file.</param>
         /// <param name="textEncoding">Text encoding to use for reading (and writing) the file</param>
-        public IniFile(String filePath, String filecontents, Boolean initialCaps, Encoding textEncoding)
+        public IniFile(String filePath, String filecontents, Boolean initialCaps, BooleanMode booleanMode, Encoding textEncoding)
         {
             this.filePath = filePath;
-            this.encoding = textEncoding;
-            this.removedSections = new List<String>();
-            byte[] byteArray = encoding.GetBytes(filecontents);
+            this.BooleanMode = booleanMode;
+            this.InitialCaps = initialCaps;
+            this.TextEncoding = textEncoding;
+            byte[] byteArray = TextEncoding.GetBytes(filecontents);
             MemoryStream stream = new MemoryStream(byteArray);
-            StreamReader reader = new StreamReader(stream, encoding, false);
-            this.iniSections = readIniContents(reader, encoding);
+            StreamReader reader = new StreamReader(stream, TextEncoding);
+            readIniContents(reader);
         }
 
         /// <summary>
         ///     Creates an object for reading, editing and writing an ini file
         ///     that doesn't necessarily exist yet,
-        ///     set to write back all ini keys with initial capital letter, and
-        ///     with the default DOS U.S. ASCII-437 encoding.
+        ///     set to write back all ini keys with initial capital letter,
+        ///     using Yes/No as boolean writing mode, and
+        ///     and with the default DOS U.S. ASCII-437 encoding.
         /// </summary>
         /// <param name="filePath">Path of the file to read</param>
         /// <param name="filecontents">String with the file contents in it</param>
-        public IniFile(String filePath, String filecontents) : this(filePath, filecontents, true, DEFAULT_ENCODING) { }
+        public IniFile(String filePath, String filecontents) : this(filePath, filecontents, DEFAULT_INITIALCAPS, DEFAULT_BOOLEANMODE, DEFAULT_ENCODING) { }
 
         /// <summary>
         ///     Creates an object for reading, editing and writing an ini file
-        ///     that doesn't necessarily exist yet
+        ///     that doesn't necessarily exist yet,
+        ///     set to write back all ini keys with initial capital letter,
+        ///     and with the default DOS U.S. ASCII-437 encoding.
+        /// </summary>
+        /// <param name="filePath">Path of the file to read</param>
+        /// <param name="filecontents">String with the file contents in it</param>
+        /// <param name="booleanMode">Default true/false set to use when writing booleans to the ini file.</param>
+        public IniFile(String filePath, String filecontents, BooleanMode booleanMode) : this(filePath, filecontents, DEFAULT_INITIALCAPS, booleanMode, DEFAULT_ENCODING) { }
+
+        /// <summary>
+        ///     Creates an object for reading, editing and writing an ini file
+        ///     that doesn't necessarily exist yet,
+        ///     using Yes/No as boolean writing mode, and
         ///     set to write back all ini keys with initial capital letter.
         /// </summary>
         /// <param name="filePath">Path of the file to read</param>
         /// <param name="filecontents">String with the file contents in it</param>
         /// <param name="textEncoding">Text encoding to use for reading (and writing) the file</param>
-        public IniFile(String filePath, String filecontents, Encoding textEncoding) : this(filePath, filecontents, true, textEncoding) { }
+        public IniFile(String filePath, String filecontents, Encoding textEncoding) : this(filePath, filecontents, DEFAULT_INITIALCAPS, DEFAULT_BOOLEANMODE,textEncoding) { }
+        /// <summary>
+        ///     Creates an object for reading, editing and writing an ini file
+        ///     that doesn't necessarily exist yet,
+        ///     set to write back all ini keys with initial capital letter.
+        /// </summary>
+        /// <param name="filePath">Path of the file to read</param>
+        /// <param name="filecontents">String with the file contents in it</param>
+        /// <param name="booleanMode">Default true/false set to use when writing booleans to the ini file.</param>
+        /// <param name="textEncoding">Text encoding to use for reading (and writing) the file</param>
+        public IniFile(String filePath, String filecontents, BooleanMode booleanMode, Encoding textEncoding) : this(filePath, filecontents, DEFAULT_INITIALCAPS, booleanMode, textEncoding) { }
 
         /// <summary>
         ///     Creates an object for reading, editing and writing an ini file
@@ -191,7 +209,17 @@ namespace Nyerguds.ini
         /// <param name="filePath">Path of the file to read</param>
         /// <param name="filecontents">String with the file contents in it</param>
         /// <param name="initialCaps">Write back all ini keys with initial capital letter</param>
-        public IniFile(String filePath, String filecontents, Boolean initialCaps) : this(filePath, filecontents, initialCaps, DEFAULT_ENCODING) { }
+        public IniFile(String filePath, String filecontents, Boolean initialCaps) : this(filePath, filecontents, initialCaps, DEFAULT_BOOLEANMODE,DEFAULT_ENCODING) { }
+        /// <summary>
+        ///     Creates an object for reading, editing and writing an ini file
+        ///     that doesn't necessarily exist yet,
+        ///     with the default DOS U.S. ASCII-437 encoding.
+        /// </summary>
+        /// <param name="filePath">Path of the file to read</param>
+        /// <param name="filecontents">String with the file contents in it</param>
+        /// <param name="booleanMode">Default true/false set to use when writing booleans to the ini file.</param>
+        /// <param name="initialCaps">Write back all ini keys with initial capital letter</param>
+        public IniFile(String filePath, String filecontents, Boolean initialCaps, BooleanMode booleanMode) : this(filePath, filecontents, initialCaps, booleanMode, DEFAULT_ENCODING) { }
 
 	    /// <summary>
 	    /// Sets the path for the ini file to a new string; and reads that file.
@@ -200,7 +228,7 @@ namespace Nyerguds.ini
         /// @param iniFilePath   Path of the file to read
 	    public void readIniFile(String iniFilePath)
 	    {
-	        this.readIniFile(iniFilePath, encoding);
+	        this.readIniFile(iniFilePath, TextEncoding);
 	    }
 	
 	    /// <summary>
@@ -212,36 +240,35 @@ namespace Nyerguds.ini
 	    public void readIniFile(String iniFilePath, Encoding charEncoding)
 	    {
 	        this.filePath = iniFilePath;
-	        this.encoding = charEncoding;
+	        this.TextEncoding = charEncoding;
+            StreamReader stream = null;
             if (File.Exists(filePath))
             {
-	            StreamReader stream = null;
 	            try
 	            {
-	                stream = new StreamReader(filePath, encoding, false);
+	                stream = new StreamReader(filePath, TextEncoding);
 	            }
 	            catch {}
-	            this.iniSections = readIniContents(stream, encoding);
 	        }
-	        else
-	            this.iniSections = new List<IniSection>();
+            readIniContents(stream);
 	    }
 	
 	    /// <summary>Reads the ini contents of a stream, and returns it as a list of ini sections.</summary>
 	    /// <param name="stream>the InputStream to read the ini data from.</param>
 	    /// <returns>A List of IniSection objects with the read data.</returns>
-	    protected List<IniSection> readIniContents(StreamReader stream, Encoding charEncoding)
+	    protected void readIniContents(StreamReader stream)
 	    {
-	        List<IniSection> readIniSections = new List<IniSection>();
+	        this.iniSections = new List<IniSection>();
+            this.removedSections = new List<String>(); 
 	        if (stream == null)
-	            return readIniSections;
+	            return;
 	        try
 	        {
 	            String input = null;
 	            IniSection iniSection = null;
 	            String[] keyValue;
 	
-	            List<String> initext = readLinesFromTextStream(stream, charEncoding);
+	            List<String> initext = readLinesFromTextStream(stream);
 	            
 	            for (int i = 0; i < initext.Count; i++)
 	            {
@@ -253,20 +280,20 @@ namespace Nyerguds.ini
 	                    {
 	                        iniSection = null;
 	                        int sectionIndex = -1;
-	                        for (int j = 0; j < readIniSections.Count; j++)
+                            for (int j = 0; j < this.iniSections.Count; j++)
 	                        {
-	                            IniSection testsec = readIniSections[j];
+                                IniSection testsec = this.iniSections[j];
 	                            if (testsec.getName().Equals(sectionName))
 	                            sectionIndex = j;
 	                        }
 	                        if (sectionIndex > -1)
 	                        {
-	                            iniSection = readIniSections[sectionIndex];
+                                iniSection = this.iniSections[sectionIndex];
 	                        }
 	                        if (iniSection == null) // doesn't exist yet
 	                        {
 	                            iniSection = new IniSection(sectionName);
-	                            readIniSections.Add(iniSection);
+	                            this.iniSections.Add(iniSection);
 	                        }
 	                        else // section already exists; don't allow merging of different same-name sections. (needed for correct deleting of extra ini entries)
 	                            iniSection = null;
@@ -277,12 +304,10 @@ namespace Nyerguds.ini
 	                    keyValue = getKeyAndValue(input);
 	                    if (keyValue!=null && keyValue.Length == 2)
 	                        iniSection.setStringValue(keyValue[0], keyValue[1]);
-	
 	                }
 	            }
 	        }
-	        catch (Exception e) { }
-	        return readIniSections;
+	        catch { }
 	    }
 	
 	    /// <summary>Writes the modified ini object to the internally stored ini path.
@@ -292,7 +317,7 @@ namespace Nyerguds.ini
         /// removed, and comments in the file are left untouched.</summary>
 	    public void writeIni()
 	    {
-	        writeIni(this.filePath, this.encoding);
+	        writeIni(this.filePath, this.TextEncoding);
 	    }
 	
 	    /// <summary>
@@ -311,21 +336,21 @@ namespace Nyerguds.ini
 	        List<String> initext;
 	        try
 	        {
-                //initext = new List<String>(File.ReadAllLines(iniFilePath, encoding));
 	            StreamReader stream = null;
 	            try
 	            {
 	                stream = new StreamReader(filePath, charEncoding, false);
 	            }
 	            catch {}
-	            initext = readLinesFromTextStream(stream, charEncoding);
+	            initext = readLinesFromTextStream(stream);
 	        }
-	        catch(Exception e)
+	        catch(Exception)
 	        {
 	            initext = new List<String>();
 	        }
-	
-	        foreach(IniSection section in iniSections)
+
+            // Update all sections
+            foreach (IniSection section in this.iniSections)
 	        {
 	            // writes keys in original case
 	            Dictionary<String, String> keypairs = section.getKeyValuePairs();
@@ -333,7 +358,7 @@ namespace Nyerguds.ini
 	            foreach(KeyValuePair<String, String> iniPair in keypairs)
 	            {
 	                String newline = iniPair.Key;
-	                if (initialCaps)
+	                if (InitialCaps)
 	                {
 	                    newline = Char.ToUpper(newline[0]) + newline.Substring(1,newline.Length-1);
 	                }
@@ -357,35 +382,47 @@ namespace Nyerguds.ini
 	                }
 	            }
 	
-	            // Removes all keys that are not in the section object. Does not remove empty sections.
-	            // Looks up keys as case insensitive.
+	            // Removes all keys that were specifically removed by the ini handling class.
+                // Does not remove empty sections, and does not remove any keys that were
+                // added manually between the loading and this saving of the ini document.
+	            // Looks up keys as case insensitive. Does not touch keys that were removed but re-added.
 	            Dictionary<String, String> keypairsLower = section.getKeyValuePairs(true);
+                List<String> deletedKeys = section.getDeletedKeys();
                 int firstLine = findLine(initext, section.getName(), null);
                 int lastLine = findLastSectionLine(initext, section.getName(), false);
-	            if (firstLine >= 0 && firstLine + keypairsLower.Count < lastLine)
+                if (firstLine >= 0 && deletedKeys.Count < 0)
 	            {
 	                for (int line = lastLine; line > firstLine; line--)
 	                {
 	                    String[] keyVal = getKeyAndValue(initext[line]);
 	                    if (keyVal != null && keyVal.Length == 2
 	                            && keyVal[0] != null
-	                            && !keypairsLower.ContainsKey(keyVal[0].ToLower()))
+                                && deletedKeys.Contains(keyVal[0].ToLowerInvariant()))
 	                    {
 	                        initext.RemoveAt(line);
 	                    }
 	                }
 	            }
+                // do NOT clear deleted keys from section!
+                // The ini object can be written to multiple files!
 	        }
-            // Remove explicitly removed sections
-            foreach (String section in removedSections)
+
+            // Remove explicitly removed sections. Does not touch sections which were re-added
+            foreach (String section in this.removedSections)
             {
                 int firstLine = findLine(initext, section, null);
                 int lastLine = findLastSectionLine(initext, section, true);
 
+                // remove leftover empty line between sections
+                if (((firstLine == 0) || (firstLine > 0 && initext[firstLine - 1].Equals(String.Empty)))
+                    && (lastLine + 1 < initext.Count && initext[lastLine + 1].Equals(String.Empty)))
+                    lastLine++;
+                else if ((firstLine > 0 && initext[firstLine - 1].Equals(String.Empty))
+                        && (lastLine + 1 == initext.Count))
+                    firstLine--;
+
                 initext.RemoveRange(firstLine, lastLine - firstLine + 1);
             }
-
-
 	        /*
 	        // trim all empty lines off the end of the file
 	        while ((initext.Count > 0 && initext[initext.Count - 1].Equals("")))
@@ -402,19 +439,18 @@ namespace Nyerguds.ini
                 byte[] byteArray = charEncoding.GetBytes(fileContents);
                 MemoryStream stream = new MemoryStream(byteArray);
                 StreamReader reader = new StreamReader(stream, charEncoding, false);
-	            this.iniSections = readIniContents(reader, charEncoding);
+	            readIniContents(reader);
 	        }
 	        else
 	        {
 	            StreamWriter sw = null;
-	            IOException ex = null;
                 try
                 {
                     sw = new StreamWriter(iniFilePath, false, charEncoding);
                     foreach (String line in initext)
                         sw.WriteLine(line);
                 }
-                catch (IOException e) { }
+                catch (IOException) { }
 	            finally
 	            {
 	                try
@@ -441,15 +477,15 @@ namespace Nyerguds.ini
                 throw new ArgumentNullException("inisection");
             String sectionName = null;
 	        Boolean sectionfound = false;
-	        inisection = inisection.ToLower();
+	        inisection = inisection.ToLowerInvariant();
 	        if (inikey!=null)
-	            inikey = inikey.ToLower();
+	            inikey = inikey.ToLowerInvariant();
 	        for (int linenumber = 0; linenumber < inifile.Count; linenumber++)
 	        {
 	            String s = inifile[linenumber];
 	            if (s.StartsWith("[") && s.Contains("]"))
 	            {
-	                sectionName = s.Substring(1, s.IndexOf("]")-1).ToLower();
+	                sectionName = s.Substring(1, s.IndexOf("]")-1).ToLowerInvariant();
 	                sectionfound = sectionName.Equals(inisection);
 	                if (inikey == null && sectionfound)
 	                    return linenumber;
@@ -457,7 +493,7 @@ namespace Nyerguds.ini
 	            else if (sectionfound) // correct ini section was found
 	            {
 	                String[] keyVal = getKeyAndValue(s);
-	                if (keyVal!=null && keyVal[0] != null && keyVal[0].ToLower().Equals(inikey))
+	                if (keyVal!=null && keyVal[0] != null && keyVal[0].ToLowerInvariant().Equals(inikey))
 	                    return linenumber;
 	            }
 	        }
@@ -474,14 +510,14 @@ namespace Nyerguds.ini
 	        int lastLine = inifile.Count-1;
 	        Boolean sectionfound = false;
 	        Boolean sectionwasfound = false;
-	        inisection = inisection.ToLower();
+	        inisection = inisection.ToLowerInvariant();
             for (int linenumber = 0; linenumber < inifile.Count; linenumber++)
 	        {
 	            String sectionName = null;
 	            String s = inifile[linenumber];
 	            if (s.StartsWith("[") && s.Contains("]"))
 	            {
-	                sectionName = s.Substring(1, s.IndexOf("]")-1).ToLower();
+	                sectionName = s.Substring(1, s.IndexOf("]")-1).ToLowerInvariant();
 	                sectionwasfound = sectionfound;
 	                sectionfound = sectionName.Equals(inisection);
 	                // requested section was encountered last time, and the start of the new one was found now.
@@ -520,11 +556,7 @@ namespace Nyerguds.ini
 	    {
 	        if (!isValidKeyLine(input))
 	            return null;
-	        
 	        int separator = input.IndexOf('=');
-	        if (separator < 1)
-	            return null;
-	                    
 	        String[] returnval = new String[2];
 	        returnval[0] = input.Substring(0, separator);
 	        returnval[1] = input.Substring(separator + 1);
@@ -701,7 +733,7 @@ namespace Nyerguds.ini
 	    /// <param name="value">Value to write</param>
 	    public void setBoolValue(String sectionName, String key, Boolean value)
 	    {
-	        this.setBoolValue(sectionName, key, value, DEFAULT_BOOLEANMODE, DEFAULT_REMOVECOMMENTS);
+	        this.setBoolValue(sectionName, key, value, BooleanMode, DEFAULT_REMOVECOMMENTS);
 	    }
 	
 	    /// <summary>Sets a Boolean value in the ini file, as Yes or No. This action does not save the file.</summary>
@@ -711,7 +743,7 @@ namespace Nyerguds.ini
 	    /// <param name="removeComments">True to remove any comments put behind the value. The default behaviour is to filter out the comment and paste it behind the new value.</param>
 	    public void setBoolValue(String sectionName, String key, Boolean value, Boolean removeComments)
 	    {
-	        this.setBoolValue(sectionName, key, value, DEFAULT_BOOLEANMODE, removeComments);
+            this.setBoolValue(sectionName, key, value, BooleanMode, removeComments);
 	    }
 	
 	    /// <summary>Sets a Boolean value in the ini file, in the chosen boolean save mode.
@@ -755,23 +787,23 @@ namespace Nyerguds.ini
 	    }
 
         /// <summary>
-        /// Removes a section from the ini file, and marks it for deletion on the next rewrite.
+        /// Removes a section from the ini, and marks it for deletion on the next rewrite.
         /// </summary>
         /// <param name="sectionName"></param>
         public void removeSection(String sectionName)
         {
-            for (int i = 0; i < iniSections.Count; i++)
+            sectionName = sectionName.ToLowerInvariant();
+            for (int i = 0; i < this.iniSections.Count; i++)
             {
-                IniSection testsec = iniSections[i];
-                if (testsec.getName().ToLower().Equals(sectionName.ToLower()))
+                String testsecName = this.iniSections[i].getName().ToLowerInvariant();
+                if (testsecName.Equals(sectionName))
                 {
-                    removedSections.Add(testsec.getName());
-                    iniSections.RemoveAt(i);
+                    this.removedSections.Add(testsecName);
+                    this.iniSections.RemoveAt(i);
                     break;
                 }
             }
         }
-
 
 	    /// <summary>Gets all keys from a section.</summary>
 	    /// <param name="sectionName">The name of the section</param>
@@ -811,7 +843,7 @@ namespace Nyerguds.ini
         public List<String> getSectionNames()
         {
             List<String> sectionNames = new List<String>();
-            foreach (IniSection section in iniSections)
+            foreach (IniSection section in this.iniSections)
                 sectionNames.Add(section.getName());
             return sectionNames;
         }
@@ -831,40 +863,34 @@ namespace Nyerguds.ini
 	    protected IniSection getSection(String sectionName, Boolean createWhenNotFound)
 	    {
 	        IniSection iniSection = null;
-	
-	        for (int i = 0; i < iniSections.Count; i++)
-	        {
-	            IniSection testsec = iniSections[i];
-                if (testsec.getName().ToLower().Equals(sectionName.ToLower()))
-	            {
-	                iniSection = testsec;
-	                break;
-	            }
-	        }
-	
-	        if (iniSection == null && createWhenNotFound) // doesn't exist yet
+            String sectionLower = sectionName.ToLowerInvariant();
+            foreach (IniSection section in this.iniSections)
+                if (section.getName().ToLowerInvariant().Equals(sectionLower))
+                {
+                    iniSection = section;
+                    break;
+                }
+
+            if (iniSection == null && createWhenNotFound) // doesn't exist yet
 	        {
 	            iniSection = new IniSection(sectionName);
-	            iniSections.Add(iniSection);
+                this.iniSections.Add(iniSection);
+                this.removedSections.Remove(sectionLower);
 	        }
 	        return iniSection;
 	    }
 	    
-	    /// <summary>Reads lines of text from a stream, and returns it as a List of strings.</summary>
+	    /// <summary>Reads lines of text from a stream, closes the stream, and returns the contents as a List of strings.</summary>
 	    /// <param name="stream">The stream to read as file</param>
-	    /// <param name="charEncoding">The character encoding to use when reading the file</param>
-	    /// <returns>A List of Strings, each String representing one line   </param>from the original text.</returns>
-	    protected List<String> readLinesFromTextStream(StreamReader stream, Encoding charEncoding)
+	    /// <returns>A List of Strings, each String representing one line from the original text.</returns>
+	    protected List<String> readLinesFromTextStream(StreamReader stream)
 	    {
 	        List<String> text = new List<String>();
 	        String input = null;
-	        
 	        try
 	        {
 	            while ((input = stream.ReadLine()) != null)
-	            {
 	                text.Add(input);
-	            }
 	        }
 	        finally
 	        {

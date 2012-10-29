@@ -10,7 +10,7 @@
  * (**) If less than 20% of my original code remains, don't bother.
  */
 
-namespace Nyerguds.ini
+namespace Nyerguds.Ini
 {
     /// <summary>This enum is used to determine how an ini file saves booleans as string.</summary>
     public enum BooleanMode
