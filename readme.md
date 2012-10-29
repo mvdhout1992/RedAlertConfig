@@ -1,4 +1,6 @@
-RedAlertConfig is a C# tool to configure modern Red Alert 1 installations, it supports the following:
+RedAlertConfig is a C# tool to configure modern Red Alert 1 installations. It's design is mostly copied from nyerguds' CCConfig.exe tool from his C&C95 patch. His INI code is used by this tool.
+
+RedAlertConfig supports the following:
 
 -CnC-ddraw - cnc-ddraw is an OpenGL re-implementation of the old DirectDraw API which was used for games such as Command & Conquer 95 and Red Alert (http://hifi.iki.fi/cnc-ddraw/)
 
