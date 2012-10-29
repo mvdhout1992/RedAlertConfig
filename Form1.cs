@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace RedAlertConfig
 {
@@ -13,6 +13,8 @@ namespace RedAlertConfig
     {
         public Form1()
         {
+            Files.Init();
+
             InitializeComponent();
         }
 
@@ -109,6 +111,25 @@ namespace RedAlertConfig
         private void label34_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.cncnet.org");
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = "cncnet.exe";
+            process.StartInfo.Arguments = "-CFG";
+            process.StartInfo.UseShellExecute = false;
+            process.Start();
         }
     }
 }

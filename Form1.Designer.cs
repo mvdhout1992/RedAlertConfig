@@ -121,6 +121,8 @@ namespace RedAlertConfig
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.checkBox23 = new System.Windows.Forms.CheckBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label36 = new System.Windows.Forms.Label();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -179,6 +181,7 @@ namespace RedAlertConfig
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label36);
             this.tabPage3.Controls.Add(this.label16);
             this.tabPage3.Controls.Add(this.label15);
             this.tabPage3.Controls.Add(this.label14);
@@ -203,32 +206,34 @@ namespace RedAlertConfig
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(32, 166);
+            this.button3.Location = new System.Drawing.Point(32, 182);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 23);
             this.button3.TabIndex = 42;
             this.button3.Text = "Run CnCNet setup";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkArea = new System.Windows.Forms.LinkArea(0, 38);
-            this.linkLabel1.Location = new System.Drawing.Point(29, 141);
+            this.linkLabel1.Location = new System.Drawing.Point(29, 157);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(184, 13);
             this.linkLabel1.TabIndex = 41;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Click here to visit the CnCNet website";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label13.Location = new System.Drawing.Point(9, 116);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(99, 13);
+            this.label13.Size = new System.Drawing.Size(84, 13);
             this.label13.TabIndex = 40;
             this.label13.Text = "CnCNet options:";
             // 
@@ -300,11 +305,11 @@ namespace RedAlertConfig
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label7.Location = new System.Drawing.Point(9, 13);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 13);
+            this.label7.Size = new System.Drawing.Size(93, 13);
             this.label7.TabIndex = 33;
             this.label7.Text = "Player information:";
             // 
@@ -342,33 +347,33 @@ namespace RedAlertConfig
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(9, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 32;
             this.label4.Text = "General:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label9.Location = new System.Drawing.Point(9, 114);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.Size = new System.Drawing.Size(64, 13);
             this.label9.TabIndex = 31;
             this.label9.Text = "Expansions:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label8.Location = new System.Drawing.Point(9, 191);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 13);
+            this.label8.Size = new System.Drawing.Size(103, 13);
             this.label8.TabIndex = 30;
             this.label8.Text = "Scrolling and speed:";
             // 
@@ -515,6 +520,7 @@ namespace RedAlertConfig
             this.checkBox3.TabIndex = 16;
             this.checkBox3.Text = "Palette scroll";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // checkBox6
             // 
@@ -550,11 +556,11 @@ namespace RedAlertConfig
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(9, 285);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Sound options:";
             // 
@@ -575,7 +581,7 @@ namespace RedAlertConfig
             // checkBox10
             // 
             this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(32, 236);
+            this.checkBox10.Location = new System.Drawing.Point(32, 252);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Size = new System.Drawing.Size(15, 14);
             this.checkBox10.TabIndex = 43;
@@ -585,7 +591,7 @@ namespace RedAlertConfig
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(54, 242);
+            this.label14.Location = new System.Drawing.Point(54, 258);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(253, 13);
             this.label14.TabIndex = 44;
@@ -595,7 +601,7 @@ namespace RedAlertConfig
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(54, 229);
+            this.label15.Location = new System.Drawing.Point(54, 245);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(159, 13);
             this.label15.TabIndex = 45;
@@ -605,11 +611,11 @@ namespace RedAlertConfig
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label16.Location = new System.Drawing.Point(9, 205);
+            this.label16.Location = new System.Drawing.Point(9, 221);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(42, 13);
+            this.label16.Size = new System.Drawing.Size(36, 13);
             this.label16.TabIndex = 46;
             this.label16.Text = "Other:";
             // 
@@ -704,6 +710,7 @@ namespace RedAlertConfig
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.label34);
             this.tabPage1.Controls.Add(this.label35);
             this.tabPage1.Controls.Add(this.checkBox23);
@@ -770,7 +777,7 @@ namespace RedAlertConfig
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(31, 171);
+            this.label18.Location = new System.Drawing.Point(28, 197);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(138, 13);
             this.label18.TabIndex = 48;
@@ -780,7 +787,7 @@ namespace RedAlertConfig
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(31, 184);
+            this.label19.Location = new System.Drawing.Point(28, 210);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(35, 13);
             this.label19.TabIndex = 47;
@@ -790,7 +797,7 @@ namespace RedAlertConfig
             // checkBox13
             // 
             this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(13, 178);
+            this.checkBox13.Location = new System.Drawing.Point(10, 204);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.Size = new System.Drawing.Size(15, 14);
             this.checkBox13.TabIndex = 46;
@@ -799,14 +806,14 @@ namespace RedAlertConfig
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(111, 228);
+            this.textBox4.Location = new System.Drawing.Point(108, 254);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(51, 20);
             this.textBox4.TabIndex = 51;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(38, 228);
+            this.textBox5.Location = new System.Drawing.Point(35, 254);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(51, 20);
             this.textBox5.TabIndex = 50;
@@ -814,7 +821,7 @@ namespace RedAlertConfig
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(95, 230);
+            this.label20.Location = new System.Drawing.Point(92, 256);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(12, 13);
             this.label20.TabIndex = 49;
@@ -823,7 +830,7 @@ namespace RedAlertConfig
             // checkBox12
             // 
             this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(13, 207);
+            this.checkBox12.Location = new System.Drawing.Point(10, 233);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.Size = new System.Drawing.Size(160, 17);
             this.checkBox12.TabIndex = 52;
@@ -837,7 +844,7 @@ namespace RedAlertConfig
             "Nearest (sharp/pixelated)",
             "Linear (smooth/blurred)",
             "Center (double size if possible)"});
-            this.comboBox3.Location = new System.Drawing.Point(16, 285);
+            this.comboBox3.Location = new System.Drawing.Point(13, 311);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(153, 21);
             this.comboBox3.TabIndex = 53;
@@ -845,47 +852,47 @@ namespace RedAlertConfig
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(10, 262);
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(7, 288);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(161, 13);
+            this.label21.Size = new System.Drawing.Size(131, 13);
             this.label21.TabIndex = 54;
             this.label21.Text = "Scaling filter for stretching:";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(6, 32);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(102, 13);
+            this.label22.Size = new System.Drawing.Size(86, 13);
             this.label22.TabIndex = 55;
             this.label22.Text = "Game resolution:";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(9, 149);
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(6, 175);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(115, 13);
+            this.label23.Size = new System.Drawing.Size(96, 13);
             this.label23.TabIndex = 56;
             this.label23.Text = "Stretching/scaling:";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(13, 313);
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(10, 339);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(94, 13);
+            this.label24.Size = new System.Drawing.Size(80, 13);
             this.label24.TabIndex = 57;
             this.label24.Text = "Game renderer:";
             // 
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(63, 333);
+            this.radioButton6.Location = new System.Drawing.Point(60, 359);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(65, 17);
             this.radioButton6.TabIndex = 59;
@@ -896,7 +903,7 @@ namespace RedAlertConfig
             // radioButton7
             // 
             this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(13, 333);
+            this.radioButton7.Location = new System.Drawing.Point(10, 359);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(44, 17);
             this.radioButton7.TabIndex = 58;
@@ -1058,10 +1065,10 @@ namespace RedAlertConfig
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.Location = new System.Drawing.Point(217, 333);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(90, 13);
+            this.label33.Size = new System.Drawing.Size(74, 13);
             this.label33.TabIndex = 78;
             this.label33.Text = "Bits per pixels:";
             // 
@@ -1116,6 +1123,24 @@ namespace RedAlertConfig
             this.checkBox23.TabIndex = 80;
             this.checkBox23.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(43, 146);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(104, 23);
+            this.button4.TabIndex = 83;
+            this.button4.Text = "Detect resolution";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(29, 140);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(191, 13);
+            this.label36.TabIndex = 47;
+            this.label36.Text = "Open cncnet.exe to start playing online";
+            // 
             // Form1
             // 
             this.AcceptButton = this.button2;
@@ -1145,7 +1170,7 @@ namespace RedAlertConfig
 
         }
 
-        private void linkLabel1_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+ /*       private void linkLabel1_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.cncnet.org");
         }
@@ -1157,7 +1182,7 @@ namespace RedAlertConfig
             process.StartInfo.Arguments = "-CFG";
             process.StartInfo.UseShellExecute = false;
             process.Start();
-        }
+        } */
 
         #endregion
 
@@ -1251,6 +1276,8 @@ namespace RedAlertConfig
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.CheckBox checkBox23;
         private System.Windows.Forms.CheckBox checkBox22;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label36;
 
     }
 }
