@@ -102,9 +102,6 @@ namespace RedAlertConfig
             this.label30 = new System.Windows.Forms.Label();
             this.checkBox21 = new System.Windows.Forms.CheckBox();
             this.checkBox20 = new System.Windows.Forms.CheckBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.checkBox18 = new System.Windows.Forms.CheckBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.checkBox17 = new System.Windows.Forms.CheckBox();
@@ -121,10 +118,12 @@ namespace RedAlertConfig
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
+            this.txt_UseRAAspectRatio = new System.Windows.Forms.Label();
+            this.chb_UseRAAspectRatio = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Slider_MusicVolume)).BeginInit();
@@ -637,6 +636,8 @@ namespace RedAlertConfig
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.panel3);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.but_DetectReso);
@@ -653,9 +654,6 @@ namespace RedAlertConfig
             this.tabPage1.Controls.Add(this.label30);
             this.tabPage1.Controls.Add(this.checkBox21);
             this.tabPage1.Controls.Add(this.checkBox20);
-            this.tabPage1.Controls.Add(this.label27);
-            this.tabPage1.Controls.Add(this.label28);
-            this.tabPage1.Controls.Add(this.checkBox18);
             this.tabPage1.Controls.Add(this.label25);
             this.tabPage1.Controls.Add(this.label26);
             this.tabPage1.Controls.Add(this.checkBox17);
@@ -672,8 +670,8 @@ namespace RedAlertConfig
             this.tabPage1.Controls.Add(this.textBox5);
             this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.label18);
-            this.tabPage1.Controls.Add(this.label19);
-            this.tabPage1.Controls.Add(this.checkBox13);
+            this.tabPage1.Controls.Add(this.txt_UseRAAspectRatio);
+            this.tabPage1.Controls.Add(this.chb_UseRAAspectRatio);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.chb_EnableCnCDDraw);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -750,6 +748,7 @@ namespace RedAlertConfig
             this.radiob_reso640x400.TabStop = true;
             this.radiob_reso640x400.Text = "640x400";
             this.radiob_reso640x400.UseVisualStyleBackColor = true;
+            this.radiob_reso640x400.CheckedChanged += new System.EventHandler(this.radiob_reso640x400_CheckedChanged_1);
             // 
             // txtb_resoCustomWidth
             // 
@@ -769,6 +768,7 @@ namespace RedAlertConfig
             this.radiob_reso640x480.TabStop = true;
             this.radiob_reso640x480.Text = "640x480";
             this.radiob_reso640x480.UseVisualStyleBackColor = true;
+            this.radiob_reso640x480.CheckedChanged += new System.EventHandler(this.radiob_reso640x480_CheckedChanged_1);
             // 
             // label17
             // 
@@ -789,6 +789,7 @@ namespace RedAlertConfig
             this.radiob_reso800x600.TabStop = true;
             this.radiob_reso800x600.Text = "800x600";
             this.radiob_reso800x600.UseVisualStyleBackColor = true;
+            this.radiob_reso800x600.CheckedChanged += new System.EventHandler(this.radiob_reso800x600_CheckedChanged_1);
             // 
             // radiob_resoCustom
             // 
@@ -812,6 +813,7 @@ namespace RedAlertConfig
             this.radiob_reso1024x768.TabStop = true;
             this.radiob_reso1024x768.Text = "1024x768";
             this.radiob_reso1024x768.UseVisualStyleBackColor = true;
+            this.radiob_reso1024x768.CheckedChanged += new System.EventHandler(this.radiob_reso1024x768_CheckedChanged_1);
             // 
             // but_DetectReso
             // 
@@ -826,7 +828,7 @@ namespace RedAlertConfig
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(238, 144);
+            this.label34.Location = new System.Drawing.Point(238, 157);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(149, 13);
             this.label34.TabIndex = 82;
@@ -836,7 +838,7 @@ namespace RedAlertConfig
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(238, 157);
+            this.label35.Location = new System.Drawing.Point(238, 170);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(126, 13);
             this.label35.TabIndex = 81;
@@ -845,7 +847,7 @@ namespace RedAlertConfig
             // checkBox23
             // 
             this.checkBox23.AutoSize = true;
-            this.checkBox23.Location = new System.Drawing.Point(220, 151);
+            this.checkBox23.Location = new System.Drawing.Point(220, 164);
             this.checkBox23.Name = "checkBox23";
             this.checkBox23.Size = new System.Drawing.Size(15, 14);
             this.checkBox23.TabIndex = 80;
@@ -887,7 +889,7 @@ namespace RedAlertConfig
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(238, 239);
+            this.label31.Location = new System.Drawing.Point(238, 218);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(101, 13);
             this.label31.TabIndex = 76;
@@ -896,7 +898,7 @@ namespace RedAlertConfig
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(238, 252);
+            this.label32.Location = new System.Drawing.Point(238, 231);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(194, 13);
             this.label32.TabIndex = 75;
@@ -905,7 +907,7 @@ namespace RedAlertConfig
             // checkBox19
             // 
             this.checkBox19.AutoSize = true;
-            this.checkBox19.Location = new System.Drawing.Point(220, 246);
+            this.checkBox19.Location = new System.Drawing.Point(220, 225);
             this.checkBox19.Name = "checkBox19";
             this.checkBox19.Size = new System.Drawing.Size(15, 14);
             this.checkBox19.TabIndex = 74;
@@ -914,7 +916,7 @@ namespace RedAlertConfig
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(238, 293);
+            this.label29.Location = new System.Drawing.Point(238, 272);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(122, 13);
             this.label29.TabIndex = 73;
@@ -923,7 +925,7 @@ namespace RedAlertConfig
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(238, 306);
+            this.label30.Location = new System.Drawing.Point(238, 285);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(203, 13);
             this.label30.TabIndex = 72;
@@ -932,7 +934,7 @@ namespace RedAlertConfig
             // checkBox21
             // 
             this.checkBox21.AutoSize = true;
-            this.checkBox21.Location = new System.Drawing.Point(220, 300);
+            this.checkBox21.Location = new System.Drawing.Point(220, 279);
             this.checkBox21.Name = "checkBox21";
             this.checkBox21.Size = new System.Drawing.Size(15, 14);
             this.checkBox21.TabIndex = 71;
@@ -941,7 +943,7 @@ namespace RedAlertConfig
             // checkBox20
             // 
             this.checkBox20.AutoSize = true;
-            this.checkBox20.Location = new System.Drawing.Point(220, 270);
+            this.checkBox20.Location = new System.Drawing.Point(220, 249);
             this.checkBox20.Name = "checkBox20";
             this.checkBox20.Size = new System.Drawing.Size(90, 17);
             this.checkBox20.TabIndex = 70;
@@ -949,38 +951,10 @@ namespace RedAlertConfig
             this.checkBox20.UseVisualStyleBackColor = true;
             this.checkBox20.CheckedChanged += new System.EventHandler(this.checkBox20_CheckedChanged);
             // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(238, 206);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(78, 13);
-            this.label27.TabIndex = 68;
-            this.label27.Text = "Limit frame rate";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(238, 219);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(149, 13);
-            this.label28.TabIndex = 67;
-            this.label28.Text = "(helps to fix the fast scroll bug)";
-            this.label28.Click += new System.EventHandler(this.label28_Click);
-            // 
-            // checkBox18
-            // 
-            this.checkBox18.AutoSize = true;
-            this.checkBox18.Location = new System.Drawing.Point(220, 213);
-            this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(15, 14);
-            this.checkBox18.TabIndex = 66;
-            this.checkBox18.UseVisualStyleBackColor = true;
-            // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(238, 175);
+            this.label25.Location = new System.Drawing.Point(238, 188);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(134, 13);
             this.label25.TabIndex = 65;
@@ -989,7 +963,7 @@ namespace RedAlertConfig
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(238, 188);
+            this.label26.Location = new System.Drawing.Point(238, 201);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(112, 13);
             this.label26.TabIndex = 64;
@@ -999,7 +973,7 @@ namespace RedAlertConfig
             // checkBox17
             // 
             this.checkBox17.AutoSize = true;
-            this.checkBox17.Location = new System.Drawing.Point(220, 182);
+            this.checkBox17.Location = new System.Drawing.Point(220, 195);
             this.checkBox17.Name = "checkBox17";
             this.checkBox17.Size = new System.Drawing.Size(15, 14);
             this.checkBox17.TabIndex = 63;
@@ -1130,25 +1104,25 @@ namespace RedAlertConfig
             this.label18.Text = "Use original RA aspect ratio";
             this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
-            // label19
+            // txt_UseRAAspectRatio
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(28, 210);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(35, 13);
-            this.label19.TabIndex = 47;
-            this.label19.Text = "blabla";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
+            this.txt_UseRAAspectRatio.AutoSize = true;
+            this.txt_UseRAAspectRatio.Location = new System.Drawing.Point(28, 210);
+            this.txt_UseRAAspectRatio.Name = "txt_UseRAAspectRatio";
+            this.txt_UseRAAspectRatio.Size = new System.Drawing.Size(35, 13);
+            this.txt_UseRAAspectRatio.TabIndex = 47;
+            this.txt_UseRAAspectRatio.Text = "blabla";
+            this.txt_UseRAAspectRatio.Click += new System.EventHandler(this.label19_Click);
             // 
-            // checkBox13
+            // chb_UseRAAspectRatio
             // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(10, 204);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(15, 14);
-            this.checkBox13.TabIndex = 46;
-            this.checkBox13.UseVisualStyleBackColor = true;
-            this.checkBox13.CheckedChanged += new System.EventHandler(this.checkBox13_CheckedChanged);
+            this.chb_UseRAAspectRatio.AutoSize = true;
+            this.chb_UseRAAspectRatio.Location = new System.Drawing.Point(10, 204);
+            this.chb_UseRAAspectRatio.Name = "chb_UseRAAspectRatio";
+            this.chb_UseRAAspectRatio.Size = new System.Drawing.Size(15, 14);
+            this.chb_UseRAAspectRatio.TabIndex = 46;
+            this.chb_UseRAAspectRatio.UseVisualStyleBackColor = true;
+            this.chb_UseRAAspectRatio.CheckedChanged += new System.EventHandler(this.checkBox13_CheckedChanged);
             // 
             // panel1
             // 
@@ -1167,6 +1141,22 @@ namespace RedAlertConfig
             this.chb_EnableCnCDDraw.TabIndex = 0;
             this.chb_EnableCnCDDraw.Text = "Use CnC-DDraw (enables advanced options)";
             this.chb_EnableCnCDDraw.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(217, 311);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(131, 13);
+            this.label14.TabIndex = 86;
+            this.label14.Text = "Max FPS  (helps scrolling):";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(354, 309);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(33, 20);
+            this.textBox1.TabIndex = 87;
             // 
             // Form1
             // 
@@ -1264,8 +1254,8 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_EnableCnCDDraw;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.CheckBox checkBox13;
+        private System.Windows.Forms.Label txt_UseRAAspectRatio;
+        private System.Windows.Forms.CheckBox chb_UseRAAspectRatio;
         private System.Windows.Forms.CheckBox checkBox12;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
@@ -1281,9 +1271,6 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox checkBox16;
         private System.Windows.Forms.CheckBox checkBox15;
         private System.Windows.Forms.CheckBox checkBox14;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.CheckBox checkBox18;
         private System.Windows.Forms.CheckBox checkBox20;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
@@ -1311,6 +1298,8 @@ namespace RedAlertConfig
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label14;
 
     }
 }

@@ -13,6 +13,8 @@ namespace RedAlertConfig
 {
     public partial class Form1 : Form
     {
+        public int ResoWidth, ResoHeight;
+
         public Form1()
         {
             Files.Init();
@@ -25,7 +27,6 @@ namespace RedAlertConfig
             {
                 this.chb_EnableCnCDDraw.Checked = true;
             }
-           int ResoWidth, ResoHeight;
 
            ResoWidth = Files.RedAlertINI.getIntValue("Options", "Width", 640);
            ResoHeight = Files.RedAlertINI.getIntValue("Options", "Height", 480);
@@ -51,12 +52,70 @@ namespace RedAlertConfig
             }
             else if (ResoWidth == 1024 && ResoHeight == 768)
             {
-                this.radiob_reso800x600.Checked = true;
+                this.radiob_reso1024x768.Checked = true;
             }
             else
             {
                 this.radiob_resoCustom.Checked = true;
             }
+
+            Update_Use_RA_Aspect_Ratio_Text();
+        }
+
+        private void Update_Use_RA_Aspect_Ratio_Text()
+        {
+            this.chb_UseRAAspectRatio.Enabled = true;
+            this.label18.Enabled = true;
+            this.txt_UseRAAspectRatio.Enabled = true;
+
+            int CustomResoWidth;
+            if (Int32.TryParse(this.txtb_resoCustomWidth.Text, out CustomResoWidth) == false)
+            {
+                CustomResoWidth = 0;
+            }
+
+            int CustomResoHeight;
+            if (Int32.TryParse(this.txtb_resoCustomHeight.Text, out CustomResoHeight) == false)
+            {
+                CustomResoHeight = 0;
+            }
+
+            if (this.radiob_reso640x400.Checked== true)
+            {
+                CustomResoWidth = 640;
+                CustomResoHeight = 400;
+            }
+            else if (this.radiob_reso640x480.Checked == true)
+            {
+                CustomResoWidth = 640;
+                CustomResoHeight = 480;
+            }
+            else if (this.radiob_reso800x600.Checked == true)
+            {
+                CustomResoWidth = 800;
+                CustomResoHeight = 600;
+            }
+            else if (this.radiob_reso1024x768.Checked == true)
+            {
+                CustomResoWidth = 1024;
+                CustomResoHeight = 768;
+            }
+
+            this.txt_UseRAAspectRatio.Text = String.Format("({0}x{1} stretched to {0}x{2})",
+                (int)CustomResoWidth, (int)(CustomResoHeight / 1.2), (int)CustomResoHeight);
+
+            if (this.radiob_reso640x400.Checked == true || (this.radiob_resoCustom.Checked == true
+            && (CustomResoWidth < 640 || CustomResoHeight < 480)))
+            //if (ResoWidth < 640 || ResoHeight < 480)
+            {
+                this.chb_UseRAAspectRatio.Enabled = false;
+                this.chb_UseRAAspectRatio.Checked= false;
+
+                this.label18.Enabled = false;
+                this.txt_UseRAAspectRatio.Enabled = false;
+                this.txt_UseRAAspectRatio.Text = "(needs to be at least 640x480)";
+            }
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -217,7 +276,23 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setIntValue("Options", "Height", ResolutionHeight);
             }
 
+            if (this.chb_UseRAAspectRatio.Checked == true)
+            {
+                int RAHeight = Files.RedAlertINI.getIntValue("Options", "Height", 0);
+                Files.DDrawINI.setIntValue("ddraw", "height", RAHeight);
+                Files.RedAlertINI.setIntValue("Options", "Height", (int)(RAHeight / 1.2));
+
+                int RAWidth = Files.RedAlertINI.getIntValue("Options", "Width", 0);
+                Files.DDrawINI.setIntValue("ddraw", "width", RAWidth);
+            }
+            else
+            {
+                Files.DDrawINI.setIntValue("ddraw", "height", 0);
+                Files.DDrawINI.setIntValue("ddraw", "width", 0);
+            }
+
             Files.RedAlertINI.writeIni();
+            Files.DDrawINI.writeIni();
 
             Application.Exit();
         }
@@ -265,6 +340,7 @@ namespace RedAlertConfig
             {
                 this.txtb_resoCustomWidth.Text = "0";
             } */
+            Update_Use_RA_Aspect_Ratio_Text();
         }
 
         private void txtb_resoCustomHeight_TextChanged(object sender, EventArgs e)
@@ -273,6 +349,7 @@ namespace RedAlertConfig
             {
                 this.txtb_resoCustomHeight.Text = "0";
             } */
+            Update_Use_RA_Aspect_Ratio_Text();
         }
 
         private void radiob_resoCustom_CheckedChanged_1(object sender, EventArgs e)
@@ -296,6 +373,26 @@ namespace RedAlertConfig
             Rectangle resolution = Screen.PrimaryScreen.Bounds;
             this.txtb_resoCustomWidth.Text = resolution.Width.ToString();
             this.txtb_resoCustomHeight.Text = resolution.Height.ToString();
+        }
+
+        private void radiob_reso640x400_CheckedChanged_1(object sender, EventArgs e)
+        {
+            Update_Use_RA_Aspect_Ratio_Text();
+        }
+
+        private void radiob_reso640x480_CheckedChanged_1(object sender, EventArgs e)
+        {
+            Update_Use_RA_Aspect_Ratio_Text();
+        }
+
+        private void radiob_reso800x600_CheckedChanged_1(object sender, EventArgs e)
+        {
+            Update_Use_RA_Aspect_Ratio_Text();
+        }
+
+        private void radiob_reso1024x768_CheckedChanged_1(object sender, EventArgs e)
+        {
+            Update_Use_RA_Aspect_Ratio_Text();
         }
     }
 }
