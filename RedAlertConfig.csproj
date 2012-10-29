@@ -57,9 +57,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nyerguds%27 INI class\BooleanMode.cs" />
-    <Compile Include="Nyerguds%27 INI class\IniFile.cs" />
-    <Compile Include="Nyerguds%27 INI class\IniSection.cs" />
+    <Compile Include="Nyerguds.Ini\BooleanMode.cs" />
+    <Compile Include="Nyerguds.Ini\IniFile.cs" />
+    <Compile Include="Nyerguds.Ini\IniSection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

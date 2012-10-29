@@ -41,7 +41,7 @@ namespace RedAlertConfig
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.chb_ForceAfermath = new System.Windows.Forms.Label();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.chb_ForceAftermathOnline = new System.Windows.Forms.CheckBox();
             this.but_RunCnCNetSetup = new System.Windows.Forms.Button();
             this.link_CnCNetSite = new System.Windows.Forms.LinkLabel();
             this.label13 = new System.Windows.Forms.Label();
@@ -76,7 +76,19 @@ namespace RedAlertConfig
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtb_resoCustomHeight = new System.Windows.Forms.TextBox();
+            this.radiob_reso640x400 = new System.Windows.Forms.RadioButton();
+            this.txtb_resoCustomWidth = new System.Windows.Forms.TextBox();
+            this.radiob_reso640x480 = new System.Windows.Forms.RadioButton();
+            this.label17 = new System.Windows.Forms.Label();
+            this.radiob_reso800x600 = new System.Windows.Forms.RadioButton();
+            this.radiob_resoCustom = new System.Windows.Forms.RadioButton();
+            this.radiob_reso1024x768 = new System.Windows.Forms.RadioButton();
+            this.but_DetectReso = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.checkBox23 = new System.Windows.Forms.CheckBox();
@@ -99,8 +111,6 @@ namespace RedAlertConfig
             this.checkBox16 = new System.Windows.Forms.CheckBox();
             this.checkBox15 = new System.Windows.Forms.CheckBox();
             this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -114,15 +124,7 @@ namespace RedAlertConfig
             this.label19 = new System.Windows.Forms.Label();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Slider_MusicVolume)).BeginInit();
@@ -131,6 +133,8 @@ namespace RedAlertConfig
             ((System.ComponentModel.ISupportInitialize)(this.slider_ScrollRate)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // but_Cancel
@@ -187,7 +191,7 @@ namespace RedAlertConfig
             this.tabPage3.Controls.Add(this.label16);
             this.tabPage3.Controls.Add(this.label15);
             this.tabPage3.Controls.Add(this.chb_ForceAfermath);
-            this.tabPage3.Controls.Add(this.checkBox10);
+            this.tabPage3.Controls.Add(this.chb_ForceAftermathOnline);
             this.tabPage3.Controls.Add(this.but_RunCnCNetSetup);
             this.tabPage3.Controls.Add(this.link_CnCNetSite);
             this.tabPage3.Controls.Add(this.label13);
@@ -246,15 +250,15 @@ namespace RedAlertConfig
             this.chb_ForceAfermath.Text = "(other players also need to have this option enabled)";
             this.chb_ForceAfermath.Click += new System.EventHandler(this.label14_Click);
             // 
-            // checkBox10
+            // chb_ForceAftermathOnline
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(32, 252);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(15, 14);
-            this.checkBox10.TabIndex = 43;
-            this.checkBox10.UseVisualStyleBackColor = true;
-            this.checkBox10.CheckedChanged += new System.EventHandler(this.checkBox10_CheckedChanged);
+            this.chb_ForceAftermathOnline.AutoSize = true;
+            this.chb_ForceAftermathOnline.Location = new System.Drawing.Point(32, 252);
+            this.chb_ForceAftermathOnline.Name = "chb_ForceAftermathOnline";
+            this.chb_ForceAftermathOnline.Size = new System.Drawing.Size(15, 14);
+            this.chb_ForceAftermathOnline.TabIndex = 43;
+            this.chb_ForceAftermathOnline.UseVisualStyleBackColor = true;
+            this.chb_ForceAftermathOnline.CheckedChanged += new System.EventHandler(this.checkBox10_CheckedChanged);
             // 
             // but_RunCnCNetSetup
             // 
@@ -633,7 +637,9 @@ namespace RedAlertConfig
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.panel3);
+            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Controls.Add(this.but_DetectReso);
             this.tabPage1.Controls.Add(this.label34);
             this.tabPage1.Controls.Add(this.label35);
             this.tabPage1.Controls.Add(this.checkBox23);
@@ -656,8 +662,6 @@ namespace RedAlertConfig
             this.tabPage1.Controls.Add(this.checkBox16);
             this.tabPage1.Controls.Add(this.checkBox15);
             this.tabPage1.Controls.Add(this.checkBox14);
-            this.tabPage1.Controls.Add(this.radioButton6);
-            this.tabPage1.Controls.Add(this.radioButton7);
             this.tabPage1.Controls.Add(this.label24);
             this.tabPage1.Controls.Add(this.label23);
             this.tabPage1.Controls.Add(this.label22);
@@ -671,15 +675,7 @@ namespace RedAlertConfig
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.checkBox13);
             this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.label17);
-            this.tabPage1.Controls.Add(this.radioButton5);
-            this.tabPage1.Controls.Add(this.radioButton4);
-            this.tabPage1.Controls.Add(this.radioButton3);
-            this.tabPage1.Controls.Add(this.radioButton2);
-            this.tabPage1.Controls.Add(this.radioButton1);
-            this.tabPage1.Controls.Add(this.checkBox11);
+            this.tabPage1.Controls.Add(this.chb_EnableCnCDDraw);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -689,14 +685,143 @@ namespace RedAlertConfig
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // button4
+            // panel3
             // 
-            this.button4.Location = new System.Drawing.Point(43, 146);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 23);
-            this.button4.TabIndex = 83;
-            this.button4.Text = "Detect resolution";
-            this.button4.UseVisualStyleBackColor = true;
+            this.panel3.Controls.Add(this.radioButton6);
+            this.panel3.Controls.Add(this.radioButton7);
+            this.panel3.Location = new System.Drawing.Point(5, 355);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(198, 35);
+            this.panel3.TabIndex = 85;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(53, 3);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(65, 17);
+            this.radioButton6.TabIndex = 87;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "OpenGL";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(3, 3);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(44, 17);
+            this.radioButton7.TabIndex = 86;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "GDI";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtb_resoCustomHeight);
+            this.panel2.Controls.Add(this.radiob_reso640x400);
+            this.panel2.Controls.Add(this.txtb_resoCustomWidth);
+            this.panel2.Controls.Add(this.radiob_reso640x480);
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.radiob_reso800x600);
+            this.panel2.Controls.Add(this.radiob_resoCustom);
+            this.panel2.Controls.Add(this.radiob_reso1024x768);
+            this.panel2.Location = new System.Drawing.Point(3, 48);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 94);
+            this.panel2.TabIndex = 84;
+            // 
+            // txtb_resoCustomHeight
+            // 
+            this.txtb_resoCustomHeight.Location = new System.Drawing.Point(105, 73);
+            this.txtb_resoCustomHeight.Name = "txtb_resoCustomHeight";
+            this.txtb_resoCustomHeight.Size = new System.Drawing.Size(51, 20);
+            this.txtb_resoCustomHeight.TabIndex = 92;
+            this.txtb_resoCustomHeight.TextChanged += new System.EventHandler(this.txtb_resoCustomHeight_TextChanged);
+            // 
+            // radiob_reso640x400
+            // 
+            this.radiob_reso640x400.AutoSize = true;
+            this.radiob_reso640x400.Location = new System.Drawing.Point(7, 4);
+            this.radiob_reso640x400.Name = "radiob_reso640x400";
+            this.radiob_reso640x400.Size = new System.Drawing.Size(66, 17);
+            this.radiob_reso640x400.TabIndex = 85;
+            this.radiob_reso640x400.TabStop = true;
+            this.radiob_reso640x400.Text = "640x400";
+            this.radiob_reso640x400.UseVisualStyleBackColor = true;
+            // 
+            // txtb_resoCustomWidth
+            // 
+            this.txtb_resoCustomWidth.Location = new System.Drawing.Point(32, 73);
+            this.txtb_resoCustomWidth.Name = "txtb_resoCustomWidth";
+            this.txtb_resoCustomWidth.Size = new System.Drawing.Size(51, 20);
+            this.txtb_resoCustomWidth.TabIndex = 91;
+            this.txtb_resoCustomWidth.TextChanged += new System.EventHandler(this.txtb_resoCustomWidth_TextChanged);
+            // 
+            // radiob_reso640x480
+            // 
+            this.radiob_reso640x480.AutoSize = true;
+            this.radiob_reso640x480.Location = new System.Drawing.Point(79, 4);
+            this.radiob_reso640x480.Name = "radiob_reso640x480";
+            this.radiob_reso640x480.Size = new System.Drawing.Size(66, 17);
+            this.radiob_reso640x480.TabIndex = 86;
+            this.radiob_reso640x480.TabStop = true;
+            this.radiob_reso640x480.Text = "640x480";
+            this.radiob_reso640x480.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(89, 75);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(12, 13);
+            this.label17.TabIndex = 90;
+            this.label17.Text = "x";
+            // 
+            // radiob_reso800x600
+            // 
+            this.radiob_reso800x600.AutoSize = true;
+            this.radiob_reso800x600.Location = new System.Drawing.Point(7, 27);
+            this.radiob_reso800x600.Name = "radiob_reso800x600";
+            this.radiob_reso800x600.Size = new System.Drawing.Size(66, 17);
+            this.radiob_reso800x600.TabIndex = 87;
+            this.radiob_reso800x600.TabStop = true;
+            this.radiob_reso800x600.Text = "800x600";
+            this.radiob_reso800x600.UseVisualStyleBackColor = true;
+            // 
+            // radiob_resoCustom
+            // 
+            this.radiob_resoCustom.AutoSize = true;
+            this.radiob_resoCustom.Location = new System.Drawing.Point(7, 50);
+            this.radiob_resoCustom.Name = "radiob_resoCustom";
+            this.radiob_resoCustom.Size = new System.Drawing.Size(63, 17);
+            this.radiob_resoCustom.TabIndex = 89;
+            this.radiob_resoCustom.TabStop = true;
+            this.radiob_resoCustom.Text = "Custom:";
+            this.radiob_resoCustom.UseVisualStyleBackColor = true;
+            this.radiob_resoCustom.CheckedChanged += new System.EventHandler(this.radiob_resoCustom_CheckedChanged_1);
+            // 
+            // radiob_reso1024x768
+            // 
+            this.radiob_reso1024x768.AutoSize = true;
+            this.radiob_reso1024x768.Location = new System.Drawing.Point(79, 27);
+            this.radiob_reso1024x768.Name = "radiob_reso1024x768";
+            this.radiob_reso1024x768.Size = new System.Drawing.Size(72, 17);
+            this.radiob_reso1024x768.TabIndex = 88;
+            this.radiob_reso1024x768.TabStop = true;
+            this.radiob_reso1024x768.Text = "1024x768";
+            this.radiob_reso1024x768.UseVisualStyleBackColor = true;
+            // 
+            // but_DetectReso
+            // 
+            this.but_DetectReso.Location = new System.Drawing.Point(43, 146);
+            this.but_DetectReso.Name = "but_DetectReso";
+            this.but_DetectReso.Size = new System.Drawing.Size(104, 23);
+            this.but_DetectReso.TabIndex = 83;
+            this.but_DetectReso.Text = "Detect resolution";
+            this.but_DetectReso.UseVisualStyleBackColor = true;
+            this.but_DetectReso.Click += new System.EventHandler(this.but_DetectReso_Click);
             // 
             // label34
             // 
@@ -910,28 +1035,6 @@ namespace RedAlertConfig
             this.checkBox14.Text = "Back buffer in video memory";
             this.checkBox14.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(60, 359);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(65, 17);
-            this.radioButton6.TabIndex = 59;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "OpenGL";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(10, 359);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(44, 17);
-            this.radioButton7.TabIndex = 58;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "GDI";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -1055,94 +1158,15 @@ namespace RedAlertConfig
             this.panel1.Size = new System.Drawing.Size(1, 347);
             this.panel1.TabIndex = 44;
             // 
-            // textBox3
+            // chb_EnableCnCDDraw
             // 
-            this.textBox3.Location = new System.Drawing.Point(107, 120);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(51, 20);
-            this.textBox3.TabIndex = 43;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(34, 120);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(51, 20);
-            this.textBox2.TabIndex = 42;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(91, 122);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(12, 13);
-            this.label17.TabIndex = 41;
-            this.label17.Text = "x";
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(9, 97);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(63, 17);
-            this.radioButton5.TabIndex = 5;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Custom:";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(81, 74);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(72, 17);
-            this.radioButton4.TabIndex = 4;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "1024x768";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(9, 74);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(66, 17);
-            this.radioButton3.TabIndex = 3;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "800x600";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(81, 51);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(66, 17);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "640x480";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(9, 51);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(66, 17);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "640x400";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(9, 9);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(238, 17);
-            this.checkBox11.TabIndex = 0;
-            this.checkBox11.Text = "Use CnC-DDraw (enables advanced options)";
-            this.checkBox11.UseVisualStyleBackColor = true;
+            this.chb_EnableCnCDDraw.AutoSize = true;
+            this.chb_EnableCnCDDraw.Location = new System.Drawing.Point(9, 9);
+            this.chb_EnableCnCDDraw.Name = "chb_EnableCnCDDraw";
+            this.chb_EnableCnCDDraw.Size = new System.Drawing.Size(238, 17);
+            this.chb_EnableCnCDDraw.TabIndex = 0;
+            this.chb_EnableCnCDDraw.Text = "Use CnC-DDraw (enables advanced options)";
+            this.chb_EnableCnCDDraw.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1169,6 +1193,10 @@ namespace RedAlertConfig
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1229,19 +1257,11 @@ namespace RedAlertConfig
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Label chb_ForceAfermath;
-        private System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.CheckBox chb_ForceAftermathOnline;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.CheckBox chb_EnableCnCDDraw;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
@@ -1250,8 +1270,6 @@ namespace RedAlertConfig
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton7;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
@@ -1279,8 +1297,20 @@ namespace RedAlertConfig
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.CheckBox checkBox23;
         private System.Windows.Forms.CheckBox checkBox22;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button but_DetectReso;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtb_resoCustomHeight;
+        private System.Windows.Forms.RadioButton radiob_reso640x400;
+        private System.Windows.Forms.TextBox txtb_resoCustomWidth;
+        private System.Windows.Forms.RadioButton radiob_reso640x480;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.RadioButton radiob_reso800x600;
+        private System.Windows.Forms.RadioButton radiob_resoCustom;
+        private System.Windows.Forms.RadioButton radiob_reso1024x768;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton7;
 
     }
 }
