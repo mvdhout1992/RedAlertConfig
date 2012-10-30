@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
+using System.Globalization;
 using RedAlertConfig;
 
 namespace RedAlertConfig
@@ -18,6 +20,8 @@ namespace RedAlertConfig
         public Form1()
         {
             Files.Init();
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             InitializeComponent();
         }
 
