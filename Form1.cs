@@ -202,6 +202,17 @@ namespace RedAlertConfig
 
             String Renderer = Files.DDrawINI.getStringValue("ddraw", "renderer", "opengl");
 
+            String ScalingFilter = Files.DDrawINI.getStringValue("ddraw", "filter", "");
+
+            if (ScalingFilter.ToLower() == "nearest")
+            {
+                this.cmbox_ScalingFilter.SelectedIndex = 0;
+            }
+            else if (ScalingFilter.ToLower() == "linear")
+            {
+                this.cmbox_ScalingFilter.SelectedIndex = 1;
+            }
+
             if (Renderer.ToLower() == "gdi")
             {
                 this.radiob_RendererGDI.Checked = true;
@@ -215,16 +226,6 @@ namespace RedAlertConfig
             radiob_RendererOpenGL_CheckedChanged(this, null);
             radiob_RendererGDI_CheckedChanged(this, null);
 
-            String ScalingFilter = Files.DDrawINI.getStringValue("ddraw", "filter", "");
-
-            if (ScalingFilter.ToLower() == "nearest")
-            {
-                this.cmbox_ScalingFilter.SelectedIndex = 0;
-            }
-            else if (ScalingFilter.ToLower() == "linear")
-            {
-                this.cmbox_ScalingFilter.SelectedIndex = 1;
-            }
             if (Files.RedAlertINI.getBoolValue("Options", "UseRAAspectRatio", false) == true)
             {
                 this.chb_UseRAAspectRatio.Checked = true;
@@ -338,6 +339,12 @@ namespace RedAlertConfig
                 this.txt_UseRAAspectRatio.Enabled = false;
                 this.txt_UseRAAspectRatio.Text = "(needs to be at least 640x480)";
             }
+
+            this.grid_HotKeyEditor.Rows.Add();
+
+            grid_HotKeyEditor.Rows[0].Cells["ColumnHotkeyName"].Value = "herp";
+            grid_HotKeyEditor.Rows[0].Cells["ColumnHotkeyValue"].Value = "derp";
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -992,6 +999,11 @@ namespace RedAlertConfig
                 this.cmbox_ScalingFilter.Enabled = false;
                 this.cmbox_ScalingFilter.SelectedIndex = -1;
             }
+        }
+
+        private void OnMouseClick(object sender, MouseEventArgs e)
+        {
+            this.grid_HotKeyEditor.BeginEdit(true);
         }
     }
 }

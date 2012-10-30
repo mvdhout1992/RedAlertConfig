@@ -38,6 +38,9 @@ namespace RedAlertConfig
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.chb_StandaloneExpanionMaps = new System.Windows.Forms.CheckBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.grid_HotKeyEditor = new System.Windows.Forms.DataGridView();
+            this.ColumnHotkeyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHotkeyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label19 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -56,6 +59,8 @@ namespace RedAlertConfig
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -127,9 +132,9 @@ namespace RedAlertConfig
             this.chb_UseRAAspectRatio = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.tabPage5.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Slider_MusicVolume)).BeginInit();
@@ -167,7 +172,7 @@ namespace RedAlertConfig
             // 
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(471, 386);
+            this.tabPage7.Size = new System.Drawing.Size(445, 386);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "About";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -178,7 +183,7 @@ namespace RedAlertConfig
             this.tabPage5.Controls.Add(this.chb_StandaloneExpanionMaps);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(471, 386);
+            this.tabPage5.Size = new System.Drawing.Size(445, 386);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Map list";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -205,12 +210,44 @@ namespace RedAlertConfig
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.grid_HotKeyEditor);
+            this.tabPage4.ImeMode = System.Windows.Forms.ImeMode.On;
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(471, 386);
+            this.tabPage4.Size = new System.Drawing.Size(445, 386);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Hotkey editor";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // grid_HotKeyEditor
+            // 
+            this.grid_HotKeyEditor.AllowUserToAddRows = false;
+            this.grid_HotKeyEditor.AllowUserToDeleteRows = false;
+            this.grid_HotKeyEditor.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.grid_HotKeyEditor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_HotKeyEditor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnHotkeyName,
+            this.ColumnHotkeyValue});
+            this.grid_HotKeyEditor.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.grid_HotKeyEditor.Location = new System.Drawing.Point(3, 3);
+            this.grid_HotKeyEditor.Name = "grid_HotKeyEditor";
+            this.grid_HotKeyEditor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.grid_HotKeyEditor.RowHeadersVisible = false;
+            this.grid_HotKeyEditor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grid_HotKeyEditor.Size = new System.Drawing.Size(204, 150);
+            this.grid_HotKeyEditor.TabIndex = 0;
+            this.grid_HotKeyEditor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
+            // 
+            // ColumnHotkeyName
+            // 
+            this.ColumnHotkeyName.Frozen = true;
+            this.ColumnHotkeyName.HeaderText = "Hotkey name";
+            this.ColumnHotkeyName.Name = "ColumnHotkeyName";
+            // 
+            // ColumnHotkeyValue
+            // 
+            this.ColumnHotkeyValue.HeaderText = "Value";
+            this.ColumnHotkeyValue.Name = "ColumnHotkeyValue";
             // 
             // tabPage3
             // 
@@ -232,7 +269,7 @@ namespace RedAlertConfig
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(471, 386);
+            this.tabPage3.Size = new System.Drawing.Size(445, 386);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Multiplayer";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -433,10 +470,24 @@ namespace RedAlertConfig
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(467, 386);
+            this.tabPage2.Size = new System.Drawing.Size(445, 386);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Game options";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(117, 333);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(148, 10);
+            this.panel5.TabIndex = 34;
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(112, 366);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(148, 10);
+            this.panel4.TabIndex = 33;
             // 
             // label4
             // 
@@ -961,9 +1012,9 @@ namespace RedAlertConfig
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(238, 231);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(194, 13);
+            this.label32.Size = new System.Drawing.Size(173, 13);
             this.label32.TabIndex = 75;
-            this.label32.Text = "(enable if you experience mouse issues)";
+            this.label32.Text = "(try if you experience mouse issues)";
             // 
             // chb_EnableMouseHack
             // 
@@ -1204,20 +1255,6 @@ namespace RedAlertConfig
             this.chb_EnableCnCDDraw.UseVisualStyleBackColor = true;
             this.chb_EnableCnCDDraw.CheckedChanged += new System.EventHandler(this.chb_EnableCnCDDraw_CheckedChanged);
             // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(112, 365);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(148, 10);
-            this.panel4.TabIndex = 33;
-            // 
-            // panel5
-            // 
-            this.panel5.Location = new System.Drawing.Point(117, 331);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(148, 10);
-            this.panel5.TabIndex = 34;
-            // 
             // Form1
             // 
             this.AcceptButton = this.but_ok;
@@ -1234,6 +1271,8 @@ namespace RedAlertConfig
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1367,6 +1406,9 @@ namespace RedAlertConfig
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.DataGridView grid_HotKeyEditor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyValue;
 
     }
 }
