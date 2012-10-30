@@ -126,6 +126,7 @@ namespace RedAlertConfig
             this.chb_UseRAAspectRatio = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -211,6 +212,7 @@ namespace RedAlertConfig
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label19);
             this.tabPage3.Controls.Add(this.label36);
             this.tabPage3.Controls.Add(this.label16);
             this.tabPage3.Controls.Add(this.label15);
@@ -259,9 +261,9 @@ namespace RedAlertConfig
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(54, 245);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(159, 13);
+            this.label15.Size = new System.Drawing.Size(321, 13);
             this.label15.TabIndex = 45;
-            this.label15.Text = "Force Aftermath expanion online";
+            this.label15.Text = "Force Aftermath online (other players also need to have  this option";
             this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // chb_ForceAfermath
@@ -269,9 +271,9 @@ namespace RedAlertConfig
             this.chb_ForceAfermath.AutoSize = true;
             this.chb_ForceAfermath.Location = new System.Drawing.Point(54, 258);
             this.chb_ForceAfermath.Name = "chb_ForceAfermath";
-            this.chb_ForceAfermath.Size = new System.Drawing.Size(253, 13);
+            this.chb_ForceAfermath.Size = new System.Drawing.Size(297, 13);
             this.chb_ForceAfermath.TabIndex = 44;
-            this.chb_ForceAfermath.Text = "(other players also need to have this option enabled)";
+            this.chb_ForceAfermath.Text = "enabled or they can\'t join your game and you can\'t  join theirs)";
             this.chb_ForceAfermath.Click += new System.EventHandler(this.label14_Click);
             // 
             // chb_ForceAftermathOnline
@@ -1184,6 +1186,14 @@ namespace RedAlertConfig
             this.chb_EnableCnCDDraw.UseVisualStyleBackColor = true;
             this.chb_EnableCnCDDraw.CheckedChanged += new System.EventHandler(this.chb_EnableCnCDDraw_CheckedChanged);
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(54, 271);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(0, 13);
+            this.label19.TabIndex = 48;
+            // 
             // Form1
             // 
             this.AcceptButton = this.but_ok;
@@ -1330,6 +1340,7 @@ namespace RedAlertConfig
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox chb_StandaloneExpanionMaps;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label19;
 
     }
 }

@@ -27,6 +27,11 @@ namespace RedAlertConfig
             {
                 this.chb_EnableCnCDDraw.Checked = true;
             }
+           else
+           {
+               this.chb_EnableCnCDDraw.Checked = false;
+               chb_EnableCnCDDraw_CheckedChanged(this, null);
+           }
 
            if (Files.RedAlertINI.getBoolValue("Options", "UseRAAspectRatio", false) == true)
            {
@@ -596,6 +601,17 @@ namespace RedAlertConfig
 
             int BPP = this.cmbox_BitsPerPixels.SelectedIndex;
             Files.DDrawINI.setIntValue("ddraw", "bpp", BPP);
+
+            if (this.chb_EnableCnCDDraw.Checked == true && !File.Exists("ddraw.dll"))
+            {
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "ddraw.dll", 
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ddraw.dll");
+            }
+
+            if (this.chb_EnableCnCDDraw.Checked == false && File.Exists("ddraw.dll"))
+            {
+                File.Delete("ddraw.dll");
+            }
 
             Files.RedAlertINI.writeIni();
             Files.DDrawINI.writeIni();
