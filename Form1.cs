@@ -663,7 +663,7 @@ namespace RedAlertConfig
 
             if (this.chb_EnableCnCDDraw.Checked == true && !File.Exists("ddraw.dll"))
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "ddraw.dll", 
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ddraw.dll", 
                     Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ddraw.dll");
             }
             else if (this.chb_EnableCnCDDraw.Checked == false && File.Exists("ddraw.dll"))
@@ -673,7 +673,7 @@ namespace RedAlertConfig
 
             if (this.chb_EnableSmallInfantry.Checked == true && !File.Exists("hires1.mix"))
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "hires1.mix",
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "hires1.mix",
                     Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "hires1.mix");
             }
             else if (this.chb_EnableSmallInfantry.Checked == false && File.Exists("hires1.mix"))
@@ -683,7 +683,7 @@ namespace RedAlertConfig
 
             if (this.chb_UseLanPatch.Checked == true && !File.Exists("thipx32.dll"))
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "thipx32.dll",
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "thipx32.dll",
                     Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "thipx32.dll");
             }
             else if (this.chb_UseLanPatch.Checked == false && File.Exists("thipx32.dll"))
@@ -693,7 +693,7 @@ namespace RedAlertConfig
 
             if (this.chb_EnableCounterstrike.Checked == true && !File.Exists("expand.mix"))
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "expand.mix",
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "expand.mix",
                     Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "expand.mix");
             }
             else if (this.chb_EnableCounterstrike.Checked == false && File.Exists("expand.mix"))
@@ -703,7 +703,7 @@ namespace RedAlertConfig
 
             if (this.chb_EnableAftermath.Checked == true && !File.Exists("expand2.mix"))
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "expand2.mix",
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "expand2.mix",
                     Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "expand2.mix");
             }
             else if (this.chb_EnableAftermath.Checked == false && File.Exists("expand2.mix"))
@@ -729,13 +729,13 @@ namespace RedAlertConfig
                         File.Move(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini",
                         Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "___rules.ini");
 
-                        File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
+                        File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
                         Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini");
                     }
                 }
                 else
                 {
-                    File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
+                    File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
                     Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini");
                 }              
             }
