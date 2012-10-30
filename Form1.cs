@@ -24,13 +24,68 @@ namespace RedAlertConfig
         private void Form1_Load(object sender, EventArgs e)
         {
            if (File.Exists("ddraw.dll") == true)
-            {
+           {
                 this.chb_EnableCnCDDraw.Checked = true;
-            }
+           }
            else
            {
                this.chb_EnableCnCDDraw.Checked = false;
                chb_EnableCnCDDraw_CheckedChanged(this, null);
+           }
+
+           if (File.Exists("hires1.mix") == true)
+           {
+               this.chb_EnableSmallInfantry.Checked = true;
+           }
+           else
+           {
+               this.chb_EnableSmallInfantry.Checked = false;
+           }
+
+           if (File.Exists("thipx32.dll") == true)
+           {
+               this.chb_UseLanPatch.Checked = true;
+           }
+           else
+           {
+               this.chb_UseLanPatch.Checked = false;
+           }
+
+           if (File.Exists("expand.mix") == true)
+           {
+               this.chb_EnableCounterstrike.Checked = true;
+           }
+           else
+           {
+               this.chb_EnableCounterstrike.Checked = false;
+           }
+
+           if (File.Exists("expand2.mix") == true)
+           {
+               this.chb_EnableAftermath.Checked = true;
+           }
+           else
+           {
+               this.chb_EnableAftermath.Checked = false;
+           }
+
+
+           if (File.Exists("rules.ini") == true)
+           {
+                Crc32 crc32 = new Crc32();
+                String hash = String.Empty;
+
+                using (FileStream fs = File.Open("rules.ini", FileMode.Open))
+    	        foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
+
+                if (hash == "c165ab92")
+                {
+                    this.chb_ForceAftermathOnline.Checked = true;
+                }
+           }
+           else
+           {
+               this.chb_ForceAftermathOnline.Checked = false;
            }
 
            if (Files.RedAlertINI.getBoolValue("Options", "UseRAAspectRatio", false) == true)
@@ -140,6 +195,21 @@ namespace RedAlertConfig
             this.cmbox_Side.SelectedIndex = Files.RedAlertINI.getIntValue("MultiPlayer", "Side", 2)-2;
 
             this.cmbox_Color.SelectedIndex = Files.RedAlertINI.getIntValue("MultiPlayer", "Color", 0);
+
+            String Renderer = Files.DDrawINI.getStringValue("ddraw", "renderer", "opengl");
+
+            if (Renderer.ToLower() == "gdi")
+            {
+                this.radiob_RendererGDI.Checked = true;
+
+            }
+            else
+            {
+                this.radiob_RendererOpenGL.Checked = true;
+
+            }
+            radiob_RendererOpenGL_CheckedChanged(this, null);
+            radiob_RendererGDI_CheckedChanged(this, null);
 
             String ScalingFilter = Files.DDrawINI.getStringValue("ddraw", "filter", "");
 
@@ -263,17 +333,6 @@ namespace RedAlertConfig
                 this.label18.Enabled = false;
                 this.txt_UseRAAspectRatio.Enabled = false;
                 this.txt_UseRAAspectRatio.Text = "(needs to be at least 640x480)";
-            }
-
-            String Renderer = Files.DDrawINI.getStringValue("ddraw", "renderer", "opengl");
-
-            if (Renderer.ToLower() == "gdi")
-            {
-                this.radiob_RendererGDI.Checked = true;
-            }
-            else
-            {
-                this.radiob_RendererOpenGL.Checked = true;
             }
         }
 
@@ -607,10 +666,91 @@ namespace RedAlertConfig
                 File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "ddraw.dll", 
                     Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ddraw.dll");
             }
-
-            if (this.chb_EnableCnCDDraw.Checked == false && File.Exists("ddraw.dll"))
+            else if (this.chb_EnableCnCDDraw.Checked == false && File.Exists("ddraw.dll"))
             {
                 File.Delete("ddraw.dll");
+            }
+
+            if (this.chb_EnableSmallInfantry.Checked == true && !File.Exists("hires1.mix"))
+            {
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "hires1.mix",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "hires1.mix");
+            }
+            else if (this.chb_EnableSmallInfantry.Checked == false && File.Exists("hires1.mix"))
+            {
+                File.Delete("hires1.mix");
+            }
+
+            if (this.chb_UseLanPatch.Checked == true && !File.Exists("thipx32.dll"))
+            {
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "thipx32.dll",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "thipx32.dll");
+            }
+            else if (this.chb_UseLanPatch.Checked == false && File.Exists("thipx32.dll"))
+            {
+                File.Delete("thipx32.dll");
+            }
+
+            if (this.chb_EnableCounterstrike.Checked == true && !File.Exists("expand.mix"))
+            {
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "expand.mix",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "expand.mix");
+            }
+            else if (this.chb_EnableCounterstrike.Checked == false && File.Exists("expand.mix"))
+            {
+                File.Delete("expand.mix");
+            }
+
+            if (this.chb_EnableAftermath.Checked == true && !File.Exists("expand2.mix"))
+            {
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "expand2.mix",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "expand2.mix");
+            }
+            else if (this.chb_EnableAftermath.Checked == false && File.Exists("expand2.mix"))
+            {
+                File.Delete("expand2.mix");
+            }
+
+            if (this.chb_ForceAftermathOnline.Checked == true)
+            {
+                if (File.Exists("rules.ini"))
+                {
+                    Crc32 crc32 = new Crc32();
+                    String hash = String.Empty;
+
+                    using (FileStream fs = File.Open("rules.ini", FileMode.Open))
+                        foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
+
+                    if (hash != "c165ab92")
+                    {
+                         // File exists but with different hash
+                        MessageBox.Show("Force Aftermath expansion is enabled but another rules.ini file has been found, this file has been renamed to ___rules.ini.");
+
+                        File.Move(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini",
+                        Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "___rules.ini");
+
+                        File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
+                        Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini");
+                    }
+                }
+                else
+                {
+                    File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "optional" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini");
+                }              
+            }
+            else if (this.chb_ForceAftermathOnline.Checked == false && File.Exists("rules.ini"))
+            {
+                Crc32 crc32 = new Crc32();
+                String hash = String.Empty;
+
+                using (FileStream fs = File.Open("rules.ini", FileMode.Open))
+                foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
+
+                if (hash == "c165ab92")
+                {
+                    File.Delete("rules.ini");
+                }
             }
 
             Files.RedAlertINI.writeIni();
@@ -816,6 +956,37 @@ namespace RedAlertConfig
                 this.label32.Visible = true;
                 this.label29.Visible = true;
                 this.label30.Visible = true;
+            }
+        }
+
+        private void radiob_RendererGDI_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.radiob_RendererGDI.Checked == true)
+            {
+                this.chb_UseWindowBoxing.Enabled = true;
+            }
+            else
+            {
+                this.chb_UseWindowBoxing.Enabled = false;
+                this.chb_UseWindowBoxing.Checked = false;
+            }
+        }
+
+        private void radiob_RendererOpenGL_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.radiob_RendererOpenGL.Checked == true)
+            {
+                this.chb_EnableVSync.Enabled = true;
+
+                this.cmbox_ScalingFilter.Enabled = true;
+            }
+            else
+            {
+                this.chb_EnableVSync.Enabled = false;
+                this.chb_EnableVSync.Checked = false;
+
+                this.cmbox_ScalingFilter.Enabled = false;
+                this.cmbox_ScalingFilter.SelectedIndex = -1;
             }
         }
     }

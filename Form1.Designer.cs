@@ -42,7 +42,7 @@ namespace RedAlertConfig
             this.label36 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.chb_ForceAfermath = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
             this.chb_ForceAftermathOnline = new System.Windows.Forms.CheckBox();
             this.but_RunCnCNetSetup = new System.Windows.Forms.Button();
             this.link_CnCNetSite = new System.Windows.Forms.LinkLabel();
@@ -216,7 +216,7 @@ namespace RedAlertConfig
             this.tabPage3.Controls.Add(this.label36);
             this.tabPage3.Controls.Add(this.label16);
             this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.chb_ForceAfermath);
+            this.tabPage3.Controls.Add(this.label100);
             this.tabPage3.Controls.Add(this.chb_ForceAftermathOnline);
             this.tabPage3.Controls.Add(this.but_RunCnCNetSetup);
             this.tabPage3.Controls.Add(this.link_CnCNetSite);
@@ -266,15 +266,15 @@ namespace RedAlertConfig
             this.label15.Text = "Force Aftermath online (other players also need to have  this option";
             this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
-            // chb_ForceAfermath
+            // label100
             // 
-            this.chb_ForceAfermath.AutoSize = true;
-            this.chb_ForceAfermath.Location = new System.Drawing.Point(54, 258);
-            this.chb_ForceAfermath.Name = "chb_ForceAfermath";
-            this.chb_ForceAfermath.Size = new System.Drawing.Size(297, 13);
-            this.chb_ForceAfermath.TabIndex = 44;
-            this.chb_ForceAfermath.Text = "enabled or they can\'t join your game and you can\'t  join theirs)";
-            this.chb_ForceAfermath.Click += new System.EventHandler(this.label14_Click);
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(54, 258);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(297, 13);
+            this.label100.TabIndex = 44;
+            this.label100.Text = "enabled or they can\'t join your game and you can\'t  join theirs)";
+            this.label100.Click += new System.EventHandler(this.label14_Click);
             // 
             // chb_ForceAftermathOnline
             // 
@@ -746,6 +746,7 @@ namespace RedAlertConfig
             this.radiob_RendererOpenGL.TabStop = true;
             this.radiob_RendererOpenGL.Text = "OpenGL";
             this.radiob_RendererOpenGL.UseVisualStyleBackColor = true;
+            this.radiob_RendererOpenGL.CheckedChanged += new System.EventHandler(this.radiob_RendererOpenGL_CheckedChanged);
             // 
             // radiob_RendererGDI
             // 
@@ -757,6 +758,7 @@ namespace RedAlertConfig
             this.radiob_RendererGDI.TabStop = true;
             this.radiob_RendererGDI.Text = "GDI";
             this.radiob_RendererGDI.UseVisualStyleBackColor = true;
+            this.radiob_RendererGDI.CheckedChanged += new System.EventHandler(this.radiob_RendererGDI_CheckedChanged);
             // 
             // panel2
             // 
@@ -883,9 +885,9 @@ namespace RedAlertConfig
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(238, 170);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(126, 13);
+            this.label35.Size = new System.Drawing.Size(76, 13);
             this.label35.TabIndex = 81;
-            this.label35.Text = "make a best fit (GDI only)";
+            this.label35.Text = "make a best fit";
             // 
             // chb_UseWindowBoxing
             // 
@@ -1284,7 +1286,7 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_EnableCounterstrike;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.Label chb_ForceAfermath;
+        private System.Windows.Forms.Label label100;
         private System.Windows.Forms.CheckBox chb_ForceAftermathOnline;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
