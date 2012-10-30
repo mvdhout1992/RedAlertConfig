@@ -145,7 +145,7 @@ namespace RedAlertConfig
             // but_Cancel
             // 
             this.but_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.but_Cancel.Location = new System.Drawing.Point(415, 430);
+            this.but_Cancel.Location = new System.Drawing.Point(391, 430);
             this.but_Cancel.Name = "but_Cancel";
             this.but_Cancel.Size = new System.Drawing.Size(75, 23);
             this.but_Cancel.TabIndex = 2;
@@ -155,7 +155,7 @@ namespace RedAlertConfig
             // 
             // but_ok
             // 
-            this.but_ok.Location = new System.Drawing.Point(324, 430);
+            this.but_ok.Location = new System.Drawing.Point(293, 430);
             this.but_ok.Name = "but_ok";
             this.but_ok.Size = new System.Drawing.Size(75, 23);
             this.but_ok.TabIndex = 3;
@@ -433,7 +433,7 @@ namespace RedAlertConfig
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(471, 386);
+            this.tabPage2.Size = new System.Drawing.Size(467, 386);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Game options";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -674,7 +674,7 @@ namespace RedAlertConfig
             this.tabControl1.Location = new System.Drawing.Point(15, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(479, 412);
+            this.tabControl1.Size = new System.Drawing.Size(453, 412);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -720,7 +720,7 @@ namespace RedAlertConfig
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(471, 386);
+            this.tabPage1.Size = new System.Drawing.Size(445, 386);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Video options";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1224,7 +1224,7 @@ namespace RedAlertConfig
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.but_Cancel;
-            this.ClientSize = new System.Drawing.Size(506, 465);
+            this.ClientSize = new System.Drawing.Size(483, 465);
             this.Controls.Add(this.but_ok);
             this.Controls.Add(this.but_Cancel);
             this.Controls.Add(this.tabControl1);
