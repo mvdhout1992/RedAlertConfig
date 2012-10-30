@@ -39,6 +39,7 @@ namespace RedAlertConfig
             this.chb_StandaloneExpanionMaps = new System.Windows.Forms.CheckBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label19 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -126,7 +127,8 @@ namespace RedAlertConfig
             this.chb_UseRAAspectRatio = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.tabPage5.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -235,6 +237,14 @@ namespace RedAlertConfig
             this.tabPage3.Text = "Multiplayer";
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(54, 271);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(0, 13);
+            this.label19.TabIndex = 48;
             // 
             // label36
             // 
@@ -397,6 +407,8 @@ namespace RedAlertConfig
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel5);
+            this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label8);
@@ -502,12 +514,13 @@ namespace RedAlertConfig
             // Slider_MusicVolume
             // 
             this.Slider_MusicVolume.AutoSize = false;
+            this.Slider_MusicVolume.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Slider_MusicVolume.LargeChange = 1;
             this.Slider_MusicVolume.Location = new System.Drawing.Point(112, 344);
             this.Slider_MusicVolume.Maximum = 1000;
             this.Slider_MusicVolume.Name = "Slider_MusicVolume";
             this.Slider_MusicVolume.RightToLeftLayout = true;
-            this.Slider_MusicVolume.Size = new System.Drawing.Size(153, 27);
+            this.Slider_MusicVolume.Size = new System.Drawing.Size(153, 28);
             this.Slider_MusicVolume.SmallChange = 10;
             this.Slider_MusicVolume.TabIndex = 25;
             this.Slider_MusicVolume.Value = 1;
@@ -524,6 +537,7 @@ namespace RedAlertConfig
             // slider_SoundVolume
             // 
             this.slider_SoundVolume.AutoSize = false;
+            this.slider_SoundVolume.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_SoundVolume.LargeChange = 1;
             this.slider_SoundVolume.Location = new System.Drawing.Point(112, 311);
             this.slider_SoundVolume.Maximum = 1000;
@@ -566,6 +580,7 @@ namespace RedAlertConfig
             // slider_GameSpeed
             // 
             this.slider_GameSpeed.AutoSize = false;
+            this.slider_GameSpeed.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_GameSpeed.LargeChange = 1;
             this.slider_GameSpeed.Location = new System.Drawing.Point(112, 246);
             this.slider_GameSpeed.Maximum = 6;
@@ -586,6 +601,7 @@ namespace RedAlertConfig
             // slider_ScrollRate
             // 
             this.slider_ScrollRate.AutoSize = false;
+            this.slider_ScrollRate.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_ScrollRate.LargeChange = 1;
             this.slider_ScrollRate.Location = new System.Drawing.Point(112, 213);
             this.slider_ScrollRate.Maximum = 6;
@@ -1188,13 +1204,19 @@ namespace RedAlertConfig
             this.chb_EnableCnCDDraw.UseVisualStyleBackColor = true;
             this.chb_EnableCnCDDraw.CheckedChanged += new System.EventHandler(this.chb_EnableCnCDDraw_CheckedChanged);
             // 
-            // label19
+            // panel4
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(54, 271);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(0, 13);
-            this.label19.TabIndex = 48;
+            this.panel4.Location = new System.Drawing.Point(112, 365);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(148, 10);
+            this.panel4.TabIndex = 33;
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(117, 331);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(148, 10);
+            this.panel5.TabIndex = 34;
             // 
             // Form1
             // 
@@ -1343,6 +1365,8 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_StandaloneExpanionMaps;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
 
     }
 }
