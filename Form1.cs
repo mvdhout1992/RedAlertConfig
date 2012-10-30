@@ -167,10 +167,43 @@ namespace RedAlertConfig
             {
                 this.chb_BackBufferVideoMemory.Checked = true;
             }
-            if (Files.RedAlertINI.getBoolValue("Options", "VideoBackBuffer", false) == true)
+
+            if (Files.DDrawINI.getBoolValue("ddraw", "windowed", false) == true)
             {
-                this.chb_BackBufferVideoMemory.Checked = true;
+                this.chb_RunWindowed.Checked = true;
             }
+            if (Files.DDrawINI.getBoolValue("ddraw", "border", false) == true)
+            {
+                this.chb_ShowWindowedBorder.Checked = true;
+            }
+
+            if (Files.DDrawINI.getBoolValue("ddraw", "boxing", false) == true)
+            {
+                this.chb_UseWindowBoxing.Checked = true;
+            }
+            if (Files.DDrawINI.getBoolValue("ddraw", "adjmouse", false) == true)
+            {
+                this.chb_AutoAdjustMouse.Checked = true;
+            }
+
+            if (Files.DDrawINI.getBoolValue("ddraw", "mhack", false) == true)
+            {
+                this.chb_EnableMouseHack.Checked = true;
+            }
+
+            if (Files.DDrawINI.getBoolValue("ddraw", "vsync", false) == true)
+            {
+                this.chb_EnableVSync.Checked = true;
+            }
+            if (Files.DDrawINI.getBoolValue("ddraw", "singlecpu", false) == true)
+            {
+                this.chb_ForceSingleCPU.Checked = true;
+            }
+
+            this.txtb_MaxFPS.Text = Files.DDrawINI.getStringValue("ddraw", "maxfps", "");
+
+            int BPP = Files.DDrawINI.getIntValue("ddraw", "bpp", 0);
+            this.cmbox_BitsPerPixels.SelectedIndex = BPP;
         }
 
         private void Update_Use_RA_Aspect_Ratio()
@@ -517,6 +550,52 @@ namespace RedAlertConfig
             {
                 Files.DDrawINI.setStringValue("ddraw", "filter", "linear");
             }
+
+            if (this.chb_RunWindowed.Checked == true)
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "windowed", true);
+            }
+            else
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "windowed", false);
+            }
+
+            if (this.chb_ShowWindowedBorder.Checked == true)
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "border", true);
+            }
+            else
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "border", false);
+            }
+
+            if (this.chb_UseWindowBoxing.Checked == true)
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "boxing", true);
+            }
+            else
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "boxing", false);
+            }
+
+            if (this.chb_AutoAdjustMouse.Checked == true)
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "adjmouse", true);
+            }
+            else
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "adjmouse", false);
+            }
+
+            int MaxFPS;
+            if (Int32.TryParse(this.txtb_MaxFPS.Text, out MaxFPS) == false)
+            {
+                MaxFPS = 0;
+            }
+            Files.DDrawINI.setIntValue("ddraw", "maxfps", MaxFPS);
+
+            int BPP = this.cmbox_BitsPerPixels.SelectedIndex;
+            Files.DDrawINI.setIntValue("ddraw", "bpp", BPP);
 
             Files.RedAlertINI.writeIni();
             Files.DDrawINI.writeIni();
