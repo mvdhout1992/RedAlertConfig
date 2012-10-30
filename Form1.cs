@@ -28,8 +28,16 @@ namespace RedAlertConfig
                 this.chb_EnableCnCDDraw.Checked = true;
             }
 
-           ResoWidth = Files.RedAlertINI.getIntValue("Options", "Width", 640);
-           ResoHeight = Files.RedAlertINI.getIntValue("Options", "Height", 480);
+           if (Files.RedAlertINI.getBoolValue("Options", "UseRAAspectRatio", false) == true)
+           {
+               ResoWidth = Files.DDrawINI.getIntValue("ddraw", "width", 0);
+               ResoHeight = Files.DDrawINI.getIntValue("ddraw", "height", 0);
+           }
+           else
+           {
+               ResoWidth = Files.RedAlertINI.getIntValue("Options", "Width", 640);
+               ResoHeight = Files.RedAlertINI.getIntValue("Options", "Height", 480);
+           }
 
            this.txtb_resoCustomHeight.Enabled = false;
            this.txtb_resoCustomWidth.Enabled = false;
@@ -73,6 +81,91 @@ namespace RedAlertConfig
             if (this.txtb_StretchCustomHeight.Text == "0") this.txtb_StretchCustomHeight.Text = "";
 
             txtb_Handle.Text = Files.RedAlertINI.getStringValue("Multiplayer", "Handle", "");
+
+            if (Files.RedAlertINI.getBoolValue("Intro", "PlayIntro", false) == true)
+            {
+                chb_PlayIntro.Checked = true;
+            }
+
+            if (!File.Exists("movies1.mix") && !File.Exists("movies2.mix"))
+            {
+                chb_PlayIntro.Enabled = false;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "IsScoreRepeat", false) == true)
+            {
+                this.chb_RepeatMusic.Checked = true;
+            }
+            if (Files.RedAlertINI.getBoolValue("Options", "IsScoreShuffle", false) == true)
+            {
+                this.chb_ShuffleMusic.Checked = true;
+            }
+            if (Files.RedAlertINI.getBoolValue("Options", "AutoScroll", false) == true)
+            {
+                this.chb_Autoscroll.Checked = true;
+            }
+            if (Files.RedAlertINI.getBoolValue("Options", "PaletteScroll", false) == true)
+            {
+                this.chb_PaletteScroll.Checked = true;
+            }
+            
+            double derp;
+            if (Double.TryParse(Files.RedAlertINI.getStringValue("Options", "Volume", "0"),  out derp) == false)
+            {
+                derp = 0;
+            }
+            int SoundVolume = ((int)(derp * 1000));
+            this.slider_SoundVolume.Value = SoundVolume;
+
+            double derp2;
+            if (Double.TryParse(Files.RedAlertINI.getStringValue("Options", "MultiplayerScoreVolume", "0"), out derp2) == false)
+            {
+                derp2 = 0;
+            }
+            int MusicVolume = ((int)(derp2 * 1000));
+            this.Slider_MusicVolume.Value = MusicVolume;
+
+            int GameSpeed = Files.RedAlertINI.getIntValue("Options", "GameSpeed", 3);
+            this.slider_GameSpeed.Value = 6 - GameSpeed;
+
+            int ScrollRate = Files.RedAlertINI.getIntValue("Options", "ScrollRate", 3);
+            this.slider_ScrollRate.Value = 6 - ScrollRate;
+
+            this.cmbox_Side.SelectedIndex = Files.RedAlertINI.getIntValue("MultiPlayer", "Side", 2)-2;
+
+            this.cmbox_Color.SelectedIndex = Files.RedAlertINI.getIntValue("MultiPlayer", "Color", 0);
+
+            String ScalingFilter = Files.DDrawINI.getStringValue("ddraw", "filter", "");
+
+            if (ScalingFilter.ToLower() == "nearest")
+            {
+                this.cmbox_ScalingFilter.SelectedIndex = 0;
+            }
+            else if (ScalingFilter.ToLower() == "linear")
+            {
+                this.cmbox_ScalingFilter.SelectedIndex = 1;
+            }
+            if (Files.RedAlertINI.getBoolValue("Options", "UseRAAspectRatio", false) == true)
+            {
+                this.chb_UseRAAspectRatio.Checked = true;
+            }
+            else if (StretchHeight != 0 && StretchWidth != 0)
+            {
+                this.chb_StretchCustom.Checked = true;
+            }
+            if (Files.RedAlertINI.getBoolValue("Options", "HardwareFills", false) == true)
+            {
+                this.chb_AllowHardwareFilledBits.Checked = true;
+            }
+            if (this.chb_EnableCnCDDraw.Checked == true)
+            {
+                this.chb_AllowHardwareFilledBits.Enabled = false;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "VideoBackBuffer", false) == true)
+            {
+                this.chb_BackBufferVideoMemory.Checked = true;
+            }
         }
 
         private void Update_Use_RA_Aspect_Ratio()
@@ -129,6 +222,16 @@ namespace RedAlertConfig
                 this.txt_UseRAAspectRatio.Text = "(needs to be at least 640x480)";
             }
 
+            String Renderer = Files.DDrawINI.getStringValue("ddraw", "renderer", "opengl");
+
+            if (Renderer.ToLower() == "gdi")
+            {
+                this.radiob_RendererGDI.Checked = true;
+            }
+            else
+            {
+                this.radiob_RendererOpenGL.Checked = true;
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -247,6 +350,12 @@ namespace RedAlertConfig
 
         private void but_ok_Click(object sender, EventArgs e)
         {
+            if (this.chb_EnableCnCDDraw.Checked == true)
+            {
+                this.chb_AllowHardwareFilledBits.Checked = false;
+                Files.RedAlertINI.setBoolValue("Options", "HardwareFills", false);
+            }
+
             if (this.radiob_reso640x400.Checked == true)
             {
                 Files.RedAlertINI.setIntValue("Options", "Width", 640);
@@ -284,11 +393,17 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setIntValue("Options", "Height", ResolutionHeight);
             }
 
+            if (this.chb_UseRAAspectRatio.Checked == false)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseRAAspectRatio", false);
+            }
             if (this.chb_UseRAAspectRatio.Checked == true)
             {
                 int RAHeight = Files.RedAlertINI.getIntValue("Options", "Height", 0);
                 Files.DDrawINI.setIntValue("ddraw", "height", RAHeight);
                 Files.RedAlertINI.setIntValue("Options", "Height", (int)(RAHeight / 1.2));
+
+                Files.RedAlertINI.setBoolValue("Options", "UseRAAspectRatio", true);
 
                 int RAWidth = Files.RedAlertINI.getIntValue("Options", "Width", 0);
                 Files.DDrawINI.setIntValue("ddraw", "width", RAWidth);
@@ -309,13 +424,93 @@ namespace RedAlertConfig
                 }
                 Files.DDrawINI.setIntValue("ddraw", "height", StretchHeight);
             }
-//            else
-//            {
-//                Files.DDrawINI.setIntValue("ddraw", "height", 0);
-//                Files.DDrawINI.setIntValue("ddraw", "width", 0);
-//            }
+            else
+            {
+                Files.DDrawINI.setIntValue("ddraw", "height", 0);
+                Files.DDrawINI.setIntValue("ddraw", "width", 0);
+            }
 
             Files.RedAlertINI.setStringValue("Multiplayer", "Handle", txtb_Handle.Text);
+
+            if (chb_PlayIntro.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Intro", "PlayIntro", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Intro", "PlayIntro", false);
+            }
+
+            if (this.chb_RepeatMusic.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "IsScoreRepeat", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "IsScoreRepeat", false);
+            }
+
+            if (this.chb_ShuffleMusic.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "IsScoreShuffle", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "IsScoreShuffle", false);
+            }
+
+            if (this.chb_Autoscroll.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "AutoScroll", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "AutoScroll", false);
+            }
+
+            if (this.chb_PaletteScroll.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "PaletteScroll", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "PaletteScroll", false);
+            }
+
+            double Volume = ((double)this.slider_SoundVolume.Value) / 1000;
+            Files.RedAlertINI.setStringValue("Options", "Volume", Volume.ToString());
+
+            double MusicVolume = ((double)this.Slider_MusicVolume.Value) / 1000;
+            Files.RedAlertINI.setStringValue("Options", "ScoreVolume", MusicVolume.ToString());
+            Files.RedAlertINI.setStringValue("Options", "MultiplayerScoreVolume", MusicVolume.ToString());
+
+            int GameSpeed = 6 - this.slider_GameSpeed.Value;
+            Files.RedAlertINI.setIntValue("Options", "GameSpeed", GameSpeed);
+
+            int ScrollRate = 6 - this.slider_ScrollRate.Value;
+            Files.RedAlertINI.setIntValue("Options", "ScrollRate", ScrollRate);
+
+            Files.RedAlertINI.setIntValue("MultiPlayer", "Side", this.cmbox_Side.SelectedIndex + 2);
+
+            Files.RedAlertINI.setIntValue("MultiPlayer", "Color", this.cmbox_Color.SelectedIndex);
+
+            if (this.radiob_RendererGDI.Checked == true)
+            {
+                Files.DDrawINI.setStringValue("ddraw", "renderer", "gdi");
+            }
+            else if (this.radiob_RendererOpenGL.Checked == true)
+            {
+                Files.DDrawINI.setStringValue("ddraw", "renderer", "opengl");
+            }
+
+            if (this.cmbox_ScalingFilter.SelectedIndex == 0)
+            {
+                Files.DDrawINI.setStringValue("ddraw", "filter", "nearest");
+            }
+            else if (this.cmbox_ScalingFilter.SelectedIndex == 1)
+            {
+                Files.DDrawINI.setStringValue("ddraw", "filter", "linear");
+            }
 
             Files.RedAlertINI.writeIni();
             Files.DDrawINI.writeIni();
@@ -442,6 +637,18 @@ namespace RedAlertConfig
             {
                 this.txtb_StretchCustomHeight.Enabled = false;
                 this.txtb_StretchCustomWidth.Enabled = false;
+            }
+        }
+
+        private void chb_EnableCnCDDraw_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chb_EnableCnCDDraw.Checked == false)
+            {
+                this.chb_AllowHardwareFilledBits.Enabled = true;
+            }
+            else
+            {
+                this.chb_AllowHardwareFilledBits.Enabled = false;
             }
         }
     }

@@ -15,7 +15,7 @@ namespace RedAlertConfig
             // Check if our needed files exist and acquire a lock to them
 
             DDrawINI = new IniFile("ddraw.ini", false, BooleanMode.TRUE_FALSE, Encoding.Default);
-            RedAlertINI = new IniFile("redalert.ini", false, BooleanMode.TRUE_FALSE, Encoding.Default);
+            RedAlertINI = new IniFile("redalert.ini", false, BooleanMode.YES_NO, Encoding.Default);
             // FileStream.Lock()
 
         }

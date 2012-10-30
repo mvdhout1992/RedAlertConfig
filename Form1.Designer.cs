@@ -35,6 +35,8 @@ namespace RedAlertConfig
             this.but_ok = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chb_StandaloneExpanionMaps = new System.Windows.Forms.CheckBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label36 = new System.Windows.Forms.Label();
@@ -45,8 +47,8 @@ namespace RedAlertConfig
             this.but_RunCnCNetSetup = new System.Windows.Forms.Button();
             this.link_CnCNetSite = new System.Windows.Forms.LinkLabel();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBox2_Color = new System.Windows.Forms.ComboBox();
-            this.comboBox_Side = new System.Windows.Forms.ComboBox();
+            this.cmbox_Color = new System.Windows.Forms.ComboBox();
+            this.cmbox_Side = new System.Windows.Forms.ComboBox();
             this.txtb_Handle = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -76,11 +78,11 @@ namespace RedAlertConfig
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtb_MaxFPS = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radiob_RendererOpenGL = new System.Windows.Forms.RadioButton();
+            this.radiob_RendererGDI = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtb_resoCustomHeight = new System.Windows.Forms.TextBox();
             this.radiob_reso640x400 = new System.Windows.Forms.RadioButton();
@@ -93,28 +95,28 @@ namespace RedAlertConfig
             this.but_DetectReso = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.checkBox23 = new System.Windows.Forms.CheckBox();
-            this.checkBox22 = new System.Windows.Forms.CheckBox();
+            this.chb_UseWindowBoxing = new System.Windows.Forms.CheckBox();
+            this.chb_ShowWindowedBorder = new System.Windows.Forms.CheckBox();
             this.label33 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.checkBox19 = new System.Windows.Forms.CheckBox();
+            this.chb_EnableMouseHack = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.checkBox21 = new System.Windows.Forms.CheckBox();
-            this.checkBox20 = new System.Windows.Forms.CheckBox();
+            this.chb_ForceSingleCPU = new System.Windows.Forms.CheckBox();
+            this.chb_EnableVSync = new System.Windows.Forms.CheckBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.checkBox17 = new System.Windows.Forms.CheckBox();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.chb_AutoAdjustMouse = new System.Windows.Forms.CheckBox();
+            this.chb_RunWindowed = new System.Windows.Forms.CheckBox();
+            this.chb_AllowHardwareFilledBits = new System.Windows.Forms.CheckBox();
+            this.chb_BackBufferVideoMemory = new System.Windows.Forms.CheckBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbox_ScalingFilter = new System.Windows.Forms.ComboBox();
             this.chb_StretchCustom = new System.Windows.Forms.CheckBox();
             this.txtb_StretchCustomHeight = new System.Windows.Forms.TextBox();
             this.txtb_StretchCustomWidth = new System.Windows.Forms.TextBox();
@@ -124,6 +126,7 @@ namespace RedAlertConfig
             this.chb_UseRAAspectRatio = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
+            this.tabPage5.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Slider_MusicVolume)).BeginInit();
@@ -168,12 +171,34 @@ namespace RedAlertConfig
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.checkBox1);
+            this.tabPage5.Controls.Add(this.chb_StandaloneExpanionMaps);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(471, 386);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Map list";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(18, 49);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(331, 17);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "note to self: add .INI versions of expnsions map back to MIX files";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // chb_StandaloneExpanionMaps
+            // 
+            this.chb_StandaloneExpanionMaps.AutoSize = true;
+            this.chb_StandaloneExpanionMaps.Location = new System.Drawing.Point(18, 13);
+            this.chb_StandaloneExpanionMaps.Name = "chb_StandaloneExpanionMaps";
+            this.chb_StandaloneExpanionMaps.Size = new System.Drawing.Size(322, 17);
+            this.chb_StandaloneExpanionMaps.TabIndex = 0;
+            this.chb_StandaloneExpanionMaps.Text = "Enable custom expansions map pack with expansions disabled";
+            this.chb_StandaloneExpanionMaps.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -194,8 +219,8 @@ namespace RedAlertConfig
             this.tabPage3.Controls.Add(this.but_RunCnCNetSetup);
             this.tabPage3.Controls.Add(this.link_CnCNetSite);
             this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Controls.Add(this.comboBox2_Color);
-            this.tabPage3.Controls.Add(this.comboBox_Side);
+            this.tabPage3.Controls.Add(this.cmbox_Color);
+            this.tabPage3.Controls.Add(this.cmbox_Side);
             this.tabPage3.Controls.Add(this.txtb_Handle);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.label11);
@@ -292,10 +317,10 @@ namespace RedAlertConfig
             this.label13.TabIndex = 40;
             this.label13.Text = "CnCNet options:";
             // 
-            // comboBox2_Color
+            // cmbox_Color
             // 
-            this.comboBox2_Color.FormattingEnabled = true;
-            this.comboBox2_Color.Items.AddRange(new object[] {
+            this.cmbox_Color.FormattingEnabled = true;
+            this.cmbox_Color.Items.AddRange(new object[] {
             "Yellow",
             "Blue",
             "Red",
@@ -304,24 +329,24 @@ namespace RedAlertConfig
             "Grey",
             "DarkGreen",
             "DarkRed"});
-            this.comboBox2_Color.Location = new System.Drawing.Point(170, 81);
-            this.comboBox2_Color.Name = "comboBox2_Color";
-            this.comboBox2_Color.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2_Color.TabIndex = 39;
+            this.cmbox_Color.Location = new System.Drawing.Point(170, 81);
+            this.cmbox_Color.Name = "cmbox_Color";
+            this.cmbox_Color.Size = new System.Drawing.Size(121, 21);
+            this.cmbox_Color.TabIndex = 39;
             // 
-            // comboBox_Side
+            // cmbox_Side
             // 
-            this.comboBox_Side.FormattingEnabled = true;
-            this.comboBox_Side.Items.AddRange(new object[] {
+            this.cmbox_Side.FormattingEnabled = true;
+            this.cmbox_Side.Items.AddRange(new object[] {
             "Russia",
             "England",
             "Ukraine",
             "Germany",
             "France"});
-            this.comboBox_Side.Location = new System.Drawing.Point(170, 56);
-            this.comboBox_Side.Name = "comboBox_Side";
-            this.comboBox_Side.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_Side.TabIndex = 38;
+            this.cmbox_Side.Location = new System.Drawing.Point(170, 56);
+            this.cmbox_Side.Name = "cmbox_Side";
+            this.cmbox_Side.Size = new System.Drawing.Size(121, 21);
+            this.cmbox_Side.TabIndex = 38;
             // 
             // txtb_Handle
             // 
@@ -353,9 +378,9 @@ namespace RedAlertConfig
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(29, 39);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.Size = new System.Drawing.Size(55, 13);
             this.label10.TabIndex = 34;
-            this.label10.Text = "Handle:";
+            this.label10.Text = "Nickname";
             // 
             // label7
             // 
@@ -477,10 +502,11 @@ namespace RedAlertConfig
             this.Slider_MusicVolume.AutoSize = false;
             this.Slider_MusicVolume.LargeChange = 1;
             this.Slider_MusicVolume.Location = new System.Drawing.Point(112, 344);
-            this.Slider_MusicVolume.Maximum = 100;
+            this.Slider_MusicVolume.Maximum = 1000;
             this.Slider_MusicVolume.Name = "Slider_MusicVolume";
             this.Slider_MusicVolume.RightToLeftLayout = true;
             this.Slider_MusicVolume.Size = new System.Drawing.Size(153, 27);
+            this.Slider_MusicVolume.SmallChange = 10;
             this.Slider_MusicVolume.TabIndex = 25;
             this.Slider_MusicVolume.Value = 1;
             // 
@@ -498,10 +524,11 @@ namespace RedAlertConfig
             this.slider_SoundVolume.AutoSize = false;
             this.slider_SoundVolume.LargeChange = 1;
             this.slider_SoundVolume.Location = new System.Drawing.Point(112, 311);
-            this.slider_SoundVolume.Maximum = 100;
+            this.slider_SoundVolume.Maximum = 1000;
             this.slider_SoundVolume.Name = "slider_SoundVolume";
             this.slider_SoundVolume.RightToLeftLayout = true;
             this.slider_SoundVolume.Size = new System.Drawing.Size(153, 27);
+            this.slider_SoundVolume.SmallChange = 10;
             this.slider_SoundVolume.TabIndex = 23;
             this.slider_SoundVolume.Value = 1;
             // 
@@ -544,7 +571,6 @@ namespace RedAlertConfig
             this.slider_GameSpeed.RightToLeftLayout = true;
             this.slider_GameSpeed.Size = new System.Drawing.Size(153, 27);
             this.slider_GameSpeed.TabIndex = 19;
-            this.slider_GameSpeed.Value = 1;
             // 
             // label5
             // 
@@ -565,7 +591,6 @@ namespace RedAlertConfig
             this.slider_ScrollRate.RightToLeftLayout = true;
             this.slider_ScrollRate.Size = new System.Drawing.Size(153, 27);
             this.slider_ScrollRate.TabIndex = 17;
-            this.slider_ScrollRate.Value = 1;
             // 
             // chb_PaletteScroll
             // 
@@ -636,35 +661,35 @@ namespace RedAlertConfig
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.txtb_MaxFPS);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.panel3);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.but_DetectReso);
             this.tabPage1.Controls.Add(this.label34);
             this.tabPage1.Controls.Add(this.label35);
-            this.tabPage1.Controls.Add(this.checkBox23);
-            this.tabPage1.Controls.Add(this.checkBox22);
+            this.tabPage1.Controls.Add(this.chb_UseWindowBoxing);
+            this.tabPage1.Controls.Add(this.chb_ShowWindowedBorder);
             this.tabPage1.Controls.Add(this.label33);
             this.tabPage1.Controls.Add(this.comboBox4);
             this.tabPage1.Controls.Add(this.label31);
             this.tabPage1.Controls.Add(this.label32);
-            this.tabPage1.Controls.Add(this.checkBox19);
+            this.tabPage1.Controls.Add(this.chb_EnableMouseHack);
             this.tabPage1.Controls.Add(this.label29);
             this.tabPage1.Controls.Add(this.label30);
-            this.tabPage1.Controls.Add(this.checkBox21);
-            this.tabPage1.Controls.Add(this.checkBox20);
+            this.tabPage1.Controls.Add(this.chb_ForceSingleCPU);
+            this.tabPage1.Controls.Add(this.chb_EnableVSync);
             this.tabPage1.Controls.Add(this.label25);
             this.tabPage1.Controls.Add(this.label26);
-            this.tabPage1.Controls.Add(this.checkBox17);
-            this.tabPage1.Controls.Add(this.checkBox16);
-            this.tabPage1.Controls.Add(this.checkBox15);
-            this.tabPage1.Controls.Add(this.checkBox14);
+            this.tabPage1.Controls.Add(this.chb_AutoAdjustMouse);
+            this.tabPage1.Controls.Add(this.chb_RunWindowed);
+            this.tabPage1.Controls.Add(this.chb_AllowHardwareFilledBits);
+            this.tabPage1.Controls.Add(this.chb_BackBufferVideoMemory);
             this.tabPage1.Controls.Add(this.label24);
             this.tabPage1.Controls.Add(this.label23);
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.label21);
-            this.tabPage1.Controls.Add(this.comboBox3);
+            this.tabPage1.Controls.Add(this.cmbox_ScalingFilter);
             this.tabPage1.Controls.Add(this.chb_StretchCustom);
             this.tabPage1.Controls.Add(this.txtb_StretchCustomHeight);
             this.tabPage1.Controls.Add(this.txtb_StretchCustomWidth);
@@ -683,53 +708,53 @@ namespace RedAlertConfig
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // textBox1
+            // txtb_MaxFPS
             // 
-            this.textBox1.Location = new System.Drawing.Point(354, 309);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(33, 20);
-            this.textBox1.TabIndex = 87;
+            this.txtb_MaxFPS.Location = new System.Drawing.Point(373, 308);
+            this.txtb_MaxFPS.Name = "txtb_MaxFPS";
+            this.txtb_MaxFPS.Size = new System.Drawing.Size(33, 20);
+            this.txtb_MaxFPS.TabIndex = 87;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(217, 311);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(131, 13);
+            this.label14.Size = new System.Drawing.Size(150, 13);
             this.label14.TabIndex = 86;
-            this.label14.Text = "Max FPS  (helps scrolling):";
+            this.label14.Text = "Max FPS  (slows scroll speed):";
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.radioButton6);
-            this.panel3.Controls.Add(this.radioButton7);
+            this.panel3.Controls.Add(this.radiob_RendererOpenGL);
+            this.panel3.Controls.Add(this.radiob_RendererGDI);
             this.panel3.Location = new System.Drawing.Point(5, 355);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(198, 35);
             this.panel3.TabIndex = 85;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // radioButton6
+            // radiob_RendererOpenGL
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(53, 3);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(65, 17);
-            this.radioButton6.TabIndex = 87;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "OpenGL";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.radiob_RendererOpenGL.AutoSize = true;
+            this.radiob_RendererOpenGL.Location = new System.Drawing.Point(53, 3);
+            this.radiob_RendererOpenGL.Name = "radiob_RendererOpenGL";
+            this.radiob_RendererOpenGL.Size = new System.Drawing.Size(65, 17);
+            this.radiob_RendererOpenGL.TabIndex = 87;
+            this.radiob_RendererOpenGL.TabStop = true;
+            this.radiob_RendererOpenGL.Text = "OpenGL";
+            this.radiob_RendererOpenGL.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // radiob_RendererGDI
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(3, 3);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(44, 17);
-            this.radioButton7.TabIndex = 86;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "GDI";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.radiob_RendererGDI.AutoSize = true;
+            this.radiob_RendererGDI.Location = new System.Drawing.Point(3, 3);
+            this.radiob_RendererGDI.Name = "radiob_RendererGDI";
+            this.radiob_RendererGDI.Size = new System.Drawing.Size(44, 17);
+            this.radiob_RendererGDI.TabIndex = 86;
+            this.radiob_RendererGDI.TabStop = true;
+            this.radiob_RendererGDI.Text = "GDI";
+            this.radiob_RendererGDI.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -860,24 +885,24 @@ namespace RedAlertConfig
             this.label35.TabIndex = 81;
             this.label35.Text = "make a best fit (GDI only)";
             // 
-            // checkBox23
+            // chb_UseWindowBoxing
             // 
-            this.checkBox23.AutoSize = true;
-            this.checkBox23.Location = new System.Drawing.Point(220, 164);
-            this.checkBox23.Name = "checkBox23";
-            this.checkBox23.Size = new System.Drawing.Size(15, 14);
-            this.checkBox23.TabIndex = 80;
-            this.checkBox23.UseVisualStyleBackColor = true;
+            this.chb_UseWindowBoxing.AutoSize = true;
+            this.chb_UseWindowBoxing.Location = new System.Drawing.Point(220, 164);
+            this.chb_UseWindowBoxing.Name = "chb_UseWindowBoxing";
+            this.chb_UseWindowBoxing.Size = new System.Drawing.Size(15, 14);
+            this.chb_UseWindowBoxing.TabIndex = 80;
+            this.chb_UseWindowBoxing.UseVisualStyleBackColor = true;
             // 
-            // checkBox22
+            // chb_ShowWindowedBorder
             // 
-            this.checkBox22.AutoSize = true;
-            this.checkBox22.Location = new System.Drawing.Point(220, 125);
-            this.checkBox22.Name = "checkBox22";
-            this.checkBox22.Size = new System.Drawing.Size(216, 17);
-            this.checkBox22.TabIndex = 79;
-            this.checkBox22.Text = "Show window border in windowed mode";
-            this.checkBox22.UseVisualStyleBackColor = true;
+            this.chb_ShowWindowedBorder.AutoSize = true;
+            this.chb_ShowWindowedBorder.Location = new System.Drawing.Point(220, 125);
+            this.chb_ShowWindowedBorder.Name = "chb_ShowWindowedBorder";
+            this.chb_ShowWindowedBorder.Size = new System.Drawing.Size(216, 17);
+            this.chb_ShowWindowedBorder.TabIndex = 79;
+            this.chb_ShowWindowedBorder.Text = "Show window border in windowed mode";
+            this.chb_ShowWindowedBorder.UseVisualStyleBackColor = true;
             // 
             // label33
             // 
@@ -920,14 +945,14 @@ namespace RedAlertConfig
             this.label32.TabIndex = 75;
             this.label32.Text = "(enable if you experience mouse issues)";
             // 
-            // checkBox19
+            // chb_EnableMouseHack
             // 
-            this.checkBox19.AutoSize = true;
-            this.checkBox19.Location = new System.Drawing.Point(220, 225);
-            this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(15, 14);
-            this.checkBox19.TabIndex = 74;
-            this.checkBox19.UseVisualStyleBackColor = true;
+            this.chb_EnableMouseHack.AutoSize = true;
+            this.chb_EnableMouseHack.Location = new System.Drawing.Point(220, 225);
+            this.chb_EnableMouseHack.Name = "chb_EnableMouseHack";
+            this.chb_EnableMouseHack.Size = new System.Drawing.Size(15, 14);
+            this.chb_EnableMouseHack.TabIndex = 74;
+            this.chb_EnableMouseHack.UseVisualStyleBackColor = true;
             // 
             // label29
             // 
@@ -947,25 +972,25 @@ namespace RedAlertConfig
             this.label30.TabIndex = 72;
             this.label30.Text = "(avoids crashes with RA, might be slower)";
             // 
-            // checkBox21
+            // chb_ForceSingleCPU
             // 
-            this.checkBox21.AutoSize = true;
-            this.checkBox21.Location = new System.Drawing.Point(220, 279);
-            this.checkBox21.Name = "checkBox21";
-            this.checkBox21.Size = new System.Drawing.Size(15, 14);
-            this.checkBox21.TabIndex = 71;
-            this.checkBox21.UseVisualStyleBackColor = true;
+            this.chb_ForceSingleCPU.AutoSize = true;
+            this.chb_ForceSingleCPU.Location = new System.Drawing.Point(220, 279);
+            this.chb_ForceSingleCPU.Name = "chb_ForceSingleCPU";
+            this.chb_ForceSingleCPU.Size = new System.Drawing.Size(15, 14);
+            this.chb_ForceSingleCPU.TabIndex = 71;
+            this.chb_ForceSingleCPU.UseVisualStyleBackColor = true;
             // 
-            // checkBox20
+            // chb_EnableVSync
             // 
-            this.checkBox20.AutoSize = true;
-            this.checkBox20.Location = new System.Drawing.Point(220, 249);
-            this.checkBox20.Name = "checkBox20";
-            this.checkBox20.Size = new System.Drawing.Size(90, 17);
-            this.checkBox20.TabIndex = 70;
-            this.checkBox20.Text = "Enable vsync";
-            this.checkBox20.UseVisualStyleBackColor = true;
-            this.checkBox20.CheckedChanged += new System.EventHandler(this.checkBox20_CheckedChanged);
+            this.chb_EnableVSync.AutoSize = true;
+            this.chb_EnableVSync.Location = new System.Drawing.Point(220, 249);
+            this.chb_EnableVSync.Name = "chb_EnableVSync";
+            this.chb_EnableVSync.Size = new System.Drawing.Size(90, 17);
+            this.chb_EnableVSync.TabIndex = 70;
+            this.chb_EnableVSync.Text = "Enable vsync";
+            this.chb_EnableVSync.UseVisualStyleBackColor = true;
+            this.chb_EnableVSync.CheckedChanged += new System.EventHandler(this.checkBox20_CheckedChanged);
             // 
             // label25
             // 
@@ -986,44 +1011,44 @@ namespace RedAlertConfig
             this.label26.Text = "sensitivity to resolution";
             this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
-            // checkBox17
+            // chb_AutoAdjustMouse
             // 
-            this.checkBox17.AutoSize = true;
-            this.checkBox17.Location = new System.Drawing.Point(220, 195);
-            this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(15, 14);
-            this.checkBox17.TabIndex = 63;
-            this.checkBox17.UseVisualStyleBackColor = true;
+            this.chb_AutoAdjustMouse.AutoSize = true;
+            this.chb_AutoAdjustMouse.Location = new System.Drawing.Point(220, 195);
+            this.chb_AutoAdjustMouse.Name = "chb_AutoAdjustMouse";
+            this.chb_AutoAdjustMouse.Size = new System.Drawing.Size(15, 14);
+            this.chb_AutoAdjustMouse.TabIndex = 63;
+            this.chb_AutoAdjustMouse.UseVisualStyleBackColor = true;
             // 
-            // checkBox16
+            // chb_RunWindowed
             // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Location = new System.Drawing.Point(220, 105);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(137, 17);
-            this.checkBox16.TabIndex = 62;
-            this.checkBox16.Text = "Run in windowed mode";
-            this.checkBox16.UseVisualStyleBackColor = true;
+            this.chb_RunWindowed.AutoSize = true;
+            this.chb_RunWindowed.Location = new System.Drawing.Point(220, 105);
+            this.chb_RunWindowed.Name = "chb_RunWindowed";
+            this.chb_RunWindowed.Size = new System.Drawing.Size(137, 17);
+            this.chb_RunWindowed.TabIndex = 62;
+            this.chb_RunWindowed.Text = "Run in windowed mode";
+            this.chb_RunWindowed.UseVisualStyleBackColor = true;
             // 
-            // checkBox15
+            // chb_AllowHardwareFilledBits
             // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Location = new System.Drawing.Point(220, 70);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(141, 17);
-            this.checkBox15.TabIndex = 61;
-            this.checkBox15.Text = "Allow hardware filled bits";
-            this.checkBox15.UseVisualStyleBackColor = true;
+            this.chb_AllowHardwareFilledBits.AutoSize = true;
+            this.chb_AllowHardwareFilledBits.Location = new System.Drawing.Point(220, 70);
+            this.chb_AllowHardwareFilledBits.Name = "chb_AllowHardwareFilledBits";
+            this.chb_AllowHardwareFilledBits.Size = new System.Drawing.Size(141, 17);
+            this.chb_AllowHardwareFilledBits.TabIndex = 61;
+            this.chb_AllowHardwareFilledBits.Text = "Allow hardware filled bits";
+            this.chb_AllowHardwareFilledBits.UseVisualStyleBackColor = true;
             // 
-            // checkBox14
+            // chb_BackBufferVideoMemory
             // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(220, 52);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(160, 17);
-            this.checkBox14.TabIndex = 60;
-            this.checkBox14.Text = "Back buffer in video memory";
-            this.checkBox14.UseVisualStyleBackColor = true;
+            this.chb_BackBufferVideoMemory.AutoSize = true;
+            this.chb_BackBufferVideoMemory.Location = new System.Drawing.Point(220, 52);
+            this.chb_BackBufferVideoMemory.Name = "chb_BackBufferVideoMemory";
+            this.chb_BackBufferVideoMemory.Size = new System.Drawing.Size(160, 17);
+            this.chb_BackBufferVideoMemory.TabIndex = 60;
+            this.chb_BackBufferVideoMemory.Text = "Back buffer in video memory";
+            this.chb_BackBufferVideoMemory.UseVisualStyleBackColor = true;
             // 
             // label24
             // 
@@ -1065,17 +1090,16 @@ namespace RedAlertConfig
             this.label21.TabIndex = 54;
             this.label21.Text = "Scaling filter for stretching:";
             // 
-            // comboBox3
+            // cmbox_ScalingFilter
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cmbox_ScalingFilter.FormattingEnabled = true;
+            this.cmbox_ScalingFilter.Items.AddRange(new object[] {
             "Nearest (sharp/pixelated)",
-            "Linear (smooth/blurred)",
-            "Center (double size if possible)"});
-            this.comboBox3.Location = new System.Drawing.Point(13, 311);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(153, 21);
-            this.comboBox3.TabIndex = 53;
+            "Linear (smooth/blurred)"});
+            this.cmbox_ScalingFilter.Location = new System.Drawing.Point(13, 311);
+            this.cmbox_ScalingFilter.Name = "cmbox_ScalingFilter";
+            this.cmbox_ScalingFilter.Size = new System.Drawing.Size(153, 21);
+            this.cmbox_ScalingFilter.TabIndex = 53;
             // 
             // chb_StretchCustom
             // 
@@ -1158,6 +1182,7 @@ namespace RedAlertConfig
             this.chb_EnableCnCDDraw.TabIndex = 0;
             this.chb_EnableCnCDDraw.Text = "Use CnC-DDraw (enables advanced options)";
             this.chb_EnableCnCDDraw.UseVisualStyleBackColor = true;
+            this.chb_EnableCnCDDraw.CheckedChanged += new System.EventHandler(this.chb_EnableCnCDDraw_CheckedChanged);
             // 
             // Form1
             // 
@@ -1173,6 +1198,8 @@ namespace RedAlertConfig
             this.Name = "Form1";
             this.Text = "Red Alert 95 Config";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1217,8 +1244,8 @@ namespace RedAlertConfig
         private System.Windows.Forms.Button but_RunCnCNetSetup;
         private System.Windows.Forms.LinkLabel link_CnCNetSite;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox2_Color;
-        private System.Windows.Forms.ComboBox comboBox_Side;
+        private System.Windows.Forms.ComboBox cmbox_Color;
+        private System.Windows.Forms.ComboBox cmbox_Side;
         private System.Windows.Forms.TextBox txtb_Handle;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -1265,26 +1292,26 @@ namespace RedAlertConfig
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbox_ScalingFilter;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.CheckBox checkBox17;
-        private System.Windows.Forms.CheckBox checkBox16;
-        private System.Windows.Forms.CheckBox checkBox15;
-        private System.Windows.Forms.CheckBox checkBox14;
-        private System.Windows.Forms.CheckBox checkBox20;
+        private System.Windows.Forms.CheckBox chb_AutoAdjustMouse;
+        private System.Windows.Forms.CheckBox chb_RunWindowed;
+        private System.Windows.Forms.CheckBox chb_AllowHardwareFilledBits;
+        private System.Windows.Forms.CheckBox chb_BackBufferVideoMemory;
+        private System.Windows.Forms.CheckBox chb_EnableVSync;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.CheckBox checkBox19;
+        private System.Windows.Forms.CheckBox chb_EnableMouseHack;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.CheckBox checkBox21;
+        private System.Windows.Forms.CheckBox chb_ForceSingleCPU;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.CheckBox checkBox23;
-        private System.Windows.Forms.CheckBox checkBox22;
+        private System.Windows.Forms.CheckBox chb_UseWindowBoxing;
+        private System.Windows.Forms.CheckBox chb_ShowWindowedBorder;
         private System.Windows.Forms.Button but_DetectReso;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Panel panel2;
@@ -1297,10 +1324,12 @@ namespace RedAlertConfig
         private System.Windows.Forms.RadioButton radiob_resoCustom;
         private System.Windows.Forms.RadioButton radiob_reso1024x768;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton radiob_RendererOpenGL;
+        private System.Windows.Forms.RadioButton radiob_RendererGDI;
+        private System.Windows.Forms.TextBox txtb_MaxFPS;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.CheckBox chb_StandaloneExpanionMaps;
+        private System.Windows.Forms.CheckBox checkBox1;
 
     }
 }
