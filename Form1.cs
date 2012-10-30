@@ -90,6 +90,7 @@ namespace RedAlertConfig
             if (!File.Exists("movies1.mix") && !File.Exists("movies2.mix"))
             {
                 chb_PlayIntro.Enabled = false;
+                chb_PlayIntro.Text = "Play intro cinematic (requires movie files)";
             }
 
             if (Files.RedAlertINI.getBoolValue("Options", "IsScoreRepeat", false) == true)
@@ -162,6 +163,10 @@ namespace RedAlertConfig
                 this.chb_AllowHardwareFilledBits.Enabled = false;
             }
 
+            if (Files.RedAlertINI.getBoolValue("Options", "VideoBackBuffer", false) == true)
+            {
+                this.chb_BackBufferVideoMemory.Checked = true;
+            }
             if (Files.RedAlertINI.getBoolValue("Options", "VideoBackBuffer", false) == true)
             {
                 this.chb_BackBufferVideoMemory.Checked = true;
@@ -354,6 +359,7 @@ namespace RedAlertConfig
             {
                 this.chb_AllowHardwareFilledBits.Checked = false;
                 Files.RedAlertINI.setBoolValue("Options", "HardwareFills", false);
+                Files.RedAlertINI.setBoolValue("Options", "UseRAAspectRatio", false);
             }
 
             if (this.radiob_reso640x400.Checked == true)
@@ -645,10 +651,76 @@ namespace RedAlertConfig
             if (this.chb_EnableCnCDDraw.Checked == false)
             {
                 this.chb_AllowHardwareFilledBits.Enabled = true;
+
+                this.txt_StretchingScaling.Visible = false;
+                this.chb_UseRAAspectRatio.Visible = false;
+                this.chb_StretchCustom.Visible = false;
+                this.label18.Visible = false;
+                this.txt_UseRAAspectRatio.Visible = false;
+                this.txtb_StretchCustomHeight.Visible = false;
+                this.txtb_StretchCustomWidth.Visible = false;
+                this.label20.Visible = false;
+                this.label21.Visible = false;
+                this.cmbox_ScalingFilter.Visible = false;
+                this.label24.Visible = false;
+                this.radiob_RendererGDI.Visible = false;
+                this.radiob_RendererOpenGL.Visible = false;
+                this.chb_RunWindowed.Visible = false;
+                this.chb_ShowWindowedBorder.Visible = false;
+                this.chb_UseWindowBoxing.Visible = false;
+                this.label34.Visible = false;
+                this.label35.Visible = false;
+                this.chb_AutoAdjustMouse.Visible = false;
+                this.chb_EnableMouseHack.Visible = false;
+                this.chb_EnableVSync.Visible = false;
+                this.chb_ForceSingleCPU.Visible = false;
+                this.label14.Visible = false;
+                this.txtb_MaxFPS.Visible = false;
+                this.label33.Visible = false;
+                this.cmbox_BitsPerPixels.Visible = false;
+                this.label25.Visible = false;
+                this.label26.Visible = false;
+                this.label31.Visible = false;
+                this.label32.Visible = false;
+                this.label29.Visible = false;
+                this.label30.Visible = false;
             }
             else
             {
                 this.chb_AllowHardwareFilledBits.Enabled = false;
+
+                this.txt_StretchingScaling.Visible = true;
+                this.chb_UseRAAspectRatio.Visible = true;
+                this.chb_StretchCustom.Visible = true;
+                this.label18.Visible = true;
+                this.txt_UseRAAspectRatio.Visible = true;
+                this.txtb_StretchCustomHeight.Visible = true;
+                this.txtb_StretchCustomWidth.Visible = true;
+                this.label20.Visible = true;
+                this.label21.Visible = true;
+                this.cmbox_ScalingFilter.Visible = true;
+                this.label24.Visible = true;
+                this.radiob_RendererGDI.Visible = true;
+                this.radiob_RendererOpenGL.Visible = true;
+                this.chb_RunWindowed.Visible = true;
+                this.chb_ShowWindowedBorder.Visible = true;
+                this.chb_UseWindowBoxing.Visible = true;
+                this.label34.Visible = true;
+                this.label35.Visible = true;
+                this.chb_AutoAdjustMouse.Visible = true;
+                this.chb_EnableMouseHack.Visible = true;
+                this.chb_EnableVSync.Visible = true;
+                this.chb_ForceSingleCPU.Visible = true;
+                this.label14.Visible = true;
+                this.txtb_MaxFPS.Visible = true;
+                this.label33.Visible = true;
+                this.cmbox_BitsPerPixels.Visible = true;
+                this.label25.Visible = true;
+                this.label26.Visible = true;
+                this.label31.Visible = true;
+                this.label32.Visible = true;
+                this.label29.Visible = true;
+                this.label30.Visible = true;
             }
         }
     }

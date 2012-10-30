@@ -98,7 +98,7 @@ namespace RedAlertConfig
             this.chb_UseWindowBoxing = new System.Windows.Forms.CheckBox();
             this.chb_ShowWindowedBorder = new System.Windows.Forms.CheckBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cmbox_BitsPerPixels = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.chb_EnableMouseHack = new System.Windows.Forms.CheckBox();
@@ -113,7 +113,7 @@ namespace RedAlertConfig
             this.chb_AllowHardwareFilledBits = new System.Windows.Forms.CheckBox();
             this.chb_BackBufferVideoMemory = new System.Windows.Forms.CheckBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.txt_StretchingScaling = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.cmbox_ScalingFilter = new System.Windows.Forms.ComboBox();
@@ -671,7 +671,7 @@ namespace RedAlertConfig
             this.tabPage1.Controls.Add(this.chb_UseWindowBoxing);
             this.tabPage1.Controls.Add(this.chb_ShowWindowedBorder);
             this.tabPage1.Controls.Add(this.label33);
-            this.tabPage1.Controls.Add(this.comboBox4);
+            this.tabPage1.Controls.Add(this.cmbox_BitsPerPixels);
             this.tabPage1.Controls.Add(this.label31);
             this.tabPage1.Controls.Add(this.label32);
             this.tabPage1.Controls.Add(this.chb_EnableMouseHack);
@@ -686,7 +686,7 @@ namespace RedAlertConfig
             this.tabPage1.Controls.Add(this.chb_AllowHardwareFilledBits);
             this.tabPage1.Controls.Add(this.chb_BackBufferVideoMemory);
             this.tabPage1.Controls.Add(this.label24);
-            this.tabPage1.Controls.Add(this.label23);
+            this.tabPage1.Controls.Add(this.txt_StretchingScaling);
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.label21);
             this.tabPage1.Controls.Add(this.cmbox_ScalingFilter);
@@ -914,18 +914,18 @@ namespace RedAlertConfig
             this.label33.TabIndex = 78;
             this.label33.Text = "Bits per pixels:";
             // 
-            // comboBox4
+            // cmbox_BitsPerPixels
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.cmbox_BitsPerPixels.FormattingEnabled = true;
+            this.cmbox_BitsPerPixels.Items.AddRange(new object[] {
             "auto-detect",
             "16",
             "24",
             "32"});
-            this.comboBox4.Location = new System.Drawing.Point(223, 354);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(153, 21);
-            this.comboBox4.TabIndex = 77;
+            this.cmbox_BitsPerPixels.Location = new System.Drawing.Point(223, 354);
+            this.cmbox_BitsPerPixels.Name = "cmbox_BitsPerPixels";
+            this.cmbox_BitsPerPixels.Size = new System.Drawing.Size(153, 21);
+            this.cmbox_BitsPerPixels.TabIndex = 77;
             // 
             // label31
             // 
@@ -1060,15 +1060,15 @@ namespace RedAlertConfig
             this.label24.TabIndex = 57;
             this.label24.Text = "Game renderer:";
             // 
-            // label23
+            // txt_StretchingScaling
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(6, 175);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(96, 13);
-            this.label23.TabIndex = 56;
-            this.label23.Text = "Stretching/scaling:";
+            this.txt_StretchingScaling.AutoSize = true;
+            this.txt_StretchingScaling.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_StretchingScaling.Location = new System.Drawing.Point(6, 175);
+            this.txt_StretchingScaling.Name = "txt_StretchingScaling";
+            this.txt_StretchingScaling.Size = new System.Drawing.Size(96, 13);
+            this.txt_StretchingScaling.TabIndex = 56;
+            this.txt_StretchingScaling.Text = "Stretching/scaling:";
             // 
             // label22
             // 
@@ -1289,7 +1289,7 @@ namespace RedAlertConfig
         private System.Windows.Forms.TextBox txtb_StretchCustomWidth;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label txt_StretchingScaling;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox cmbox_ScalingFilter;
@@ -1307,7 +1307,7 @@ namespace RedAlertConfig
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.CheckBox chb_ForceSingleCPU;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cmbox_BitsPerPixels;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.CheckBox chb_UseWindowBoxing;
