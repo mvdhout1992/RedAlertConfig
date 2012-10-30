@@ -918,7 +918,7 @@ namespace RedAlertConfig
             // 
             this.cmbox_BitsPerPixels.FormattingEnabled = true;
             this.cmbox_BitsPerPixels.Items.AddRange(new object[] {
-            "auto-detect",
+            "Auto-detect",
             "16",
             "24",
             "32"});
