@@ -22,6 +22,7 @@ namespace RedAlertConfig
             Files.Init();
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+
             InitializeComponent();
         }
 
@@ -376,10 +377,19 @@ namespace RedAlertConfig
                 this.txt_UseRAAspectRatio.Text = "(needs to be at least 640x480)";
             }
 
-            this.grid_HotKeyEditor.Rows.Add();
+            this.grid_HotKeyEditor.Rows.Add(4);
+            grid_HotKeyEditor.Rows[0].Cells["ColumnHotkeyName"].Value = "KeyForceMove1";
+            Set_Row_Value_From_Hotkey_INI("KeyForceMove1", 0);
+            Set_Row_Value_From_Hotkey_INI("KeyForceMove2", 1);
+            Set_Row_Value_From_Hotkey_INI("KeyForceAttack1", 2);
+            Set_Row_Value_From_Hotkey_INI("KeyForceAttack2", 3);
 
-            grid_HotKeyEditor.Rows[0].Cells["ColumnHotkeyName"].Value = "herp";
-            grid_HotKeyEditor.Rows[0].Cells["ColumnHotkeyValue"].Value = "derp";
+            // this one is needed or the row displays garbage rows for some reason..
+//            Set_Row_Value_From_Hotkey_INI("herppppppppderpppppp", );
+
+//            this.grid_HotKeyEditor.Rows.Add(1);
+ //           this.grid_HotKeyEditor.Rows.Add();
+//            this.grid_HotKeyEditor.Rows.Add();
 
         }
 
@@ -809,11 +819,31 @@ namespace RedAlertConfig
             double Tint = ((double)this.slider_Tint.Value) / 1000;
             Files.RedAlertINI.setStringValue("Options", "Tint", Tint.ToString());
 
+            KeysConverter Converter = new KeysConverter();
+
+            Save_Hotkey_From_Row_Value("KeyForceMove1", 0);
+
             Files.RedAlertINI.writeIni();
             Files.DDrawINI.writeIni();
 
             Application.Exit();
         }
+
+        void Save_Hotkey_From_Row_Value(string Hotkey, int RowIndex)
+        {
+            KeysConverter Converter = new KeysConverter();
+
+            Files.RedAlertINI.setIntValue("WinHotKeys", Hotkey,
+                Convert.ToInt32((char)(Keys)Converter.ConvertFromString((string)this.grid_HotKeyEditor.Rows[RowIndex].Cells["ColumnHotkeyValue"].Value)));
+        }
+
+        void Set_Row_Value_From_Hotkey_INI(string INIKey, int RowIndex)
+        {
+            this.grid_HotKeyEditor.Rows[RowIndex].Cells["ColumnHotkeyValue"].Value =
+                ((Keys)Files.RedAlertINI.getIntValue("WinHotKeys", INIKey, 0)).ToString();
+        }
+
+
 
         private void radiob_reso640x400_CheckedChanged(object sender, EventArgs e)
         {
@@ -1046,11 +1076,6 @@ namespace RedAlertConfig
             }
         }
 
-        private void OnMouseClick(object sender, MouseEventArgs e)
-        {
-            this.grid_HotKeyEditor.BeginEdit(true);
-        }
-
         private void chb_EnableAftermath_CheckedChanged(object sender, EventArgs e)
         {
             if (this.chb_EnableAftermath.Checked == false)
@@ -1070,6 +1095,66 @@ namespace RedAlertConfig
             this.slider_Color.Value = 500;
             this.slider_Tint.Value = 500;
             this.slider_Contrast.Value = 500;
+        }
+
+        private void OnMouseClick(object sender, MouseEventArgs e)
+        {
+        }
+
+        private void HotkeyEditorCell_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (this.grid_HotKeyEditor.CurrentCell.ColumnIndex == 1)
+            {
+//                MessageBox.Show(((int)e.KeyChar).ToString());
+//                MessageBox.Show(e.KeyChar.ToString());
+
+                grid_HotKeyEditor.Select();
+
+                grid_HotKeyEditor.EndEdit();
+            }
+
+
+        }
+
+        private void Hotkey_Editor_Editing_Control_Showing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (this.grid_HotKeyEditor.CurrentCell.ColumnIndex == 0)
+            {
+                grid_HotKeyEditor.Select();
+                grid_HotKeyEditor.EndEdit();
+            }
+            // Ensure that the editing control is a TextBox
+            TextBox txt = e.Control as TextBox;
+            if (txt != null && this.grid_HotKeyEditor.CurrentCell.ColumnIndex == 1)
+            {
+                // Remove an existing event handler, if present, to avoid adding
+                // multiple handler when the editing control is reused
+                txt.KeyPress -= new KeyPressEventHandler(HotkeyEditorCell_KeyPress);
+
+                // Add a handler for the TextBox's KeyPress event
+                txt.KeyPress += new KeyPressEventHandler(HotkeyEditorCell_KeyPress);
+            }
+        }
+
+        private void OnMouseClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Key_Down_Test(object sender, KeyEventArgs e)
+        {
+            char a = (char)e.KeyCode;
+//            MessageBox.Show(a.ToString());
+            Keys test = (Keys)a;
+//            MessageBox.Show(test.ToString());
+//            MessageBox.Show(e.KeyCode.ToString() + " "
+//        + Convert.ToInt32(StringToASCII[e.KeyCode.ToString()]).ToString() );
+
+            if (this.grid_HotKeyEditor.CurrentCell.ColumnIndex == 1)
+            {
+                this.grid_HotKeyEditor.CurrentCell.Value = e.KeyCode.ToString();
+            }
         }
     }
 }

@@ -39,8 +39,6 @@ namespace RedAlertConfig
             this.chb_StandaloneExpanionMaps = new System.Windows.Forms.CheckBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.grid_HotKeyEditor = new System.Windows.Forms.DataGridView();
-            this.ColumnHotkeyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHotkeyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label19 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -145,6 +143,8 @@ namespace RedAlertConfig
             this.chb_UseRAAspectRatio = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
+            this.ColumnHotkeyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHotkeyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
@@ -235,6 +235,10 @@ namespace RedAlertConfig
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Hotkey editor";
             this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
+            this.tabPage4.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
+            this.tabPage4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
+            this.tabPage4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
             // 
             // grid_HotKeyEditor
             // 
@@ -253,18 +257,9 @@ namespace RedAlertConfig
             this.grid_HotKeyEditor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grid_HotKeyEditor.Size = new System.Drawing.Size(204, 150);
             this.grid_HotKeyEditor.TabIndex = 0;
+            this.grid_HotKeyEditor.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.Hotkey_Editor_Editing_Control_Showing);
+            this.grid_HotKeyEditor.DoubleClick += new System.EventHandler(this.OnMouseClick);
             this.grid_HotKeyEditor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
-            // 
-            // ColumnHotkeyName
-            // 
-            this.ColumnHotkeyName.Frozen = true;
-            this.ColumnHotkeyName.HeaderText = "Hotkey name";
-            this.ColumnHotkeyName.Name = "ColumnHotkeyName";
-            // 
-            // ColumnHotkeyValue
-            // 
-            this.ColumnHotkeyValue.HeaderText = "Value";
-            this.ColumnHotkeyValue.Name = "ColumnHotkeyValue";
             // 
             // tabPage3
             // 
@@ -883,6 +878,7 @@ namespace RedAlertConfig
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(453, 412);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_Down_Test);
             // 
             // tabPage1
             // 
@@ -1411,6 +1407,20 @@ namespace RedAlertConfig
             this.chb_EnableCnCDDraw.UseVisualStyleBackColor = true;
             this.chb_EnableCnCDDraw.CheckedChanged += new System.EventHandler(this.chb_EnableCnCDDraw_CheckedChanged);
             // 
+            // ColumnHotkeyName
+            // 
+            this.ColumnHotkeyName.Frozen = true;
+            this.ColumnHotkeyName.HeaderText = "Hotkey name";
+            this.ColumnHotkeyName.Name = "ColumnHotkeyName";
+            this.ColumnHotkeyName.ReadOnly = true;
+            this.ColumnHotkeyName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ColumnHotkeyValue
+            // 
+            this.ColumnHotkeyValue.HeaderText = "Value";
+            this.ColumnHotkeyValue.Name = "ColumnHotkeyValue";
+            this.ColumnHotkeyValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // Form1
             // 
             this.AcceptButton = this.but_ok;
@@ -1566,8 +1576,6 @@ namespace RedAlertConfig
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView grid_HotKeyEditor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyValue;
         private System.Windows.Forms.TrackBar slider_Contrast;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TrackBar slider_Tint;
@@ -1582,6 +1590,8 @@ namespace RedAlertConfig
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button but_ResetVisualOptions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyValue;
 
     }
 }
