@@ -71,6 +71,8 @@ namespace RedAlertConfig
            else
            {
                this.chb_EnableAftermath.Checked = false;
+               this.chb_ForceAftermathOnline.Checked = false;
+               this.chb_ForceAftermathOnline.Enabled = false;
            }
 
 
@@ -355,11 +357,6 @@ namespace RedAlertConfig
         }
 
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
 
         }
@@ -1008,6 +1005,19 @@ namespace RedAlertConfig
         private void OnMouseClick(object sender, MouseEventArgs e)
         {
             this.grid_HotKeyEditor.BeginEdit(true);
+        }
+
+        private void chb_EnableAftermath_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chb_EnableAftermath.Checked == false)
+            {
+                this.chb_ForceAftermathOnline.Checked = false;
+                this.chb_ForceAftermathOnline.Enabled = false;
+            }
+            else
+            {
+                this.chb_ForceAftermathOnline.Enabled = true;
+            }
         }
     }
 }

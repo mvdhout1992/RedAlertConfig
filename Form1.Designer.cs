@@ -691,7 +691,7 @@ namespace RedAlertConfig
             this.chb_EnableAftermath.TabIndex = 14;
             this.chb_EnableAftermath.Text = "Enable Aftermath (expand2.mix)";
             this.chb_EnableAftermath.UseVisualStyleBackColor = true;
-            this.chb_EnableAftermath.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.chb_EnableAftermath.CheckedChanged += new System.EventHandler(this.chb_EnableAftermath_CheckedChanged);
             // 
             // chb_EnableCounterstrike
             // 
