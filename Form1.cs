@@ -284,6 +284,8 @@ namespace RedAlertConfig
 
             int BPP = Files.DDrawINI.getIntValue("ddraw", "bpp", 0);
             this.cmbox_BitsPerPixels.SelectedIndex = BPP;
+
+            this.tabControl1.SelectedIndex = Files.RedAlertINI.getIntValue("Options", "ConfigToolTab", 0);
         }
 
         private void Update_Use_RA_Aspect_Ratio()
@@ -763,6 +765,8 @@ namespace RedAlertConfig
                     File.Delete("rules.ini");
                 }
             }
+
+            Files.RedAlertINI.setIntValue("Options", "ConfigToolTab", this.tabControl1.SelectedIndex);
 
             Files.RedAlertINI.writeIni();
             Files.DDrawINI.writeIni();
