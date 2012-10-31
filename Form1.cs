@@ -192,6 +192,38 @@ namespace RedAlertConfig
             int MusicVolume = ((int)(derp2 * 1000));
             this.Slider_MusicVolume.Value = MusicVolume;
 
+            double derp3;
+            if (Double.TryParse(Files.RedAlertINI.getStringValue("Options", "Brightness", "0"), out derp3) == false)
+            {
+                derp3 = 0;
+            }
+            int Brightness = ((int)(derp3 * 1000));
+            this.slider_Brightness.Value = Brightness;
+
+            double derp4;
+            if (Double.TryParse(Files.RedAlertINI.getStringValue("Options", "Color", "0"), out derp4) == false)
+            {
+                derp4 = 0;
+            }
+            int Color = ((int)(derp4 * 1000));
+            this.slider_Color.Value = Color;
+
+            double derp5;
+            if (Double.TryParse(Files.RedAlertINI.getStringValue("Options", "Tint", "0"), out derp5) == false)
+            {
+                derp5 = 0;
+            }
+            int Tint = ((int)(derp5 * 1000));
+            this.slider_Tint.Value = Tint;
+
+            double derp6;
+            if (Double.TryParse(Files.RedAlertINI.getStringValue("Options", "Contrast", "0"), out derp6) == false)
+            {
+                derp5 = 0;
+            }
+            int Contrast = ((int)(derp6 * 1000));
+            this.slider_Contrast.Value = Contrast;
+
             int GameSpeed = Files.RedAlertINI.getIntValue("Options", "GameSpeed", 3);
             this.slider_GameSpeed.Value = 6 - GameSpeed;
 
@@ -765,6 +797,18 @@ namespace RedAlertConfig
 
             Files.RedAlertINI.setIntValue("Options", "ConfigToolTab", this.tabControl1.SelectedIndex);
 
+            double Brightness = ((double)this.slider_Brightness.Value) / 1000;
+            Files.RedAlertINI.setStringValue("Options", "Brightness", Brightness.ToString());
+
+            double Contrast = ((double)this.slider_Contrast.Value) / 1000;
+            Files.RedAlertINI.setStringValue("Options", "Contrast", Contrast.ToString());
+
+            double Color= ((double)this.slider_Color.Value) / 1000;
+            Files.RedAlertINI.setStringValue("Options", "Color", Color.ToString());
+
+            double Tint = ((double)this.slider_Tint.Value) / 1000;
+            Files.RedAlertINI.setStringValue("Options", "Tint", Tint.ToString());
+
             Files.RedAlertINI.writeIni();
             Files.DDrawINI.writeIni();
 
@@ -1018,6 +1062,14 @@ namespace RedAlertConfig
             {
                 this.chb_ForceAftermathOnline.Enabled = true;
             }
+        }
+
+        private void but_ResetVisualOptions_Click(object sender, EventArgs e)
+        {
+            this.slider_Brightness.Value = 500;
+            this.slider_Color.Value = 500;
+            this.slider_Tint.Value = 500;
+            this.slider_Contrast.Value = 500;
         }
     }
 }

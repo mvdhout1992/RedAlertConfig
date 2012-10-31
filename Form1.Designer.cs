@@ -59,10 +59,23 @@ namespace RedAlertConfig
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.but_ResetVisualOptions = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.slider_Contrast = new System.Windows.Forms.TrackBar();
+            this.label28 = new System.Windows.Forms.Label();
+            this.slider_Tint = new System.Windows.Forms.TrackBar();
+            this.label37 = new System.Windows.Forms.Label();
+            this.slider_Color = new System.Windows.Forms.TrackBar();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.slider_Brightness = new System.Windows.Forms.TrackBar();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.chb_UseLanPatch = new System.Windows.Forms.CheckBox();
             this.chb_EnableSmallInfantry = new System.Windows.Forms.CheckBox();
@@ -137,6 +150,10 @@ namespace RedAlertConfig
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.slider_Contrast)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slider_Tint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slider_Color)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slider_Brightness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Slider_MusicVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slider_SoundVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slider_GameSpeed)).BeginInit();
@@ -444,10 +461,23 @@ namespace RedAlertConfig
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.but_ResetVisualOptions);
+            this.tabPage2.Controls.Add(this.panel9);
+            this.tabPage2.Controls.Add(this.panel8);
+            this.tabPage2.Controls.Add(this.panel7);
+            this.tabPage2.Controls.Add(this.panel6);
+            this.tabPage2.Controls.Add(this.slider_Contrast);
+            this.tabPage2.Controls.Add(this.label28);
+            this.tabPage2.Controls.Add(this.slider_Tint);
+            this.tabPage2.Controls.Add(this.label37);
+            this.tabPage2.Controls.Add(this.slider_Color);
+            this.tabPage2.Controls.Add(this.label23);
+            this.tabPage2.Controls.Add(this.label27);
+            this.tabPage2.Controls.Add(this.slider_Brightness);
+            this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.panel5);
             this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.chb_UseLanPatch);
             this.tabPage2.Controls.Add(this.chb_EnableSmallInfantry);
@@ -475,16 +505,153 @@ namespace RedAlertConfig
             this.tabPage2.Text = "Game options";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // but_ResetVisualOptions
+            // 
+            this.but_ResetVisualOptions.Location = new System.Drawing.Point(369, 331);
+            this.but_ResetVisualOptions.Name = "but_ResetVisualOptions";
+            this.but_ResetVisualOptions.Size = new System.Drawing.Size(59, 23);
+            this.but_ResetVisualOptions.TabIndex = 51;
+            this.but_ResetVisualOptions.Text = "Reset";
+            this.but_ResetVisualOptions.UseVisualStyleBackColor = true;
+            this.but_ResetVisualOptions.Click += new System.EventHandler(this.but_ResetVisualOptions_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.Location = new System.Drawing.Point(257, 370);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(102, 10);
+            this.panel9.TabIndex = 50;
+            // 
+            // panel8
+            // 
+            this.panel8.Location = new System.Drawing.Point(257, 338);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(102, 10);
+            this.panel8.TabIndex = 49;
+            // 
+            // panel7
+            // 
+            this.panel7.Location = new System.Drawing.Point(99, 338);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(102, 10);
+            this.panel7.TabIndex = 48;
+            // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(99, 371);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(102, 10);
+            this.panel6.TabIndex = 47;
+            // 
+            // slider_Contrast
+            // 
+            this.slider_Contrast.AutoSize = false;
+            this.slider_Contrast.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.slider_Contrast.LargeChange = 1;
+            this.slider_Contrast.Location = new System.Drawing.Point(94, 349);
+            this.slider_Contrast.Maximum = 1000;
+            this.slider_Contrast.Name = "slider_Contrast";
+            this.slider_Contrast.RightToLeftLayout = true;
+            this.slider_Contrast.Size = new System.Drawing.Size(107, 27);
+            this.slider_Contrast.SmallChange = 10;
+            this.slider_Contrast.TabIndex = 46;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(207, 353);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(28, 13);
+            this.label28.TabIndex = 45;
+            this.label28.Text = "Tint:";
+            // 
+            // slider_Tint
+            // 
+            this.slider_Tint.AutoSize = false;
+            this.slider_Tint.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.slider_Tint.LargeChange = 1;
+            this.slider_Tint.Location = new System.Drawing.Point(252, 349);
+            this.slider_Tint.Maximum = 1000;
+            this.slider_Tint.Name = "slider_Tint";
+            this.slider_Tint.RightToLeftLayout = true;
+            this.slider_Tint.Size = new System.Drawing.Size(107, 27);
+            this.slider_Tint.SmallChange = 10;
+            this.slider_Tint.TabIndex = 44;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(207, 320);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(34, 13);
+            this.label37.TabIndex = 43;
+            this.label37.Text = "Color:";
+            // 
+            // slider_Color
+            // 
+            this.slider_Color.AccessibleDescription = "";
+            this.slider_Color.AutoSize = false;
+            this.slider_Color.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.slider_Color.LargeChange = 1;
+            this.slider_Color.Location = new System.Drawing.Point(252, 317);
+            this.slider_Color.Maximum = 1000;
+            this.slider_Color.Name = "slider_Color";
+            this.slider_Color.RightToLeftLayout = true;
+            this.slider_Color.Size = new System.Drawing.Size(107, 27);
+            this.slider_Color.SmallChange = 10;
+            this.slider_Color.TabIndex = 42;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(18, 353);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(54, 13);
+            this.label23.TabIndex = 39;
+            this.label23.Text = "Constrast:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(18, 321);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(59, 13);
+            this.label27.TabIndex = 37;
+            this.label27.Text = "Brightness:";
+            // 
+            // slider_Brightness
+            // 
+            this.slider_Brightness.AutoSize = false;
+            this.slider_Brightness.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.slider_Brightness.LargeChange = 1;
+            this.slider_Brightness.Location = new System.Drawing.Point(94, 317);
+            this.slider_Brightness.Maximum = 1000;
+            this.slider_Brightness.Name = "slider_Brightness";
+            this.slider_Brightness.RightToLeftLayout = true;
+            this.slider_Brightness.Size = new System.Drawing.Size(107, 27);
+            this.slider_Brightness.SmallChange = 10;
+            this.slider_Brightness.TabIndex = 36;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(6, 294);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Visual options:";
+            // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(117, 333);
+            this.panel5.Location = new System.Drawing.Point(117, 241);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(148, 10);
             this.panel5.TabIndex = 34;
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(112, 366);
+            this.panel4.Location = new System.Drawing.Point(117, 279);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(148, 10);
             this.panel4.TabIndex = 33;
@@ -494,29 +661,18 @@ namespace RedAlertConfig
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(9, 13);
+            this.label4.Location = new System.Drawing.Point(6, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 32;
             this.label4.Text = "General:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(9, 114);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 13);
-            this.label9.TabIndex = 31;
-            this.label9.Text = "Expansions:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(9, 191);
+            this.label8.Location = new System.Drawing.Point(6, 103);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 13);
             this.label8.TabIndex = 30;
@@ -525,7 +681,7 @@ namespace RedAlertConfig
             // chb_UseLanPatch
             // 
             this.chb_UseLanPatch.AutoSize = true;
-            this.chb_UseLanPatch.Location = new System.Drawing.Point(29, 62);
+            this.chb_UseLanPatch.Location = new System.Drawing.Point(21, 53);
             this.chb_UseLanPatch.Name = "chb_UseLanPatch";
             this.chb_UseLanPatch.Size = new System.Drawing.Size(155, 17);
             this.chb_UseLanPatch.TabIndex = 29;
@@ -535,7 +691,7 @@ namespace RedAlertConfig
             // chb_EnableSmallInfantry
             // 
             this.chb_EnableSmallInfantry.AutoSize = true;
-            this.chb_EnableSmallInfantry.Location = new System.Drawing.Point(29, 39);
+            this.chb_EnableSmallInfantry.Location = new System.Drawing.Point(21, 30);
             this.chb_EnableSmallInfantry.Name = "chb_EnableSmallInfantry";
             this.chb_EnableSmallInfantry.Size = new System.Drawing.Size(177, 17);
             this.chb_EnableSmallInfantry.TabIndex = 28;
@@ -546,7 +702,7 @@ namespace RedAlertConfig
             // chb_PlayIntro
             // 
             this.chb_PlayIntro.AutoSize = true;
-            this.chb_PlayIntro.Location = new System.Drawing.Point(29, 85);
+            this.chb_PlayIntro.Location = new System.Drawing.Point(21, 76);
             this.chb_PlayIntro.Name = "chb_PlayIntro";
             this.chb_PlayIntro.Size = new System.Drawing.Size(117, 17);
             this.chb_PlayIntro.TabIndex = 27;
@@ -556,7 +712,7 @@ namespace RedAlertConfig
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 348);
+            this.label1.Location = new System.Drawing.Point(18, 260);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 26;
@@ -567,7 +723,7 @@ namespace RedAlertConfig
             this.Slider_MusicVolume.AutoSize = false;
             this.Slider_MusicVolume.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Slider_MusicVolume.LargeChange = 1;
-            this.Slider_MusicVolume.Location = new System.Drawing.Point(112, 344);
+            this.Slider_MusicVolume.Location = new System.Drawing.Point(112, 257);
             this.Slider_MusicVolume.Maximum = 1000;
             this.Slider_MusicVolume.Name = "Slider_MusicVolume";
             this.Slider_MusicVolume.RightToLeftLayout = true;
@@ -579,7 +735,7 @@ namespace RedAlertConfig
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 316);
+            this.label2.Location = new System.Drawing.Point(18, 224);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 24;
@@ -590,7 +746,7 @@ namespace RedAlertConfig
             this.slider_SoundVolume.AutoSize = false;
             this.slider_SoundVolume.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_SoundVolume.LargeChange = 1;
-            this.slider_SoundVolume.Location = new System.Drawing.Point(112, 311);
+            this.slider_SoundVolume.Location = new System.Drawing.Point(112, 219);
             this.slider_SoundVolume.Maximum = 1000;
             this.slider_SoundVolume.Name = "slider_SoundVolume";
             this.slider_SoundVolume.RightToLeftLayout = true;
@@ -602,7 +758,7 @@ namespace RedAlertConfig
             // chb_RepeatMusic
             // 
             this.chb_RepeatMusic.AutoSize = true;
-            this.chb_RepeatMusic.Location = new System.Drawing.Point(284, 344);
+            this.chb_RepeatMusic.Location = new System.Drawing.Point(284, 260);
             this.chb_RepeatMusic.Name = "chb_RepeatMusic";
             this.chb_RepeatMusic.Size = new System.Drawing.Size(91, 17);
             this.chb_RepeatMusic.TabIndex = 22;
@@ -612,7 +768,7 @@ namespace RedAlertConfig
             // chb_ShuffleMusic
             // 
             this.chb_ShuffleMusic.AutoSize = true;
-            this.chb_ShuffleMusic.Location = new System.Drawing.Point(284, 321);
+            this.chb_ShuffleMusic.Location = new System.Drawing.Point(284, 237);
             this.chb_ShuffleMusic.Name = "chb_ShuffleMusic";
             this.chb_ShuffleMusic.Size = new System.Drawing.Size(89, 17);
             this.chb_ShuffleMusic.TabIndex = 21;
@@ -622,7 +778,7 @@ namespace RedAlertConfig
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 250);
+            this.label6.Location = new System.Drawing.Point(18, 164);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 20;
@@ -633,7 +789,7 @@ namespace RedAlertConfig
             this.slider_GameSpeed.AutoSize = false;
             this.slider_GameSpeed.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_GameSpeed.LargeChange = 1;
-            this.slider_GameSpeed.Location = new System.Drawing.Point(112, 246);
+            this.slider_GameSpeed.Location = new System.Drawing.Point(112, 164);
             this.slider_GameSpeed.Maximum = 6;
             this.slider_GameSpeed.Name = "slider_GameSpeed";
             this.slider_GameSpeed.RightToLeftLayout = true;
@@ -643,7 +799,7 @@ namespace RedAlertConfig
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 219);
+            this.label5.Location = new System.Drawing.Point(18, 131);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 18;
@@ -654,7 +810,7 @@ namespace RedAlertConfig
             this.slider_ScrollRate.AutoSize = false;
             this.slider_ScrollRate.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_ScrollRate.LargeChange = 1;
-            this.slider_ScrollRate.Location = new System.Drawing.Point(112, 213);
+            this.slider_ScrollRate.Location = new System.Drawing.Point(112, 131);
             this.slider_ScrollRate.Maximum = 6;
             this.slider_ScrollRate.Name = "slider_ScrollRate";
             this.slider_ScrollRate.RightToLeftLayout = true;
@@ -664,7 +820,7 @@ namespace RedAlertConfig
             // chb_PaletteScroll
             // 
             this.chb_PaletteScroll.AutoSize = true;
-            this.chb_PaletteScroll.Location = new System.Drawing.Point(284, 246);
+            this.chb_PaletteScroll.Location = new System.Drawing.Point(284, 164);
             this.chb_PaletteScroll.Name = "chb_PaletteScroll";
             this.chb_PaletteScroll.Size = new System.Drawing.Size(86, 17);
             this.chb_PaletteScroll.TabIndex = 16;
@@ -675,7 +831,7 @@ namespace RedAlertConfig
             // chb_Autoscroll
             // 
             this.chb_Autoscroll.AutoSize = true;
-            this.chb_Autoscroll.Location = new System.Drawing.Point(284, 223);
+            this.chb_Autoscroll.Location = new System.Drawing.Point(284, 141);
             this.chb_Autoscroll.Name = "chb_Autoscroll";
             this.chb_Autoscroll.Size = new System.Drawing.Size(75, 17);
             this.chb_Autoscroll.TabIndex = 15;
@@ -685,7 +841,7 @@ namespace RedAlertConfig
             // chb_EnableAftermath
             // 
             this.chb_EnableAftermath.AutoSize = true;
-            this.chb_EnableAftermath.Location = new System.Drawing.Point(29, 162);
+            this.chb_EnableAftermath.Location = new System.Drawing.Point(204, 53);
             this.chb_EnableAftermath.Name = "chb_EnableAftermath";
             this.chb_EnableAftermath.Size = new System.Drawing.Size(175, 17);
             this.chb_EnableAftermath.TabIndex = 14;
@@ -696,7 +852,7 @@ namespace RedAlertConfig
             // chb_EnableCounterstrike
             // 
             this.chb_EnableCounterstrike.AutoSize = true;
-            this.chb_EnableCounterstrike.Location = new System.Drawing.Point(29, 139);
+            this.chb_EnableCounterstrike.Location = new System.Drawing.Point(204, 30);
             this.chb_EnableCounterstrike.Name = "chb_EnableCounterstrike";
             this.chb_EnableCounterstrike.Size = new System.Drawing.Size(186, 17);
             this.chb_EnableCounterstrike.TabIndex = 13;
@@ -708,7 +864,7 @@ namespace RedAlertConfig
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(9, 285);
+            this.label3.Location = new System.Drawing.Point(6, 194);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 10;
@@ -1277,6 +1433,10 @@ namespace RedAlertConfig
             this.tabPage3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.slider_Contrast)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slider_Tint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slider_Color)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slider_Brightness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Slider_MusicVolume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.slider_SoundVolume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.slider_GameSpeed)).EndInit();
@@ -1326,7 +1486,6 @@ namespace RedAlertConfig
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox chb_UseLanPatch;
         private System.Windows.Forms.CheckBox chb_EnableSmallInfantry;
@@ -1409,6 +1568,20 @@ namespace RedAlertConfig
         private System.Windows.Forms.DataGridView grid_HotKeyEditor;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyValue;
+        private System.Windows.Forms.TrackBar slider_Contrast;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TrackBar slider_Tint;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TrackBar slider_Color;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TrackBar slider_Brightness;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button but_ResetVisualOptions;
 
     }
 }
