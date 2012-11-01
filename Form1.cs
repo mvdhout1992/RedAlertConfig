@@ -321,6 +321,66 @@ namespace RedAlertConfig
             this.cmbox_BitsPerPixels.SelectedIndex = BPP;
 
             this.tabControl1.SelectedIndex = Files.RedAlertINI.getIntValue("Options", "ConfigToolTab", 0);
+
+            this.grid_HotKeyEditor.Rows.Add(50);
+
+            // First row is hidden and selected, to prevent the actual "first" row from
+            // getting selected automatically
+            this.grid_HotKeyEditor.CurrentCell = this.grid_HotKeyEditor.Rows[0].Cells[0];
+            this.grid_HotKeyEditor.Rows[0].Visible = false;
+
+            //           grid_HotKeyEditor.Rows[0].Cells["ColumnHotkeyName"].Value = "KeyForceMove1";
+            Set_Row_From_Hotkey_INI("KeyForceMove1", 1);
+            Set_Row_From_Hotkey_INI("KeyForceMove2", 2);
+            Set_Row_From_Hotkey_INI("KeyForceAttack1", 3);
+            Set_Row_From_Hotkey_INI("KeyForceAttack2", 4);
+            Set_Row_From_Hotkey_INI("KeySelect1", 5);
+            Set_Row_From_Hotkey_INI("KeySelect2", 6);
+            Set_Row_From_Hotkey_INI("KeyScatter", 7);
+            Set_Row_From_Hotkey_INI("KeyStop", 8);
+            Set_Row_From_Hotkey_INI("KeyGuard", 9);
+            Set_Row_From_Hotkey_INI("KeyNext", 10);
+            Set_Row_From_Hotkey_INI("KeyPrevious", 11);
+            Set_Row_From_Hotkey_INI("KeyFormation", 12);
+            Set_Row_From_Hotkey_INI("KeyHome1", 13);
+            Set_Row_From_Hotkey_INI("KeyHome2", 14);
+            Set_Row_From_Hotkey_INI("KeyBase", 15);
+            Set_Row_From_Hotkey_INI("KeyResign", 16);
+            Set_Row_From_Hotkey_INI("KeyAlliance", 17);
+            Set_Row_From_Hotkey_INI("KeyBookmark1", 18);
+            Set_Row_From_Hotkey_INI("KeyBookmark2", 19);
+            Set_Row_From_Hotkey_INI("KeyBookmark3", 20);
+            Set_Row_From_Hotkey_INI("KeyBookmark4", 21);
+            Set_Row_From_Hotkey_INI("KeySelectView", 22);
+            Set_Row_From_Hotkey_INI("KeyRepairToggle", 23);
+            Set_Row_From_Hotkey_INI("KeyRepairOn", 24);
+            Set_Row_From_Hotkey_INI("KeyRepairOff", 25);
+            Set_Row_From_Hotkey_INI("KeySellToggle", 26);
+            Set_Row_From_Hotkey_INI("KeySellOn", 27);
+            Set_Row_From_Hotkey_INI("KeySellOff", 28);
+            Set_Row_From_Hotkey_INI("KeyMapToggle", 29);
+            Set_Row_From_Hotkey_INI("KeySidebarUp", 30);
+            Set_Row_From_Hotkey_INI("KeySidebarDown", 31);
+            Set_Row_From_Hotkey_INI("KeyOption1", 32);
+            Set_Row_From_Hotkey_INI("KeyOption2", 33);
+            Set_Row_From_Hotkey_INI("KeyScrollLeft", 34);
+            Set_Row_From_Hotkey_INI("KeyScrollRight", 35);
+            Set_Row_From_Hotkey_INI("KeyScrollUp", 36);
+            Set_Row_From_Hotkey_INI("KeyScrollDown", 37);
+            Set_Row_From_Hotkey_INI("KeyQueueMove1", 38);
+            Set_Row_From_Hotkey_INI("KeyQueueMove2", 39);
+            Set_Row_From_Hotkey_INI("KeyTeam1", 40);
+            Set_Row_From_Hotkey_INI("KeyTeam2", 41);
+            Set_Row_From_Hotkey_INI("KeyTeam3", 42);
+            Set_Row_From_Hotkey_INI("KeyTeam4", 43);
+            Set_Row_From_Hotkey_INI("KeyTeam5", 44);
+            Set_Row_From_Hotkey_INI("KeyTeam6", 45);
+            Set_Row_From_Hotkey_INI("KeyTeam7", 46);
+            Set_Row_From_Hotkey_INI("KeyTeam8", 47);
+            Set_Row_From_Hotkey_INI("KeyTeam9", 48);
+            Set_Row_From_Hotkey_INI("KeyTeam10", 49);
+
+//            this.grid_HotKeyEditor.Select();
         }
 
         private void Update_Use_RA_Aspect_Ratio()
@@ -377,15 +437,7 @@ namespace RedAlertConfig
                 this.txt_UseRAAspectRatio.Text = "(needs to be at least 640x480)";
             }
 
-            this.grid_HotKeyEditor.Rows.Add(4);
-            grid_HotKeyEditor.Rows[0].Cells["ColumnHotkeyName"].Value = "KeyForceMove1";
-            Set_Row_Value_From_Hotkey_INI("KeyForceMove1", 0);
-            Set_Row_Value_From_Hotkey_INI("KeyForceMove2", 1);
-            Set_Row_Value_From_Hotkey_INI("KeyForceAttack1", 2);
-            Set_Row_Value_From_Hotkey_INI("KeyForceAttack2", 3);
-
-            // this one is needed or the row displays garbage rows for some reason..
-//            Set_Row_Value_From_Hotkey_INI("herppppppppderpppppp", );
+            // this one is needed or some rows are garbage for some reason
 
 //            this.grid_HotKeyEditor.Rows.Add(1);
  //           this.grid_HotKeyEditor.Rows.Add();
@@ -821,7 +873,56 @@ namespace RedAlertConfig
 
             KeysConverter Converter = new KeysConverter();
 
-            Save_Hotkey_From_Row_Value("KeyForceMove1", 0);
+            Save_Hotkey_From_Row_Value("KeyForceMove1", 1);
+            Save_Hotkey_From_Row_Value("KeyForceMove2", 2);
+            Save_Hotkey_From_Row_Value("KeyForceAttack1", 3);
+            Save_Hotkey_From_Row_Value("KeyForceAttack2", 4);
+            Save_Hotkey_From_Row_Value("KeySelect1", 5);
+            Save_Hotkey_From_Row_Value("KeySelect2", 6);
+            Save_Hotkey_From_Row_Value("KeyScatter", 7);
+            Save_Hotkey_From_Row_Value("KeyStop", 8);
+            Save_Hotkey_From_Row_Value("KeyGuard", 9);
+            Save_Hotkey_From_Row_Value("KeyNext", 10);
+            Save_Hotkey_From_Row_Value("KeyPrevious", 11);
+            Save_Hotkey_From_Row_Value("KeyFormation", 12);
+            Save_Hotkey_From_Row_Value("KeyHome1", 13);
+            Save_Hotkey_From_Row_Value("KeyHome2", 14);
+            Save_Hotkey_From_Row_Value("KeyBase", 15);
+            Save_Hotkey_From_Row_Value("KeyResign", 16);
+            Save_Hotkey_From_Row_Value("KeyAlliance", 17);
+            Save_Hotkey_From_Row_Value("KeyBookmark1", 18);
+            Save_Hotkey_From_Row_Value("KeyBookmark2", 19);
+            Save_Hotkey_From_Row_Value("KeyBookmark3", 20);
+            Save_Hotkey_From_Row_Value("KeyBookmark4", 21);
+            Save_Hotkey_From_Row_Value("KeySelectView", 22);
+            Save_Hotkey_From_Row_Value("KeyRepairToggle", 23);
+            Save_Hotkey_From_Row_Value("KeyRepairOn", 24);
+            Save_Hotkey_From_Row_Value("KeyRepairOff", 25);
+            Save_Hotkey_From_Row_Value("KeySellToggle", 26);
+            Save_Hotkey_From_Row_Value("KeySellOn", 27);
+            Save_Hotkey_From_Row_Value("KeySellOf", 28);
+            Save_Hotkey_From_Row_Value("KeyMapToggle", 29);
+            Save_Hotkey_From_Row_Value("KeySidebarUp", 30);
+            Save_Hotkey_From_Row_Value("KeySidebarDown", 31);
+            Save_Hotkey_From_Row_Value("KeyOption1", 32);
+            Save_Hotkey_From_Row_Value("KeyOption2", 33);
+            Save_Hotkey_From_Row_Value("KeyScrollLeft", 34);
+            Save_Hotkey_From_Row_Value("KeyScrollRight", 35);
+            Save_Hotkey_From_Row_Value("KeyScrollUp", 36);
+            Save_Hotkey_From_Row_Value("KeyScrollDown", 37);
+            Save_Hotkey_From_Row_Value("KeyQueueMove1", 38);
+            Save_Hotkey_From_Row_Value("KeyQueueMove2", 39);
+            Save_Hotkey_From_Row_Value("KeyTeam1", 40);
+            Save_Hotkey_From_Row_Value("KeyTeam2", 41);
+            Save_Hotkey_From_Row_Value("KeyTeam3", 42);
+            Save_Hotkey_From_Row_Value("KeyTeam4", 43);
+            Save_Hotkey_From_Row_Value("KeyTeam5", 44);
+            Save_Hotkey_From_Row_Value("KeyTeam6", 45);
+            Save_Hotkey_From_Row_Value("KeyTeam7", 46);
+            Save_Hotkey_From_Row_Value("KeyTeam8", 47);
+            Save_Hotkey_From_Row_Value("KeyTeam9", 48);
+            Save_Hotkey_From_Row_Value("KeyTeam10", 49);
+
 
             Files.RedAlertINI.writeIni();
             Files.DDrawINI.writeIni();
@@ -829,18 +930,26 @@ namespace RedAlertConfig
             Application.Exit();
         }
 
-        void Save_Hotkey_From_Row_Value(string Hotkey, int RowIndex)
+        void Save_Hotkey_From_Row_Value(string HotKeyINIKey, int RowIndex)
         {
             KeysConverter Converter = new KeysConverter();
 
-            Files.RedAlertINI.setIntValue("WinHotKeys", Hotkey,
+            Files.RedAlertINI.setIntValue("WinHotKeys", HotKeyINIKey,
                 Convert.ToInt32((char)(Keys)Converter.ConvertFromString((string)this.grid_HotKeyEditor.Rows[RowIndex].Cells["ColumnHotkeyValue"].Value)));
         }
 
-        void Set_Row_Value_From_Hotkey_INI(string INIKey, int RowIndex)
+        void Set_Row_From_Hotkey_INI(string INIKey, int RowIndex)
         {
+            grid_HotKeyEditor.Rows[RowIndex].Cells["ColumnHotkeyName"].Value = INIKey;
+
             this.grid_HotKeyEditor.Rows[RowIndex].Cells["ColumnHotkeyValue"].Value =
                 ((Keys)Files.RedAlertINI.getIntValue("WinHotKeys", INIKey, 0)).ToString();
+        }
+
+        void Set_Row_Value(char ASCIIValue, int RowIndex)
+        {
+            this.grid_HotKeyEditor.Rows[RowIndex].Cells["ColumnHotkeyValue"].Value =
+                ((Keys)ASCIIValue).ToString();
         }
 
 
@@ -1155,6 +1264,120 @@ namespace RedAlertConfig
             {
                 this.grid_HotKeyEditor.CurrentCell.Value = e.KeyCode.ToString();
             }
+        }
+
+        private void but_ClearSelectedKey_Click(object sender, EventArgs e)
+        {
+            if (grid_HotKeyEditor.CurrentCell != null && grid_HotKeyEditor.CurrentCell.ColumnIndex == 1)
+            {
+                grid_HotKeyEditor.CurrentCell.Value = "None";
+            }          
+        }
+
+        private void but_ResetDefaults_Click(object sender, EventArgs e)
+        {
+            Set_Row_Value((char)18, 1);
+            Set_Row_Value((char)18, 2);
+            Set_Row_Value((char)17, 3);
+            Set_Row_Value((char)17, 4);
+            Set_Row_Value((char)16, 5);
+            Set_Row_Value((char)16, 6);
+            Set_Row_Value((char)88, 7);
+            Set_Row_Value((char)83, 8);
+            Set_Row_Value((char)71, 9);
+            Set_Row_Value((char)78, 10);
+            Set_Row_Value((char)66, 11);
+            Set_Row_Value((char)70, 12);
+            Set_Row_Value((char)36, 13);
+            Set_Row_Value((char)103, 14);
+            Set_Row_Value((char)72, 15);
+            Set_Row_Value((char)82, 16);
+            Set_Row_Value((char)65, 17);
+            Set_Row_Value((char)120, 18);
+            Set_Row_Value((char)121, 19);
+            Set_Row_Value((char)122, 20);
+            Set_Row_Value((char)123, 21);
+            Set_Row_Value((char)69, 22);
+            Set_Row_Value((char)84, 23);
+            Set_Row_Value((char)0, 24);
+            Set_Row_Value((char)0, 25);
+            Set_Row_Value((char)89, 26);
+            Set_Row_Value((char)0, 27);
+            Set_Row_Value((char)0, 28);
+            Set_Row_Value((char)85, 29);
+            Set_Row_Value((char)38, 30);
+            Set_Row_Value((char)40, 31);
+            Set_Row_Value((char)27, 32);
+            Set_Row_Value((char)32, 33);
+            Set_Row_Value((char)0, 34);
+            Set_Row_Value((char)0, 35);
+            Set_Row_Value((char)0, 36);
+            Set_Row_Value((char)0, 37);
+            Set_Row_Value((char)81, 38);
+            Set_Row_Value((char)81, 39);
+            Set_Row_Value((char)49, 40);
+            Set_Row_Value((char)50, 41);
+            Set_Row_Value((char)51, 42);
+            Set_Row_Value((char)52, 43);
+            Set_Row_Value((char)53, 44);
+            Set_Row_Value((char)54, 45);
+            Set_Row_Value((char)55, 46);
+            Set_Row_Value((char)56, 47);
+            Set_Row_Value((char)57, 48);
+            Set_Row_Value((char)48, 49);
+        }
+
+        private void But_UseProSetup_Click(object sender, EventArgs e)
+        {
+            Set_Row_Value((char)18, 1);
+            Set_Row_Value((char)18, 2);
+            Set_Row_Value((char)17, 3);
+            Set_Row_Value((char)17, 4);
+            Set_Row_Value((char)16, 5);
+            Set_Row_Value((char)16, 6);
+            Set_Row_Value((char)88, 7);
+            Set_Row_Value((char)83, 8);
+            Set_Row_Value((char)71, 9);
+            Set_Row_Value((char)78, 10);
+            Set_Row_Value((char)66, 11);
+            Set_Row_Value((char)67, 12);
+            Set_Row_Value((char)36, 13);
+            Set_Row_Value((char)103, 14);
+            Set_Row_Value((char)72, 15);
+            Set_Row_Value((char)82, 16);
+            Set_Row_Value((char)65, 17);
+            Set_Row_Value((char)120, 18);
+            Set_Row_Value((char)32, 19);
+            Set_Row_Value((char)82, 20);
+            Set_Row_Value((char)87, 21);
+            Set_Row_Value((char)69, 22);
+            Set_Row_Value((char)84, 23);
+            Set_Row_Value((char)0, 24);
+            Set_Row_Value((char)0, 25);
+            Set_Row_Value((char)89, 26);
+            Set_Row_Value((char)0, 27);
+            Set_Row_Value((char)0, 28);
+            Set_Row_Value((char)86, 29);
+            Set_Row_Value((char)68, 30);
+            Set_Row_Value((char)70, 31);
+            Set_Row_Value((char)27, 32);
+            Set_Row_Value((char)0, 33);
+            Set_Row_Value((char)37, 34);
+            Set_Row_Value((char)39, 35);
+            Set_Row_Value((char)38, 36);
+            Set_Row_Value((char)40, 37);
+            Set_Row_Value((char)81, 38);
+            Set_Row_Value((char)81, 39);
+            Set_Row_Value((char)49, 40);
+            Set_Row_Value((char)50, 41);
+            Set_Row_Value((char)51, 42);
+            Set_Row_Value((char)52, 43);
+            Set_Row_Value((char)53, 44);
+            Set_Row_Value((char)54, 45);
+            Set_Row_Value((char)55, 46);
+            Set_Row_Value((char)56, 47);
+            Set_Row_Value((char)57, 48);
+            Set_Row_Value((char)48, 49);
         }
     }
 }

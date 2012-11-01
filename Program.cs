@@ -21,7 +21,6 @@ namespace RedAlertConfig
             Form MainForm = new Form1();
             Application.Run(MainForm);
 
-            // MainForm.l
         }
     }
 
