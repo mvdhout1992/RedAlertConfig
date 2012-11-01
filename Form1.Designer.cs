@@ -35,10 +35,21 @@ namespace RedAlertConfig
             this.but_Cancel = new System.Windows.Forms.Button();
             this.but_ok = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.link_AboutProjectHome = new System.Windows.Forms.LinkLabel();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.chb_StandaloneExpanionMaps = new System.Windows.Forms.CheckBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.But_UseProSetup = new System.Windows.Forms.Button();
+            this.but_ResetDefaults = new System.Windows.Forms.Button();
             this.but_ClearSelectedKey = new System.Windows.Forms.Button();
             this.grid_HotKeyEditor = new System.Windows.Forms.DataGridView();
             this.ColumnHotkeyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -147,8 +158,10 @@ namespace RedAlertConfig
             this.chb_UseRAAspectRatio = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
-            this.but_ResetDefaults = new System.Windows.Forms.Button();
-            this.But_UseProSetup = new System.Windows.Forms.Button();
+            this.link_Aboutv033p3 = new System.Windows.Forms.LinkLabel();
+            this.link_AboutCnCDDaw = new System.Windows.Forms.LinkLabel();
+            this.link_AboutCnCNet = new System.Windows.Forms.LinkLabel();
+            this.tabPage7.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
@@ -191,12 +204,117 @@ namespace RedAlertConfig
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.link_AboutCnCNet);
+            this.tabPage7.Controls.Add(this.link_AboutCnCDDaw);
+            this.tabPage7.Controls.Add(this.link_Aboutv033p3);
+            this.tabPage7.Controls.Add(this.link_AboutProjectHome);
+            this.tabPage7.Controls.Add(this.label48);
+            this.tabPage7.Controls.Add(this.label47);
+            this.tabPage7.Controls.Add(this.label46);
+            this.tabPage7.Controls.Add(this.label45);
+            this.tabPage7.Controls.Add(this.label43);
+            this.tabPage7.Controls.Add(this.label40);
+            this.tabPage7.Controls.Add(this.label39);
+            this.tabPage7.Controls.Add(this.label38);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(445, 386);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "About";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // link_AboutProjectHome
+            // 
+            this.link_AboutProjectHome.AutoSize = true;
+            this.link_AboutProjectHome.Location = new System.Drawing.Point(128, 171);
+            this.link_AboutProjectHome.Name = "link_AboutProjectHome";
+            this.link_AboutProjectHome.Size = new System.Drawing.Size(194, 13);
+            this.link_AboutProjectHome.TabIndex = 11;
+            this.link_AboutProjectHome.TabStop = true;
+            this.link_AboutProjectHome.Text = "https://github.com/Iran/RedAlertConfig";
+            this.link_AboutProjectHome.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_AboutProjectHome_LinkClicked);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(119, 239);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(204, 13);
+            this.label48.TabIndex = 10;
+            this.label48.Text = "Nyerguds:  INI code and CCConfig design";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(178, 258);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(84, 13);
+            this.label47.TabIndex = 9;
+            this.label47.Text = "hifi: Suggestions";
+            this.label47.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(110, 220);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(219, 13);
+            this.label46.TabIndex = 8;
+            this.label46.Text = "FunkyFr3sh: Feedback and lots of useful info";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(187, 198);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(58, 13);
+            this.label45.TabIndex = 7;
+            this.label45.Text = "Thanks to:";
+            this.label45.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(168, 149);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(96, 13);
+            this.label43.TabIndex = 5;
+            this.label43.Text = "Project homepage:";
+            this.label43.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(179, 82);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(76, 13);
+            this.label40.TabIndex = 2;
+            this.label40.Text = "RA95 v3.03p3";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(122, 56);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(184, 13);
+            this.label39.TabIndex = 1;
+            this.label39.Text = "The following software are supported:";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(58, 16);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(315, 13);
+            this.label38.TabIndex = 0;
+            this.label38.Text = "RedAlertConfig is a configuration tool for Red Alert 1 (PortableRA)";
             // 
             // tabPage5
             // 
@@ -247,6 +365,26 @@ namespace RedAlertConfig
             this.tabPage4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
             this.tabPage4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
             // 
+            // But_UseProSetup
+            // 
+            this.But_UseProSetup.Location = new System.Drawing.Point(274, 107);
+            this.But_UseProSetup.Name = "But_UseProSetup";
+            this.But_UseProSetup.Size = new System.Drawing.Size(139, 23);
+            this.But_UseProSetup.TabIndex = 3;
+            this.But_UseProSetup.Text = "Use pro configuration";
+            this.But_UseProSetup.UseVisualStyleBackColor = true;
+            this.But_UseProSetup.Click += new System.EventHandler(this.But_UseProSetup_Click);
+            // 
+            // but_ResetDefaults
+            // 
+            this.but_ResetDefaults.Location = new System.Drawing.Point(274, 136);
+            this.but_ResetDefaults.Name = "but_ResetDefaults";
+            this.but_ResetDefaults.Size = new System.Drawing.Size(139, 23);
+            this.but_ResetDefaults.TabIndex = 2;
+            this.but_ResetDefaults.Text = "Reset to defaults";
+            this.but_ResetDefaults.UseVisualStyleBackColor = true;
+            this.but_ResetDefaults.Click += new System.EventHandler(this.but_ResetDefaults_Click);
+            // 
             // but_ClearSelectedKey
             // 
             this.but_ClearSelectedKey.Location = new System.Drawing.Point(274, 49);
@@ -292,7 +430,7 @@ namespace RedAlertConfig
             // ColumnHotkeyValue
             // 
             this.ColumnHotkeyValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnHotkeyValue.HeaderText = "Value";
+            this.ColumnHotkeyValue.HeaderText = "Assigned key";
             this.ColumnHotkeyValue.Name = "ColumnHotkeyValue";
             this.ColumnHotkeyValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
@@ -1442,25 +1580,38 @@ namespace RedAlertConfig
             this.chb_EnableCnCDDraw.UseVisualStyleBackColor = true;
             this.chb_EnableCnCDDraw.CheckedChanged += new System.EventHandler(this.chb_EnableCnCDDraw_CheckedChanged);
             // 
-            // but_ResetDefaults
+            // link_Aboutv033p3
             // 
-            this.but_ResetDefaults.Location = new System.Drawing.Point(274, 136);
-            this.but_ResetDefaults.Name = "but_ResetDefaults";
-            this.but_ResetDefaults.Size = new System.Drawing.Size(139, 23);
-            this.but_ResetDefaults.TabIndex = 2;
-            this.but_ResetDefaults.Text = "Reset to defaults";
-            this.but_ResetDefaults.UseVisualStyleBackColor = true;
-            this.but_ResetDefaults.Click += new System.EventHandler(this.but_ResetDefaults_Click);
+            this.link_Aboutv033p3.AutoSize = true;
+            this.link_Aboutv033p3.Location = new System.Drawing.Point(179, 82);
+            this.link_Aboutv033p3.Name = "link_Aboutv033p3";
+            this.link_Aboutv033p3.Size = new System.Drawing.Size(76, 13);
+            this.link_Aboutv033p3.TabIndex = 12;
+            this.link_Aboutv033p3.TabStop = true;
+            this.link_Aboutv033p3.Text = "RA95 v3.03p3";
+            this.link_Aboutv033p3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_Aboutv033p3_LinkClicked);
             // 
-            // But_UseProSetup
+            // link_AboutCnCDDaw
             // 
-            this.But_UseProSetup.Location = new System.Drawing.Point(274, 107);
-            this.But_UseProSetup.Name = "But_UseProSetup";
-            this.But_UseProSetup.Size = new System.Drawing.Size(139, 23);
-            this.But_UseProSetup.TabIndex = 3;
-            this.But_UseProSetup.Text = "Use pro configuration";
-            this.But_UseProSetup.UseVisualStyleBackColor = true;
-            this.But_UseProSetup.Click += new System.EventHandler(this.But_UseProSetup_Click);
+            this.link_AboutCnCDDaw.AutoSize = true;
+            this.link_AboutCnCDDaw.Location = new System.Drawing.Point(186, 103);
+            this.link_AboutCnCDDaw.Name = "link_AboutCnCDDaw";
+            this.link_AboutCnCDDaw.Size = new System.Drawing.Size(63, 13);
+            this.link_AboutCnCDDaw.TabIndex = 13;
+            this.link_AboutCnCDDaw.TabStop = true;
+            this.link_AboutCnCDDaw.Text = "CnC-DDraw";
+            this.link_AboutCnCDDaw.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_AboutCnCDDaw_LinkClicked);
+            // 
+            // link_AboutCnCNet
+            // 
+            this.link_AboutCnCNet.AutoSize = true;
+            this.link_AboutCnCNet.Location = new System.Drawing.Point(197, 124);
+            this.link_AboutCnCNet.Name = "link_AboutCnCNet";
+            this.link_AboutCnCNet.Size = new System.Drawing.Size(44, 13);
+            this.link_AboutCnCNet.TabIndex = 14;
+            this.link_AboutCnCNet.TabStop = true;
+            this.link_AboutCnCNet.Text = "CnCNet";
+            this.link_AboutCnCNet.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_AboutCnCNet_LinkClicked);
             // 
             // Form1
             // 
@@ -1476,6 +1627,8 @@ namespace RedAlertConfig
             this.Name = "Form1";
             this.Text = "Red Alert 95 Config";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -1631,11 +1784,23 @@ namespace RedAlertConfig
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button but_ResetVisualOptions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyValue;
         private System.Windows.Forms.Button but_ClearSelectedKey;
         private System.Windows.Forms.Button but_ResetDefaults;
         private System.Windows.Forms.Button But_UseProSetup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyValue;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.LinkLabel link_AboutProjectHome;
+        private System.Windows.Forms.LinkLabel link_Aboutv033p3;
+        private System.Windows.Forms.LinkLabel link_AboutCnCNet;
+        private System.Windows.Forms.LinkLabel link_AboutCnCDDaw;
 
     }
 }

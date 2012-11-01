@@ -1379,5 +1379,25 @@ namespace RedAlertConfig
             Set_Row_Value((char)57, 48);
             Set_Row_Value((char)48, 49);
         }
+
+        private void link_AboutProjectHome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Iran/RedAlertConfig");
+        }
+
+        private void link_AboutCnCNet_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.cncnet.org");
+        }
+
+        private void link_AboutCnCDDaw_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://hifi.iki.fi/cnc-ddraw/");
+        }
+
+        private void link_Aboutv033p3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/hifi/ra303p");
+        }
     }
 }
