@@ -95,7 +95,7 @@ namespace RedAlertConfig
                this.chb_ForceAftermathOnline.Checked = false;
            }
 
-           if (Files.RedAlertINI.getBoolValue("Options", "UseRAAspectRatio", false) == true)
+           if (Files.RedAlertINI.getBoolValue("ConfigTool", "UseRAAspectRatio", false) == true)
            {
                ResoWidth = Files.DDrawINI.getIntValue("ddraw", "width", 0);
                ResoHeight = Files.DDrawINI.getIntValue("ddraw", "height", 0);
@@ -261,7 +261,7 @@ namespace RedAlertConfig
             radiob_RendererOpenGL_CheckedChanged(this, null);
             radiob_RendererGDI_CheckedChanged(this, null);
 
-            if (Files.RedAlertINI.getBoolValue("Options", "UseRAAspectRatio", false) == true)
+            if (Files.RedAlertINI.getBoolValue("ConfigTool", "UseRAAspectRatio", false) == true)
             {
                 this.chb_UseRAAspectRatio.Checked = true;
             }
@@ -320,7 +320,7 @@ namespace RedAlertConfig
             int BPP = Files.DDrawINI.getIntValue("ddraw", "bpp", 0);
             this.cmbox_BitsPerPixels.SelectedIndex = BPP;
 
-            this.tabControl1.SelectedIndex = Files.RedAlertINI.getIntValue("Options", "ConfigToolTab", 0);
+            this.tabControl1.SelectedIndex = Files.RedAlertINI.getIntValue("ConfigTool", "ConfigToolTab", 0);
 
             this.grid_HotKeyEditor.Rows.Add(50);
 
@@ -560,7 +560,7 @@ namespace RedAlertConfig
             {
                 this.chb_AllowHardwareFilledBits.Checked = false;
                 Files.RedAlertINI.setBoolValue("Options", "HardwareFills", false);
-                Files.RedAlertINI.setBoolValue("Options", "UseRAAspectRatio", false);
+                Files.RedAlertINI.setBoolValue("ConfigTool", "UseRAAspectRatio", false);
             }
 
             if (this.radiob_reso640x400.Checked == true)
@@ -602,7 +602,7 @@ namespace RedAlertConfig
 
             if (this.chb_UseRAAspectRatio.Checked == false)
             {
-                Files.RedAlertINI.setBoolValue("Options", "UseRAAspectRatio", false);
+                Files.RedAlertINI.setBoolValue("ConfigTool", "UseRAAspectRatio", false);
             }
             if (this.chb_UseRAAspectRatio.Checked == true)
             {
@@ -610,7 +610,7 @@ namespace RedAlertConfig
                 Files.DDrawINI.setIntValue("ddraw", "height", RAHeight);
                 Files.RedAlertINI.setIntValue("Options", "Height", (int)(RAHeight / 1.2));
 
-                Files.RedAlertINI.setBoolValue("Options", "UseRAAspectRatio", true);
+                Files.RedAlertINI.setBoolValue("ConfigTool", "UseRAAspectRatio", true);
 
                 int RAWidth = Files.RedAlertINI.getIntValue("Options", "Width", 0);
                 Files.DDrawINI.setIntValue("ddraw", "width", RAWidth);
@@ -857,7 +857,7 @@ namespace RedAlertConfig
                 }
             }
 
-            Files.RedAlertINI.setIntValue("Options", "ConfigToolTab", this.tabControl1.SelectedIndex);
+            Files.RedAlertINI.setIntValue("ConfigTool", "ConfigToolTab", this.tabControl1.SelectedIndex);
 
             double Brightness = ((double)this.slider_Brightness.Value) / 1000;
             Files.RedAlertINI.setStringValue("Options", "Brightness", Brightness.ToString());
