@@ -226,7 +226,7 @@ namespace RedAlertConfig
             // link_AboutProjectHome
             // 
             this.link_AboutProjectHome.AutoSize = true;
-            this.link_AboutProjectHome.Location = new System.Drawing.Point(128, 171);
+            this.link_AboutProjectHome.Location = new System.Drawing.Point(128, 167);
             this.link_AboutProjectHome.Name = "link_AboutProjectHome";
             this.link_AboutProjectHome.Size = new System.Drawing.Size(194, 13);
             this.link_AboutProjectHome.TabIndex = 11;
@@ -237,7 +237,7 @@ namespace RedAlertConfig
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(119, 239);
+            this.label48.Location = new System.Drawing.Point(119, 235);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(204, 13);
             this.label48.TabIndex = 10;
@@ -247,7 +247,7 @@ namespace RedAlertConfig
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(178, 258);
+            this.label47.Location = new System.Drawing.Point(178, 254);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(84, 13);
             this.label47.TabIndex = 9;
@@ -257,7 +257,7 @@ namespace RedAlertConfig
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(110, 220);
+            this.label46.Location = new System.Drawing.Point(110, 216);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(219, 13);
             this.label46.TabIndex = 8;
@@ -268,7 +268,7 @@ namespace RedAlertConfig
             // 
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(187, 198);
+            this.label45.Location = new System.Drawing.Point(187, 194);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(58, 13);
             this.label45.TabIndex = 7;
@@ -279,7 +279,7 @@ namespace RedAlertConfig
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(168, 149);
+            this.label43.Location = new System.Drawing.Point(168, 145);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(96, 13);
             this.label43.TabIndex = 5;
@@ -289,7 +289,7 @@ namespace RedAlertConfig
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(179, 82);
+            this.label40.Location = new System.Drawing.Point(179, 78);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(76, 13);
             this.label40.TabIndex = 2;
@@ -300,7 +300,7 @@ namespace RedAlertConfig
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(122, 56);
+            this.label39.Location = new System.Drawing.Point(122, 52);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(184, 13);
             this.label39.TabIndex = 1;
@@ -310,11 +310,11 @@ namespace RedAlertConfig
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(58, 16);
+            this.label38.Location = new System.Drawing.Point(28, 19);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(315, 13);
+            this.label38.Size = new System.Drawing.Size(383, 13);
             this.label38.TabIndex = 0;
-            this.label38.Text = "RedAlertConfig is a configuration tool for Red Alert 1 (PortableRA)";
+            this.label38.Text = "RedAlertConfig is an open-source configuration tool for Red Alert 1 (PortableRA)";
             // 
             // tabPage5
             // 
@@ -1583,7 +1583,7 @@ namespace RedAlertConfig
             // link_Aboutv033p3
             // 
             this.link_Aboutv033p3.AutoSize = true;
-            this.link_Aboutv033p3.Location = new System.Drawing.Point(179, 82);
+            this.link_Aboutv033p3.Location = new System.Drawing.Point(179, 78);
             this.link_Aboutv033p3.Name = "link_Aboutv033p3";
             this.link_Aboutv033p3.Size = new System.Drawing.Size(76, 13);
             this.link_Aboutv033p3.TabIndex = 12;
@@ -1594,7 +1594,7 @@ namespace RedAlertConfig
             // link_AboutCnCDDaw
             // 
             this.link_AboutCnCDDaw.AutoSize = true;
-            this.link_AboutCnCDDaw.Location = new System.Drawing.Point(186, 103);
+            this.link_AboutCnCDDaw.Location = new System.Drawing.Point(186, 99);
             this.link_AboutCnCDDaw.Name = "link_AboutCnCDDaw";
             this.link_AboutCnCDDaw.Size = new System.Drawing.Size(63, 13);
             this.link_AboutCnCDDaw.TabIndex = 13;
@@ -1605,7 +1605,7 @@ namespace RedAlertConfig
             // link_AboutCnCNet
             // 
             this.link_AboutCnCNet.AutoSize = true;
-            this.link_AboutCnCNet.Location = new System.Drawing.Point(197, 124);
+            this.link_AboutCnCNet.Location = new System.Drawing.Point(197, 120);
             this.link_AboutCnCNet.Name = "link_AboutCnCNet";
             this.link_AboutCnCNet.Size = new System.Drawing.Size(44, 13);
             this.link_AboutCnCNet.TabIndex = 14;
