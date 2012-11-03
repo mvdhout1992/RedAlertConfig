@@ -35,6 +35,9 @@ namespace RedAlertConfig
             this.but_Cancel = new System.Windows.Forms.Button();
             this.but_ok = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.link_AboutCnCNet = new System.Windows.Forms.LinkLabel();
+            this.link_AboutCnCDDaw = new System.Windows.Forms.LinkLabel();
+            this.link_Aboutv033p3 = new System.Windows.Forms.LinkLabel();
             this.link_AboutProjectHome = new System.Windows.Forms.LinkLabel();
             this.label48 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
@@ -158,9 +161,6 @@ namespace RedAlertConfig
             this.chb_UseRAAspectRatio = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
-            this.link_Aboutv033p3 = new System.Windows.Forms.LinkLabel();
-            this.link_AboutCnCDDaw = new System.Windows.Forms.LinkLabel();
-            this.link_AboutCnCNet = new System.Windows.Forms.LinkLabel();
             this.tabPage7.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -222,6 +222,39 @@ namespace RedAlertConfig
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "About";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // link_AboutCnCNet
+            // 
+            this.link_AboutCnCNet.AutoSize = true;
+            this.link_AboutCnCNet.Location = new System.Drawing.Point(197, 120);
+            this.link_AboutCnCNet.Name = "link_AboutCnCNet";
+            this.link_AboutCnCNet.Size = new System.Drawing.Size(44, 13);
+            this.link_AboutCnCNet.TabIndex = 14;
+            this.link_AboutCnCNet.TabStop = true;
+            this.link_AboutCnCNet.Text = "CnCNet";
+            this.link_AboutCnCNet.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_AboutCnCNet_LinkClicked);
+            // 
+            // link_AboutCnCDDaw
+            // 
+            this.link_AboutCnCDDaw.AutoSize = true;
+            this.link_AboutCnCDDaw.Location = new System.Drawing.Point(186, 99);
+            this.link_AboutCnCDDaw.Name = "link_AboutCnCDDaw";
+            this.link_AboutCnCDDaw.Size = new System.Drawing.Size(63, 13);
+            this.link_AboutCnCDDaw.TabIndex = 13;
+            this.link_AboutCnCDDaw.TabStop = true;
+            this.link_AboutCnCDDaw.Text = "CnC-DDraw";
+            this.link_AboutCnCDDaw.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_AboutCnCDDaw_LinkClicked);
+            // 
+            // link_Aboutv033p3
+            // 
+            this.link_Aboutv033p3.AutoSize = true;
+            this.link_Aboutv033p3.Location = new System.Drawing.Point(179, 78);
+            this.link_Aboutv033p3.Name = "link_Aboutv033p3";
+            this.link_Aboutv033p3.Size = new System.Drawing.Size(76, 13);
+            this.link_Aboutv033p3.TabIndex = 12;
+            this.link_Aboutv033p3.TabStop = true;
+            this.link_Aboutv033p3.Text = "RA95 v3.03p3";
+            this.link_Aboutv033p3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_Aboutv033p3_LinkClicked);
             // 
             // link_AboutProjectHome
             // 
@@ -926,7 +959,7 @@ namespace RedAlertConfig
             // chb_RepeatMusic
             // 
             this.chb_RepeatMusic.AutoSize = true;
-            this.chb_RepeatMusic.Location = new System.Drawing.Point(284, 260);
+            this.chb_RepeatMusic.Location = new System.Drawing.Point(284, 251);
             this.chb_RepeatMusic.Name = "chb_RepeatMusic";
             this.chb_RepeatMusic.Size = new System.Drawing.Size(91, 17);
             this.chb_RepeatMusic.TabIndex = 22;
@@ -936,7 +969,7 @@ namespace RedAlertConfig
             // chb_ShuffleMusic
             // 
             this.chb_ShuffleMusic.AutoSize = true;
-            this.chb_ShuffleMusic.Location = new System.Drawing.Point(284, 237);
+            this.chb_ShuffleMusic.Location = new System.Drawing.Point(284, 228);
             this.chb_ShuffleMusic.Name = "chb_ShuffleMusic";
             this.chb_ShuffleMusic.Size = new System.Drawing.Size(89, 17);
             this.chb_ShuffleMusic.TabIndex = 21;
@@ -1579,39 +1612,6 @@ namespace RedAlertConfig
             this.chb_EnableCnCDDraw.Text = "Use CnC-DDraw (enables advanced options)";
             this.chb_EnableCnCDDraw.UseVisualStyleBackColor = true;
             this.chb_EnableCnCDDraw.CheckedChanged += new System.EventHandler(this.chb_EnableCnCDDraw_CheckedChanged);
-            // 
-            // link_Aboutv033p3
-            // 
-            this.link_Aboutv033p3.AutoSize = true;
-            this.link_Aboutv033p3.Location = new System.Drawing.Point(179, 78);
-            this.link_Aboutv033p3.Name = "link_Aboutv033p3";
-            this.link_Aboutv033p3.Size = new System.Drawing.Size(76, 13);
-            this.link_Aboutv033p3.TabIndex = 12;
-            this.link_Aboutv033p3.TabStop = true;
-            this.link_Aboutv033p3.Text = "RA95 v3.03p3";
-            this.link_Aboutv033p3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_Aboutv033p3_LinkClicked);
-            // 
-            // link_AboutCnCDDaw
-            // 
-            this.link_AboutCnCDDaw.AutoSize = true;
-            this.link_AboutCnCDDaw.Location = new System.Drawing.Point(186, 99);
-            this.link_AboutCnCDDaw.Name = "link_AboutCnCDDaw";
-            this.link_AboutCnCDDaw.Size = new System.Drawing.Size(63, 13);
-            this.link_AboutCnCDDaw.TabIndex = 13;
-            this.link_AboutCnCDDaw.TabStop = true;
-            this.link_AboutCnCDDaw.Text = "CnC-DDraw";
-            this.link_AboutCnCDDaw.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_AboutCnCDDaw_LinkClicked);
-            // 
-            // link_AboutCnCNet
-            // 
-            this.link_AboutCnCNet.AutoSize = true;
-            this.link_AboutCnCNet.Location = new System.Drawing.Point(197, 120);
-            this.link_AboutCnCNet.Name = "link_AboutCnCNet";
-            this.link_AboutCnCNet.Size = new System.Drawing.Size(44, 13);
-            this.link_AboutCnCNet.TabIndex = 14;
-            this.link_AboutCnCNet.TabStop = true;
-            this.link_AboutCnCNet.Text = "CnCNet";
-            this.link_AboutCnCNet.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_AboutCnCNet_LinkClicked);
             // 
             // Form1
             // 

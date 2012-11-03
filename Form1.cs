@@ -147,7 +147,7 @@ namespace RedAlertConfig
             if (this.txtb_StretchCustomWidth.Text == "0") this.txtb_StretchCustomWidth.Text = "";
             if (this.txtb_StretchCustomHeight.Text == "0") this.txtb_StretchCustomHeight.Text = "";
 
-            txtb_Handle.Text = Files.RedAlertINI.getStringValue("Multiplayer", "Handle", "");
+            txtb_Handle.Text = Files.RedAlertINI.getStringValue("MultiPlayer", "Handle", "");
 
             if (Files.RedAlertINI.getBoolValue("Intro", "PlayIntro", false) == true)
             {
@@ -637,7 +637,7 @@ namespace RedAlertConfig
                 Files.DDrawINI.setIntValue("ddraw", "width", 0);
             }
 
-            Files.RedAlertINI.setStringValue("Multiplayer", "Handle", txtb_Handle.Text);
+            Files.RedAlertINI.setStringValue("MultiPlayer", "Handle", txtb_Handle.Text);
 
             if (chb_PlayIntro.Checked == true)
             {
@@ -652,6 +652,7 @@ namespace RedAlertConfig
             {
                 Files.RedAlertINI.setBoolValue("Options", "IsScoreRepeat", true);
             }
+
             else
             {
                 Files.RedAlertINI.setBoolValue("Options", "IsScoreRepeat", false);
@@ -1253,6 +1254,7 @@ namespace RedAlertConfig
 
         private void Key_Down_Test(object sender, KeyEventArgs e)
         {
+            if (this.grid_HotKeyEditor.CurrentCell == null) return;
             char a = (char)e.KeyCode;
 //            MessageBox.Show(a.ToString());
             Keys test = (Keys)a;
