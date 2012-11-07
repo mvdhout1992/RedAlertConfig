@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
+using Microsoft.Win32;
 using System.Threading;
 using System.Globalization;
 using RedAlertConfig;
@@ -117,7 +118,7 @@ namespace RedAlertConfig
             {
                 this.radiob_reso640x400.Checked = true;
             }
-            else if (ResoWidth == 640 && ResoHeight == 480)
+            else if (ResoWidth == 640 && ResoHeight == 479)
             {
                 this.radiob_reso640x480.Checked = true;
             }
@@ -135,8 +136,8 @@ namespace RedAlertConfig
             }
             Update_Use_RA_Aspect_Ratio();
 
-            this.txtb_StretchCustomWidth.Enabled = false;
-            this.txtb_StretchCustomHeight.Enabled = false;
+//            this.txtb_StretchCustomWidth.Enabled = false;
+//            this.txtb_StretchCustomHeight.Enabled = false;
             
             int StretchWidth = Files.DDrawINI.getIntValue("ddraw", "width", 0);
             int StretchHeight = Files.DDrawINI.getIntValue("ddraw", "height", 0);
@@ -401,7 +402,7 @@ namespace RedAlertConfig
                 CustomResoHeight = 0;
             }
 
-            if (this.radiob_reso640x400.Checked== true)
+            if (this.radiob_reso640x400.Checked == true)
             {
                 CustomResoWidth = 640;
                 CustomResoHeight = 400;
@@ -436,12 +437,6 @@ namespace RedAlertConfig
                 this.txt_UseRAAspectRatio.Enabled = false;
                 this.txt_UseRAAspectRatio.Text = "(needs to be at least 640x480)";
             }
-
-            // this one is needed or some rows are garbage for some reason
-
-//            this.grid_HotKeyEditor.Rows.Add(1);
- //           this.grid_HotKeyEditor.Rows.Add();
-//            this.grid_HotKeyEditor.Rows.Add();
 
         }
 
@@ -556,11 +551,20 @@ namespace RedAlertConfig
 
         private void but_ok_Click(object sender, EventArgs e)
         {
+
             if (this.chb_EnableCnCDDraw.Checked == true)
             {
-                this.chb_AllowHardwareFilledBits.Checked = false;
-                Files.RedAlertINI.setBoolValue("Options", "HardwareFills", false);
-                Files.RedAlertINI.setBoolValue("ConfigTool", "UseRAAspectRatio", false);
+               this.chb_AllowHardwareFilledBits.Checked = false;
+               Files.RedAlertINI.setBoolValue("Options", "HardwareFills", false);
+               Files.RedAlertINI.setBoolValue("ConfigTool", "UseRAAspectRatio", false);
+
+               Remove_Colour_Registry_Fix();
+               Disable_Win95_RA95_Compatibility_Mode();
+            }
+            else
+            {
+                Apply_Colour_Registry_Fix();
+                Enable_Win95_RA95_Compatibility_Mode();
             }
 
             if (this.radiob_reso640x400.Checked == true)
@@ -571,7 +575,7 @@ namespace RedAlertConfig
             else if (this.radiob_reso640x480.Checked == true)
             {
                 Files.RedAlertINI.setIntValue("Options", "Width", 640);
-                Files.RedAlertINI.setIntValue("Options", "Height", 480);
+                Files.RedAlertINI.setIntValue("Options", "Height", 479);
             }
             else if (this.radiob_reso800x600.Checked == true)
             {
@@ -756,6 +760,42 @@ namespace RedAlertConfig
                 Files.DDrawINI.setBoolValue("ddraw", "adjmouse", false);
             }
 
+            if (this.chb_EnableMouseHack.Checked == true)
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "mhack", true);
+            }
+            else
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "mhack", false);
+            }
+
+            if (this.chb_ForceSingleCPU.Checked == true)
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "singlecpu", true);
+            }
+            else
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "singlecpu", false);
+            }
+
+            if (this.chb_BackBufferVideoMemory.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "VideoBackBuffer", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "VideoBackBuffer", false);
+            }
+
+            if (this.chb_AllowHardwareFilledBits.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "HardwareFills", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "HardwareFills", false);
+            }
+
             int MaxFPS;
             if (Int32.TryParse(this.txtb_MaxFPS.Text, out MaxFPS) == false)
             {
@@ -931,6 +971,41 @@ namespace RedAlertConfig
             Application.Exit();
         }
 
+        bool Is_64_Bit_OS()
+        {
+            if (IntPtr.Size == 8)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        void Apply_Colour_Registry_Fix()
+        {
+            string OSIs64Bit = Is_64_Bit_OS() ? "WoW6432Node" : "";
+            RegistryKey Ra95Reg = Registry.LocalMachine.CreateSubKey("SOFTWARE\\" + OSIs64Bit + "\\Microsoft\\DirectDraw\\Compatibility\\ra95");
+            
+           Ra95Reg.SetValue("Name", "ra95.exe", RegistryValueKind.String);
+           Ra95Reg.SetValue("ID", 0x36CB58CB, RegistryValueKind.DWord);
+           Ra95Reg.SetValue("Flags", new byte[] {00, 08, 00, 00 }/*00080000*/, RegistryValueKind.Binary);
+        }
+
+        void Enable_Win95_RA95_Compatibility_Mode()
+        {
+            RegistryKey Compat = Registry.LocalMachine.CreateSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers");
+            Compat.SetValue(Directory.GetCurrentDirectory() + "\\ra95.exe", "WIN95", RegistryValueKind.String);
+        }
+
+        void Disable_Win95_RA95_Compatibility_Mode()
+        {
+            RegistryKey Compat = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers", true);
+            Compat.DeleteValue(Directory.GetCurrentDirectory() + "\\ra95.exe", false);        
+        }
+
+        void Remove_Colour_Registry_Fix()
+        {
+        }
+
         void Save_Hotkey_From_Row_Value(string HotKeyINIKey, int RowIndex)
         {
             KeysConverter Converter = new KeysConverter();
@@ -1041,6 +1116,15 @@ namespace RedAlertConfig
         private void radiob_reso640x480_CheckedChanged_1(object sender, EventArgs e)
         {
             Update_Use_RA_Aspect_Ratio();
+
+            if (this.radiob_reso640x480.Checked == true)
+            {
+                this.chb_StretchCustom.Checked = true;
+                this.txtb_StretchCustomHeight.Text = "480";
+                this.txtb_StretchCustomWidth.Text = "640";
+                this.txtb_StretchCustomHeight.Enabled = true;
+                this.txtb_StretchCustomWidth.Enabled = true;
+            }
         }
 
         private void radiob_reso800x600_CheckedChanged_1(object sender, EventArgs e)
@@ -1082,6 +1166,8 @@ namespace RedAlertConfig
             if (this.chb_EnableCnCDDraw.Checked == false)
             {
                 this.chb_AllowHardwareFilledBits.Enabled = true;
+                this.radiob_reso640x480.Enabled = false;
+                this.radiob_reso640x480.Checked = false;
 
                 this.txt_StretchingScaling.Visible = false;
                 this.chb_UseRAAspectRatio.Visible = false;
@@ -1119,6 +1205,7 @@ namespace RedAlertConfig
             else
             {
                 this.chb_AllowHardwareFilledBits.Enabled = false;
+                this.radiob_reso640x480.Enabled = true;
 
                 this.txt_StretchingScaling.Visible = true;
                 this.chb_UseRAAspectRatio.Visible = true;

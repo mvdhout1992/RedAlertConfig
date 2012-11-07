@@ -1,0 +1,46 @@
+640x480 doesnt work
+error without campaign addon
+enable mousehack cant be disabled
+force single core cant be disabled
+back buffer cant be disabled
+Colors {
+DarkGreen = Teal
+DarkRed = Brown
+add:
+SpecialBlue (Color=10)
+ 
+need to add win95 compatiibilty mode to ra95.exe if cnc-ddraw is disabled
+ 
+add compatibility registry keys if cnc-ddraw is enabled/disabled
+ 
+:disable
+reg add HKLM\SOFTWARE\Microsoft\DirectDraw\Compatibility\ra95\ /v "Name" /t REG_SZ /d ra95.exe /f
+reg add HKLM\SOFTWARE\Microsoft\DirectDraw\Compatibility\ra95\ /v "ID" /t REG_DWORD /d 0x36CB58CB /f
+reg add HKLM\SOFTWARE\Microsoft\DirectDraw\Compatibility\ra95\ /v "Flags" /t REG_BINARY /d 00080000 /f
+reg add HKLM\SOFTWARE\Wow6432Node\Microsoft\DirectDraw\Compatibility\ra95\ /v "Name" /t REG_SZ /d ra95.exe /f
+reg add HKLM\SOFTWARE\Wow6432Node\Microsoft\DirectDraw\Compatibility\ra95\ /v "ID" /t REG_DWORD /d 0x36CB58CB /f
+reg add HKLM\SOFTWARE\Wow6432Node\Microsoft\DirectDraw\Compatibility\ra95\ /v "Flags" /t REG_BINARY /d 00080000 /f
+reg add HKLM\SOFTWARE\Microsoft\DirectDraw\Compatibility\raAM\ /v "Name" /t REG_SZ /d raAM.exe /f
+reg add HKLM\SOFTWARE\Microsoft\DirectDraw\Compatibility\raAM\ /v "ID" /t REG_DWORD /d 0x36CB58CB /f
+reg add HKLM\SOFTWARE\Microsoft\DirectDraw\Compatibility\raAM\ /v "Flags" /t REG_BINARY /d 00080000 /f
+reg add HKLM\SOFTWARE\Wow6432Node\Microsoft\DirectDraw\Compatibility\raAM\ /v "Name" /t REG_SZ /d raAM.exe /f
+reg add HKLM\SOFTWARE\Wow6432Node\Microsoft\DirectDraw\Compatibility\raAM\ /v "ID" /t REG_DWORD /d 0x36CB58CB /f
+reg add HKLM\SOFTWARE\Wow6432Node\Microsoft\DirectDraw\Compatibility\raAM\ /v "Flags" /t REG_BINARY /d 00080000 /f
+if exist BACKUP_ddraw.dll delete BACKUP_ddraw.dll
+rename ddraw.dll BACKUP_ddraw.dll
+echo.
+echo cnc-ddraw disabled! if the "Unable to set video mode" error still persists change resolution to 640x480 in rasetup.exe
+goto ddrawend
+:enable
+reg delete HKLM\SOFTWARE\Microsoft\DirectDraw\Compatibility\ra95\ /f
+reg delete HKLM\SOFTWARE\Wow6432Node\Microsoft\DirectDraw\Compatibility\ra95\ /f
+reg delete HKLM\SOFTWARE\Microsoft\DirectDraw\Compatibility\raAM\ /f
+reg delete HKLM\SOFTWARE\Wow6432Node\Microsoft\DirectDraw\Compatibility\raAM\ /f
+rename BACKUP_ddraw.dll ddraw.dll
+echo.
+echo cnc-ddraw enabled! if the "Unable to set video mode" error still persists change resolution to 640x480 in rasetup.exe
+:ddrawend
+echo.
+pause
+cls
+goto start
