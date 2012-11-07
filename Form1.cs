@@ -319,7 +319,22 @@ namespace RedAlertConfig
             this.txtb_MaxFPS.Text = Files.DDrawINI.getStringValue("ddraw", "maxfps", "");
 
             int BPP = Files.DDrawINI.getIntValue("ddraw", "bpp", 0);
-            this.cmbox_BitsPerPixels.SelectedIndex = BPP;
+            int BPPIndex = 0;
+
+            if (BPP == 16)
+            {
+                BPPIndex = 1;
+            }
+            else if (BPP == 24)
+            {
+                BPPIndex = 2;
+            }
+            else if (BPP == 32)
+            {
+                BPPIndex = 3;
+            }
+
+            this.cmbox_BitsPerPixels.SelectedIndex = BPPIndex;
 
             this.tabControl1.SelectedIndex = Files.RedAlertINI.getIntValue("ConfigTool", "ConfigToolTab", 0);
 
@@ -803,7 +818,22 @@ namespace RedAlertConfig
             }
             Files.DDrawINI.setIntValue("ddraw", "maxfps", MaxFPS);
 
-            int BPP = this.cmbox_BitsPerPixels.SelectedIndex;
+            int BPPIndex = this.cmbox_BitsPerPixels.SelectedIndex;
+            int BPP = 0;
+
+            if (BPPIndex == 1)
+            {
+                BPP = 16;
+            }
+            else if (BPPIndex == 2)
+            {
+                BPP = 24;
+            }
+            else if (BPPIndex == 3)
+            {
+                BPP = 32;
+            }
+
             Files.DDrawINI.setIntValue("ddraw", "bpp", BPP);
 
             if (this.chb_EnableCnCDDraw.Checked == true && !File.Exists("ddraw.dll"))
