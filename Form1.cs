@@ -29,6 +29,21 @@ namespace RedAlertConfig
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (File.Exists("1maplist_original_game.pkt") == true)
+            {
+                this.chb_DisplayOriginalMaps.Checked = true;
+            }
+
+            if ((File.Exists("2maplist_counterstrike.pkt") == true))
+            {
+                this.chb_DisplayCounterstrikeMaps.Checked = true;
+            }
+
+            if ((File.Exists("3maplist_aftermath.pkt") == true))
+            {
+                this.chb_DisplayAftermathMaps.Checked = true;
+            }
+
            if (File.Exists("ddraw.dll") == true)
            {
                 this.chb_EnableCnCDDraw.Checked = true;
@@ -61,6 +76,7 @@ namespace RedAlertConfig
            {
                this.chb_EnableCounterstrike.Checked = true;
            }
+
            else
            {
                this.chb_EnableCounterstrike.Checked = false;
@@ -75,8 +91,12 @@ namespace RedAlertConfig
                this.chb_EnableAftermath.Checked = false;
                this.chb_ForceAftermathOnline.Checked = false;
                this.chb_ForceAftermathOnline.Enabled = false;
+               this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = false;
+               this.chb_ForceAftermathOnlineFastBuildSpeed.Enabled = false;
            }
 
+           this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = false;
+           this.chb_ForceAftermathOnline.Checked = false;
 
            if (File.Exists("rules.ini") == true)
            {
@@ -86,14 +106,16 @@ namespace RedAlertConfig
                 using (FileStream fs = File.Open("rules.ini", FileMode.Open))
     	        foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
 
+                // MessageBox.Show(hash);
+
                 if (hash == "c165ab92")
                 {
                     this.chb_ForceAftermathOnline.Checked = true;
                 }
-           }
-           else
-           {
-               this.chb_ForceAftermathOnline.Checked = false;
+                if (hash == "adabee0b")
+                {
+                    this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = true;
+                }
            }
 
            if (Files.RedAlertINI.getBoolValue("ConfigTool", "UseRAAspectRatio", false) == true)
@@ -106,6 +128,9 @@ namespace RedAlertConfig
                ResoWidth = Files.RedAlertINI.getIntValue("Options", "Width", 640);
                ResoHeight = Files.RedAlertINI.getIntValue("Options", "Height", 480);
            }
+
+            String Credits = Files.RedAlertINI.getIntValue("MultiplayerDefaults", "Money", 0).ToString();
+            this.textb_Credits.Text = Credits;
 
            this.txtb_resoCustomHeight.Enabled = false;
            this.txtb_resoCustomWidth.Enabled = false;
@@ -150,7 +175,23 @@ namespace RedAlertConfig
 
             txtb_Handle.Text = Files.RedAlertINI.getStringValue("MultiPlayer", "Handle", "");
 
-            if (Files.RedAlertINI.getBoolValue("Intro", "PlayIntro", false) == true)
+            int UnitCount = Files.RedAlertINI.getIntValue("MultiPlayerDefaults", "UnitCount", 0);
+            if (UnitCount > 12) UnitCount = 12; if (UnitCount < 0) UnitCount = 0;
+            this.cmbox_UnitCount.SelectedIndex = UnitCount;
+
+            int TechLevel = Files.RedAlertINI.getIntValue("MultiPlayerDefaults", "TechLevel", 10);
+            if (TechLevel > 10) TechLevel = 10; if (TechLevel < 1) TechLevel = 1;
+            this.cmbox_TechLevel.SelectedIndex = TechLevel - 1;
+
+            int AIPlayers = Files.RedAlertINI.getIntValue("MultiPlayerDefaults", "AIPlayers", 1);
+            if (AIPlayers > 7) AIPlayers = 7; if (AIPlayers < 0) AIPlayers = 0;
+            this.cmbox_AIPlayers.SelectedIndex = AIPlayers;
+
+            int AIDifficulty = Files.RedAlertINI.getIntValue("MultiPlayerDefaults", "AIDifficulty", 1);
+            if (AIDifficulty > 2) AIPlayers = 2; if (AIDifficulty < 0) AIDifficulty = 0;
+            this.cmbox_AIDifficulty.SelectedIndex = AIDifficulty;
+
+            if (Files.RedAlertINI.getBoolValue("Options", "PlayEnglishIntro", false) == true)
             {
                 chb_PlayIntro.Checked = true;
             }
@@ -158,9 +199,22 @@ namespace RedAlertConfig
             if (!File.Exists("movies1.mix") && !File.Exists("movies2.mix"))
             {
                 chb_PlayIntro.Enabled = false;
-                chb_PlayIntro.Text = "Play intro cinematic (requires movie files)";
+//                chb_PlayIntro.Text = "Play intro cinematic (requires movie files)";
             }
 
+            if (Files.RedAlertINI.getIntValue("Options", "VideoInterlaceMode", 2) == 2)
+            {
+                this.chb_DeinterlaceVideos.Checked = true;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "ShowAllMusic", false) == true)
+            {
+                this.chb_ShowAllMusic.Checked = true;
+            }
+            if (Files.RedAlertINI.getBoolValue("Options", "SkipScoreScreen", false) == true)
+            {
+                this.chb_SkipScoreScreen.Checked = true;
+            }
             if (Files.RedAlertINI.getBoolValue("Options", "IsScoreRepeat", false) == true)
             {
                 this.chb_RepeatMusic.Checked = true;
@@ -177,7 +231,27 @@ namespace RedAlertConfig
             {
                 this.chb_PaletteScroll.Checked = true;
             }
-            
+            if (Files.RedAlertINI.getBoolValue("MultiplayerDefaults", "ShroudRegrows", false) == true)
+            {
+                this.chb_ShroudRegrows.Checked = true;
+            }
+            if (Files.RedAlertINI.getBoolValue("MultiplayerDefaults", "CaptureTheFlag", false) == true)
+            {
+                this.chb_CaptureTheFlag.Checked = true;
+            }
+            if (Files.RedAlertINI.getBoolValue("MultiplayerDefaults", "Crates", false) == true)
+            {
+                this.chb_Crates.Checked = true;
+            }
+            if (Files.RedAlertINI.getBoolValue("MultiplayerDefaults", "Bases", false) == true)
+            {
+                this.chb_Bases.Checked = true;
+            }
+            if (Files.RedAlertINI.getBoolValue("MultiplayerDefaults", "OreRegenerates", false) == true)
+            {
+                this.chb_OreRegenerates.Checked = true;
+            }
+
             double derp;
             if (Double.TryParse(Files.RedAlertINI.getStringValue("Options", "Volume", "0"),  out derp) == false)
             {
@@ -232,7 +306,21 @@ namespace RedAlertConfig
             int ScrollRate = Files.RedAlertINI.getIntValue("Options", "ScrollRate", 3);
             this.slider_ScrollRate.Value = 6 - ScrollRate;
 
-            this.cmbox_Side.SelectedIndex = Files.RedAlertINI.getIntValue("MultiPlayer", "Side", 2)-2;
+            int Side = Files.RedAlertINI.getIntValue("MultiPlayer", "Side", 2);
+            if (Side == 0 || Side == 1)
+            {
+                Side += 6;
+            }
+            else if (Side > 1 && Side < 8)
+            {
+                Side -= 2;
+            }
+            else
+            {
+                Side = 0;
+            }
+
+            this.cmbox_Side.SelectedIndex = Side;
 
             this.cmbox_Color.SelectedIndex = Files.RedAlertINI.getIntValue("MultiPlayer", "Color", 0);
 
@@ -475,10 +563,6 @@ namespace RedAlertConfig
 
         }
 
-        private void checkBox10_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void label15_Click(object sender, EventArgs e)
         {
@@ -573,13 +657,13 @@ namespace RedAlertConfig
                Files.RedAlertINI.setBoolValue("Options", "HardwareFills", false);
                Files.RedAlertINI.setBoolValue("ConfigTool", "UseRAAspectRatio", false);
 
-               Remove_Colour_Registry_Fix();
-               Disable_Win95_RA95_Compatibility_Mode();
+             //  Remove_Colour_Registry_Fix();
+             //  Disable_Win95_RA95_Compatibility_Mode();
             }
             else
             {
-                Apply_Colour_Registry_Fix();
-                Enable_Win95_RA95_Compatibility_Mode();
+             //   Apply_Colour_Registry_Fix();
+             //   Enable_Win95_RA95_Compatibility_Mode();
             }
 
             if (this.radiob_reso640x400.Checked == true)
@@ -660,18 +744,35 @@ namespace RedAlertConfig
 
             if (chb_PlayIntro.Checked == true)
             {
-                Files.RedAlertINI.setBoolValue("Intro", "PlayIntro", true);
+                Files.RedAlertINI.setBoolValue("Options", "PlayEnglishIntro", true);
             }
             else
             {
-                Files.RedAlertINI.setBoolValue("Intro", "PlayIntro", false);
+                Files.RedAlertINI.setBoolValue("Options", "PlayEnglishIntro", false);
+            }
+
+            if (chb_SkipScoreScreen.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "SkipScoreScreen", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "SkipScoreScreen", false);
+            }
+
+            if (this.chb_ShowAllMusic.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "ShowAllMusic", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "ShowAllMusic", false);
             }
 
             if (this.chb_RepeatMusic.Checked == true)
             {
                 Files.RedAlertINI.setBoolValue("Options", "IsScoreRepeat", true);
             }
-
             else
             {
                 Files.RedAlertINI.setBoolValue("Options", "IsScoreRepeat", false);
@@ -704,6 +805,17 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setBoolValue("Options", "PaletteScroll", false);
             }
 
+            if (this.chb_DeinterlaceVideos.Checked == true)
+            {
+                Files.RedAlertINI.setIntValue("Options", "VideoInterlaceMode", 2);
+            }
+            else
+            {
+                Files.RedAlertINI.setIntValue("Options", "VideoInterlaceMode", 0);
+            }
+
+            Files.RedAlertINI.setStringValue("MultiplayerDefaults", "Money", this.textb_Credits.Text);
+
             double Volume = ((double)this.slider_SoundVolume.Value) / 1000;
             Files.RedAlertINI.setStringValue("Options", "Volume", Volume.ToString());
 
@@ -717,7 +829,15 @@ namespace RedAlertConfig
             int ScrollRate = 6 - this.slider_ScrollRate.Value;
             Files.RedAlertINI.setIntValue("Options", "ScrollRate", ScrollRate);
 
+            int Side = this.cmbox_Side.SelectedIndex;
+
             Files.RedAlertINI.setIntValue("MultiPlayer", "Side", this.cmbox_Side.SelectedIndex + 2);
+
+            if (Side == 6 || Side == 7)
+            {
+                Side -= 6;
+                Files.RedAlertINI.setIntValue("MultiPlayer", "Side", Side);
+            }
 
             Files.RedAlertINI.setIntValue("MultiPlayer", "Color", this.cmbox_Color.SelectedIndex);
 
@@ -811,6 +931,51 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setBoolValue("Options", "HardwareFills", false);
             }
 
+            if (this.chb_ShroudRegrows.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "ShroudRegrows", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "ShroudRegrows", false);
+            }
+
+            if (this.chb_CaptureTheFlag.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "CaptureTheFlag", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "CaptureTheFlag", false);
+            }
+
+            if (this.chb_Crates.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "Crates", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "Crates", false);
+            }
+
+            if (this.chb_Bases.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "Bases", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "Bases", false);
+            }
+
+            if (this.chb_OreRegenerates.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "OreRegenerates", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "OreRegenerates", false);
+            }
+
             int MaxFPS;
             if (Int32.TryParse(this.txtb_MaxFPS.Text, out MaxFPS) == false)
             {
@@ -835,6 +1000,18 @@ namespace RedAlertConfig
             }
 
             Files.DDrawINI.setIntValue("ddraw", "bpp", BPP);
+
+            int UnitCount = this.cmbox_UnitCount.SelectedIndex;
+            Files.RedAlertINI.setIntValue("MultiplayerDefaults", "UnitCount", UnitCount);
+
+            int TechLevel= this.cmbox_TechLevel.SelectedIndex;
+            Files.RedAlertINI.setIntValue("MultiplayerDefaults", "TechLevel", TechLevel+1);
+
+            int AIPlayers = this.cmbox_AIPlayers.SelectedIndex;
+            Files.RedAlertINI.setIntValue("MultiplayerDefaults", "AIPlayers", AIPlayers);
+
+            int AIDifficulty = this.cmbox_AIDifficulty.SelectedIndex;
+            Files.RedAlertINI.setIntValue("MultiplayerDefaults", "AIDifficulty", AIDifficulty);
 
             if (this.chb_EnableCnCDDraw.Checked == true && !File.Exists("ddraw.dll"))
             {
@@ -886,6 +1063,34 @@ namespace RedAlertConfig
                 File.Delete("expand2.mix");
             }
 
+            if (this.chb_ForceAftermathOnline.Checked == false && File.Exists("rules.ini"))
+            {
+                Crc32 crc32 = new Crc32();
+                String hash = String.Empty;
+
+                using (FileStream fs = File.Open("rules.ini", FileMode.Open))
+                    foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
+
+                if (hash == "c165ab92")
+                {
+                    File.Delete("rules.ini");
+                }
+            }
+
+            if (this.chb_ForceAftermathOnlineFastBuildSpeed.Checked == false && File.Exists("rules.ini"))
+            {
+                Crc32 crc32 = new Crc32();
+                String hash = String.Empty;
+
+                using (FileStream fs = File.Open("rules.ini", FileMode.Open))
+                    foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
+
+                if (hash == "adabee0b")
+                {
+                    File.Delete("rules.ini");
+                }
+            }
+
             if (this.chb_ForceAftermathOnline.Checked == true)
             {
                 if (File.Exists("rules.ini"))
@@ -914,17 +1119,33 @@ namespace RedAlertConfig
                     Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini");
                 }              
             }
-            else if (this.chb_ForceAftermathOnline.Checked == false && File.Exists("rules.ini"))
+
+            if (this.chb_ForceAftermathOnlineFastBuildSpeed.Checked == true)
             {
-                Crc32 crc32 = new Crc32();
-                String hash = String.Empty;
-
-                using (FileStream fs = File.Open("rules.ini", FileMode.Open))
-                foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
-
-                if (hash == "c165ab92")
+                if (File.Exists("rules.ini"))
                 {
-                    File.Delete("rules.ini");
+                    Crc32 crc32 = new Crc32();
+                    String hash = String.Empty;
+
+                    using (FileStream fs = File.Open("rules.ini", FileMode.Open))
+                        foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
+
+                    if (hash != "adabee0b")
+                    {
+                        // File exists but with different hash
+                        MessageBox.Show("Force Aftermath with fast build speed expansion is enabled but another rules.ini file has been found, this file has been renamed to ___rules.ini.");
+
+                        File.Move(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini",
+                        Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "___rules.ini");
+
+                        File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMRulesFastBuildSpeed.ini",
+                        Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini");
+                    }
+                }
+                else
+                {
+                    File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMRulesFastBuildSpeed.ini",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini");
                 }
             }
 
@@ -1010,31 +1231,31 @@ namespace RedAlertConfig
             return false;
         }
 
-        void Apply_Colour_Registry_Fix()
-        {
-            string OSIs64Bit = Is_64_Bit_OS() ? "WoW6432Node" : "";
-            RegistryKey Ra95Reg = Registry.LocalMachine.CreateSubKey("SOFTWARE\\" + OSIs64Bit + "\\Microsoft\\DirectDraw\\Compatibility\\ra95");
-            
-           Ra95Reg.SetValue("Name", "ra95.exe", RegistryValueKind.String);
-           Ra95Reg.SetValue("ID", 0x36CB58CB, RegistryValueKind.DWord);
-           Ra95Reg.SetValue("Flags", new byte[] {00, 08, 00, 00 }/*00080000*/, RegistryValueKind.Binary);
-        }
-
-        void Enable_Win95_RA95_Compatibility_Mode()
-        {
-            RegistryKey Compat = Registry.LocalMachine.CreateSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers");
-            Compat.SetValue(Directory.GetCurrentDirectory() + "\\ra95.exe", "WIN95", RegistryValueKind.String);
-        }
-
-        void Disable_Win95_RA95_Compatibility_Mode()
-        {
-            RegistryKey Compat = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers", true);
-            Compat.DeleteValue(Directory.GetCurrentDirectory() + "\\ra95.exe", false);        
-        }
-
-        void Remove_Colour_Registry_Fix()
-        {
-        }
+//        void Apply_Colour_Registry_Fix()
+//        {
+//            string OSIs64Bit = Is_64_Bit_OS() ? "WoW6432Node" : "";
+//            RegistryKey Ra95Reg = Registry.LocalMachine.CreateSubKey("SOFTWARE\\" + OSIs64Bit + "\\Microsoft\\DirectDraw\\Compatibility\\ra95");
+//            
+//           Ra95Reg.SetValue("Name", "ra95.exe", RegistryValueKind.String);
+//           Ra95Reg.SetValue("ID", 0x36CB58CB, RegistryValueKind.DWord);
+//           Ra95Reg.SetValue("Flags", new byte[] {00, 08, 00, 00 }/*00080000*/, RegistryValueKind.Binary);
+//        }
+//
+//        void Enable_Win95_RA95_Compatibility_Mode()
+//        {
+//            RegistryKey Compat = Registry.LocalMachine.CreateSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers");
+//            Compat.SetValue(Directory.GetCurrentDirectory() + "\\ra95.exe", "WIN95", RegistryValueKind.String);
+//        }
+//
+//        void Disable_Win95_RA95_Compatibility_Mode()
+//        {
+//            RegistryKey Compat = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers", true);
+//            Compat.DeleteValue(Directory.GetCurrentDirectory() + "\\ra95.exe", false);        
+//        }
+//
+//        void Remove_Colour_Registry_Fix()
+//        {
+//        }
 
         void Save_Hotkey_From_Row_Value(string HotKeyINIKey, int RowIndex)
         {
@@ -1277,11 +1498,15 @@ namespace RedAlertConfig
             if (this.radiob_RendererGDI.Checked == true)
             {
                 this.chb_UseWindowBoxing.Enabled = true;
+                this.label34.Enabled = true;
+                this.label35.Enabled = true;
             }
             else
             {
                 this.chb_UseWindowBoxing.Enabled = false;
                 this.chb_UseWindowBoxing.Checked = false;
+                this.label34.Enabled = false;
+                this.label35.Enabled = false;
             }
         }
 
@@ -1299,7 +1524,7 @@ namespace RedAlertConfig
                 this.chb_EnableVSync.Checked = false;
 
                 this.cmbox_ScalingFilter.Enabled = false;
-                this.cmbox_ScalingFilter.SelectedIndex = -1;
+                // this.cmbox_ScalingFilter.SelectedIndex = -1;
             }
         }
 
@@ -1309,10 +1534,13 @@ namespace RedAlertConfig
             {
                 this.chb_ForceAftermathOnline.Checked = false;
                 this.chb_ForceAftermathOnline.Enabled = false;
+                this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = false;
+                this.chb_ForceAftermathOnlineFastBuildSpeed.Enabled = false;
             }
             else
             {
                 this.chb_ForceAftermathOnline.Enabled = true;
+                this.chb_ForceAftermathOnlineFastBuildSpeed.Enabled = true;
             }
         }
 
@@ -1516,7 +1744,28 @@ namespace RedAlertConfig
 
         private void link_Aboutv033p3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/hifi/ra303p");
+            System.Diagnostics.Process.Start("https://github.com/Iran/ra303p-iran");
+        }
+
+        private void chb_ForceAftermathOnline_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chb_ForceAftermathOnline.Checked == true)
+            {
+                this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = false;
+            }
+        }
+
+        private void chb_ForceAftermathOnlineFastBuildSpeed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chb_ForceAftermathOnlineFastBuildSpeed.Checked == true)
+            {
+                this.chb_ForceAftermathOnline.Checked = false;
+            }
+        }
+
+        private void cmbox_UnitCount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
