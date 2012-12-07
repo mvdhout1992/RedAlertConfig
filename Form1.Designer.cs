@@ -55,6 +55,32 @@ namespace RedAlertConfig
             this.ColumnHotkeyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHotkeyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label58 = new System.Windows.Forms.Label();
+            this.chb_DisplayAftermathMaps = new System.Windows.Forms.CheckBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.chb_DisplayCounterstrikeMaps = new System.Windows.Forms.CheckBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.chb_DisplayOriginalMaps = new System.Windows.Forms.CheckBox();
+            this.cmbox_AIDifficulty = new System.Windows.Forms.ComboBox();
+            this.cmbox_AIPlayers = new System.Windows.Forms.ComboBox();
+            this.cmbox_TechLevel = new System.Windows.Forms.ComboBox();
+            this.cmbox_UnitCount = new System.Windows.Forms.ComboBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.chb_Crates = new System.Windows.Forms.CheckBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.chb_OreRegenerates = new System.Windows.Forms.CheckBox();
+            this.labelderp = new System.Windows.Forms.Label();
+            this.chb_Bases = new System.Windows.Forms.CheckBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.chb_CaptureTheFlag = new System.Windows.Forms.CheckBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.chb_ShroudRegrows = new System.Windows.Forms.CheckBox();
+            this.textb_Credits = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.chb_ForceAftermathOnlineFastBuildSpeed = new System.Windows.Forms.CheckBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -123,6 +149,7 @@ namespace RedAlertConfig
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chb_DeinterlaceVideos = new System.Windows.Forms.CheckBox();
             this.chb_SkipScoreScreen = new System.Windows.Forms.CheckBox();
             this.chb_ShowAllMusic = new System.Windows.Forms.CheckBox();
             this.but_ResetVisualOptions = new System.Windows.Forms.Button();
@@ -162,33 +189,7 @@ namespace RedAlertConfig
             this.chb_EnableCounterstrike = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label42 = new System.Windows.Forms.Label();
-            this.textb_Credits = new System.Windows.Forms.TextBox();
-            this.chb_ShroudRegrows = new System.Windows.Forms.CheckBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.chb_CaptureTheFlag = new System.Windows.Forms.CheckBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.chb_OreRegenerates = new System.Windows.Forms.CheckBox();
-            this.labelderp = new System.Windows.Forms.Label();
-            this.chb_Bases = new System.Windows.Forms.CheckBox();
-            this.label52 = new System.Windows.Forms.Label();
-            this.chb_Crates = new System.Windows.Forms.CheckBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.cmbox_UnitCount = new System.Windows.Forms.ComboBox();
-            this.cmbox_TechLevel = new System.Windows.Forms.ComboBox();
-            this.cmbox_AIPlayers = new System.Windows.Forms.ComboBox();
-            this.cmbox_AIDifficulty = new System.Windows.Forms.ComboBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.chb_DisplayOriginalMaps = new System.Windows.Forms.CheckBox();
-            this.label57 = new System.Windows.Forms.Label();
-            this.chb_DisplayCounterstrikeMaps = new System.Windows.Forms.CheckBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.chb_DisplayAftermathMaps = new System.Windows.Forms.CheckBox();
-            this.chb_DeinterlaceVideos = new System.Windows.Forms.CheckBox();
+            this.chb_RandomStartingSong = new System.Windows.Forms.CheckBox();
             this.tabPage7.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
@@ -517,6 +518,277 @@ namespace RedAlertConfig
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(302, 179);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(117, 13);
+            this.label58.TabIndex = 76;
+            this.label58.Text = "Display Aftermath maps";
+            // 
+            // chb_DisplayAftermathMaps
+            // 
+            this.chb_DisplayAftermathMaps.AutoSize = true;
+            this.chb_DisplayAftermathMaps.Location = new System.Drawing.Point(285, 179);
+            this.chb_DisplayAftermathMaps.Name = "chb_DisplayAftermathMaps";
+            this.chb_DisplayAftermathMaps.Size = new System.Drawing.Size(15, 14);
+            this.chb_DisplayAftermathMaps.TabIndex = 75;
+            this.chb_DisplayAftermathMaps.UseVisualStyleBackColor = true;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(302, 160);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(134, 13);
+            this.label57.TabIndex = 74;
+            this.label57.Text = "Display Counterstrike maps";
+            // 
+            // chb_DisplayCounterstrikeMaps
+            // 
+            this.chb_DisplayCounterstrikeMaps.AutoSize = true;
+            this.chb_DisplayCounterstrikeMaps.Location = new System.Drawing.Point(285, 160);
+            this.chb_DisplayCounterstrikeMaps.Name = "chb_DisplayCounterstrikeMaps";
+            this.chb_DisplayCounterstrikeMaps.Size = new System.Drawing.Size(15, 14);
+            this.chb_DisplayCounterstrikeMaps.TabIndex = 73;
+            this.chb_DisplayCounterstrikeMaps.UseVisualStyleBackColor = true;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(302, 140);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(134, 13);
+            this.label56.TabIndex = 72;
+            this.label56.Text = "Display original game maps";
+            // 
+            // chb_DisplayOriginalMaps
+            // 
+            this.chb_DisplayOriginalMaps.AutoSize = true;
+            this.chb_DisplayOriginalMaps.Location = new System.Drawing.Point(285, 140);
+            this.chb_DisplayOriginalMaps.Name = "chb_DisplayOriginalMaps";
+            this.chb_DisplayOriginalMaps.Size = new System.Drawing.Size(15, 14);
+            this.chb_DisplayOriginalMaps.TabIndex = 71;
+            this.chb_DisplayOriginalMaps.UseVisualStyleBackColor = true;
+            // 
+            // cmbox_AIDifficulty
+            // 
+            this.cmbox_AIDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbox_AIDifficulty.FormattingEnabled = true;
+            this.cmbox_AIDifficulty.Items.AddRange(new object[] {
+            "Easy",
+            "Medium",
+            "Hard"});
+            this.cmbox_AIDifficulty.Location = new System.Drawing.Point(198, 167);
+            this.cmbox_AIDifficulty.Name = "cmbox_AIDifficulty";
+            this.cmbox_AIDifficulty.Size = new System.Drawing.Size(67, 21);
+            this.cmbox_AIDifficulty.TabIndex = 70;
+            // 
+            // cmbox_AIPlayers
+            // 
+            this.cmbox_AIPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbox_AIPlayers.FormattingEnabled = true;
+            this.cmbox_AIPlayers.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.cmbox_AIPlayers.Location = new System.Drawing.Point(198, 139);
+            this.cmbox_AIPlayers.Name = "cmbox_AIPlayers";
+            this.cmbox_AIPlayers.Size = new System.Drawing.Size(67, 21);
+            this.cmbox_AIPlayers.TabIndex = 69;
+            // 
+            // cmbox_TechLevel
+            // 
+            this.cmbox_TechLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbox_TechLevel.FormattingEnabled = true;
+            this.cmbox_TechLevel.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.cmbox_TechLevel.Location = new System.Drawing.Point(92, 167);
+            this.cmbox_TechLevel.Name = "cmbox_TechLevel";
+            this.cmbox_TechLevel.Size = new System.Drawing.Size(38, 21);
+            this.cmbox_TechLevel.TabIndex = 68;
+            // 
+            // cmbox_UnitCount
+            // 
+            this.cmbox_UnitCount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbox_UnitCount.FormattingEnabled = true;
+            this.cmbox_UnitCount.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cmbox_UnitCount.Location = new System.Drawing.Point(92, 139);
+            this.cmbox_UnitCount.Name = "cmbox_UnitCount";
+            this.cmbox_UnitCount.Size = new System.Drawing.Size(38, 21);
+            this.cmbox_UnitCount.TabIndex = 67;
+            this.cmbox_UnitCount.SelectedIndexChanged += new System.EventHandler(this.cmbox_UnitCount_SelectedIndexChanged);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(136, 170);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(61, 13);
+            this.label54.TabIndex = 66;
+            this.label54.Text = "AI difficulty:";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(136, 141);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(56, 13);
+            this.label55.TabIndex = 65;
+            this.label55.Text = "AI players:";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(27, 170);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(60, 13);
+            this.label53.TabIndex = 64;
+            this.label53.Text = "Tech level:";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(27, 141);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(59, 13);
+            this.label51.TabIndex = 63;
+            this.label51.Text = "Unit count:";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(302, 72);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(37, 13);
+            this.label52.TabIndex = 62;
+            this.label52.Text = "Crates";
+            // 
+            // chb_Crates
+            // 
+            this.chb_Crates.AutoSize = true;
+            this.chb_Crates.Location = new System.Drawing.Point(285, 72);
+            this.chb_Crates.Name = "chb_Crates";
+            this.chb_Crates.Size = new System.Drawing.Size(15, 14);
+            this.chb_Crates.TabIndex = 61;
+            this.chb_Crates.UseVisualStyleBackColor = true;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(302, 52);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(83, 13);
+            this.label50.TabIndex = 60;
+            this.label50.Text = "Ore regenerates";
+            // 
+            // chb_OreRegenerates
+            // 
+            this.chb_OreRegenerates.AutoSize = true;
+            this.chb_OreRegenerates.Location = new System.Drawing.Point(285, 52);
+            this.chb_OreRegenerates.Name = "chb_OreRegenerates";
+            this.chb_OreRegenerates.Size = new System.Drawing.Size(15, 14);
+            this.chb_OreRegenerates.TabIndex = 59;
+            this.chb_OreRegenerates.UseVisualStyleBackColor = true;
+            // 
+            // labelderp
+            // 
+            this.labelderp.AutoSize = true;
+            this.labelderp.Location = new System.Drawing.Point(301, 32);
+            this.labelderp.Name = "labelderp";
+            this.labelderp.Size = new System.Drawing.Size(36, 13);
+            this.labelderp.TabIndex = 58;
+            this.labelderp.Text = "Bases";
+            // 
+            // chb_Bases
+            // 
+            this.chb_Bases.AutoSize = true;
+            this.chb_Bases.Location = new System.Drawing.Point(285, 32);
+            this.chb_Bases.Name = "chb_Bases";
+            this.chb_Bases.Size = new System.Drawing.Size(15, 14);
+            this.chb_Bases.TabIndex = 57;
+            this.chb_Bases.UseVisualStyleBackColor = true;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(302, 112);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(82, 13);
+            this.label49.TabIndex = 56;
+            this.label49.Text = "Capture the flag";
+            // 
+            // chb_CaptureTheFlag
+            // 
+            this.chb_CaptureTheFlag.AutoSize = true;
+            this.chb_CaptureTheFlag.Location = new System.Drawing.Point(285, 112);
+            this.chb_CaptureTheFlag.Name = "chb_CaptureTheFlag";
+            this.chb_CaptureTheFlag.Size = new System.Drawing.Size(15, 14);
+            this.chb_CaptureTheFlag.TabIndex = 55;
+            this.chb_CaptureTheFlag.UseVisualStyleBackColor = true;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(301, 92);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(81, 13);
+            this.label44.TabIndex = 54;
+            this.label44.Text = "Shroud regrows";
+            // 
+            // chb_ShroudRegrows
+            // 
+            this.chb_ShroudRegrows.AutoSize = true;
+            this.chb_ShroudRegrows.Location = new System.Drawing.Point(285, 92);
+            this.chb_ShroudRegrows.Name = "chb_ShroudRegrows";
+            this.chb_ShroudRegrows.Size = new System.Drawing.Size(15, 14);
+            this.chb_ShroudRegrows.TabIndex = 53;
+            this.chb_ShroudRegrows.UseVisualStyleBackColor = true;
+            // 
+            // textb_Credits
+            // 
+            this.textb_Credits.Location = new System.Drawing.Point(92, 112);
+            this.textb_Credits.Name = "textb_Credits";
+            this.textb_Credits.Size = new System.Drawing.Size(173, 20);
+            this.textb_Credits.TabIndex = 52;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(27, 115);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(42, 13);
+            this.label42.TabIndex = 51;
+            this.label42.Text = "Credits:";
+            // 
             // label41
             // 
             this.label41.AutoSize = true;
@@ -547,7 +819,7 @@ namespace RedAlertConfig
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(29, 223);
+            this.label36.Location = new System.Drawing.Point(160, 253);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(191, 13);
             this.label36.TabIndex = 47;
@@ -608,7 +880,7 @@ namespace RedAlertConfig
             // 
             this.link_CnCNetSite.AutoSize = true;
             this.link_CnCNetSite.LinkArea = new System.Windows.Forms.LinkArea(0, 38);
-            this.link_CnCNetSite.Location = new System.Drawing.Point(165, 253);
+            this.link_CnCNetSite.Location = new System.Drawing.Point(29, 223);
             this.link_CnCNetSite.Name = "link_CnCNetSite";
             this.link_CnCNetSite.Size = new System.Drawing.Size(184, 13);
             this.link_CnCNetSite.TabIndex = 41;
@@ -1239,6 +1511,7 @@ namespace RedAlertConfig
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.chb_RandomStartingSong);
             this.tabPage2.Controls.Add(this.chb_DeinterlaceVideos);
             this.tabPage2.Controls.Add(this.chb_SkipScoreScreen);
             this.tabPage2.Controls.Add(this.chb_ShowAllMusic);
@@ -1285,6 +1558,16 @@ namespace RedAlertConfig
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Game options";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // chb_DeinterlaceVideos
+            // 
+            this.chb_DeinterlaceVideos.AutoSize = true;
+            this.chb_DeinterlaceVideos.Location = new System.Drawing.Point(21, 95);
+            this.chb_DeinterlaceVideos.Name = "chb_DeinterlaceVideos";
+            this.chb_DeinterlaceVideos.Size = new System.Drawing.Size(114, 17);
+            this.chb_DeinterlaceVideos.TabIndex = 54;
+            this.chb_DeinterlaceVideos.Text = "Deinterlace videos";
+            this.chb_DeinterlaceVideos.UseVisualStyleBackColor = true;
             // 
             // chb_SkipScoreScreen
             // 
@@ -1685,286 +1968,15 @@ namespace RedAlertConfig
             this.tabControl1.TabIndex = 1;
             this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_Down_Test);
             // 
-            // label42
+            // chb_RandomStartingSong
             // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(27, 115);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(42, 13);
-            this.label42.TabIndex = 51;
-            this.label42.Text = "Credits:";
-            // 
-            // textb_Credits
-            // 
-            this.textb_Credits.Location = new System.Drawing.Point(92, 112);
-            this.textb_Credits.Name = "textb_Credits";
-            this.textb_Credits.Size = new System.Drawing.Size(173, 20);
-            this.textb_Credits.TabIndex = 52;
-            // 
-            // chb_ShroudRegrows
-            // 
-            this.chb_ShroudRegrows.AutoSize = true;
-            this.chb_ShroudRegrows.Location = new System.Drawing.Point(285, 92);
-            this.chb_ShroudRegrows.Name = "chb_ShroudRegrows";
-            this.chb_ShroudRegrows.Size = new System.Drawing.Size(15, 14);
-            this.chb_ShroudRegrows.TabIndex = 53;
-            this.chb_ShroudRegrows.UseVisualStyleBackColor = true;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(301, 92);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(81, 13);
-            this.label44.TabIndex = 54;
-            this.label44.Text = "Shroud regrows";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(302, 112);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(82, 13);
-            this.label49.TabIndex = 56;
-            this.label49.Text = "Capture the flag";
-            // 
-            // chb_CaptureTheFlag
-            // 
-            this.chb_CaptureTheFlag.AutoSize = true;
-            this.chb_CaptureTheFlag.Location = new System.Drawing.Point(285, 112);
-            this.chb_CaptureTheFlag.Name = "chb_CaptureTheFlag";
-            this.chb_CaptureTheFlag.Size = new System.Drawing.Size(15, 14);
-            this.chb_CaptureTheFlag.TabIndex = 55;
-            this.chb_CaptureTheFlag.UseVisualStyleBackColor = true;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(302, 52);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(83, 13);
-            this.label50.TabIndex = 60;
-            this.label50.Text = "Ore regenerates";
-            // 
-            // chb_OreRegenerates
-            // 
-            this.chb_OreRegenerates.AutoSize = true;
-            this.chb_OreRegenerates.Location = new System.Drawing.Point(285, 52);
-            this.chb_OreRegenerates.Name = "chb_OreRegenerates";
-            this.chb_OreRegenerates.Size = new System.Drawing.Size(15, 14);
-            this.chb_OreRegenerates.TabIndex = 59;
-            this.chb_OreRegenerates.UseVisualStyleBackColor = true;
-            // 
-            // labelderp
-            // 
-            this.labelderp.AutoSize = true;
-            this.labelderp.Location = new System.Drawing.Point(301, 32);
-            this.labelderp.Name = "labelderp";
-            this.labelderp.Size = new System.Drawing.Size(36, 13);
-            this.labelderp.TabIndex = 58;
-            this.labelderp.Text = "Bases";
-            // 
-            // chb_Bases
-            // 
-            this.chb_Bases.AutoSize = true;
-            this.chb_Bases.Location = new System.Drawing.Point(285, 32);
-            this.chb_Bases.Name = "chb_Bases";
-            this.chb_Bases.Size = new System.Drawing.Size(15, 14);
-            this.chb_Bases.TabIndex = 57;
-            this.chb_Bases.UseVisualStyleBackColor = true;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(302, 72);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(37, 13);
-            this.label52.TabIndex = 62;
-            this.label52.Text = "Crates";
-            // 
-            // chb_Crates
-            // 
-            this.chb_Crates.AutoSize = true;
-            this.chb_Crates.Location = new System.Drawing.Point(285, 72);
-            this.chb_Crates.Name = "chb_Crates";
-            this.chb_Crates.Size = new System.Drawing.Size(15, 14);
-            this.chb_Crates.TabIndex = 61;
-            this.chb_Crates.UseVisualStyleBackColor = true;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(27, 141);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(59, 13);
-            this.label51.TabIndex = 63;
-            this.label51.Text = "Unit count:";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(27, 170);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(60, 13);
-            this.label53.TabIndex = 64;
-            this.label53.Text = "Tech level:";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(136, 170);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(61, 13);
-            this.label54.TabIndex = 66;
-            this.label54.Text = "AI difficulty:";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(136, 141);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(56, 13);
-            this.label55.TabIndex = 65;
-            this.label55.Text = "AI players:";
-            // 
-            // cmbox_UnitCount
-            // 
-            this.cmbox_UnitCount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbox_UnitCount.FormattingEnabled = true;
-            this.cmbox_UnitCount.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.cmbox_UnitCount.Location = new System.Drawing.Point(92, 139);
-            this.cmbox_UnitCount.Name = "cmbox_UnitCount";
-            this.cmbox_UnitCount.Size = new System.Drawing.Size(38, 21);
-            this.cmbox_UnitCount.TabIndex = 67;
-            this.cmbox_UnitCount.SelectedIndexChanged += new System.EventHandler(this.cmbox_UnitCount_SelectedIndexChanged);
-            // 
-            // cmbox_TechLevel
-            // 
-            this.cmbox_TechLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbox_TechLevel.FormattingEnabled = true;
-            this.cmbox_TechLevel.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.cmbox_TechLevel.Location = new System.Drawing.Point(92, 167);
-            this.cmbox_TechLevel.Name = "cmbox_TechLevel";
-            this.cmbox_TechLevel.Size = new System.Drawing.Size(38, 21);
-            this.cmbox_TechLevel.TabIndex = 68;
-            // 
-            // cmbox_AIPlayers
-            // 
-            this.cmbox_AIPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbox_AIPlayers.FormattingEnabled = true;
-            this.cmbox_AIPlayers.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.cmbox_AIPlayers.Location = new System.Drawing.Point(198, 139);
-            this.cmbox_AIPlayers.Name = "cmbox_AIPlayers";
-            this.cmbox_AIPlayers.Size = new System.Drawing.Size(67, 21);
-            this.cmbox_AIPlayers.TabIndex = 69;
-            // 
-            // cmbox_AIDifficulty
-            // 
-            this.cmbox_AIDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbox_AIDifficulty.FormattingEnabled = true;
-            this.cmbox_AIDifficulty.Items.AddRange(new object[] {
-            "Easy",
-            "Medium",
-            "Hard"});
-            this.cmbox_AIDifficulty.Location = new System.Drawing.Point(198, 167);
-            this.cmbox_AIDifficulty.Name = "cmbox_AIDifficulty";
-            this.cmbox_AIDifficulty.Size = new System.Drawing.Size(67, 21);
-            this.cmbox_AIDifficulty.TabIndex = 70;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(302, 140);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(134, 13);
-            this.label56.TabIndex = 72;
-            this.label56.Text = "Display original game maps";
-            // 
-            // chb_DisplayOriginalMaps
-            // 
-            this.chb_DisplayOriginalMaps.AutoSize = true;
-            this.chb_DisplayOriginalMaps.Location = new System.Drawing.Point(285, 140);
-            this.chb_DisplayOriginalMaps.Name = "chb_DisplayOriginalMaps";
-            this.chb_DisplayOriginalMaps.Size = new System.Drawing.Size(15, 14);
-            this.chb_DisplayOriginalMaps.TabIndex = 71;
-            this.chb_DisplayOriginalMaps.UseVisualStyleBackColor = true;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(302, 160);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(134, 13);
-            this.label57.TabIndex = 74;
-            this.label57.Text = "Display Counterstrike maps";
-            // 
-            // chb_DisplayCounterstrikeMaps
-            // 
-            this.chb_DisplayCounterstrikeMaps.AutoSize = true;
-            this.chb_DisplayCounterstrikeMaps.Location = new System.Drawing.Point(285, 160);
-            this.chb_DisplayCounterstrikeMaps.Name = "chb_DisplayCounterstrikeMaps";
-            this.chb_DisplayCounterstrikeMaps.Size = new System.Drawing.Size(15, 14);
-            this.chb_DisplayCounterstrikeMaps.TabIndex = 73;
-            this.chb_DisplayCounterstrikeMaps.UseVisualStyleBackColor = true;
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(302, 179);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(117, 13);
-            this.label58.TabIndex = 76;
-            this.label58.Text = "Display Aftermath maps";
-            // 
-            // chb_DisplayAftermathMaps
-            // 
-            this.chb_DisplayAftermathMaps.AutoSize = true;
-            this.chb_DisplayAftermathMaps.Location = new System.Drawing.Point(285, 179);
-            this.chb_DisplayAftermathMaps.Name = "chb_DisplayAftermathMaps";
-            this.chb_DisplayAftermathMaps.Size = new System.Drawing.Size(15, 14);
-            this.chb_DisplayAftermathMaps.TabIndex = 75;
-            this.chb_DisplayAftermathMaps.UseVisualStyleBackColor = true;
-            // 
-            // chb_DeinterlaceVideos
-            // 
-            this.chb_DeinterlaceVideos.AutoSize = true;
-            this.chb_DeinterlaceVideos.Location = new System.Drawing.Point(21, 95);
-            this.chb_DeinterlaceVideos.Name = "chb_DeinterlaceVideos";
-            this.chb_DeinterlaceVideos.Size = new System.Drawing.Size(114, 17);
-            this.chb_DeinterlaceVideos.TabIndex = 54;
-            this.chb_DeinterlaceVideos.Text = "Deinterlace videos";
-            this.chb_DeinterlaceVideos.UseVisualStyleBackColor = true;
+            this.chb_RandomStartingSong.AutoSize = true;
+            this.chb_RandomStartingSong.Location = new System.Drawing.Point(204, 95);
+            this.chb_RandomStartingSong.Name = "chb_RandomStartingSong";
+            this.chb_RandomStartingSong.Size = new System.Drawing.Size(129, 17);
+            this.chb_RandomStartingSong.TabIndex = 55;
+            this.chb_RandomStartingSong.Text = "Random starting song";
+            this.chb_RandomStartingSong.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -2180,6 +2192,7 @@ namespace RedAlertConfig
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.CheckBox chb_DisplayOriginalMaps;
         private System.Windows.Forms.CheckBox chb_DeinterlaceVideos;
+        private System.Windows.Forms.CheckBox chb_RandomStartingSong;
 
     }
 }

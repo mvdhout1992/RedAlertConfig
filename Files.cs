@@ -23,6 +23,11 @@ namespace RedAlertConfig
             Check_Required_File("ForceAMrules.ini");
             Check_Required_File("hires1.mix");
             Check_Required_File("thipx32.dll");
+            Check_Required_File("ForceAMRulesFastBuildSpeed.ini");
+            Check_Required_File("ForceAMrules.ini");
+            Check_Required_File("3maplist_aftermath.pkt");
+            Check_Required_File("2maplist_counterstrike.pkt");
+            Check_Required_File("1maplist_original_game.pkt");
         }
 
         public static void Check_Required_File(string file)

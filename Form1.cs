@@ -207,6 +207,10 @@ namespace RedAlertConfig
                 this.chb_DeinterlaceVideos.Checked = true;
             }
 
+            if (Files.RedAlertINI.getBoolValue("Options", "RandomStartingSong", false) == true)
+            {
+                this.chb_RandomStartingSong.Checked = true;
+            }
             if (Files.RedAlertINI.getBoolValue("Options", "ShowAllMusic", false) == true)
             {
                 this.chb_ShowAllMusic.Checked = true;
@@ -958,6 +962,15 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "Crates", false);
             }
 
+            if (this.chb_RandomStartingSong.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "RandomStartingSong", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "RandomStartingSong", false);
+            }
+
             if (this.chb_Bases.Checked == true)
             {
                 Files.RedAlertINI.setBoolValue("MultiplayerDefaults", "Bases", true);
@@ -1012,6 +1025,51 @@ namespace RedAlertConfig
 
             int AIDifficulty = this.cmbox_AIDifficulty.SelectedIndex;
             Files.RedAlertINI.setIntValue("MultiplayerDefaults", "AIDifficulty", AIDifficulty);
+
+/*            if (File.Exists("1maplist_original_game.pkt") == true)
+            {
+                this.chb_DisplayOriginalMaps.Checked = true;
+            }
+
+            if ((File.Exists("2maplist_counterstrike.pkt") == true))
+            {
+                this.chb_DisplayCounterstrikeMaps.Checked = true;
+            }
+
+            if ((File.Exists("3maplist_aftermath.pkt") == true))
+            {
+                this.chb_DisplayAftermathMaps.Checked = true;
+            } */
+
+            if (this.chb_DisplayOriginalMaps.Checked == true && !File.Exists("1maplist_original_game.pkt"))
+            {
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "1maplist_original_game.pkt",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "1maplist_original_game.pkt");
+            }
+            else if (this.chb_DisplayOriginalMaps.Checked == false && File.Exists("1maplist_original_game.pkt"))
+            {
+                File.Delete("1maplist_original_game.pkt");
+            }
+
+            if (this.chb_DisplayCounterstrikeMaps.Checked == true && !File.Exists("2maplist_counterstrike.pkt"))
+            {
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "2maplist_counterstrike.pkt",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "2maplist_counterstrike.pkt");
+            }
+            else if (this.chb_DisplayCounterstrikeMaps.Checked == false && File.Exists("2maplist_counterstrike.pkt"))
+            {
+                File.Delete("2maplist_counterstrike.pkt");
+            }
+
+            if (this.chb_DisplayAftermathMaps.Checked == true && !File.Exists("3maplist_aftermath.pkt"))
+            {
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "3maplist_aftermath.pkt",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "3maplist_aftermath.pkt");
+            }
+            else if (this.chb_DisplayAftermathMaps.Checked == false && File.Exists("3maplist_aftermath.pkt"))
+            {
+                File.Delete("3maplist_aftermath.pkt");
+            }
 
             if (this.chb_EnableCnCDDraw.Checked == true && !File.Exists("ddraw.dll"))
             {
