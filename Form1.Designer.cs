@@ -149,6 +149,7 @@ namespace RedAlertConfig
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chb_RandomStartingSong = new System.Windows.Forms.CheckBox();
             this.chb_DeinterlaceVideos = new System.Windows.Forms.CheckBox();
             this.chb_SkipScoreScreen = new System.Windows.Forms.CheckBox();
             this.chb_ShowAllMusic = new System.Windows.Forms.CheckBox();
@@ -189,7 +190,7 @@ namespace RedAlertConfig
             this.chb_EnableCounterstrike = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.chb_RandomStartingSong = new System.Windows.Forms.CheckBox();
+            this.label59 = new System.Windows.Forms.Label();
             this.tabPage7.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
@@ -466,6 +467,7 @@ namespace RedAlertConfig
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label59);
             this.tabPage3.Controls.Add(this.label58);
             this.tabPage3.Controls.Add(this.chb_DisplayAftermathMaps);
             this.tabPage3.Controls.Add(this.label57);
@@ -792,11 +794,11 @@ namespace RedAlertConfig
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(54, 347);
+            this.label41.Location = new System.Drawing.Point(47, 347);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(212, 13);
+            this.label41.Size = new System.Drawing.Size(322, 13);
             this.label41.TabIndex = 50;
-            this.label41.Text = "Force Aftermath online with fast build speed";
+            this.label41.Text = "Force Aftermath online with fast build speed (also works in skirmish)";
             // 
             // chb_ForceAftermathOnlineFastBuildSpeed
             // 
@@ -811,7 +813,7 @@ namespace RedAlertConfig
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(54, 337);
+            this.label19.Location = new System.Drawing.Point(54, 346);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(0, 13);
             this.label19.TabIndex = 48;
@@ -819,18 +821,18 @@ namespace RedAlertConfig
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(160, 253);
+            this.label36.Location = new System.Drawing.Point(160, 246);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(191, 13);
+            this.label36.Size = new System.Drawing.Size(194, 13);
             this.label36.TabIndex = 47;
-            this.label36.Text = "Open cncnet.exe to start playing online";
+            this.label36.Text = "Open cncnet.exe to start playing online.";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label16.Location = new System.Drawing.Point(9, 287);
+            this.label16.Location = new System.Drawing.Point(9, 270);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(36, 13);
             this.label16.TabIndex = 46;
@@ -839,27 +841,28 @@ namespace RedAlertConfig
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(54, 312);
+            this.label15.Location = new System.Drawing.Point(47, 328);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(321, 13);
+            this.label15.Size = new System.Drawing.Size(113, 13);
             this.label15.TabIndex = 45;
-            this.label15.Text = "Force Aftermath online (other players also need to have  this option";
+            this.label15.Text = "Force Aftermath online";
             this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label100
             // 
             this.label100.AutoSize = true;
-            this.label100.Location = new System.Drawing.Point(54, 325);
+            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label100.Location = new System.Drawing.Point(27, 291);
             this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(297, 13);
+            this.label100.Size = new System.Drawing.Size(383, 13);
             this.label100.TabIndex = 44;
-            this.label100.Text = "enabled or they can\'t join your game and you can\'t  join theirs)";
+            this.label100.Text = "NOTE: If you use the below options online other players also need to have them";
             this.label100.Click += new System.EventHandler(this.label14_Click);
             // 
             // chb_ForceAftermathOnline
             // 
             this.chb_ForceAftermathOnline.AutoSize = true;
-            this.chb_ForceAftermathOnline.Location = new System.Drawing.Point(32, 318);
+            this.chb_ForceAftermathOnline.Location = new System.Drawing.Point(32, 328);
             this.chb_ForceAftermathOnline.Name = "chb_ForceAftermathOnline";
             this.chb_ForceAftermathOnline.Size = new System.Drawing.Size(15, 14);
             this.chb_ForceAftermathOnline.TabIndex = 43;
@@ -868,7 +871,7 @@ namespace RedAlertConfig
             // 
             // but_RunCnCNetSetup
             // 
-            this.but_RunCnCNetSetup.Location = new System.Drawing.Point(32, 248);
+            this.but_RunCnCNetSetup.Location = new System.Drawing.Point(32, 241);
             this.but_RunCnCNetSetup.Name = "but_RunCnCNetSetup";
             this.but_RunCnCNetSetup.Size = new System.Drawing.Size(111, 23);
             this.but_RunCnCNetSetup.TabIndex = 42;
@@ -880,7 +883,7 @@ namespace RedAlertConfig
             // 
             this.link_CnCNetSite.AutoSize = true;
             this.link_CnCNetSite.LinkArea = new System.Windows.Forms.LinkArea(0, 38);
-            this.link_CnCNetSite.Location = new System.Drawing.Point(29, 223);
+            this.link_CnCNetSite.Location = new System.Drawing.Point(29, 219);
             this.link_CnCNetSite.Name = "link_CnCNetSite";
             this.link_CnCNetSite.Size = new System.Drawing.Size(184, 13);
             this.link_CnCNetSite.TabIndex = 41;
@@ -1559,6 +1562,16 @@ namespace RedAlertConfig
             this.tabPage2.Text = "Game options";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // chb_RandomStartingSong
+            // 
+            this.chb_RandomStartingSong.AutoSize = true;
+            this.chb_RandomStartingSong.Location = new System.Drawing.Point(204, 95);
+            this.chb_RandomStartingSong.Name = "chb_RandomStartingSong";
+            this.chb_RandomStartingSong.Size = new System.Drawing.Size(129, 17);
+            this.chb_RandomStartingSong.TabIndex = 55;
+            this.chb_RandomStartingSong.Text = "Random starting song";
+            this.chb_RandomStartingSong.UseVisualStyleBackColor = true;
+            // 
             // chb_DeinterlaceVideos
             // 
             this.chb_DeinterlaceVideos.AutoSize = true;
@@ -1968,15 +1981,16 @@ namespace RedAlertConfig
             this.tabControl1.TabIndex = 1;
             this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_Down_Test);
             // 
-            // chb_RandomStartingSong
+            // label59
             // 
-            this.chb_RandomStartingSong.AutoSize = true;
-            this.chb_RandomStartingSong.Location = new System.Drawing.Point(204, 95);
-            this.chb_RandomStartingSong.Name = "chb_RandomStartingSong";
-            this.chb_RandomStartingSong.Size = new System.Drawing.Size(129, 17);
-            this.chb_RandomStartingSong.TabIndex = 55;
-            this.chb_RandomStartingSong.Text = "Random starting song";
-            this.chb_RandomStartingSong.UseVisualStyleBackColor = true;
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(27, 306);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(387, 13);
+            this.label59.TabIndex = 77;
+            this.label59.Text = "enabled or you can\'t join games hosted by other people and they can\'t join yours." +
+                "";
             // 
             // Form1
             // 
@@ -2193,6 +2207,7 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_DisplayOriginalMaps;
         private System.Windows.Forms.CheckBox chb_DeinterlaceVideos;
         private System.Windows.Forms.CheckBox chb_RandomStartingSong;
+        private System.Windows.Forms.Label label59;
 
     }
 }
