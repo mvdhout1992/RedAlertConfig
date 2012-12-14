@@ -16,6 +16,7 @@ namespace RedAlertConfig
 {
     public partial class Form1 : Form
     {
+
         public int ResoWidth, ResoHeight;
 
         public Form1()
@@ -54,7 +55,7 @@ namespace RedAlertConfig
                chb_EnableCnCDDraw_CheckedChanged(this, null);
            }
 
-           if (File.Exists("hires1.mix") == true)
+           if (File.Exists("smallinfantry.mix") == true)
            {
                this.chb_EnableSmallInfantry.Checked = true;
            }
@@ -72,7 +73,7 @@ namespace RedAlertConfig
                this.chb_UseLanPatch.Checked = false;
            }
 
-           if (File.Exists("expand.mix") == true)
+           if (File.Exists("counterstrike.mix") == true)
            {
                this.chb_EnableCounterstrike.Checked = true;
            }
@@ -82,7 +83,7 @@ namespace RedAlertConfig
                this.chb_EnableCounterstrike.Checked = false;
            }
 
-           if (File.Exists("expand2.mix") == true)
+           if (File.Exists("aftermath.mix") == true)
            {
                this.chb_EnableAftermath.Checked = true;
            }
@@ -184,8 +185,8 @@ namespace RedAlertConfig
             this.cmbox_TechLevel.SelectedIndex = TechLevel - 1;
 
             int AIPlayers = Files.RedAlertINI.getIntValue("MultiPlayerDefaults", "AIPlayers", 1);
-            if (AIPlayers > 7) AIPlayers = 7; if (AIPlayers < 0) AIPlayers = 0;
-            this.cmbox_AIPlayers.SelectedIndex = AIPlayers;
+            if (AIPlayers > 7) AIPlayers = 7; if (AIPlayers < 1) AIPlayers = 1;
+            this.cmbox_AIPlayers.SelectedIndex = AIPlayers-1;
 
             int AIDifficulty = Files.RedAlertINI.getIntValue("MultiPlayerDefaults", "AIDifficulty", 1);
             if (AIDifficulty > 2) AIPlayers = 2; if (AIDifficulty < 0) AIDifficulty = 0;
@@ -230,10 +231,6 @@ namespace RedAlertConfig
             if (Files.RedAlertINI.getBoolValue("Options", "AutoScroll", false) == true)
             {
                 this.chb_Autoscroll.Checked = true;
-            }
-            if (Files.RedAlertINI.getBoolValue("Options", "PaletteScroll", false) == true)
-            {
-                this.chb_PaletteScroll.Checked = true;
             }
             if (Files.RedAlertINI.getBoolValue("MultiplayerDefaults", "ShroudRegrows", false) == true)
             {
@@ -397,6 +394,11 @@ namespace RedAlertConfig
             if (Files.DDrawINI.getBoolValue("ddraw", "mhack", false) == true)
             {
                 this.chb_EnableMouseHack.Checked = true;
+            }
+
+            if (Files.DDrawINI.getBoolValue("ddraw", "vhack", false) == true)
+            {
+                this.chb_VideoStretching.Checked = true;
             }
 
             if (Files.DDrawINI.getBoolValue("ddraw", "vsync", false) == true)
@@ -800,15 +802,6 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setBoolValue("Options", "AutoScroll", false);
             }
 
-            if (this.chb_PaletteScroll.Checked == true)
-            {
-                Files.RedAlertINI.setBoolValue("Options", "PaletteScroll", true);
-            }
-            else
-            {
-                Files.RedAlertINI.setBoolValue("Options", "PaletteScroll", false);
-            }
-
             if (this.chb_DeinterlaceVideos.Checked == true)
             {
                 Files.RedAlertINI.setIntValue("Options", "VideoInterlaceMode", 2);
@@ -917,6 +910,15 @@ namespace RedAlertConfig
                 Files.DDrawINI.setBoolValue("ddraw", "singlecpu", false);
             }
 
+            if (this.chb_VideoStretching.Checked == true)
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "vhack", true);
+            }
+            else
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "vhack", false);
+            }
+
             if (this.chb_BackBufferVideoMemory.Checked == true)
             {
                 Files.RedAlertINI.setBoolValue("Options", "VideoBackBuffer", true);
@@ -1021,7 +1023,7 @@ namespace RedAlertConfig
             Files.RedAlertINI.setIntValue("MultiplayerDefaults", "TechLevel", TechLevel+1);
 
             int AIPlayers = this.cmbox_AIPlayers.SelectedIndex;
-            Files.RedAlertINI.setIntValue("MultiplayerDefaults", "AIPlayers", AIPlayers);
+            Files.RedAlertINI.setIntValue("MultiplayerDefaults", "AIPlayers", AIPlayers+1);
 
             int AIDifficulty = this.cmbox_AIDifficulty.SelectedIndex;
             Files.RedAlertINI.setIntValue("MultiplayerDefaults", "AIDifficulty", AIDifficulty);
@@ -1081,14 +1083,14 @@ namespace RedAlertConfig
                 File.Delete("ddraw.dll");
             }
 
-            if (this.chb_EnableSmallInfantry.Checked == true && !File.Exists("hires1.mix"))
+            if (this.chb_EnableSmallInfantry.Checked == true && !File.Exists("smallinfantry.mix"))
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "hires1.mix",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "hires1.mix");
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "smallinfantry.mix",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "smallinfantry.mix");
             }
-            else if (this.chb_EnableSmallInfantry.Checked == false && File.Exists("hires1.mix"))
+            else if (this.chb_EnableSmallInfantry.Checked == false && File.Exists("smallinfantry.mix"))
             {
-                File.Delete("hires1.mix");
+                File.Delete("smallinfantry.mix");
             }
 
             if (this.chb_UseLanPatch.Checked == true && !File.Exists("thipx32.dll"))
@@ -1101,24 +1103,24 @@ namespace RedAlertConfig
                 File.Delete("thipx32.dll");
             }
 
-            if (this.chb_EnableCounterstrike.Checked == true && !File.Exists("expand.mix"))
+            if (this.chb_EnableCounterstrike.Checked == true && !File.Exists("counterstrike.mix"))
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "expand.mix",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "expand.mix");
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "counterstrike.mix",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "counterstrike.mix");
             }
-            else if (this.chb_EnableCounterstrike.Checked == false && File.Exists("expand.mix"))
+            else if (this.chb_EnableCounterstrike.Checked == false && File.Exists("counterstrike.mix"))
             {
-                File.Delete("expand.mix");
+                File.Delete("counterstrike.mix");
             }
 
-            if (this.chb_EnableAftermath.Checked == true && !File.Exists("expand2.mix"))
+            if (this.chb_EnableAftermath.Checked == true && !File.Exists("aftermath.mix"))
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "expand2.mix",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "expand2.mix");
+                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "aftermath.mix",
+                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "aftermath.mixx");
             }
-            else if (this.chb_EnableAftermath.Checked == false && File.Exists("expand2.mix"))
+            else if (this.chb_EnableAftermath.Checked == false && File.Exists("aftermath.mix"))
             {
-                File.Delete("expand2.mix");
+                File.Delete("aftermath.mix");
             }
 
             if (this.chb_ForceAftermathOnline.Checked == false && File.Exists("rules.ini"))
@@ -1510,12 +1512,14 @@ namespace RedAlertConfig
                 this.label32.Visible = false;
                 this.label29.Visible = false;
                 this.label30.Visible = false;
+                this.chb_VideoStretching.Visible = false;
             }
             else
             {
                 this.chb_AllowHardwareFilledBits.Enabled = false;
                 this.radiob_reso640x480.Enabled = true;
 
+                this.chb_VideoStretching.Visible = true;
                 this.txt_StretchingScaling.Visible = true;
                 this.chb_UseRAAspectRatio.Visible = true;
                 this.chb_StretchCustom.Visible = true;

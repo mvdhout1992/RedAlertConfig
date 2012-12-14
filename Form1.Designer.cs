@@ -55,6 +55,7 @@ namespace RedAlertConfig
             this.ColumnHotkeyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHotkeyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label59 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.chb_DisplayAftermathMaps = new System.Windows.Forms.CheckBox();
             this.label57 = new System.Windows.Forms.Label();
@@ -100,6 +101,7 @@ namespace RedAlertConfig
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chb_VideoStretching = new System.Windows.Forms.CheckBox();
             this.txtb_MaxFPS = new System.Windows.Forms.TextBox();
             this.txtb_StretchCustomHeight = new System.Windows.Forms.TextBox();
             this.txtb_StretchCustomWidth = new System.Windows.Forms.TextBox();
@@ -184,13 +186,11 @@ namespace RedAlertConfig
             this.slider_GameSpeed = new System.Windows.Forms.TrackBar();
             this.label5 = new System.Windows.Forms.Label();
             this.slider_ScrollRate = new System.Windows.Forms.TrackBar();
-            this.chb_PaletteScroll = new System.Windows.Forms.CheckBox();
             this.chb_Autoscroll = new System.Windows.Forms.CheckBox();
             this.chb_EnableAftermath = new System.Windows.Forms.CheckBox();
             this.chb_EnableCounterstrike = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label59 = new System.Windows.Forms.Label();
             this.tabPage7.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
@@ -520,6 +520,17 @@ namespace RedAlertConfig
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(27, 306);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(387, 13);
+            this.label59.TabIndex = 77;
+            this.label59.Text = "enabled or you can\'t join games hosted by other people and they can\'t join yours." +
+                "";
+            // 
             // label58
             // 
             this.label58.AutoSize = true;
@@ -592,7 +603,6 @@ namespace RedAlertConfig
             this.cmbox_AIPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbox_AIPlayers.FormattingEnabled = true;
             this.cmbox_AIPlayers.Items.AddRange(new object[] {
-            "0",
             "1",
             "2",
             "3",
@@ -985,6 +995,7 @@ namespace RedAlertConfig
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.chb_VideoStretching);
             this.tabPage1.Controls.Add(this.txtb_MaxFPS);
             this.tabPage1.Controls.Add(this.txtb_StretchCustomHeight);
             this.tabPage1.Controls.Add(this.txtb_StretchCustomWidth);
@@ -1031,6 +1042,16 @@ namespace RedAlertConfig
             this.tabPage1.Text = "Video options";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // chb_VideoStretching
+            // 
+            this.chb_VideoStretching.AutoSize = true;
+            this.chb_VideoStretching.Location = new System.Drawing.Point(220, 137);
+            this.chb_VideoStretching.Name = "chb_VideoStretching";
+            this.chb_VideoStretching.Size = new System.Drawing.Size(213, 17);
+            this.chb_VideoStretching.TabIndex = 88;
+            this.chb_VideoStretching.Text = "Enable video stretching (recommended)";
+            this.chb_VideoStretching.UseVisualStyleBackColor = true;
             // 
             // txtb_MaxFPS
             // 
@@ -1237,7 +1258,7 @@ namespace RedAlertConfig
             // chb_ShowWindowedBorder
             // 
             this.chb_ShowWindowedBorder.AutoSize = true;
-            this.chb_ShowWindowedBorder.Location = new System.Drawing.Point(220, 125);
+            this.chb_ShowWindowedBorder.Location = new System.Drawing.Point(220, 103);
             this.chb_ShowWindowedBorder.Name = "chb_ShowWindowedBorder";
             this.chb_ShowWindowedBorder.Size = new System.Drawing.Size(216, 17);
             this.chb_ShowWindowedBorder.TabIndex = 79;
@@ -1364,7 +1385,7 @@ namespace RedAlertConfig
             // chb_RunWindowed
             // 
             this.chb_RunWindowed.AutoSize = true;
-            this.chb_RunWindowed.Location = new System.Drawing.Point(220, 105);
+            this.chb_RunWindowed.Location = new System.Drawing.Point(220, 83);
             this.chb_RunWindowed.Name = "chb_RunWindowed";
             this.chb_RunWindowed.Size = new System.Drawing.Size(137, 17);
             this.chb_RunWindowed.TabIndex = 62;
@@ -1374,7 +1395,7 @@ namespace RedAlertConfig
             // chb_AllowHardwareFilledBits
             // 
             this.chb_AllowHardwareFilledBits.AutoSize = true;
-            this.chb_AllowHardwareFilledBits.Location = new System.Drawing.Point(220, 70);
+            this.chb_AllowHardwareFilledBits.Location = new System.Drawing.Point(220, 48);
             this.chb_AllowHardwareFilledBits.Name = "chb_AllowHardwareFilledBits";
             this.chb_AllowHardwareFilledBits.Size = new System.Drawing.Size(143, 17);
             this.chb_AllowHardwareFilledBits.TabIndex = 61;
@@ -1384,7 +1405,7 @@ namespace RedAlertConfig
             // chb_BackBufferVideoMemory
             // 
             this.chb_BackBufferVideoMemory.AutoSize = true;
-            this.chb_BackBufferVideoMemory.Location = new System.Drawing.Point(220, 52);
+            this.chb_BackBufferVideoMemory.Location = new System.Drawing.Point(220, 30);
             this.chb_BackBufferVideoMemory.Name = "chb_BackBufferVideoMemory";
             this.chb_BackBufferVideoMemory.Size = new System.Drawing.Size(160, 17);
             this.chb_BackBufferVideoMemory.TabIndex = 60;
@@ -1496,9 +1517,9 @@ namespace RedAlertConfig
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gray;
-            this.panel1.Location = new System.Drawing.Point(205, 51);
+            this.panel1.Location = new System.Drawing.Point(205, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1, 347);
+            this.panel1.Size = new System.Drawing.Size(1, 380);
             this.panel1.TabIndex = 44;
             // 
             // chb_EnableCnCDDraw
@@ -1549,7 +1570,6 @@ namespace RedAlertConfig
             this.tabPage2.Controls.Add(this.slider_GameSpeed);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.slider_ScrollRate);
-            this.tabPage2.Controls.Add(this.chb_PaletteScroll);
             this.tabPage2.Controls.Add(this.chb_Autoscroll);
             this.tabPage2.Controls.Add(this.chb_EnableAftermath);
             this.tabPage2.Controls.Add(this.chb_EnableCounterstrike);
@@ -1780,9 +1800,9 @@ namespace RedAlertConfig
             this.chb_UseLanPatch.AutoSize = true;
             this.chb_UseLanPatch.Location = new System.Drawing.Point(21, 50);
             this.chb_UseLanPatch.Name = "chb_UseLanPatch";
-            this.chb_UseLanPatch.Size = new System.Drawing.Size(155, 17);
+            this.chb_UseLanPatch.Size = new System.Drawing.Size(99, 17);
             this.chb_UseLanPatch.TabIndex = 29;
-            this.chb_UseLanPatch.Text = "Use LAN patch (thipx32.dll)";
+            this.chb_UseLanPatch.Text = "Use LAN patch";
             this.chb_UseLanPatch.UseVisualStyleBackColor = true;
             // 
             // chb_EnableSmallInfantry
@@ -1790,9 +1810,9 @@ namespace RedAlertConfig
             this.chb_EnableSmallInfantry.AutoSize = true;
             this.chb_EnableSmallInfantry.Location = new System.Drawing.Point(21, 27);
             this.chb_EnableSmallInfantry.Name = "chb_EnableSmallInfantry";
-            this.chb_EnableSmallInfantry.Size = new System.Drawing.Size(177, 17);
+            this.chb_EnableSmallInfantry.Size = new System.Drawing.Size(122, 17);
             this.chb_EnableSmallInfantry.TabIndex = 28;
-            this.chb_EnableSmallInfantry.Text = "Enable small infantry (hires1.mix)";
+            this.chb_EnableSmallInfantry.Text = "Enable small infantry";
             this.chb_EnableSmallInfantry.UseVisualStyleBackColor = true;
             this.chb_EnableSmallInfantry.CheckedChanged += new System.EventHandler(this.chb_EnableSmallInfantry_CheckedChanged);
             // 
@@ -1914,21 +1934,10 @@ namespace RedAlertConfig
             this.slider_ScrollRate.Size = new System.Drawing.Size(153, 27);
             this.slider_ScrollRate.TabIndex = 17;
             // 
-            // chb_PaletteScroll
-            // 
-            this.chb_PaletteScroll.AutoSize = true;
-            this.chb_PaletteScroll.Location = new System.Drawing.Point(284, 182);
-            this.chb_PaletteScroll.Name = "chb_PaletteScroll";
-            this.chb_PaletteScroll.Size = new System.Drawing.Size(86, 17);
-            this.chb_PaletteScroll.TabIndex = 16;
-            this.chb_PaletteScroll.Text = "Palette scroll";
-            this.chb_PaletteScroll.UseVisualStyleBackColor = true;
-            this.chb_PaletteScroll.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
-            // 
             // chb_Autoscroll
             // 
             this.chb_Autoscroll.AutoSize = true;
-            this.chb_Autoscroll.Location = new System.Drawing.Point(284, 159);
+            this.chb_Autoscroll.Location = new System.Drawing.Point(284, 171);
             this.chb_Autoscroll.Name = "chb_Autoscroll";
             this.chb_Autoscroll.Size = new System.Drawing.Size(75, 17);
             this.chb_Autoscroll.TabIndex = 15;
@@ -1940,9 +1949,9 @@ namespace RedAlertConfig
             this.chb_EnableAftermath.AutoSize = true;
             this.chb_EnableAftermath.Location = new System.Drawing.Point(204, 50);
             this.chb_EnableAftermath.Name = "chb_EnableAftermath";
-            this.chb_EnableAftermath.Size = new System.Drawing.Size(175, 17);
+            this.chb_EnableAftermath.Size = new System.Drawing.Size(158, 17);
             this.chb_EnableAftermath.TabIndex = 14;
-            this.chb_EnableAftermath.Text = "Enable Aftermath (expand2.mix)";
+            this.chb_EnableAftermath.Text = "Enable Aftermath expansion";
             this.chb_EnableAftermath.UseVisualStyleBackColor = true;
             this.chb_EnableAftermath.CheckedChanged += new System.EventHandler(this.chb_EnableAftermath_CheckedChanged);
             // 
@@ -1951,9 +1960,9 @@ namespace RedAlertConfig
             this.chb_EnableCounterstrike.AutoSize = true;
             this.chb_EnableCounterstrike.Location = new System.Drawing.Point(204, 27);
             this.chb_EnableCounterstrike.Name = "chb_EnableCounterstrike";
-            this.chb_EnableCounterstrike.Size = new System.Drawing.Size(186, 17);
+            this.chb_EnableCounterstrike.Size = new System.Drawing.Size(175, 17);
             this.chb_EnableCounterstrike.TabIndex = 13;
-            this.chb_EnableCounterstrike.Text = "Enable Counterstrike (expand.mix)";
+            this.chb_EnableCounterstrike.Text = "Enable Counterstrike expansion";
             this.chb_EnableCounterstrike.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -1980,17 +1989,6 @@ namespace RedAlertConfig
             this.tabControl1.Size = new System.Drawing.Size(453, 412);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_Down_Test);
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(27, 306);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(387, 13);
-            this.label59.TabIndex = 77;
-            this.label59.Text = "enabled or you can\'t join games hosted by other people and they can\'t join yours." +
-                "";
             // 
             // Form1
             // 
@@ -2169,7 +2167,6 @@ namespace RedAlertConfig
         private System.Windows.Forms.TrackBar slider_GameSpeed;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TrackBar slider_ScrollRate;
-        private System.Windows.Forms.CheckBox chb_PaletteScroll;
         private System.Windows.Forms.CheckBox chb_Autoscroll;
         private System.Windows.Forms.CheckBox chb_EnableAftermath;
         private System.Windows.Forms.CheckBox chb_EnableCounterstrike;
@@ -2208,6 +2205,7 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_DeinterlaceVideos;
         private System.Windows.Forms.CheckBox chb_RandomStartingSong;
         private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.CheckBox chb_VideoStretching;
 
     }
 }

@@ -18,10 +18,10 @@ namespace RedAlertConfig
             RedAlertINI = new IniFile("redalert.ini", false, BooleanMode.YES_NO, Encoding.Default);
 
             Check_Required_File("ddraw.dll");
-            Check_Required_File("expand.mix");
-            Check_Required_File("expand2.mix");
+            Check_Required_File("counterstrike.mix");
+            Check_Required_File("aftermath.mix");
             Check_Required_File("ForceAMrules.ini");
-            Check_Required_File("hires1.mix");
+            Check_Required_File("smallinfantry.mix");
             Check_Required_File("thipx32.dll");
             Check_Required_File("ForceAMRulesFastBuildSpeed.ini");
             Check_Required_File("ForceAMrules.ini");
