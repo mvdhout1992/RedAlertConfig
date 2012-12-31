@@ -11,28 +11,26 @@ namespace RedAlertConfig
     {
         public static IniFile RedAlertINI;
         public static IniFile DDrawINI;
+        public static string Path_;
 
         public static void Init()
         {
-            DDrawINI = new IniFile("ddraw.ini", false, BooleanMode.TRUE_FALSE, Encoding.Default);
-            RedAlertINI = new IniFile("redalert.ini", false, BooleanMode.YES_NO, Encoding.Default);
+            char seperator = System.IO.Path.DirectorySeparatorChar;
+            Path_ = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+            DDrawINI = new IniFile(Path_ + seperator + "ddraw.ini", false, BooleanMode.TRUE_FALSE, Encoding.Default);
+            RedAlertINI = new IniFile(Path_ + seperator + "redalert.ini", false, BooleanMode.YES_NO, Encoding.Default);
 
             Check_Required_File("ddraw.dll");
-            Check_Required_File("counterstrike.mix");
-            Check_Required_File("aftermath.mix");
             Check_Required_File("ForceAMrules.ini");
-            Check_Required_File("smallinfantry.mix");
             Check_Required_File("thipx32.dll");
             Check_Required_File("ForceAMRulesFastBuildSpeed.ini");
             Check_Required_File("ForceAMrules.ini");
-            Check_Required_File("3maplist_aftermath.pkt");
-            Check_Required_File("2maplist_counterstrike.pkt");
-            Check_Required_File("1maplist_original_game.pkt");
         }
 
         public static void Check_Required_File(string file)
         {
-            String path = Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles"
+            String path = Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles"
                 + Path.DirectorySeparatorChar + file;
             if (!File.Exists(path))
             {

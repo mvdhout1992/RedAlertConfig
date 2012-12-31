@@ -18,9 +18,12 @@ namespace RedAlertConfig
     {
 
         public int ResoWidth, ResoHeight;
+        public static String Path_;
+        public static char seperator = System.IO.Path.DirectorySeparatorChar;
 
         public Form1()
         {
+            Path_ = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             Files.Init();
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
@@ -30,22 +33,43 @@ namespace RedAlertConfig
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (File.Exists("1maplist_original_game.pkt") == true)
+            if (Files.RedAlertINI.getBoolValue("Options", "MouseWheelScrolling", false) == true)
+            {
+                this.chb_MouseWheelScrolling.Checked = true;
+            }
+            else
+            {
+                this.chb_MouseWheelScrolling.Checked = false;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "DisplayOriginalMultiplayerMaps", false) == true)
             {
                 this.chb_DisplayOriginalMaps.Checked = true;
             }
+            else
+            {
+                this.chb_DisplayOriginalMaps.Checked = false;
+            }
 
-            if ((File.Exists("2maplist_counterstrike.pkt") == true))
+            if (Files.RedAlertINI.getBoolValue("Options", "DisplayCounterstrikeMultiplayerMaps", false) == true)
             {
                 this.chb_DisplayCounterstrikeMaps.Checked = true;
             }
+            else
+            {
+                this.chb_DisplayCounterstrikeMaps.Checked = false;
+            }
 
-            if ((File.Exists("3maplist_aftermath.pkt") == true))
+            if (Files.RedAlertINI.getBoolValue("Options", "DisplayAftermathMultiplayerMaps", false) == true)
             {
                 this.chb_DisplayAftermathMaps.Checked = true;
             }
+            else
+            {
+                this.chb_DisplayAftermathMaps.Checked = false;
+            }
 
-           if (File.Exists("ddraw.dll") == true)
+           if (File.Exists(Path_ + seperator + "ddraw.dll") == true)
            {
                 this.chb_EnableCnCDDraw.Checked = true;
            }
@@ -55,7 +79,7 @@ namespace RedAlertConfig
                chb_EnableCnCDDraw_CheckedChanged(this, null);
            }
 
-           if (File.Exists("smallinfantry.mix") == true)
+           if (Files.RedAlertINI.getBoolValue("Options", "UseSmallInfantry", false) == true)
            {
                this.chb_EnableSmallInfantry.Checked = true;
            }
@@ -64,7 +88,7 @@ namespace RedAlertConfig
                this.chb_EnableSmallInfantry.Checked = false;
            }
 
-           if (File.Exists("thipx32.dll") == true)
+            if (File.Exists(Path_ + seperator +  "thipx32.dll") == true)
            {
                this.chb_UseLanPatch.Checked = true;
            }
@@ -73,7 +97,17 @@ namespace RedAlertConfig
                this.chb_UseLanPatch.Checked = false;
            }
 
-           if (File.Exists("counterstrike.mix") == true)
+            if (Files.RedAlertINI.getBoolValue("Options", "NoCD", false) == true)
+            {
+                this.chb_NoCD.Checked = true;
+            }
+
+            else
+            {
+                this.chb_NoCD.Checked = false;
+            }
+
+           if (Files.RedAlertINI.getBoolValue("Options", "CounterstrikeEnabled", false) == true)
            {
                this.chb_EnableCounterstrike.Checked = true;
            }
@@ -83,7 +117,7 @@ namespace RedAlertConfig
                this.chb_EnableCounterstrike.Checked = false;
            }
 
-           if (File.Exists("aftermath.mix") == true)
+            if (Files.RedAlertINI.getBoolValue("Options", "AftermathEnabled", false) == true)
            {
                this.chb_EnableAftermath.Checked = true;
            }
@@ -99,7 +133,7 @@ namespace RedAlertConfig
            this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = false;
            this.chb_ForceAftermathOnline.Checked = false;
 
-           if (File.Exists("rules.ini") == true)
+           if (File.Exists(Path_ + seperator + "rules.ini") == true)
            {
                 Crc32 crc32 = new Crc32();
                 String hash = String.Empty;
@@ -144,7 +178,7 @@ namespace RedAlertConfig
             {
                 this.radiob_reso640x400.Checked = true;
             }
-            else if (ResoWidth == 640 && ResoHeight == 479)
+            else if (ResoWidth == 640 && ResoHeight == 480)
             {
                 this.radiob_reso640x480.Checked = true;
             }
@@ -195,12 +229,6 @@ namespace RedAlertConfig
             if (Files.RedAlertINI.getBoolValue("Options", "PlayEnglishIntro", false) == true)
             {
                 chb_PlayIntro.Checked = true;
-            }
-
-            if (!File.Exists("movies1.mix") && !File.Exists("movies2.mix"))
-            {
-                chb_PlayIntro.Enabled = false;
-//                chb_PlayIntro.Text = "Play intro cinematic (requires movie files)";
             }
 
             if (Files.RedAlertINI.getIntValue("Options", "VideoInterlaceMode", 2) == 2)
@@ -322,6 +350,18 @@ namespace RedAlertConfig
             }
 
             this.cmbox_Side.SelectedIndex = Side;
+
+            int GameLanguage = Files.RedAlertINI.getIntValue("Options", "GameLanguage", 1);
+            if (GameLanguage < 1)
+            {
+                GameLanguage = 1;
+            }
+            else if (GameLanguage > 7)
+            {
+                GameLanguage = 1;
+            }
+
+            this.cmbox_GameLanguage.SelectedIndex = GameLanguage-1;
 
             this.cmbox_Color.SelectedIndex = Files.RedAlertINI.getIntValue("MultiPlayer", "Color", 0);
 
@@ -680,7 +720,7 @@ namespace RedAlertConfig
             else if (this.radiob_reso640x480.Checked == true)
             {
                 Files.RedAlertINI.setIntValue("Options", "Width", 640);
-                Files.RedAlertINI.setIntValue("Options", "Height", 479);
+                Files.RedAlertINI.setIntValue("Options", "Height", 480);
             }
             else if (this.radiob_reso800x600.Checked == true)
             {
@@ -747,6 +787,15 @@ namespace RedAlertConfig
             }
 
             Files.RedAlertINI.setStringValue("MultiPlayer", "Handle", txtb_Handle.Text);
+
+            if (chb_MouseWheelScrolling.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "MouseWheelScrolling", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "MouseWheelScrolling", false);
+            }
 
             if (chb_PlayIntro.Checked == true)
             {
@@ -830,6 +879,10 @@ namespace RedAlertConfig
 
             Files.RedAlertINI.setIntValue("MultiPlayer", "Side", this.cmbox_Side.SelectedIndex + 2);
 
+            int GameLanguage = this.cmbox_GameLanguage.SelectedIndex;
+
+            Files.RedAlertINI.setIntValue("Options", "GameLanguage", this.cmbox_GameLanguage.SelectedIndex + 1);
+
             if (Side == 6 || Side == 7)
             {
                 Side -= 6;
@@ -872,6 +925,15 @@ namespace RedAlertConfig
             else
             {
                 Files.DDrawINI.setBoolValue("ddraw", "border", false);
+            }
+
+            if (this.chb_EnableVSync.Checked == true)
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "vsync", true);
+            }
+            else
+            {
+                Files.DDrawINI.setBoolValue("ddraw", "vsync", false);
             }
 
             if (this.chb_UseWindowBoxing.Checked == true)
@@ -1028,137 +1090,127 @@ namespace RedAlertConfig
             int AIDifficulty = this.cmbox_AIDifficulty.SelectedIndex;
             Files.RedAlertINI.setIntValue("MultiplayerDefaults", "AIDifficulty", AIDifficulty);
 
-/*            if (File.Exists("1maplist_original_game.pkt") == true)
+
+            if (this.chb_DisplayOriginalMaps.Checked == true)
             {
-                this.chb_DisplayOriginalMaps.Checked = true;
+                Files.RedAlertINI.setBoolValue("Options", "DisplayOriginalMultiplayerMaps", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "DisplayOriginalMultiplayerMaps", false);
             }
 
-            if ((File.Exists("2maplist_counterstrike.pkt") == true))
+            if (this.chb_DisplayCounterstrikeMaps.Checked == true)
             {
-                this.chb_DisplayCounterstrikeMaps.Checked = true;
+                Files.RedAlertINI.setBoolValue("Options", "DisplayCounterstrikeMultiplayerMaps", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "DisplayCounterstrikeMultiplayerMaps", false);
             }
 
-            if ((File.Exists("3maplist_aftermath.pkt") == true))
+            if (this.chb_DisplayAftermathMaps.Checked == true)
             {
-                this.chb_DisplayAftermathMaps.Checked = true;
-            } */
-
-            if (this.chb_DisplayOriginalMaps.Checked == true && !File.Exists("1maplist_original_game.pkt"))
-            {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "1maplist_original_game.pkt",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "1maplist_original_game.pkt");
+                Files.RedAlertINI.setBoolValue("Options", "DisplayAftermathMultiplayerMaps", true);
             }
-            else if (this.chb_DisplayOriginalMaps.Checked == false && File.Exists("1maplist_original_game.pkt"))
+            else
             {
-                File.Delete("1maplist_original_game.pkt");
+                Files.RedAlertINI.setBoolValue("Options", "DisplayAftermathMultiplayerMaps", false);
             }
 
-            if (this.chb_DisplayCounterstrikeMaps.Checked == true && !File.Exists("2maplist_counterstrike.pkt"))
+            if (this.chb_EnableCnCDDraw.Checked == true && !File.Exists(Path_ + seperator + "ddraw.dll"))
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "2maplist_counterstrike.pkt",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "2maplist_counterstrike.pkt");
+                File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ddraw.dll",
+                    Path_ + seperator + "ddraw.dll");
             }
-            else if (this.chb_DisplayCounterstrikeMaps.Checked == false && File.Exists("2maplist_counterstrike.pkt"))
+            else if (this.chb_EnableCnCDDraw.Checked == false && File.Exists(Path_ + seperator + "ddraw.dll"))
             {
-                File.Delete("2maplist_counterstrike.pkt");
-            }
-
-            if (this.chb_DisplayAftermathMaps.Checked == true && !File.Exists("3maplist_aftermath.pkt"))
-            {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "3maplist_aftermath.pkt",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "3maplist_aftermath.pkt");
-            }
-            else if (this.chb_DisplayAftermathMaps.Checked == false && File.Exists("3maplist_aftermath.pkt"))
-            {
-                File.Delete("3maplist_aftermath.pkt");
+                File.Delete(Path_ + seperator + "ddraw.dll");
             }
 
-            if (this.chb_EnableCnCDDraw.Checked == true && !File.Exists("ddraw.dll"))
+            if (this.chb_EnableSmallInfantry.Checked == true)
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ddraw.dll", 
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ddraw.dll");
+                Files.RedAlertINI.setBoolValue("Options", "UseSmallInfantry", true);
             }
-            else if (this.chb_EnableCnCDDraw.Checked == false && File.Exists("ddraw.dll"))
+            else
             {
-                File.Delete("ddraw.dll");
-            }
-
-            if (this.chb_EnableSmallInfantry.Checked == true && !File.Exists("smallinfantry.mix"))
-            {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "smallinfantry.mix",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "smallinfantry.mix");
-            }
-            else if (this.chb_EnableSmallInfantry.Checked == false && File.Exists("smallinfantry.mix"))
-            {
-                File.Delete("smallinfantry.mix");
+                Files.RedAlertINI.setBoolValue("Options", "UseSmallInfantry", false);
             }
 
-            if (this.chb_UseLanPatch.Checked == true && !File.Exists("thipx32.dll"))
+            if (this.chb_UseLanPatch.Checked == true && !File.Exists(Path_ + seperator + "thipx32.dll"))
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "thipx32.dll",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "thipx32.dll");
+                File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "thipx32.dll",
+                     Path_ + seperator + "thipx32.dll");
             }
-            else if (this.chb_UseLanPatch.Checked == false && File.Exists("thipx32.dll"))
+            else if (this.chb_UseLanPatch.Checked == false && File.Exists(Path_ + seperator + "thipx32.dll"))
             {
-                File.Delete("thipx32.dll");
-            }
-
-            if (this.chb_EnableCounterstrike.Checked == true && !File.Exists("counterstrike.mix"))
-            {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "counterstrike.mix",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "counterstrike.mix");
-            }
-            else if (this.chb_EnableCounterstrike.Checked == false && File.Exists("counterstrike.mix"))
-            {
-                File.Delete("counterstrike.mix");
+                File.Delete(Path_ + seperator + "thipx32.dll");
             }
 
-            if (this.chb_EnableAftermath.Checked == true && !File.Exists("aftermath.mix"))
+            if (this.chb_NoCD.Checked == true)
             {
-                File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "aftermath.mix",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "aftermath.mixx");
+                Files.RedAlertINI.setBoolValue("Options", "NoCD", true);
             }
-            else if (this.chb_EnableAftermath.Checked == false && File.Exists("aftermath.mix"))
+            else
             {
-                File.Delete("aftermath.mix");
+                Files.RedAlertINI.setBoolValue("Options", "NoCD", false);
             }
 
-            if (this.chb_ForceAftermathOnline.Checked == false && File.Exists("rules.ini"))
+
+            if (this.chb_EnableCounterstrike.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "CounterstrikeEnabled", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "CounterstrikeEnabled", false);
+            }
+
+            if (this.chb_EnableAftermath.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "AftermathEnabled", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "AftermathEnabled", false);
+            }
+
+            if (this.chb_ForceAftermathOnline.Checked == false && File.Exists(Path_ + seperator + "rules.ini"))
             {
                 Crc32 crc32 = new Crc32();
                 String hash = String.Empty;
 
-                using (FileStream fs = File.Open("rules.ini", FileMode.Open))
+                using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
                     foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
 
                 if (hash == "c165ab92")
                 {
-                    File.Delete("rules.ini");
+                    File.Delete(Path_ + seperator + "rules.ini");
                 }
             }
 
-            if (this.chb_ForceAftermathOnlineFastBuildSpeed.Checked == false && File.Exists("rules.ini"))
+            if (this.chb_ForceAftermathOnlineFastBuildSpeed.Checked == false && File.Exists(Path_ + seperator + "rules.ini"))
             {
                 Crc32 crc32 = new Crc32();
                 String hash = String.Empty;
 
-                using (FileStream fs = File.Open("rules.ini", FileMode.Open))
+                using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
                     foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
 
                 if (hash == "adabee0b")
                 {
-                    File.Delete("rules.ini");
+                    File.Delete(Path_ + seperator + "rules.ini");
                 }
             }
 
             if (this.chb_ForceAftermathOnline.Checked == true)
             {
-                if (File.Exists("rules.ini"))
+                if (File.Exists(Path_ + seperator + "rules.ini"))
                 {
                     Crc32 crc32 = new Crc32();
                     String hash = String.Empty;
 
-                    using (FileStream fs = File.Open("rules.ini", FileMode.Open))
+                    using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
                         foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
 
                     if (hash != "c165ab92")
@@ -1166,28 +1218,28 @@ namespace RedAlertConfig
                          // File exists but with different hash
                         MessageBox.Show("Force Aftermath expansion is enabled but another rules.ini file has been found, this file has been renamed to ___rules.ini.");
 
-                        File.Move(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini",
-                        Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "___rules.ini");
+                        File.Move(Path_ + Path.DirectorySeparatorChar + "rules.ini",
+                        Path_ + Path.DirectorySeparatorChar + "___rules.ini");
 
-                        File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
-                        Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini");
+                        File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
+                        Path_ + Path.DirectorySeparatorChar + "rules.ini");
                     }
                 }
                 else
                 {
-                    File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini");
+                    File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
+                    Path_ + seperator + "rules.ini");
                 }              
             }
 
             if (this.chb_ForceAftermathOnlineFastBuildSpeed.Checked == true)
             {
-                if (File.Exists("rules.ini"))
+                if (File.Exists(Path_ + seperator + "rules.ini"))
                 {
                     Crc32 crc32 = new Crc32();
                     String hash = String.Empty;
 
-                    using (FileStream fs = File.Open("rules.ini", FileMode.Open))
+                    using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
                         foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
 
                     if (hash != "adabee0b")
@@ -1195,17 +1247,17 @@ namespace RedAlertConfig
                         // File exists but with different hash
                         MessageBox.Show("Force Aftermath with fast build speed expansion is enabled but another rules.ini file has been found, this file has been renamed to ___rules.ini.");
 
-                        File.Move(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini",
-                        Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "___rules.ini");
+                        File.Move(Path_ + Path.DirectorySeparatorChar + "rules.ini",
+                        Path_ + Path.DirectorySeparatorChar + "___rules.ini");
 
-                        File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMRulesFastBuildSpeed.ini",
-                        Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini");
+                        File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMRulesFastBuildSpeed.ini",
+                        Path_ + Path.DirectorySeparatorChar + "rules.ini");
                     }
                 }
                 else
                 {
-                    File.Copy(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMRulesFastBuildSpeed.ini",
-                    Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "rules.ini");
+                    File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMRulesFastBuildSpeed.ini",
+                    Path_ + Path.DirectorySeparatorChar + "rules.ini");
                 }
             }
 
@@ -1477,8 +1529,6 @@ namespace RedAlertConfig
             if (this.chb_EnableCnCDDraw.Checked == false)
             {
                 this.chb_AllowHardwareFilledBits.Enabled = true;
-                this.radiob_reso640x480.Enabled = false;
-                this.radiob_reso640x480.Checked = false;
 
                 this.txt_StretchingScaling.Visible = false;
                 this.chb_UseRAAspectRatio.Visible = false;

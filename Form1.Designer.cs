@@ -151,6 +151,9 @@ namespace RedAlertConfig
             this.panel1 = new System.Windows.Forms.Panel();
             this.chb_EnableCnCDDraw = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chb_NoCD = new System.Windows.Forms.CheckBox();
+            this.cmbox_GameLanguage = new System.Windows.Forms.ComboBox();
+            this.label60 = new System.Windows.Forms.Label();
             this.chb_RandomStartingSong = new System.Windows.Forms.CheckBox();
             this.chb_DeinterlaceVideos = new System.Windows.Forms.CheckBox();
             this.chb_SkipScoreScreen = new System.Windows.Forms.CheckBox();
@@ -191,6 +194,7 @@ namespace RedAlertConfig
             this.chb_EnableCounterstrike = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.chb_MouseWheelScrolling = new System.Windows.Forms.CheckBox();
             this.tabPage7.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
@@ -213,7 +217,7 @@ namespace RedAlertConfig
             // but_Cancel
             // 
             this.but_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.but_Cancel.Location = new System.Drawing.Point(391, 430);
+            this.but_Cancel.Location = new System.Drawing.Point(389, 485);
             this.but_Cancel.Name = "but_Cancel";
             this.but_Cancel.Size = new System.Drawing.Size(75, 23);
             this.but_Cancel.TabIndex = 2;
@@ -223,7 +227,7 @@ namespace RedAlertConfig
             // 
             // but_ok
             // 
-            this.but_ok.Location = new System.Drawing.Point(293, 430);
+            this.but_ok.Location = new System.Drawing.Point(293, 485);
             this.but_ok.Name = "but_ok";
             this.but_ok.Size = new System.Drawing.Size(75, 23);
             this.but_ok.TabIndex = 3;
@@ -247,7 +251,7 @@ namespace RedAlertConfig
             this.tabPage7.Controls.Add(this.label38);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(445, 386);
+            this.tabPage7.Size = new System.Drawing.Size(445, 441);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "About";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -387,7 +391,7 @@ namespace RedAlertConfig
             this.tabPage4.ImeMode = System.Windows.Forms.ImeMode.On;
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(445, 386);
+            this.tabPage4.Size = new System.Drawing.Size(445, 441);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Hotkey editor";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -514,7 +518,7 @@ namespace RedAlertConfig
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(445, 386);
+            this.tabPage3.Size = new System.Drawing.Size(445, 441);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Multiplayer";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -524,7 +528,7 @@ namespace RedAlertConfig
             // 
             this.label59.AutoSize = true;
             this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(27, 306);
+            this.label59.Location = new System.Drawing.Point(27, 316);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(387, 13);
             this.label59.TabIndex = 77;
@@ -804,7 +808,7 @@ namespace RedAlertConfig
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(47, 347);
+            this.label41.Location = new System.Drawing.Point(47, 357);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(322, 13);
             this.label41.TabIndex = 50;
@@ -813,7 +817,7 @@ namespace RedAlertConfig
             // chb_ForceAftermathOnlineFastBuildSpeed
             // 
             this.chb_ForceAftermathOnlineFastBuildSpeed.AutoSize = true;
-            this.chb_ForceAftermathOnlineFastBuildSpeed.Location = new System.Drawing.Point(32, 347);
+            this.chb_ForceAftermathOnlineFastBuildSpeed.Location = new System.Drawing.Point(32, 357);
             this.chb_ForceAftermathOnlineFastBuildSpeed.Name = "chb_ForceAftermathOnlineFastBuildSpeed";
             this.chb_ForceAftermathOnlineFastBuildSpeed.Size = new System.Drawing.Size(15, 14);
             this.chb_ForceAftermathOnlineFastBuildSpeed.TabIndex = 49;
@@ -823,7 +827,7 @@ namespace RedAlertConfig
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(54, 346);
+            this.label19.Location = new System.Drawing.Point(54, 356);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(0, 13);
             this.label19.TabIndex = 48;
@@ -831,7 +835,7 @@ namespace RedAlertConfig
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(160, 246);
+            this.label36.Location = new System.Drawing.Point(160, 249);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(194, 13);
             this.label36.TabIndex = 47;
@@ -842,7 +846,7 @@ namespace RedAlertConfig
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label16.Location = new System.Drawing.Point(9, 270);
+            this.label16.Location = new System.Drawing.Point(9, 280);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(36, 13);
             this.label16.TabIndex = 46;
@@ -851,7 +855,7 @@ namespace RedAlertConfig
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(47, 328);
+            this.label15.Location = new System.Drawing.Point(47, 338);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(113, 13);
             this.label15.TabIndex = 45;
@@ -862,7 +866,7 @@ namespace RedAlertConfig
             // 
             this.label100.AutoSize = true;
             this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label100.Location = new System.Drawing.Point(27, 291);
+            this.label100.Location = new System.Drawing.Point(27, 301);
             this.label100.Name = "label100";
             this.label100.Size = new System.Drawing.Size(383, 13);
             this.label100.TabIndex = 44;
@@ -872,7 +876,7 @@ namespace RedAlertConfig
             // chb_ForceAftermathOnline
             // 
             this.chb_ForceAftermathOnline.AutoSize = true;
-            this.chb_ForceAftermathOnline.Location = new System.Drawing.Point(32, 328);
+            this.chb_ForceAftermathOnline.Location = new System.Drawing.Point(32, 338);
             this.chb_ForceAftermathOnline.Name = "chb_ForceAftermathOnline";
             this.chb_ForceAftermathOnline.Size = new System.Drawing.Size(15, 14);
             this.chb_ForceAftermathOnline.TabIndex = 43;
@@ -881,7 +885,7 @@ namespace RedAlertConfig
             // 
             // but_RunCnCNetSetup
             // 
-            this.but_RunCnCNetSetup.Location = new System.Drawing.Point(32, 241);
+            this.but_RunCnCNetSetup.Location = new System.Drawing.Point(32, 244);
             this.but_RunCnCNetSetup.Name = "but_RunCnCNetSetup";
             this.but_RunCnCNetSetup.Size = new System.Drawing.Size(111, 23);
             this.but_RunCnCNetSetup.TabIndex = 42;
@@ -893,7 +897,7 @@ namespace RedAlertConfig
             // 
             this.link_CnCNetSite.AutoSize = true;
             this.link_CnCNetSite.LinkArea = new System.Windows.Forms.LinkArea(0, 38);
-            this.link_CnCNetSite.Location = new System.Drawing.Point(29, 219);
+            this.link_CnCNetSite.Location = new System.Drawing.Point(29, 222);
             this.link_CnCNetSite.Name = "link_CnCNetSite";
             this.link_CnCNetSite.Size = new System.Drawing.Size(184, 13);
             this.link_CnCNetSite.TabIndex = 41;
@@ -906,7 +910,7 @@ namespace RedAlertConfig
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label13.Location = new System.Drawing.Point(9, 199);
+            this.label13.Location = new System.Drawing.Point(9, 202);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 13);
             this.label13.TabIndex = 40;
@@ -1037,7 +1041,7 @@ namespace RedAlertConfig
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(445, 386);
+            this.tabPage1.Size = new System.Drawing.Size(445, 441);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Video options";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1535,6 +1539,10 @@ namespace RedAlertConfig
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.chb_MouseWheelScrolling);
+            this.tabPage2.Controls.Add(this.chb_NoCD);
+            this.tabPage2.Controls.Add(this.cmbox_GameLanguage);
+            this.tabPage2.Controls.Add(this.label60);
             this.tabPage2.Controls.Add(this.chb_RandomStartingSong);
             this.tabPage2.Controls.Add(this.chb_DeinterlaceVideos);
             this.tabPage2.Controls.Add(this.chb_SkipScoreScreen);
@@ -1577,15 +1585,51 @@ namespace RedAlertConfig
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(445, 386);
+            this.tabPage2.Size = new System.Drawing.Size(445, 441);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Game options";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // chb_NoCD
+            // 
+            this.chb_NoCD.AutoSize = true;
+            this.chb_NoCD.Location = new System.Drawing.Point(21, 119);
+            this.chb_NoCD.Name = "chb_NoCD";
+            this.chb_NoCD.Size = new System.Drawing.Size(99, 17);
+            this.chb_NoCD.TabIndex = 58;
+            this.chb_NoCD.Text = "No CD required";
+            this.chb_NoCD.UseVisualStyleBackColor = true;
+            // 
+            // cmbox_GameLanguage
+            // 
+            this.cmbox_GameLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbox_GameLanguage.FormattingEnabled = true;
+            this.cmbox_GameLanguage.Items.AddRange(new object[] {
+            "English",
+            "German",
+            "German (Censored)",
+            "German (Uncensored)",
+            "French",
+            "Spanish",
+            "Russian"});
+            this.cmbox_GameLanguage.Location = new System.Drawing.Point(117, 143);
+            this.cmbox_GameLanguage.Name = "cmbox_GameLanguage";
+            this.cmbox_GameLanguage.Size = new System.Drawing.Size(132, 21);
+            this.cmbox_GameLanguage.TabIndex = 57;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(18, 146);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(85, 13);
+            this.label60.TabIndex = 56;
+            this.label60.Text = "Game language:";
+            // 
             // chb_RandomStartingSong
             // 
             this.chb_RandomStartingSong.AutoSize = true;
-            this.chb_RandomStartingSong.Location = new System.Drawing.Point(204, 95);
+            this.chb_RandomStartingSong.Location = new System.Drawing.Point(204, 96);
             this.chb_RandomStartingSong.Name = "chb_RandomStartingSong";
             this.chb_RandomStartingSong.Size = new System.Drawing.Size(129, 17);
             this.chb_RandomStartingSong.TabIndex = 55;
@@ -1595,7 +1639,7 @@ namespace RedAlertConfig
             // chb_DeinterlaceVideos
             // 
             this.chb_DeinterlaceVideos.AutoSize = true;
-            this.chb_DeinterlaceVideos.Location = new System.Drawing.Point(21, 95);
+            this.chb_DeinterlaceVideos.Location = new System.Drawing.Point(21, 96);
             this.chb_DeinterlaceVideos.Name = "chb_DeinterlaceVideos";
             this.chb_DeinterlaceVideos.Size = new System.Drawing.Size(114, 17);
             this.chb_DeinterlaceVideos.TabIndex = 54;
@@ -1615,7 +1659,7 @@ namespace RedAlertConfig
             // chb_ShowAllMusic
             // 
             this.chb_ShowAllMusic.AutoSize = true;
-            this.chb_ShowAllMusic.Location = new System.Drawing.Point(284, 279);
+            this.chb_ShowAllMusic.Location = new System.Drawing.Point(284, 333);
             this.chb_ShowAllMusic.Name = "chb_ShowAllMusic";
             this.chb_ShowAllMusic.Size = new System.Drawing.Size(96, 17);
             this.chb_ShowAllMusic.TabIndex = 52;
@@ -1624,7 +1668,7 @@ namespace RedAlertConfig
             // 
             // but_ResetVisualOptions
             // 
-            this.but_ResetVisualOptions.Location = new System.Drawing.Point(369, 343);
+            this.but_ResetVisualOptions.Location = new System.Drawing.Point(369, 397);
             this.but_ResetVisualOptions.Name = "but_ResetVisualOptions";
             this.but_ResetVisualOptions.Size = new System.Drawing.Size(59, 23);
             this.but_ResetVisualOptions.TabIndex = 51;
@@ -1634,28 +1678,28 @@ namespace RedAlertConfig
             // 
             // panel9
             // 
-            this.panel9.Location = new System.Drawing.Point(257, 382);
+            this.panel9.Location = new System.Drawing.Point(257, 436);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(102, 10);
             this.panel9.TabIndex = 50;
             // 
             // panel8
             // 
-            this.panel8.Location = new System.Drawing.Point(257, 350);
+            this.panel8.Location = new System.Drawing.Point(257, 404);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(102, 10);
             this.panel8.TabIndex = 49;
             // 
             // panel7
             // 
-            this.panel7.Location = new System.Drawing.Point(99, 350);
+            this.panel7.Location = new System.Drawing.Point(99, 404);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(102, 10);
             this.panel7.TabIndex = 48;
             // 
             // panel6
             // 
-            this.panel6.Location = new System.Drawing.Point(99, 383);
+            this.panel6.Location = new System.Drawing.Point(99, 437);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(102, 10);
             this.panel6.TabIndex = 47;
@@ -1665,7 +1709,7 @@ namespace RedAlertConfig
             this.slider_Contrast.AutoSize = false;
             this.slider_Contrast.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_Contrast.LargeChange = 1;
-            this.slider_Contrast.Location = new System.Drawing.Point(94, 361);
+            this.slider_Contrast.Location = new System.Drawing.Point(94, 415);
             this.slider_Contrast.Maximum = 1000;
             this.slider_Contrast.Name = "slider_Contrast";
             this.slider_Contrast.RightToLeftLayout = true;
@@ -1676,7 +1720,7 @@ namespace RedAlertConfig
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(207, 365);
+            this.label28.Location = new System.Drawing.Point(207, 419);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(28, 13);
             this.label28.TabIndex = 45;
@@ -1687,7 +1731,7 @@ namespace RedAlertConfig
             this.slider_Tint.AutoSize = false;
             this.slider_Tint.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_Tint.LargeChange = 1;
-            this.slider_Tint.Location = new System.Drawing.Point(252, 361);
+            this.slider_Tint.Location = new System.Drawing.Point(252, 415);
             this.slider_Tint.Maximum = 1000;
             this.slider_Tint.Name = "slider_Tint";
             this.slider_Tint.RightToLeftLayout = true;
@@ -1698,7 +1742,7 @@ namespace RedAlertConfig
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(207, 332);
+            this.label37.Location = new System.Drawing.Point(207, 386);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(34, 13);
             this.label37.TabIndex = 43;
@@ -1710,7 +1754,7 @@ namespace RedAlertConfig
             this.slider_Color.AutoSize = false;
             this.slider_Color.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_Color.LargeChange = 1;
-            this.slider_Color.Location = new System.Drawing.Point(252, 329);
+            this.slider_Color.Location = new System.Drawing.Point(252, 383);
             this.slider_Color.Maximum = 1000;
             this.slider_Color.Name = "slider_Color";
             this.slider_Color.RightToLeftLayout = true;
@@ -1721,7 +1765,7 @@ namespace RedAlertConfig
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(18, 365);
+            this.label23.Location = new System.Drawing.Point(18, 419);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(54, 13);
             this.label23.TabIndex = 39;
@@ -1730,7 +1774,7 @@ namespace RedAlertConfig
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(18, 333);
+            this.label27.Location = new System.Drawing.Point(18, 387);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(59, 13);
             this.label27.TabIndex = 37;
@@ -1741,7 +1785,7 @@ namespace RedAlertConfig
             this.slider_Brightness.AutoSize = false;
             this.slider_Brightness.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_Brightness.LargeChange = 1;
-            this.slider_Brightness.Location = new System.Drawing.Point(94, 329);
+            this.slider_Brightness.Location = new System.Drawing.Point(94, 383);
             this.slider_Brightness.Maximum = 1000;
             this.slider_Brightness.Name = "slider_Brightness";
             this.slider_Brightness.RightToLeftLayout = true;
@@ -1753,7 +1797,7 @@ namespace RedAlertConfig
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 306);
+            this.label9.Location = new System.Drawing.Point(6, 360);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 13);
             this.label9.TabIndex = 35;
@@ -1761,14 +1805,14 @@ namespace RedAlertConfig
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(117, 258);
+            this.panel5.Location = new System.Drawing.Point(117, 312);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(148, 10);
             this.panel5.TabIndex = 34;
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(117, 296);
+            this.panel4.Location = new System.Drawing.Point(117, 350);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(148, 10);
             this.panel4.TabIndex = 33;
@@ -1789,7 +1833,7 @@ namespace RedAlertConfig
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(6, 121);
+            this.label8.Location = new System.Drawing.Point(6, 175);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 13);
             this.label8.TabIndex = 30;
@@ -1829,7 +1873,7 @@ namespace RedAlertConfig
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 277);
+            this.label1.Location = new System.Drawing.Point(18, 331);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 26;
@@ -1840,7 +1884,7 @@ namespace RedAlertConfig
             this.Slider_MusicVolume.AutoSize = false;
             this.Slider_MusicVolume.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Slider_MusicVolume.LargeChange = 1;
-            this.Slider_MusicVolume.Location = new System.Drawing.Point(112, 274);
+            this.Slider_MusicVolume.Location = new System.Drawing.Point(112, 328);
             this.Slider_MusicVolume.Maximum = 1000;
             this.Slider_MusicVolume.Name = "Slider_MusicVolume";
             this.Slider_MusicVolume.RightToLeftLayout = true;
@@ -1852,7 +1896,7 @@ namespace RedAlertConfig
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 241);
+            this.label2.Location = new System.Drawing.Point(18, 295);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 24;
@@ -1863,7 +1907,7 @@ namespace RedAlertConfig
             this.slider_SoundVolume.AutoSize = false;
             this.slider_SoundVolume.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_SoundVolume.LargeChange = 1;
-            this.slider_SoundVolume.Location = new System.Drawing.Point(112, 236);
+            this.slider_SoundVolume.Location = new System.Drawing.Point(112, 290);
             this.slider_SoundVolume.Maximum = 1000;
             this.slider_SoundVolume.Name = "slider_SoundVolume";
             this.slider_SoundVolume.RightToLeftLayout = true;
@@ -1875,7 +1919,7 @@ namespace RedAlertConfig
             // chb_RepeatMusic
             // 
             this.chb_RepeatMusic.AutoSize = true;
-            this.chb_RepeatMusic.Location = new System.Drawing.Point(284, 258);
+            this.chb_RepeatMusic.Location = new System.Drawing.Point(284, 312);
             this.chb_RepeatMusic.Name = "chb_RepeatMusic";
             this.chb_RepeatMusic.Size = new System.Drawing.Size(91, 17);
             this.chb_RepeatMusic.TabIndex = 22;
@@ -1885,7 +1929,7 @@ namespace RedAlertConfig
             // chb_ShuffleMusic
             // 
             this.chb_ShuffleMusic.AutoSize = true;
-            this.chb_ShuffleMusic.Location = new System.Drawing.Point(284, 235);
+            this.chb_ShuffleMusic.Location = new System.Drawing.Point(284, 289);
             this.chb_ShuffleMusic.Name = "chb_ShuffleMusic";
             this.chb_ShuffleMusic.Size = new System.Drawing.Size(89, 17);
             this.chb_ShuffleMusic.TabIndex = 21;
@@ -1895,7 +1939,7 @@ namespace RedAlertConfig
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 153);
+            this.label6.Location = new System.Drawing.Point(18, 207);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 20;
@@ -1906,7 +1950,7 @@ namespace RedAlertConfig
             this.slider_GameSpeed.AutoSize = false;
             this.slider_GameSpeed.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_GameSpeed.LargeChange = 1;
-            this.slider_GameSpeed.Location = new System.Drawing.Point(112, 153);
+            this.slider_GameSpeed.Location = new System.Drawing.Point(112, 207);
             this.slider_GameSpeed.Maximum = 6;
             this.slider_GameSpeed.Name = "slider_GameSpeed";
             this.slider_GameSpeed.RightToLeftLayout = true;
@@ -1916,7 +1960,7 @@ namespace RedAlertConfig
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 182);
+            this.label5.Location = new System.Drawing.Point(18, 236);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 18;
@@ -1927,7 +1971,7 @@ namespace RedAlertConfig
             this.slider_ScrollRate.AutoSize = false;
             this.slider_ScrollRate.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.slider_ScrollRate.LargeChange = 1;
-            this.slider_ScrollRate.Location = new System.Drawing.Point(112, 182);
+            this.slider_ScrollRate.Location = new System.Drawing.Point(112, 236);
             this.slider_ScrollRate.Maximum = 6;
             this.slider_ScrollRate.Name = "slider_ScrollRate";
             this.slider_ScrollRate.RightToLeftLayout = true;
@@ -1937,7 +1981,7 @@ namespace RedAlertConfig
             // chb_Autoscroll
             // 
             this.chb_Autoscroll.AutoSize = true;
-            this.chb_Autoscroll.Location = new System.Drawing.Point(284, 171);
+            this.chb_Autoscroll.Location = new System.Drawing.Point(284, 225);
             this.chb_Autoscroll.Name = "chb_Autoscroll";
             this.chb_Autoscroll.Size = new System.Drawing.Size(75, 17);
             this.chb_Autoscroll.TabIndex = 15;
@@ -1970,7 +2014,7 @@ namespace RedAlertConfig
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(6, 211);
+            this.label3.Location = new System.Drawing.Point(6, 265);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 10;
@@ -1986,9 +2030,19 @@ namespace RedAlertConfig
             this.tabControl1.Location = new System.Drawing.Point(15, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(453, 412);
+            this.tabControl1.Size = new System.Drawing.Size(453, 467);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_Down_Test);
+            // 
+            // chb_MouseWheelScrolling
+            // 
+            this.chb_MouseWheelScrolling.AutoSize = true;
+            this.chb_MouseWheelScrolling.Location = new System.Drawing.Point(204, 119);
+            this.chb_MouseWheelScrolling.Name = "chb_MouseWheelScrolling";
+            this.chb_MouseWheelScrolling.Size = new System.Drawing.Size(130, 17);
+            this.chb_MouseWheelScrolling.TabIndex = 59;
+            this.chb_MouseWheelScrolling.Text = "Mouse wheel scrolling";
+            this.chb_MouseWheelScrolling.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1996,10 +2050,11 @@ namespace RedAlertConfig
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.but_Cancel;
-            this.ClientSize = new System.Drawing.Size(483, 465);
+            this.ClientSize = new System.Drawing.Size(483, 520);
             this.Controls.Add(this.but_ok);
             this.Controls.Add(this.but_Cancel);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Red Alert 95 Config";
@@ -2206,6 +2261,10 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_RandomStartingSong;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.CheckBox chb_VideoStretching;
+        private System.Windows.Forms.ComboBox cmbox_GameLanguage;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.CheckBox chb_NoCD;
+        private System.Windows.Forms.CheckBox chb_MouseWheelScrolling;
 
     }
 }
