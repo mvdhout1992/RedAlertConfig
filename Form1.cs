@@ -88,7 +88,7 @@ namespace RedAlertConfig
                this.chb_EnableSmallInfantry.Checked = false;
            }
 
-            if (File.Exists(Path_ + seperator +  "thipx32.dll") == true)
+            if (File.Exists(Path_ + seperator +  "wsock32.dll") == true)
            {
                this.chb_UseLanPatch.Checked = true;
            }
@@ -360,8 +360,100 @@ namespace RedAlertConfig
             {
                 GameLanguage = 1;
             }
-
-            this.cmbox_GameLanguage.SelectedIndex = GameLanguage-1;
+            if (GameLanguage == 1)
+            {
+                this.cmbox_GameLanguage.SelectedItem = "English";
+            }
+            if (!File.Exists(Path_ + seperator + "germanlanguagepack.MIX") == true)
+            {
+                cmbox_GameLanguage.Items.Remove("German");
+                if (GameLanguage == 2)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "English";
+                }
+            }
+            else
+            {
+                if (GameLanguage == 2)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "German";
+                }
+            }
+            if (!File.Exists(Path_ + seperator + "germancensoredlanguagepack.MIX") == true)
+            {
+                cmbox_GameLanguage.Items.Remove("German (Censored)");
+                if (GameLanguage == 3)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "English";
+                }
+            }
+            else
+            {
+                if (GameLanguage == 3)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "German (Censored)";
+                }
+            }
+            if (!File.Exists(Path_ + seperator + "germanuncensoredlanguagepack.MIX") == true)
+            {
+                cmbox_GameLanguage.Items.Remove("German (Uncensored)");
+                if (GameLanguage == 4)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "English";
+                }
+            }
+            else
+            {
+                if (GameLanguage == 4)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "German (Uncensored)";
+                }
+            }
+            if (!File.Exists(Path_ + seperator + "frenchlanguagepack.MIX") == true)
+            {
+                cmbox_GameLanguage.Items.Remove("French");
+                if (GameLanguage == 5)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "English";
+                }
+            }
+            else
+            {
+                if (GameLanguage == 5)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "French";
+                }
+            }
+            if (!File.Exists(Path_ + seperator + "spanishlanguagepack.MIX") == true)
+            {
+                cmbox_GameLanguage.Items.Remove("Spanish");
+                if (GameLanguage == 6)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "English";
+                }
+            }
+            else
+            {
+                if (GameLanguage == 6)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "Spanish";
+                }
+            }
+            if (!File.Exists(Path_ + seperator + "russianlanguagepack.MIX") == true)
+            {
+                cmbox_GameLanguage.Items.Remove("Russian");
+                if (GameLanguage == 7)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "English";
+                }
+            }
+            else
+            {
+                if (GameLanguage == 7)
+                {
+                    this.cmbox_GameLanguage.SelectedItem = "Russian";
+                }
+            }
 
             this.cmbox_Color.SelectedIndex = Files.RedAlertINI.getIntValue("MultiPlayer", "Color", 0);
 
@@ -879,9 +971,34 @@ namespace RedAlertConfig
 
             Files.RedAlertINI.setIntValue("MultiPlayer", "Side", this.cmbox_Side.SelectedIndex + 2);
 
-            int GameLanguage = this.cmbox_GameLanguage.SelectedIndex;
-
-            Files.RedAlertINI.setIntValue("Options", "GameLanguage", this.cmbox_GameLanguage.SelectedIndex + 1);
+            if (this.cmbox_GameLanguage.SelectedItem.ToString() == "English")
+            {
+                Files.RedAlertINI.setIntValue("Options", "GameLanguage", 1);
+            }
+            else if (this.cmbox_GameLanguage.SelectedItem.ToString() == "German")
+            {
+                Files.RedAlertINI.setIntValue("Options", "GameLanguage", 2);
+            }
+            else if (this.cmbox_GameLanguage.SelectedItem.ToString() == "German (Censored)")
+            {
+                Files.RedAlertINI.setIntValue("Options", "GameLanguage", 3);
+            }
+            else if (this.cmbox_GameLanguage.SelectedItem.ToString() == "German (Uncensored)")
+            {
+                Files.RedAlertINI.setIntValue("Options", "GameLanguage", 4);
+            }
+            else if (this.cmbox_GameLanguage.SelectedItem.ToString() == "French")
+            {
+                Files.RedAlertINI.setIntValue("Options", "GameLanguage", 5);
+            }
+            else if (this.cmbox_GameLanguage.SelectedItem.ToString() == "Spanish")
+            {
+                Files.RedAlertINI.setIntValue("Options", "GameLanguage", 6);
+            }
+            else if (this.cmbox_GameLanguage.SelectedItem.ToString() == "Russian")
+            {
+                Files.RedAlertINI.setIntValue("Options", "GameLanguage", 7);
+            }
 
             if (Side == 6 || Side == 7)
             {
@@ -1137,14 +1254,14 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setBoolValue("Options", "UseSmallInfantry", false);
             }
 
-            if (this.chb_UseLanPatch.Checked == true && !File.Exists(Path_ + seperator + "thipx32.dll"))
+            if (this.chb_UseLanPatch.Checked == true && !File.Exists(Path_ + seperator + "wsock32.dll"))
             {
-                File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "thipx32.dll",
-                     Path_ + seperator + "thipx32.dll");
+                File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "wsock32.dll",
+                     Path_ + seperator + "wsock32.dll");
             }
-            else if (this.chb_UseLanPatch.Checked == false && File.Exists(Path_ + seperator + "thipx32.dll"))
+            else if (this.chb_UseLanPatch.Checked == false && File.Exists(Path_ + seperator + "wsock32.dll"))
             {
-                File.Delete(Path_ + seperator + "thipx32.dll");
+                File.Delete(Path_ + seperator + "wsock32.dll");
             }
 
             if (this.chb_NoCD.Checked == true)
@@ -1218,6 +1335,7 @@ namespace RedAlertConfig
                          // File exists but with different hash
                         MessageBox.Show("Force Aftermath expansion is enabled but another rules.ini file has been found, this file has been renamed to ___rules.ini.");
 
+                        File.Delete(Path_ + Path.DirectorySeparatorChar + "___rules.ini");
                         File.Move(Path_ + Path.DirectorySeparatorChar + "rules.ini",
                         Path_ + Path.DirectorySeparatorChar + "___rules.ini");
 
@@ -1247,6 +1365,7 @@ namespace RedAlertConfig
                         // File exists but with different hash
                         MessageBox.Show("Force Aftermath with fast build speed expansion is enabled but another rules.ini file has been found, this file has been renamed to ___rules.ini.");
 
+                        File.Delete(Path_ + Path.DirectorySeparatorChar + "___rules.ini");
                         File.Move(Path_ + Path.DirectorySeparatorChar + "rules.ini",
                         Path_ + Path.DirectorySeparatorChar + "___rules.ini");
 

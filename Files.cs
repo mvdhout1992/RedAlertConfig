@@ -23,7 +23,7 @@ namespace RedAlertConfig
 
             Check_Required_File("ddraw.dll");
             Check_Required_File("ForceAMrules.ini");
-            Check_Required_File("thipx32.dll");
+            Check_Required_File("wsock32.dll");
             Check_Required_File("ForceAMRulesFastBuildSpeed.ini");
             Check_Required_File("ForceAMrules.ini");
         }
