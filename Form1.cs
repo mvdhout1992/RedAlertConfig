@@ -226,6 +226,21 @@ namespace RedAlertConfig
             if (AIDifficulty > 2) AIPlayers = 2; if (AIDifficulty < 0) AIDifficulty = 0;
             this.cmbox_AIDifficulty.SelectedIndex = AIDifficulty;
 
+            if (Files.RedAlertINI.getBoolValue("Options", "UseBetaTeslaTank", false) == true)
+            {
+                chb_UseBetaTeslaTank.Checked = true;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "UseGrenadeThrowingSound", false) == true)
+            {
+                chb_UseGrenadeThrowingSound.Checked = true;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "AlternativeRifleSound", false) == true)
+            {
+                chb_UseAlternativeRifleSound.Checked = true;
+            }
+
             if (Files.RedAlertINI.getBoolValue("Options", "PlayEnglishIntro", false) == true)
             {
                 chb_PlayIntro.Checked = true;
@@ -521,11 +536,6 @@ namespace RedAlertConfig
             if (Files.DDrawINI.getBoolValue("ddraw", "adjmouse", false) == true)
             {
                 this.chb_AutoAdjustMouse.Checked = true;
-            }
-
-            if (Files.DDrawINI.getBoolValue("ddraw", "mhack", false) == true)
-            {
-                this.chb_EnableMouseHack.Checked = true;
             }
 
             if (Files.DDrawINI.getBoolValue("ddraw", "vhack", false) == true)
@@ -907,6 +917,33 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setBoolValue("Options", "SkipScoreScreen", false);
             }
 
+            if (chb_UseBetaTeslaTank.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseBetaTeslaTank", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseBetaTeslaTank", false);
+            }
+
+            if (chb_UseGrenadeThrowingSound.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseGrenadeThrowingSound", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseGrenadeThrowingSound", false);
+            }
+
+            if (chb_UseAlternativeRifleSound.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "AlternativeRifleSound", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "AlternativeRifleSound", false);
+            }
+
             if (this.chb_ShowAllMusic.Checked == true)
             {
                 Files.RedAlertINI.setBoolValue("Options", "ShowAllMusic", true);
@@ -1029,10 +1066,12 @@ namespace RedAlertConfig
             if (this.chb_RunWindowed.Checked == true)
             {
                 Files.DDrawINI.setBoolValue("ddraw", "windowed", true);
+                Files.DDrawINI.setBoolValue("ddraw", "mhack", true);
             }
             else
             {
                 Files.DDrawINI.setBoolValue("ddraw", "windowed", false);
+                Files.DDrawINI.setBoolValue("ddraw", "mhack", false);
             }
 
             if (this.chb_ShowWindowedBorder.Checked == true)
@@ -1069,15 +1108,6 @@ namespace RedAlertConfig
             else
             {
                 Files.DDrawINI.setBoolValue("ddraw", "adjmouse", false);
-            }
-
-            if (this.chb_EnableMouseHack.Checked == true)
-            {
-                Files.DDrawINI.setBoolValue("ddraw", "mhack", true);
-            }
-            else
-            {
-                Files.DDrawINI.setBoolValue("ddraw", "mhack", false);
             }
 
             if (this.chb_ForceSingleCPU.Checked == true)
@@ -1668,7 +1698,6 @@ namespace RedAlertConfig
                 this.label34.Visible = false;
                 this.label35.Visible = false;
                 this.chb_AutoAdjustMouse.Visible = false;
-                this.chb_EnableMouseHack.Visible = false;
                 this.chb_EnableVSync.Visible = false;
                 this.chb_ForceSingleCPU.Visible = false;
                 this.label14.Visible = false;
@@ -1677,8 +1706,6 @@ namespace RedAlertConfig
                 this.cmbox_BitsPerPixels.Visible = false;
                 this.label25.Visible = false;
                 this.label26.Visible = false;
-                this.label31.Visible = false;
-                this.label32.Visible = false;
                 this.label29.Visible = false;
                 this.label30.Visible = false;
                 this.chb_VideoStretching.Visible = false;
@@ -1708,7 +1735,6 @@ namespace RedAlertConfig
                 this.label34.Visible = true;
                 this.label35.Visible = true;
                 this.chb_AutoAdjustMouse.Visible = true;
-                this.chb_EnableMouseHack.Visible = true;
                 this.chb_EnableVSync.Visible = true;
                 this.chb_ForceSingleCPU.Visible = true;
                 this.label14.Visible = true;
@@ -1717,8 +1743,6 @@ namespace RedAlertConfig
                 this.cmbox_BitsPerPixels.Visible = true;
                 this.label25.Visible = true;
                 this.label26.Visible = true;
-                this.label31.Visible = true;
-                this.label32.Visible = true;
                 this.label29.Visible = true;
                 this.label30.Visible = true;
             }
@@ -1917,14 +1941,14 @@ namespace RedAlertConfig
             Set_Row_Value((char)83, 8);
             Set_Row_Value((char)71, 9);
             Set_Row_Value((char)78, 10);
-            Set_Row_Value((char)66, 11);
+            Set_Row_Value((char)77, 11);
             Set_Row_Value((char)67, 12);
             Set_Row_Value((char)36, 13);
             Set_Row_Value((char)103, 14);
             Set_Row_Value((char)72, 15);
             Set_Row_Value((char)82, 16);
             Set_Row_Value((char)65, 17);
-            Set_Row_Value((char)120, 18);
+            Set_Row_Value((char)86, 18);
             Set_Row_Value((char)32, 19);
             Set_Row_Value((char)82, 20);
             Set_Row_Value((char)87, 21);
@@ -1932,10 +1956,10 @@ namespace RedAlertConfig
             Set_Row_Value((char)84, 23);
             Set_Row_Value((char)0, 24);
             Set_Row_Value((char)0, 25);
-            Set_Row_Value((char)89, 26);
+            Set_Row_Value((char)90, 26);
             Set_Row_Value((char)0, 27);
             Set_Row_Value((char)0, 28);
-            Set_Row_Value((char)86, 29);
+            Set_Row_Value((char)66, 29);
             Set_Row_Value((char)68, 30);
             Set_Row_Value((char)70, 31);
             Set_Row_Value((char)27, 32);
