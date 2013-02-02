@@ -34,19 +34,6 @@ namespace RedAlertConfig
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.but_Cancel = new System.Windows.Forms.Button();
             this.but_ok = new System.Windows.Forms.Button();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.link_AboutCnCNet = new System.Windows.Forms.LinkLabel();
-            this.link_AboutCnCDDaw = new System.Windows.Forms.LinkLabel();
-            this.link_Aboutv033p3 = new System.Windows.Forms.LinkLabel();
-            this.link_AboutProjectHome = new System.Windows.Forms.LinkLabel();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.But_UseProSetup = new System.Windows.Forms.Button();
             this.but_ResetDefaults = new System.Windows.Forms.Button();
@@ -182,24 +169,22 @@ namespace RedAlertConfig
             this.slider_GameSpeed = new System.Windows.Forms.TrackBar();
             this.label5 = new System.Windows.Forms.Label();
             this.slider_ScrollRate = new System.Windows.Forms.TrackBar();
-            this.chb_Autoscroll = new System.Windows.Forms.CheckBox();
             this.chb_EnableAftermath = new System.Windows.Forms.CheckBox();
             this.chb_EnableCounterstrike = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label31 = new System.Windows.Forms.Label();
-            this.chb_EnableSmallInfantry = new System.Windows.Forms.CheckBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.chb_ShowAllMusic = new System.Windows.Forms.CheckBox();
+            this.chb_UseBetaTeslaTank = new System.Windows.Forms.CheckBox();
+            this.chb_UseAlternativeRifleSound = new System.Windows.Forms.CheckBox();
+            this.chb_UseGrenadeThrowingSound = new System.Windows.Forms.CheckBox();
+            this.chb_SkipScoreScreen = new System.Windows.Forms.CheckBox();
             this.chb_MouseWheelScrolling = new System.Windows.Forms.CheckBox();
             this.chb_RandomStartingSong = new System.Windows.Forms.CheckBox();
-            this.chb_SkipScoreScreen = new System.Windows.Forms.CheckBox();
-            this.chb_UseGrenadeThrowingSound = new System.Windows.Forms.CheckBox();
-            this.chb_UseAlternativeRifleSound = new System.Windows.Forms.CheckBox();
-            this.chb_UseBetaTeslaTank = new System.Windows.Forms.CheckBox();
-            this.chb_ShowAllMusic = new System.Windows.Forms.CheckBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.tabPage7.SuspendLayout();
+            this.chb_EnableSmallInfantry = new System.Windows.Forms.CheckBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -240,153 +225,6 @@ namespace RedAlertConfig
             this.but_ok.UseVisualStyleBackColor = true;
             this.but_ok.Click += new System.EventHandler(this.but_ok_Click);
             // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.link_AboutCnCNet);
-            this.tabPage7.Controls.Add(this.link_AboutCnCDDaw);
-            this.tabPage7.Controls.Add(this.link_Aboutv033p3);
-            this.tabPage7.Controls.Add(this.link_AboutProjectHome);
-            this.tabPage7.Controls.Add(this.label48);
-            this.tabPage7.Controls.Add(this.label47);
-            this.tabPage7.Controls.Add(this.label46);
-            this.tabPage7.Controls.Add(this.label45);
-            this.tabPage7.Controls.Add(this.label43);
-            this.tabPage7.Controls.Add(this.label40);
-            this.tabPage7.Controls.Add(this.label39);
-            this.tabPage7.Controls.Add(this.label38);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(441, 419);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "About";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // link_AboutCnCNet
-            // 
-            this.link_AboutCnCNet.AutoSize = true;
-            this.link_AboutCnCNet.Location = new System.Drawing.Point(197, 120);
-            this.link_AboutCnCNet.Name = "link_AboutCnCNet";
-            this.link_AboutCnCNet.Size = new System.Drawing.Size(44, 13);
-            this.link_AboutCnCNet.TabIndex = 14;
-            this.link_AboutCnCNet.TabStop = true;
-            this.link_AboutCnCNet.Text = "CnCNet";
-            this.link_AboutCnCNet.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_AboutCnCNet_LinkClicked);
-            // 
-            // link_AboutCnCDDaw
-            // 
-            this.link_AboutCnCDDaw.AutoSize = true;
-            this.link_AboutCnCDDaw.Location = new System.Drawing.Point(186, 99);
-            this.link_AboutCnCDDaw.Name = "link_AboutCnCDDaw";
-            this.link_AboutCnCDDaw.Size = new System.Drawing.Size(63, 13);
-            this.link_AboutCnCDDaw.TabIndex = 13;
-            this.link_AboutCnCDDaw.TabStop = true;
-            this.link_AboutCnCDDaw.Text = "CnC-DDraw";
-            this.link_AboutCnCDDaw.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_AboutCnCDDaw_LinkClicked);
-            // 
-            // link_Aboutv033p3
-            // 
-            this.link_Aboutv033p3.AutoSize = true;
-            this.link_Aboutv033p3.Location = new System.Drawing.Point(179, 78);
-            this.link_Aboutv033p3.Name = "link_Aboutv033p3";
-            this.link_Aboutv033p3.Size = new System.Drawing.Size(90, 13);
-            this.link_Aboutv033p3.TabIndex = 12;
-            this.link_Aboutv033p3.TabStop = true;
-            this.link_Aboutv033p3.Text = "RA95 v3.03p-iran";
-            this.link_Aboutv033p3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_Aboutv033p3_LinkClicked);
-            // 
-            // link_AboutProjectHome
-            // 
-            this.link_AboutProjectHome.AutoSize = true;
-            this.link_AboutProjectHome.Location = new System.Drawing.Point(128, 167);
-            this.link_AboutProjectHome.Name = "link_AboutProjectHome";
-            this.link_AboutProjectHome.Size = new System.Drawing.Size(194, 13);
-            this.link_AboutProjectHome.TabIndex = 11;
-            this.link_AboutProjectHome.TabStop = true;
-            this.link_AboutProjectHome.Text = "https://github.com/Iran/RedAlertConfig";
-            this.link_AboutProjectHome.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_AboutProjectHome_LinkClicked);
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(119, 235);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(204, 13);
-            this.label48.TabIndex = 10;
-            this.label48.Text = "Nyerguds:  INI code and CCConfig design";
-            this.label48.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(178, 254);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(84, 13);
-            this.label47.TabIndex = 9;
-            this.label47.Text = "hifi: Suggestions";
-            this.label47.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(110, 216);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(219, 13);
-            this.label46.TabIndex = 8;
-            this.label46.Text = "FunkyFr3sh: Feedback and lots of useful info";
-            this.label46.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(187, 194);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(58, 13);
-            this.label45.TabIndex = 7;
-            this.label45.Text = "Thanks to:";
-            this.label45.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(168, 145);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(96, 13);
-            this.label43.TabIndex = 5;
-            this.label43.Text = "Project homepage:";
-            this.label43.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(179, 78);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(76, 13);
-            this.label40.TabIndex = 2;
-            this.label40.Text = "RA95 v3.03p3";
-            this.label40.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(122, 52);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(184, 13);
-            this.label39.TabIndex = 1;
-            this.label39.Text = "The following software are supported:";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(28, 19);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(383, 13);
-            this.label38.TabIndex = 0;
-            this.label38.Text = "RedAlertConfig is an open-source configuration tool for Red Alert 1 (PortableRA)";
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.But_UseProSetup);
@@ -396,7 +234,7 @@ namespace RedAlertConfig
             this.tabPage4.ImeMode = System.Windows.Forms.ImeMode.On;
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(441, 419);
+            this.tabPage4.Size = new System.Drawing.Size(441, 412);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Hotkey editor";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -523,7 +361,7 @@ namespace RedAlertConfig
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(441, 419);
+            this.tabPage3.Size = new System.Drawing.Size(441, 412);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Multiplayer";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1548,7 +1386,6 @@ namespace RedAlertConfig
             this.tabPage2.Controls.Add(this.slider_GameSpeed);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.slider_ScrollRate);
-            this.tabPage2.Controls.Add(this.chb_Autoscroll);
             this.tabPage2.Controls.Add(this.chb_EnableAftermath);
             this.tabPage2.Controls.Add(this.chb_EnableCounterstrike);
             this.tabPage2.Controls.Add(this.label3);
@@ -1913,16 +1750,6 @@ namespace RedAlertConfig
             this.slider_ScrollRate.Size = new System.Drawing.Size(153, 27);
             this.slider_ScrollRate.TabIndex = 17;
             // 
-            // chb_Autoscroll
-            // 
-            this.chb_Autoscroll.AutoSize = true;
-            this.chb_Autoscroll.Location = new System.Drawing.Point(284, 185);
-            this.chb_Autoscroll.Name = "chb_Autoscroll";
-            this.chb_Autoscroll.Size = new System.Drawing.Size(75, 17);
-            this.chb_Autoscroll.TabIndex = 15;
-            this.chb_Autoscroll.Text = "Auto scroll";
-            this.chb_Autoscroll.UseVisualStyleBackColor = true;
-            // 
             // chb_EnableAftermath
             // 
             this.chb_EnableAftermath.AutoSize = true;
@@ -1962,7 +1789,6 @@ namespace RedAlertConfig
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Location = new System.Drawing.Point(15, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1991,26 +1817,77 @@ namespace RedAlertConfig
             this.tabPage5.Text = "Extra options";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // label31
+            // label61
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label31.Location = new System.Drawing.Point(6, 5);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(84, 13);
-            this.label31.TabIndex = 65;
-            this.label31.Text = "General options:";
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label61.Location = new System.Drawing.Point(6, 84);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(75, 13);
+            this.label61.TabIndex = 75;
+            this.label61.Text = "Visual options:";
             // 
-            // chb_EnableSmallInfantry
+            // label32
             // 
-            this.chb_EnableSmallInfantry.AutoSize = true;
-            this.chb_EnableSmallInfantry.Location = new System.Drawing.Point(21, 132);
-            this.chb_EnableSmallInfantry.Name = "chb_EnableSmallInfantry";
-            this.chb_EnableSmallInfantry.Size = new System.Drawing.Size(275, 17);
-            this.chb_EnableSmallInfantry.TabIndex = 66;
-            this.chb_EnableSmallInfantry.Text = "Use smaller sized infantry (sized like C&&C95\'s infantry)";
-            this.chb_EnableSmallInfantry.UseVisualStyleBackColor = true;
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label32.Location = new System.Drawing.Point(6, 162);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(78, 13);
+            this.label32.TabIndex = 74;
+            this.label32.Text = "Sound options:";
+            // 
+            // chb_ShowAllMusic
+            // 
+            this.chb_ShowAllMusic.AutoSize = true;
+            this.chb_ShowAllMusic.Location = new System.Drawing.Point(21, 210);
+            this.chb_ShowAllMusic.Name = "chb_ShowAllMusic";
+            this.chb_ShowAllMusic.Size = new System.Drawing.Size(298, 17);
+            this.chb_ShowAllMusic.TabIndex = 73;
+            this.chb_ShowAllMusic.Text = "Show all music ingame (instead of side or mission specific)";
+            this.chb_ShowAllMusic.UseVisualStyleBackColor = true;
+            // 
+            // chb_UseBetaTeslaTank
+            // 
+            this.chb_UseBetaTeslaTank.AutoSize = true;
+            this.chb_UseBetaTeslaTank.Location = new System.Drawing.Point(21, 109);
+            this.chb_UseBetaTeslaTank.Name = "chb_UseBetaTeslaTank";
+            this.chb_UseBetaTeslaTank.Size = new System.Drawing.Size(267, 17);
+            this.chb_UseBetaTeslaTank.TabIndex = 72;
+            this.chb_UseBetaTeslaTank.Text = "Replace Tesla Tank graphics with the beta version";
+            this.chb_UseBetaTeslaTank.UseVisualStyleBackColor = true;
+            // 
+            // chb_UseAlternativeRifleSound
+            // 
+            this.chb_UseAlternativeRifleSound.AutoSize = true;
+            this.chb_UseAlternativeRifleSound.Location = new System.Drawing.Point(21, 256);
+            this.chb_UseAlternativeRifleSound.Name = "chb_UseAlternativeRifleSound";
+            this.chb_UseAlternativeRifleSound.Size = new System.Drawing.Size(286, 17);
+            this.chb_UseAlternativeRifleSound.TabIndex = 71;
+            this.chb_UseAlternativeRifleSound.Text = "Use alternative rifle shooting sound for the Rifle Infantry";
+            this.chb_UseAlternativeRifleSound.UseVisualStyleBackColor = true;
+            // 
+            // chb_UseGrenadeThrowingSound
+            // 
+            this.chb_UseGrenadeThrowingSound.AutoSize = true;
+            this.chb_UseGrenadeThrowingSound.Location = new System.Drawing.Point(21, 233);
+            this.chb_UseGrenadeThrowingSound.Name = "chb_UseGrenadeThrowingSound";
+            this.chb_UseGrenadeThrowingSound.Size = new System.Drawing.Size(244, 17);
+            this.chb_UseGrenadeThrowingSound.TabIndex = 70;
+            this.chb_UseGrenadeThrowingSound.Text = "Use grenade throwing sound for the Grenadier";
+            this.chb_UseGrenadeThrowingSound.UseVisualStyleBackColor = true;
+            // 
+            // chb_SkipScoreScreen
+            // 
+            this.chb_SkipScoreScreen.AutoSize = true;
+            this.chb_SkipScoreScreen.Location = new System.Drawing.Point(21, 54);
+            this.chb_SkipScoreScreen.Name = "chb_SkipScoreScreen";
+            this.chb_SkipScoreScreen.Size = new System.Drawing.Size(319, 17);
+            this.chb_SkipScoreScreen.TabIndex = 69;
+            this.chb_SkipScoreScreen.Text = "Skip displaying the score screen in both single- and multiplayer";
+            this.chb_SkipScoreScreen.UseVisualStyleBackColor = true;
             // 
             // chb_MouseWheelScrolling
             // 
@@ -2032,77 +1909,26 @@ namespace RedAlertConfig
             this.chb_RandomStartingSong.Text = "Randomize the starting song when a match begins";
             this.chb_RandomStartingSong.UseVisualStyleBackColor = true;
             // 
-            // chb_SkipScoreScreen
+            // chb_EnableSmallInfantry
             // 
-            this.chb_SkipScoreScreen.AutoSize = true;
-            this.chb_SkipScoreScreen.Location = new System.Drawing.Point(21, 54);
-            this.chb_SkipScoreScreen.Name = "chb_SkipScoreScreen";
-            this.chb_SkipScoreScreen.Size = new System.Drawing.Size(319, 17);
-            this.chb_SkipScoreScreen.TabIndex = 69;
-            this.chb_SkipScoreScreen.Text = "Skip displaying the score screen in both single- and multiplayer";
-            this.chb_SkipScoreScreen.UseVisualStyleBackColor = true;
+            this.chb_EnableSmallInfantry.AutoSize = true;
+            this.chb_EnableSmallInfantry.Location = new System.Drawing.Point(21, 132);
+            this.chb_EnableSmallInfantry.Name = "chb_EnableSmallInfantry";
+            this.chb_EnableSmallInfantry.Size = new System.Drawing.Size(275, 17);
+            this.chb_EnableSmallInfantry.TabIndex = 66;
+            this.chb_EnableSmallInfantry.Text = "Use smaller sized infantry (sized like C&&C95\'s infantry)";
+            this.chb_EnableSmallInfantry.UseVisualStyleBackColor = true;
             // 
-            // chb_UseGrenadeThrowingSound
+            // label31
             // 
-            this.chb_UseGrenadeThrowingSound.AutoSize = true;
-            this.chb_UseGrenadeThrowingSound.Location = new System.Drawing.Point(21, 233);
-            this.chb_UseGrenadeThrowingSound.Name = "chb_UseGrenadeThrowingSound";
-            this.chb_UseGrenadeThrowingSound.Size = new System.Drawing.Size(244, 17);
-            this.chb_UseGrenadeThrowingSound.TabIndex = 70;
-            this.chb_UseGrenadeThrowingSound.Text = "Use grenade throwing sound for the Grenadier";
-            this.chb_UseGrenadeThrowingSound.UseVisualStyleBackColor = true;
-            // 
-            // chb_UseAlternativeRifleSound
-            // 
-            this.chb_UseAlternativeRifleSound.AutoSize = true;
-            this.chb_UseAlternativeRifleSound.Location = new System.Drawing.Point(21, 256);
-            this.chb_UseAlternativeRifleSound.Name = "chb_UseAlternativeRifleSound";
-            this.chb_UseAlternativeRifleSound.Size = new System.Drawing.Size(286, 17);
-            this.chb_UseAlternativeRifleSound.TabIndex = 71;
-            this.chb_UseAlternativeRifleSound.Text = "Use alternative rifle shooting sound for the Rifle Infantry";
-            this.chb_UseAlternativeRifleSound.UseVisualStyleBackColor = true;
-            // 
-            // chb_UseBetaTeslaTank
-            // 
-            this.chb_UseBetaTeslaTank.AutoSize = true;
-            this.chb_UseBetaTeslaTank.Location = new System.Drawing.Point(21, 109);
-            this.chb_UseBetaTeslaTank.Name = "chb_UseBetaTeslaTank";
-            this.chb_UseBetaTeslaTank.Size = new System.Drawing.Size(267, 17);
-            this.chb_UseBetaTeslaTank.TabIndex = 72;
-            this.chb_UseBetaTeslaTank.Text = "Replace Tesla Tank graphics with the beta version";
-            this.chb_UseBetaTeslaTank.UseVisualStyleBackColor = true;
-            // 
-            // chb_ShowAllMusic
-            // 
-            this.chb_ShowAllMusic.AutoSize = true;
-            this.chb_ShowAllMusic.Location = new System.Drawing.Point(21, 210);
-            this.chb_ShowAllMusic.Name = "chb_ShowAllMusic";
-            this.chb_ShowAllMusic.Size = new System.Drawing.Size(298, 17);
-            this.chb_ShowAllMusic.TabIndex = 73;
-            this.chb_ShowAllMusic.Text = "Show all music ingame (instead of side or mission specific)";
-            this.chb_ShowAllMusic.UseVisualStyleBackColor = true;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label32.Location = new System.Drawing.Point(6, 162);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(78, 13);
-            this.label32.TabIndex = 74;
-            this.label32.Text = "Sound options:";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label61.Location = new System.Drawing.Point(6, 84);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(75, 13);
-            this.label61.TabIndex = 75;
-            this.label61.Text = "Visual options:";
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label31.Location = new System.Drawing.Point(6, 5);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(84, 13);
+            this.label31.TabIndex = 65;
+            this.label31.Text = "General options:";
             // 
             // Form1
             // 
@@ -2119,8 +1945,6 @@ namespace RedAlertConfig
             this.Name = "Form1";
             this.Text = "Red Alert 95 Config";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).EndInit();
             this.tabPage3.ResumeLayout(false);
@@ -2166,19 +1990,6 @@ namespace RedAlertConfig
 
         private System.Windows.Forms.Button but_Cancel;
         private System.Windows.Forms.Button but_ok;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.LinkLabel link_AboutCnCNet;
-        private System.Windows.Forms.LinkLabel link_AboutCnCDDaw;
-        private System.Windows.Forms.LinkLabel link_Aboutv033p3;
-        private System.Windows.Forms.LinkLabel link_AboutProjectHome;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button But_UseProSetup;
         private System.Windows.Forms.Button but_ResetDefaults;
@@ -2280,7 +2091,6 @@ namespace RedAlertConfig
         private System.Windows.Forms.TrackBar slider_GameSpeed;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TrackBar slider_ScrollRate;
-        private System.Windows.Forms.CheckBox chb_Autoscroll;
         private System.Windows.Forms.CheckBox chb_EnableAftermath;
         private System.Windows.Forms.CheckBox chb_EnableCounterstrike;
         private System.Windows.Forms.Label label3;

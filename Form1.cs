@@ -271,10 +271,6 @@ namespace RedAlertConfig
             {
                 this.chb_ShuffleMusic.Checked = true;
             }
-            if (Files.RedAlertINI.getBoolValue("Options", "AutoScroll", false) == true)
-            {
-                this.chb_Autoscroll.Checked = true;
-            }
             if (Files.RedAlertINI.getBoolValue("MultiplayerDefaults", "ShroudRegrows", false) == true)
             {
                 this.chb_ShroudRegrows.Checked = true;
@@ -574,7 +570,7 @@ namespace RedAlertConfig
 
             this.tabControl1.SelectedIndex = Files.RedAlertINI.getIntValue("ConfigTool", "ConfigToolTab", 0);
 
-            this.grid_HotKeyEditor.Rows.Add(50);
+            this.grid_HotKeyEditor.Rows.Add(51);
 
             // First row is hidden and selected, to prevent the actual "first" row from
             // getting selected automatically
@@ -631,6 +627,7 @@ namespace RedAlertConfig
             Set_Row_From_Hotkey_INI("KeyTeam8", 47);
             Set_Row_From_Hotkey_INI("KeyTeam9", 48);
             Set_Row_From_Hotkey_INI("KeyTeam10", 49);
+            Set_Row_From_Hotkey_INI("KeySidebarToggle", 50);
 
 //            this.grid_HotKeyEditor.Select();
         }
@@ -969,15 +966,6 @@ namespace RedAlertConfig
             else
             {
                 Files.RedAlertINI.setBoolValue("Options", "IsScoreShuffle", false);
-            }
-
-            if (this.chb_Autoscroll.Checked == true)
-            {
-                Files.RedAlertINI.setBoolValue("Options", "AutoScroll", true);
-            }
-            else
-            {
-                Files.RedAlertINI.setBoolValue("Options", "AutoScroll", false);
             }
 
             if (this.chb_DeinterlaceVideos.Checked == true)
@@ -1475,6 +1463,7 @@ namespace RedAlertConfig
             Save_Hotkey_From_Row_Value("KeyTeam8", 47);
             Save_Hotkey_From_Row_Value("KeyTeam9", 48);
             Save_Hotkey_From_Row_Value("KeyTeam10", 49);
+            Save_Hotkey_From_Row_Value("KeySidebarToggle", 50);
 
 
             Files.RedAlertINI.writeIni();
@@ -1927,6 +1916,7 @@ namespace RedAlertConfig
             Set_Row_Value((char)56, 47);
             Set_Row_Value((char)57, 48);
             Set_Row_Value((char)48, 49);
+            Set_Row_Value((char)9, 50);
         }
 
         private void But_UseProSetup_Click(object sender, EventArgs e)
@@ -1946,7 +1936,7 @@ namespace RedAlertConfig
             Set_Row_Value((char)36, 13);
             Set_Row_Value((char)103, 14);
             Set_Row_Value((char)72, 15);
-            Set_Row_Value((char)82, 16);
+            Set_Row_Value((char)0, 16);
             Set_Row_Value((char)65, 17);
             Set_Row_Value((char)86, 18);
             Set_Row_Value((char)32, 19);
@@ -1980,6 +1970,7 @@ namespace RedAlertConfig
             Set_Row_Value((char)56, 47);
             Set_Row_Value((char)57, 48);
             Set_Row_Value((char)48, 49);
+            Set_Row_Value((char)9, 50);
         }
 
         private void link_AboutProjectHome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
