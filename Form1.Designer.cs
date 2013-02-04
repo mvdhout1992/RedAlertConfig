@@ -112,9 +112,6 @@ namespace RedAlertConfig
             this.chb_ShowWindowedBorder = new System.Windows.Forms.CheckBox();
             this.label33 = new System.Windows.Forms.Label();
             this.cmbox_BitsPerPixels = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.chb_ForceSingleCPU = new System.Windows.Forms.CheckBox();
             this.chb_EnableVSync = new System.Windows.Forms.CheckBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -856,9 +853,6 @@ namespace RedAlertConfig
             this.tabPage1.Controls.Add(this.chb_ShowWindowedBorder);
             this.tabPage1.Controls.Add(this.label33);
             this.tabPage1.Controls.Add(this.cmbox_BitsPerPixels);
-            this.tabPage1.Controls.Add(this.label29);
-            this.tabPage1.Controls.Add(this.label30);
-            this.tabPage1.Controls.Add(this.chb_ForceSingleCPU);
             this.tabPage1.Controls.Add(this.chb_EnableVSync);
             this.tabPage1.Controls.Add(this.label25);
             this.tabPage1.Controls.Add(this.label26);
@@ -890,7 +884,7 @@ namespace RedAlertConfig
             // chb_VideoStretching
             // 
             this.chb_VideoStretching.AutoSize = true;
-            this.chb_VideoStretching.Location = new System.Drawing.Point(220, 156);
+            this.chb_VideoStretching.Location = new System.Drawing.Point(220, 153);
             this.chb_VideoStretching.Name = "chb_VideoStretching";
             this.chb_VideoStretching.Size = new System.Drawing.Size(220, 17);
             this.chb_VideoStretching.TabIndex = 88;
@@ -899,7 +893,7 @@ namespace RedAlertConfig
             // 
             // txtb_MaxFPS
             // 
-            this.txtb_MaxFPS.Location = new System.Drawing.Point(373, 306);
+            this.txtb_MaxFPS.Location = new System.Drawing.Point(373, 270);
             this.txtb_MaxFPS.Name = "txtb_MaxFPS";
             this.txtb_MaxFPS.Size = new System.Drawing.Size(33, 20);
             this.txtb_MaxFPS.TabIndex = 87;
@@ -921,7 +915,7 @@ namespace RedAlertConfig
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(217, 309);
+            this.label14.Location = new System.Drawing.Point(217, 270);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(150, 13);
             this.label14.TabIndex = 86;
@@ -1074,7 +1068,7 @@ namespace RedAlertConfig
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(238, 176);
+            this.label34.Location = new System.Drawing.Point(238, 173);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(149, 13);
             this.label34.TabIndex = 82;
@@ -1084,7 +1078,7 @@ namespace RedAlertConfig
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(238, 189);
+            this.label35.Location = new System.Drawing.Point(238, 186);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(76, 13);
             this.label35.TabIndex = 81;
@@ -1093,7 +1087,7 @@ namespace RedAlertConfig
             // chb_UseWindowBoxing
             // 
             this.chb_UseWindowBoxing.AutoSize = true;
-            this.chb_UseWindowBoxing.Location = new System.Drawing.Point(220, 183);
+            this.chb_UseWindowBoxing.Location = new System.Drawing.Point(220, 180);
             this.chb_UseWindowBoxing.Name = "chb_UseWindowBoxing";
             this.chb_UseWindowBoxing.Size = new System.Drawing.Size(15, 14);
             this.chb_UseWindowBoxing.TabIndex = 80;
@@ -1102,7 +1096,7 @@ namespace RedAlertConfig
             // chb_ShowWindowedBorder
             // 
             this.chb_ShowWindowedBorder.AutoSize = true;
-            this.chb_ShowWindowedBorder.Location = new System.Drawing.Point(220, 107);
+            this.chb_ShowWindowedBorder.Location = new System.Drawing.Point(220, 87);
             this.chb_ShowWindowedBorder.Name = "chb_ShowWindowedBorder";
             this.chb_ShowWindowedBorder.Size = new System.Drawing.Size(216, 17);
             this.chb_ShowWindowedBorder.TabIndex = 79;
@@ -1113,7 +1107,7 @@ namespace RedAlertConfig
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(217, 333);
+            this.label33.Location = new System.Drawing.Point(217, 294);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(74, 13);
             this.label33.TabIndex = 78;
@@ -1128,42 +1122,15 @@ namespace RedAlertConfig
             "16",
             "24",
             "32"});
-            this.cmbox_BitsPerPixels.Location = new System.Drawing.Point(223, 354);
+            this.cmbox_BitsPerPixels.Location = new System.Drawing.Point(223, 315);
             this.cmbox_BitsPerPixels.Name = "cmbox_BitsPerPixels";
             this.cmbox_BitsPerPixels.Size = new System.Drawing.Size(153, 21);
             this.cmbox_BitsPerPixels.TabIndex = 77;
             // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(238, 266);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(122, 13);
-            this.label29.TabIndex = 73;
-            this.label29.Text = "Force single CPU affinity";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(238, 279);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(168, 13);
-            this.label30.TabIndex = 72;
-            this.label30.Text = "(enable if you experience crashes)";
-            // 
-            // chb_ForceSingleCPU
-            // 
-            this.chb_ForceSingleCPU.AutoSize = true;
-            this.chb_ForceSingleCPU.Location = new System.Drawing.Point(220, 273);
-            this.chb_ForceSingleCPU.Name = "chb_ForceSingleCPU";
-            this.chb_ForceSingleCPU.Size = new System.Drawing.Size(15, 14);
-            this.chb_ForceSingleCPU.TabIndex = 71;
-            this.chb_ForceSingleCPU.UseVisualStyleBackColor = true;
-            // 
             // chb_EnableVSync
             // 
             this.chb_EnableVSync.AutoSize = true;
-            this.chb_EnableVSync.Location = new System.Drawing.Point(220, 243);
+            this.chb_EnableVSync.Location = new System.Drawing.Point(220, 240);
             this.chb_EnableVSync.Name = "chb_EnableVSync";
             this.chb_EnableVSync.Size = new System.Drawing.Size(90, 17);
             this.chb_EnableVSync.TabIndex = 70;
@@ -1174,7 +1141,7 @@ namespace RedAlertConfig
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(238, 207);
+            this.label25.Location = new System.Drawing.Point(238, 204);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(134, 13);
             this.label25.TabIndex = 65;
@@ -1183,7 +1150,7 @@ namespace RedAlertConfig
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(238, 220);
+            this.label26.Location = new System.Drawing.Point(238, 217);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(112, 13);
             this.label26.TabIndex = 64;
@@ -1193,7 +1160,7 @@ namespace RedAlertConfig
             // chb_AutoAdjustMouse
             // 
             this.chb_AutoAdjustMouse.AutoSize = true;
-            this.chb_AutoAdjustMouse.Location = new System.Drawing.Point(220, 214);
+            this.chb_AutoAdjustMouse.Location = new System.Drawing.Point(220, 211);
             this.chb_AutoAdjustMouse.Name = "chb_AutoAdjustMouse";
             this.chb_AutoAdjustMouse.Size = new System.Drawing.Size(15, 14);
             this.chb_AutoAdjustMouse.TabIndex = 63;
@@ -1202,7 +1169,7 @@ namespace RedAlertConfig
             // chb_RunWindowed
             // 
             this.chb_RunWindowed.AutoSize = true;
-            this.chb_RunWindowed.Location = new System.Drawing.Point(220, 87);
+            this.chb_RunWindowed.Location = new System.Drawing.Point(220, 107);
             this.chb_RunWindowed.Name = "chb_RunWindowed";
             this.chb_RunWindowed.Size = new System.Drawing.Size(137, 17);
             this.chb_RunWindowed.TabIndex = 62;
@@ -2038,9 +2005,6 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_ShowWindowedBorder;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ComboBox cmbox_BitsPerPixels;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.CheckBox chb_ForceSingleCPU;
         private System.Windows.Forms.CheckBox chb_EnableVSync;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;

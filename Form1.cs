@@ -543,10 +543,6 @@ namespace RedAlertConfig
             {
                 this.chb_EnableVSync.Checked = true;
             }
-            if (Files.DDrawINI.getBoolValue("ddraw", "singlecpu", false) == true)
-            {
-                this.chb_ForceSingleCPU.Checked = true;
-            }
 
             this.txtb_MaxFPS.Text = Files.DDrawINI.getStringValue("ddraw", "maxfps", "");
 
@@ -1098,14 +1094,6 @@ namespace RedAlertConfig
                 Files.DDrawINI.setBoolValue("ddraw", "adjmouse", false);
             }
 
-            if (this.chb_ForceSingleCPU.Checked == true)
-            {
-                Files.DDrawINI.setBoolValue("ddraw", "singlecpu", true);
-            }
-            else
-            {
-                Files.DDrawINI.setBoolValue("ddraw", "singlecpu", false);
-            }
 
             if (this.chb_VideoStretching.Checked == true)
             {
@@ -1688,15 +1676,12 @@ namespace RedAlertConfig
                 this.label35.Visible = false;
                 this.chb_AutoAdjustMouse.Visible = false;
                 this.chb_EnableVSync.Visible = false;
-                this.chb_ForceSingleCPU.Visible = false;
                 this.label14.Visible = false;
                 this.txtb_MaxFPS.Visible = false;
                 this.label33.Visible = false;
                 this.cmbox_BitsPerPixels.Visible = false;
                 this.label25.Visible = false;
                 this.label26.Visible = false;
-                this.label29.Visible = false;
-                this.label30.Visible = false;
                 this.chb_VideoStretching.Visible = false;
             }
             else
@@ -1725,15 +1710,12 @@ namespace RedAlertConfig
                 this.label35.Visible = true;
                 this.chb_AutoAdjustMouse.Visible = true;
                 this.chb_EnableVSync.Visible = true;
-                this.chb_ForceSingleCPU.Visible = true;
                 this.label14.Visible = true;
                 this.txtb_MaxFPS.Visible = true;
                 this.label33.Visible = true;
                 this.cmbox_BitsPerPixels.Visible = true;
                 this.label25.Visible = true;
                 this.label26.Visible = true;
-                this.label29.Visible = true;
-                this.label30.Visible = true;
             }
         }
 
