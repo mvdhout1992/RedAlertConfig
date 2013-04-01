@@ -112,7 +112,6 @@ namespace RedAlertConfig
             this.chb_ShowWindowedBorder = new System.Windows.Forms.CheckBox();
             this.label33 = new System.Windows.Forms.Label();
             this.cmbox_BitsPerPixels = new System.Windows.Forms.ComboBox();
-            this.chb_EnableVSync = new System.Windows.Forms.CheckBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.chb_AutoAdjustMouse = new System.Windows.Forms.CheckBox();
@@ -171,6 +170,8 @@ namespace RedAlertConfig
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.chb_GenerateMemoryDump = new System.Windows.Forms.CheckBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.chb_ShowAllMusic = new System.Windows.Forms.CheckBox();
@@ -180,8 +181,14 @@ namespace RedAlertConfig
             this.chb_SkipScoreScreen = new System.Windows.Forms.CheckBox();
             this.chb_MouseWheelScrolling = new System.Windows.Forms.CheckBox();
             this.chb_RandomStartingSong = new System.Windows.Forms.CheckBox();
-            this.chb_EnableSmallInfantry = new System.Windows.Forms.CheckBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.chb_ForceAMUnitsInMissions = new System.Windows.Forms.CheckBox();
+            this.chb_UseBetaSubmarine = new System.Windows.Forms.CheckBox();
+            this.chb_UseBetaCruiser = new System.Windows.Forms.CheckBox();
+            this.chb_UseBetaDestroyer = new System.Windows.Forms.CheckBox();
+            this.chb_UseBetaGunboat = new System.Windows.Forms.CheckBox();
+            this.chb_EnableSmallInfantry = new System.Windows.Forms.CheckBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -853,7 +860,6 @@ namespace RedAlertConfig
             this.tabPage1.Controls.Add(this.chb_ShowWindowedBorder);
             this.tabPage1.Controls.Add(this.label33);
             this.tabPage1.Controls.Add(this.cmbox_BitsPerPixels);
-            this.tabPage1.Controls.Add(this.chb_EnableVSync);
             this.tabPage1.Controls.Add(this.label25);
             this.tabPage1.Controls.Add(this.label26);
             this.tabPage1.Controls.Add(this.chb_AutoAdjustMouse);
@@ -893,7 +899,7 @@ namespace RedAlertConfig
             // 
             // txtb_MaxFPS
             // 
-            this.txtb_MaxFPS.Location = new System.Drawing.Point(373, 270);
+            this.txtb_MaxFPS.Location = new System.Drawing.Point(373, 242);
             this.txtb_MaxFPS.Name = "txtb_MaxFPS";
             this.txtb_MaxFPS.Size = new System.Drawing.Size(33, 20);
             this.txtb_MaxFPS.TabIndex = 87;
@@ -915,7 +921,7 @@ namespace RedAlertConfig
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(217, 270);
+            this.label14.Location = new System.Drawing.Point(217, 242);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(150, 13);
             this.label14.TabIndex = 86;
@@ -1107,7 +1113,7 @@ namespace RedAlertConfig
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(217, 294);
+            this.label33.Location = new System.Drawing.Point(217, 266);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(74, 13);
             this.label33.TabIndex = 78;
@@ -1122,21 +1128,10 @@ namespace RedAlertConfig
             "16",
             "24",
             "32"});
-            this.cmbox_BitsPerPixels.Location = new System.Drawing.Point(223, 315);
+            this.cmbox_BitsPerPixels.Location = new System.Drawing.Point(223, 287);
             this.cmbox_BitsPerPixels.Name = "cmbox_BitsPerPixels";
             this.cmbox_BitsPerPixels.Size = new System.Drawing.Size(153, 21);
             this.cmbox_BitsPerPixels.TabIndex = 77;
-            // 
-            // chb_EnableVSync
-            // 
-            this.chb_EnableVSync.AutoSize = true;
-            this.chb_EnableVSync.Location = new System.Drawing.Point(220, 240);
-            this.chb_EnableVSync.Name = "chb_EnableVSync";
-            this.chb_EnableVSync.Size = new System.Drawing.Size(90, 17);
-            this.chb_EnableVSync.TabIndex = 70;
-            this.chb_EnableVSync.Text = "Enable vsync";
-            this.chb_EnableVSync.UseVisualStyleBackColor = true;
-            this.chb_EnableVSync.CheckedChanged += new System.EventHandler(this.checkBox20_CheckedChanged);
             // 
             // label25
             // 
@@ -1765,6 +1760,15 @@ namespace RedAlertConfig
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label30);
+            this.tabPage5.Controls.Add(this.chb_EnableSmallInfantry);
+            this.tabPage5.Controls.Add(this.chb_UseBetaGunboat);
+            this.tabPage5.Controls.Add(this.chb_UseBetaDestroyer);
+            this.tabPage5.Controls.Add(this.chb_UseBetaCruiser);
+            this.tabPage5.Controls.Add(this.chb_UseBetaSubmarine);
+            this.tabPage5.Controls.Add(this.chb_ForceAMUnitsInMissions);
+            this.tabPage5.Controls.Add(this.chb_GenerateMemoryDump);
+            this.tabPage5.Controls.Add(this.label29);
             this.tabPage5.Controls.Add(this.label61);
             this.tabPage5.Controls.Add(this.label32);
             this.tabPage5.Controls.Add(this.chb_ShowAllMusic);
@@ -1774,7 +1778,6 @@ namespace RedAlertConfig
             this.tabPage5.Controls.Add(this.chb_SkipScoreScreen);
             this.tabPage5.Controls.Add(this.chb_MouseWheelScrolling);
             this.tabPage5.Controls.Add(this.chb_RandomStartingSong);
-            this.tabPage5.Controls.Add(this.chb_EnableSmallInfantry);
             this.tabPage5.Controls.Add(this.label31);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
@@ -1784,12 +1787,33 @@ namespace RedAlertConfig
             this.tabPage5.Text = "Extra options";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // chb_GenerateMemoryDump
+            // 
+            this.chb_GenerateMemoryDump.AutoSize = true;
+            this.chb_GenerateMemoryDump.Location = new System.Drawing.Point(21, 344);
+            this.chb_GenerateMemoryDump.Name = "chb_GenerateMemoryDump";
+            this.chb_GenerateMemoryDump.Size = new System.Drawing.Size(319, 17);
+            this.chb_GenerateMemoryDump.TabIndex = 77;
+            this.chb_GenerateMemoryDump.Text = "Generate memory dump files in addition to normal crash dumps";
+            this.chb_GenerateMemoryDump.UseVisualStyleBackColor = true;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label29.Location = new System.Drawing.Point(6, 318);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(79, 13);
+            this.label29.TabIndex = 76;
+            this.label29.Text = "Debug options:";
+            // 
             // label61
             // 
             this.label61.AutoSize = true;
             this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label61.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label61.Location = new System.Drawing.Point(6, 84);
+            this.label61.Location = new System.Drawing.Point(6, 103);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(75, 13);
             this.label61.TabIndex = 75;
@@ -1800,7 +1824,7 @@ namespace RedAlertConfig
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label32.Location = new System.Drawing.Point(6, 162);
+            this.label32.Location = new System.Drawing.Point(6, 198);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(78, 13);
             this.label32.TabIndex = 74;
@@ -1809,7 +1833,7 @@ namespace RedAlertConfig
             // chb_ShowAllMusic
             // 
             this.chb_ShowAllMusic.AutoSize = true;
-            this.chb_ShowAllMusic.Location = new System.Drawing.Point(21, 210);
+            this.chb_ShowAllMusic.Location = new System.Drawing.Point(21, 246);
             this.chb_ShowAllMusic.Name = "chb_ShowAllMusic";
             this.chb_ShowAllMusic.Size = new System.Drawing.Size(298, 17);
             this.chb_ShowAllMusic.TabIndex = 73;
@@ -1819,17 +1843,17 @@ namespace RedAlertConfig
             // chb_UseBetaTeslaTank
             // 
             this.chb_UseBetaTeslaTank.AutoSize = true;
-            this.chb_UseBetaTeslaTank.Location = new System.Drawing.Point(21, 109);
+            this.chb_UseBetaTeslaTank.Location = new System.Drawing.Point(21, 173);
             this.chb_UseBetaTeslaTank.Name = "chb_UseBetaTeslaTank";
-            this.chb_UseBetaTeslaTank.Size = new System.Drawing.Size(267, 17);
+            this.chb_UseBetaTeslaTank.Size = new System.Drawing.Size(80, 17);
             this.chb_UseBetaTeslaTank.TabIndex = 72;
-            this.chb_UseBetaTeslaTank.Text = "Replace Tesla Tank graphics with the beta version";
+            this.chb_UseBetaTeslaTank.Text = "Tesla Tank";
             this.chb_UseBetaTeslaTank.UseVisualStyleBackColor = true;
             // 
             // chb_UseAlternativeRifleSound
             // 
             this.chb_UseAlternativeRifleSound.AutoSize = true;
-            this.chb_UseAlternativeRifleSound.Location = new System.Drawing.Point(21, 256);
+            this.chb_UseAlternativeRifleSound.Location = new System.Drawing.Point(21, 292);
             this.chb_UseAlternativeRifleSound.Name = "chb_UseAlternativeRifleSound";
             this.chb_UseAlternativeRifleSound.Size = new System.Drawing.Size(286, 17);
             this.chb_UseAlternativeRifleSound.TabIndex = 71;
@@ -1839,7 +1863,7 @@ namespace RedAlertConfig
             // chb_UseGrenadeThrowingSound
             // 
             this.chb_UseGrenadeThrowingSound.AutoSize = true;
-            this.chb_UseGrenadeThrowingSound.Location = new System.Drawing.Point(21, 233);
+            this.chb_UseGrenadeThrowingSound.Location = new System.Drawing.Point(21, 269);
             this.chb_UseGrenadeThrowingSound.Name = "chb_UseGrenadeThrowingSound";
             this.chb_UseGrenadeThrowingSound.Size = new System.Drawing.Size(244, 17);
             this.chb_UseGrenadeThrowingSound.TabIndex = 70;
@@ -1869,22 +1893,12 @@ namespace RedAlertConfig
             // chb_RandomStartingSong
             // 
             this.chb_RandomStartingSong.AutoSize = true;
-            this.chb_RandomStartingSong.Location = new System.Drawing.Point(21, 187);
+            this.chb_RandomStartingSong.Location = new System.Drawing.Point(21, 223);
             this.chb_RandomStartingSong.Name = "chb_RandomStartingSong";
             this.chb_RandomStartingSong.Size = new System.Drawing.Size(264, 17);
             this.chb_RandomStartingSong.TabIndex = 67;
             this.chb_RandomStartingSong.Text = "Randomize the starting song when a match begins";
             this.chb_RandomStartingSong.UseVisualStyleBackColor = true;
-            // 
-            // chb_EnableSmallInfantry
-            // 
-            this.chb_EnableSmallInfantry.AutoSize = true;
-            this.chb_EnableSmallInfantry.Location = new System.Drawing.Point(21, 132);
-            this.chb_EnableSmallInfantry.Name = "chb_EnableSmallInfantry";
-            this.chb_EnableSmallInfantry.Size = new System.Drawing.Size(275, 17);
-            this.chb_EnableSmallInfantry.TabIndex = 66;
-            this.chb_EnableSmallInfantry.Text = "Use smaller sized infantry (sized like C&&C95\'s infantry)";
-            this.chb_EnableSmallInfantry.UseVisualStyleBackColor = true;
             // 
             // label31
             // 
@@ -1896,6 +1910,77 @@ namespace RedAlertConfig
             this.label31.Size = new System.Drawing.Size(84, 13);
             this.label31.TabIndex = 65;
             this.label31.Text = "General options:";
+            // 
+            // chb_ForceAMUnitsInMissions
+            // 
+            this.chb_ForceAMUnitsInMissions.AutoSize = true;
+            this.chb_ForceAMUnitsInMissions.Location = new System.Drawing.Point(21, 77);
+            this.chb_ForceAMUnitsInMissions.Name = "chb_ForceAMUnitsInMissions";
+            this.chb_ForceAMUnitsInMissions.Size = new System.Drawing.Size(292, 17);
+            this.chb_ForceAMUnitsInMissions.TabIndex = 78;
+            this.chb_ForceAMUnitsInMissions.Text = "Force Aftermath units in missions (if Aftermath is enabled)";
+            this.chb_ForceAMUnitsInMissions.UseVisualStyleBackColor = true;
+            // 
+            // chb_UseBetaSubmarine
+            // 
+            this.chb_UseBetaSubmarine.AutoSize = true;
+            this.chb_UseBetaSubmarine.Location = new System.Drawing.Point(99, 173);
+            this.chb_UseBetaSubmarine.Name = "chb_UseBetaSubmarine";
+            this.chb_UseBetaSubmarine.Size = new System.Drawing.Size(76, 17);
+            this.chb_UseBetaSubmarine.TabIndex = 79;
+            this.chb_UseBetaSubmarine.Text = "Submarine";
+            this.chb_UseBetaSubmarine.UseVisualStyleBackColor = true;
+            // 
+            // chb_UseBetaCruiser
+            // 
+            this.chb_UseBetaCruiser.AutoSize = true;
+            this.chb_UseBetaCruiser.Location = new System.Drawing.Point(173, 173);
+            this.chb_UseBetaCruiser.Name = "chb_UseBetaCruiser";
+            this.chb_UseBetaCruiser.Size = new System.Drawing.Size(58, 17);
+            this.chb_UseBetaCruiser.TabIndex = 80;
+            this.chb_UseBetaCruiser.Text = "Cruiser";
+            this.chb_UseBetaCruiser.UseVisualStyleBackColor = true;
+            // 
+            // chb_UseBetaDestroyer
+            // 
+            this.chb_UseBetaDestroyer.AutoSize = true;
+            this.chb_UseBetaDestroyer.Location = new System.Drawing.Point(229, 173);
+            this.chb_UseBetaDestroyer.Name = "chb_UseBetaDestroyer";
+            this.chb_UseBetaDestroyer.Size = new System.Drawing.Size(71, 17);
+            this.chb_UseBetaDestroyer.TabIndex = 81;
+            this.chb_UseBetaDestroyer.Text = "Destroyer";
+            this.chb_UseBetaDestroyer.UseVisualStyleBackColor = true;
+            // 
+            // chb_UseBetaGunboat
+            // 
+            this.chb_UseBetaGunboat.AutoSize = true;
+            this.chb_UseBetaGunboat.Location = new System.Drawing.Point(299, 173);
+            this.chb_UseBetaGunboat.Name = "chb_UseBetaGunboat";
+            this.chb_UseBetaGunboat.Size = new System.Drawing.Size(67, 17);
+            this.chb_UseBetaGunboat.TabIndex = 82;
+            this.chb_UseBetaGunboat.Text = "Gunboat";
+            this.chb_UseBetaGunboat.UseVisualStyleBackColor = true;
+            // 
+            // chb_EnableSmallInfantry
+            // 
+            this.chb_EnableSmallInfantry.AutoSize = true;
+            this.chb_EnableSmallInfantry.Location = new System.Drawing.Point(21, 129);
+            this.chb_EnableSmallInfantry.Name = "chb_EnableSmallInfantry";
+            this.chb_EnableSmallInfantry.Size = new System.Drawing.Size(275, 17);
+            this.chb_EnableSmallInfantry.TabIndex = 83;
+            this.chb_EnableSmallInfantry.Text = "Use smaller sized infantry (sized like C&&C95\'s infantry)";
+            this.chb_EnableSmallInfantry.UseVisualStyleBackColor = true;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label30.Location = new System.Drawing.Point(18, 152);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(279, 13);
+            this.label30.TabIndex = 84;
+            this.label30.Text = "Enable recreations of beta graphics for the following units:";
             // 
             // Form1
             // 
@@ -2005,7 +2090,6 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_ShowWindowedBorder;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ComboBox cmbox_BitsPerPixels;
-        private System.Windows.Forms.CheckBox chb_EnableVSync;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.CheckBox chb_AutoAdjustMouse;
@@ -2101,10 +2185,18 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_SkipScoreScreen;
         private System.Windows.Forms.CheckBox chb_MouseWheelScrolling;
         private System.Windows.Forms.CheckBox chb_RandomStartingSong;
-        private System.Windows.Forms.CheckBox chb_EnableSmallInfantry;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.CheckBox chb_GenerateMemoryDump;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.CheckBox chb_ForceAMUnitsInMissions;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.CheckBox chb_EnableSmallInfantry;
+        private System.Windows.Forms.CheckBox chb_UseBetaGunboat;
+        private System.Windows.Forms.CheckBox chb_UseBetaDestroyer;
+        private System.Windows.Forms.CheckBox chb_UseBetaCruiser;
+        private System.Windows.Forms.CheckBox chb_UseBetaSubmarine;
 
     }
 }

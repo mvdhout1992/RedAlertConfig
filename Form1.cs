@@ -51,6 +51,15 @@ namespace RedAlertConfig
                 this.chb_DisplayOriginalMaps.Checked = false;
             }
 
+            if (Files.RedAlertINI.getBoolValue("Options", "ForceAMUnitsInMissions", false) == true)
+            {
+                this.chb_ForceAMUnitsInMissions.Checked = true;
+            }
+            else
+            {
+                this.chb_ForceAMUnitsInMissions.Checked = false;
+            }
+
             if (Files.RedAlertINI.getBoolValue("Options", "DisplayCounterstrikeMultiplayerMaps", false) == true)
             {
                 this.chb_DisplayCounterstrikeMaps.Checked = true;
@@ -105,6 +114,15 @@ namespace RedAlertConfig
             else
             {
                 this.chb_NoCD.Checked = false;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "GenerateMemoryDump", false) == true)
+            {
+                this.chb_GenerateMemoryDump.Checked = true;
+            }
+            else
+            {
+                this.chb_GenerateMemoryDump.Checked = false;
             }
 
            if (Files.RedAlertINI.getBoolValue("Options", "CounterstrikeEnabled", false) == true)
@@ -229,6 +247,26 @@ namespace RedAlertConfig
             if (Files.RedAlertINI.getBoolValue("Options", "UseBetaTeslaTank", false) == true)
             {
                 chb_UseBetaTeslaTank.Checked = true;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "UseBetaSubmarine", false) == true)
+            {
+                chb_UseBetaSubmarine.Checked = true;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "UseBetaDestroyer", false) == true)
+            {
+                chb_UseBetaDestroyer.Checked = true;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "UseBetaGunboat", false) == true)
+            {
+                chb_UseBetaGunboat.Checked = true;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "UseBetaCruiser", false) == true)
+            {
+                chb_UseBetaCruiser.Checked = true;
             }
 
             if (Files.RedAlertINI.getBoolValue("Options", "UseGrenadeThrowingSound", false) == true)
@@ -537,11 +575,6 @@ namespace RedAlertConfig
             if (Files.DDrawINI.getBoolValue("ddraw", "vhack", false) == true)
             {
                 this.chb_VideoStretching.Checked = true;
-            }
-
-            if (Files.DDrawINI.getBoolValue("ddraw", "vsync", false) == true)
-            {
-                this.chb_EnableVSync.Checked = true;
             }
 
             this.txtb_MaxFPS.Text = Files.DDrawINI.getStringValue("ddraw", "maxfps", "");
@@ -919,6 +952,42 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setBoolValue("Options", "UseBetaTeslaTank", false);
             }
 
+            if (chb_UseBetaDestroyer.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseBetaDestroyer", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseBetaDestroyer", false);
+            }
+
+            if (chb_UseBetaSubmarine.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseBetaSubmarine", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseBetaSubmarine", false);
+            }
+
+            if (chb_UseBetaCruiser.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseBetaCruiser", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseBetaCruiser", false);
+            }
+
+            if (chb_UseBetaCruiser.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseBetaGunboat", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "UseBetaGunboat", false);
+            }
+
             if (chb_UseGrenadeThrowingSound.Checked == true)
             {
                 Files.RedAlertINI.setBoolValue("Options", "UseGrenadeThrowingSound", true);
@@ -1067,14 +1136,6 @@ namespace RedAlertConfig
                 Files.DDrawINI.setBoolValue("ddraw", "border", false);
             }
 
-            if (this.chb_EnableVSync.Checked == true)
-            {
-                Files.DDrawINI.setBoolValue("ddraw", "vsync", true);
-            }
-            else
-            {
-                Files.DDrawINI.setBoolValue("ddraw", "vsync", false);
-            }
 
             if (this.chb_UseWindowBoxing.Checked == true)
             {
@@ -1223,6 +1284,15 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setBoolValue("Options", "DisplayOriginalMultiplayerMaps", false);
             }
 
+            if (this.chb_ForceAMUnitsInMissions.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "ForceAMUnitsInMissions", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "ForceAMUnitsInMissions", false);
+            }
+
             if (this.chb_DisplayCounterstrikeMaps.Checked == true)
             {
                 Files.RedAlertINI.setBoolValue("Options", "DisplayCounterstrikeMultiplayerMaps", true);
@@ -1277,6 +1347,15 @@ namespace RedAlertConfig
             else
             {
                 Files.RedAlertINI.setBoolValue("Options", "NoCD", false);
+            }
+
+            if (this.chb_GenerateMemoryDump.Checked == true)
+            {
+                Files.RedAlertINI.setBoolValue("Options", "GenerateMemoryDump", true);
+            }
+            else
+            {
+                Files.RedAlertINI.setBoolValue("Options", "GenerateMemoryDump", false);
             }
 
 
@@ -1660,6 +1739,7 @@ namespace RedAlertConfig
                 this.chb_UseRAAspectRatio.Visible = false;
                 this.chb_StretchCustom.Visible = false;
                 this.label18.Visible = false;
+                this.chb_UseRAAspectRatio.Checked = false;
                 this.txt_UseRAAspectRatio.Visible = false;
                 this.txtb_StretchCustomHeight.Visible = false;
                 this.txtb_StretchCustomWidth.Visible = false;
@@ -1675,7 +1755,6 @@ namespace RedAlertConfig
                 this.label34.Visible = false;
                 this.label35.Visible = false;
                 this.chb_AutoAdjustMouse.Visible = false;
-                this.chb_EnableVSync.Visible = false;
                 this.label14.Visible = false;
                 this.txtb_MaxFPS.Visible = false;
                 this.label33.Visible = false;
@@ -1683,6 +1762,7 @@ namespace RedAlertConfig
                 this.label25.Visible = false;
                 this.label26.Visible = false;
                 this.chb_VideoStretching.Visible = false;
+                this.chb_StretchCustom.Checked = false;
             }
             else
             {
@@ -1709,7 +1789,6 @@ namespace RedAlertConfig
                 this.label34.Visible = true;
                 this.label35.Visible = true;
                 this.chb_AutoAdjustMouse.Visible = true;
-                this.chb_EnableVSync.Visible = true;
                 this.label14.Visible = true;
                 this.txtb_MaxFPS.Visible = true;
                 this.label33.Visible = true;
@@ -1740,15 +1819,10 @@ namespace RedAlertConfig
         {
             if (this.radiob_RendererOpenGL.Checked == true)
             {
-                this.chb_EnableVSync.Enabled = true;
-
                 this.cmbox_ScalingFilter.Enabled = true;
             }
             else
             {
-                this.chb_EnableVSync.Enabled = false;
-                this.chb_EnableVSync.Checked = false;
-
                 this.cmbox_ScalingFilter.Enabled = false;
                 // this.cmbox_ScalingFilter.SelectedIndex = -1;
             }
