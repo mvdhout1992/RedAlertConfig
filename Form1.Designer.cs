@@ -170,6 +170,13 @@ namespace RedAlertConfig
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label30 = new System.Windows.Forms.Label();
+            this.chb_EnableSmallInfantry = new System.Windows.Forms.CheckBox();
+            this.chb_UseBetaGunboat = new System.Windows.Forms.CheckBox();
+            this.chb_UseBetaDestroyer = new System.Windows.Forms.CheckBox();
+            this.chb_UseBetaCruiser = new System.Windows.Forms.CheckBox();
+            this.chb_UseBetaSubmarine = new System.Windows.Forms.CheckBox();
+            this.chb_ForceAMUnitsInMissions = new System.Windows.Forms.CheckBox();
             this.chb_GenerateMemoryDump = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
@@ -182,13 +189,6 @@ namespace RedAlertConfig
             this.chb_MouseWheelScrolling = new System.Windows.Forms.CheckBox();
             this.chb_RandomStartingSong = new System.Windows.Forms.CheckBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.chb_ForceAMUnitsInMissions = new System.Windows.Forms.CheckBox();
-            this.chb_UseBetaSubmarine = new System.Windows.Forms.CheckBox();
-            this.chb_UseBetaCruiser = new System.Windows.Forms.CheckBox();
-            this.chb_UseBetaDestroyer = new System.Windows.Forms.CheckBox();
-            this.chb_UseBetaGunboat = new System.Windows.Forms.CheckBox();
-            this.chb_EnableSmallInfantry = new System.Windows.Forms.CheckBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -1787,6 +1787,77 @@ namespace RedAlertConfig
             this.tabPage5.Text = "Extra options";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label30.Location = new System.Drawing.Point(18, 152);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(279, 13);
+            this.label30.TabIndex = 84;
+            this.label30.Text = "Enable recreations of beta graphics for the following units:";
+            // 
+            // chb_EnableSmallInfantry
+            // 
+            this.chb_EnableSmallInfantry.AutoSize = true;
+            this.chb_EnableSmallInfantry.Location = new System.Drawing.Point(21, 129);
+            this.chb_EnableSmallInfantry.Name = "chb_EnableSmallInfantry";
+            this.chb_EnableSmallInfantry.Size = new System.Drawing.Size(275, 17);
+            this.chb_EnableSmallInfantry.TabIndex = 83;
+            this.chb_EnableSmallInfantry.Text = "Use smaller sized infantry (sized like C&&C95\'s infantry)";
+            this.chb_EnableSmallInfantry.UseVisualStyleBackColor = true;
+            // 
+            // chb_UseBetaGunboat
+            // 
+            this.chb_UseBetaGunboat.AutoSize = true;
+            this.chb_UseBetaGunboat.Location = new System.Drawing.Point(299, 173);
+            this.chb_UseBetaGunboat.Name = "chb_UseBetaGunboat";
+            this.chb_UseBetaGunboat.Size = new System.Drawing.Size(67, 17);
+            this.chb_UseBetaGunboat.TabIndex = 82;
+            this.chb_UseBetaGunboat.Text = "Gunboat";
+            this.chb_UseBetaGunboat.UseVisualStyleBackColor = true;
+            // 
+            // chb_UseBetaDestroyer
+            // 
+            this.chb_UseBetaDestroyer.AutoSize = true;
+            this.chb_UseBetaDestroyer.Location = new System.Drawing.Point(229, 173);
+            this.chb_UseBetaDestroyer.Name = "chb_UseBetaDestroyer";
+            this.chb_UseBetaDestroyer.Size = new System.Drawing.Size(71, 17);
+            this.chb_UseBetaDestroyer.TabIndex = 81;
+            this.chb_UseBetaDestroyer.Text = "Destroyer";
+            this.chb_UseBetaDestroyer.UseVisualStyleBackColor = true;
+            // 
+            // chb_UseBetaCruiser
+            // 
+            this.chb_UseBetaCruiser.AutoSize = true;
+            this.chb_UseBetaCruiser.Location = new System.Drawing.Point(173, 173);
+            this.chb_UseBetaCruiser.Name = "chb_UseBetaCruiser";
+            this.chb_UseBetaCruiser.Size = new System.Drawing.Size(58, 17);
+            this.chb_UseBetaCruiser.TabIndex = 80;
+            this.chb_UseBetaCruiser.Text = "Cruiser";
+            this.chb_UseBetaCruiser.UseVisualStyleBackColor = true;
+            // 
+            // chb_UseBetaSubmarine
+            // 
+            this.chb_UseBetaSubmarine.AutoSize = true;
+            this.chb_UseBetaSubmarine.Location = new System.Drawing.Point(99, 173);
+            this.chb_UseBetaSubmarine.Name = "chb_UseBetaSubmarine";
+            this.chb_UseBetaSubmarine.Size = new System.Drawing.Size(76, 17);
+            this.chb_UseBetaSubmarine.TabIndex = 79;
+            this.chb_UseBetaSubmarine.Text = "Submarine";
+            this.chb_UseBetaSubmarine.UseVisualStyleBackColor = true;
+            // 
+            // chb_ForceAMUnitsInMissions
+            // 
+            this.chb_ForceAMUnitsInMissions.AutoSize = true;
+            this.chb_ForceAMUnitsInMissions.Location = new System.Drawing.Point(21, 77);
+            this.chb_ForceAMUnitsInMissions.Name = "chb_ForceAMUnitsInMissions";
+            this.chb_ForceAMUnitsInMissions.Size = new System.Drawing.Size(305, 17);
+            this.chb_ForceAMUnitsInMissions.TabIndex = 78;
+            this.chb_ForceAMUnitsInMissions.Text = "Force Aftermath units in all missions (if Aftermath is enabled)";
+            this.chb_ForceAMUnitsInMissions.UseVisualStyleBackColor = true;
+            // 
             // chb_GenerateMemoryDump
             // 
             this.chb_GenerateMemoryDump.AutoSize = true;
@@ -1910,77 +1981,6 @@ namespace RedAlertConfig
             this.label31.Size = new System.Drawing.Size(84, 13);
             this.label31.TabIndex = 65;
             this.label31.Text = "General options:";
-            // 
-            // chb_ForceAMUnitsInMissions
-            // 
-            this.chb_ForceAMUnitsInMissions.AutoSize = true;
-            this.chb_ForceAMUnitsInMissions.Location = new System.Drawing.Point(21, 77);
-            this.chb_ForceAMUnitsInMissions.Name = "chb_ForceAMUnitsInMissions";
-            this.chb_ForceAMUnitsInMissions.Size = new System.Drawing.Size(292, 17);
-            this.chb_ForceAMUnitsInMissions.TabIndex = 78;
-            this.chb_ForceAMUnitsInMissions.Text = "Force Aftermath units in missions (if Aftermath is enabled)";
-            this.chb_ForceAMUnitsInMissions.UseVisualStyleBackColor = true;
-            // 
-            // chb_UseBetaSubmarine
-            // 
-            this.chb_UseBetaSubmarine.AutoSize = true;
-            this.chb_UseBetaSubmarine.Location = new System.Drawing.Point(99, 173);
-            this.chb_UseBetaSubmarine.Name = "chb_UseBetaSubmarine";
-            this.chb_UseBetaSubmarine.Size = new System.Drawing.Size(76, 17);
-            this.chb_UseBetaSubmarine.TabIndex = 79;
-            this.chb_UseBetaSubmarine.Text = "Submarine";
-            this.chb_UseBetaSubmarine.UseVisualStyleBackColor = true;
-            // 
-            // chb_UseBetaCruiser
-            // 
-            this.chb_UseBetaCruiser.AutoSize = true;
-            this.chb_UseBetaCruiser.Location = new System.Drawing.Point(173, 173);
-            this.chb_UseBetaCruiser.Name = "chb_UseBetaCruiser";
-            this.chb_UseBetaCruiser.Size = new System.Drawing.Size(58, 17);
-            this.chb_UseBetaCruiser.TabIndex = 80;
-            this.chb_UseBetaCruiser.Text = "Cruiser";
-            this.chb_UseBetaCruiser.UseVisualStyleBackColor = true;
-            // 
-            // chb_UseBetaDestroyer
-            // 
-            this.chb_UseBetaDestroyer.AutoSize = true;
-            this.chb_UseBetaDestroyer.Location = new System.Drawing.Point(229, 173);
-            this.chb_UseBetaDestroyer.Name = "chb_UseBetaDestroyer";
-            this.chb_UseBetaDestroyer.Size = new System.Drawing.Size(71, 17);
-            this.chb_UseBetaDestroyer.TabIndex = 81;
-            this.chb_UseBetaDestroyer.Text = "Destroyer";
-            this.chb_UseBetaDestroyer.UseVisualStyleBackColor = true;
-            // 
-            // chb_UseBetaGunboat
-            // 
-            this.chb_UseBetaGunboat.AutoSize = true;
-            this.chb_UseBetaGunboat.Location = new System.Drawing.Point(299, 173);
-            this.chb_UseBetaGunboat.Name = "chb_UseBetaGunboat";
-            this.chb_UseBetaGunboat.Size = new System.Drawing.Size(67, 17);
-            this.chb_UseBetaGunboat.TabIndex = 82;
-            this.chb_UseBetaGunboat.Text = "Gunboat";
-            this.chb_UseBetaGunboat.UseVisualStyleBackColor = true;
-            // 
-            // chb_EnableSmallInfantry
-            // 
-            this.chb_EnableSmallInfantry.AutoSize = true;
-            this.chb_EnableSmallInfantry.Location = new System.Drawing.Point(21, 129);
-            this.chb_EnableSmallInfantry.Name = "chb_EnableSmallInfantry";
-            this.chb_EnableSmallInfantry.Size = new System.Drawing.Size(275, 17);
-            this.chb_EnableSmallInfantry.TabIndex = 83;
-            this.chb_EnableSmallInfantry.Text = "Use smaller sized infantry (sized like C&&C95\'s infantry)";
-            this.chb_EnableSmallInfantry.UseVisualStyleBackColor = true;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label30.Location = new System.Drawing.Point(18, 152);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(279, 13);
-            this.label30.TabIndex = 84;
-            this.label30.Text = "Enable recreations of beta graphics for the following units:";
             // 
             // Form1
             // 

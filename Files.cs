@@ -21,11 +21,11 @@ namespace RedAlertConfig
             DDrawINI = new IniFile(Path_ + seperator + "ddraw.ini", false, BooleanMode.TRUE_FALSE, Encoding.Default);
             RedAlertINI = new IniFile(Path_ + seperator + "redalert.ini", false, BooleanMode.YES_NO, Encoding.Default);
 
-            Check_Required_File("ddraw.dll");
-            Check_Required_File("ForceAMrules.ini");
-            Check_Required_File("wsock32.dll");
-            Check_Required_File("ForceAMRulesFastBuildSpeed.ini");
-            Check_Required_File("ForceAMrules.ini");
+//            Check_Required_File("ddraw.dll");
+//            Check_Required_File("ForceAMrules.ini");
+//            Check_Required_File("wsock32.dll");
+//            Check_Required_File("ForceAMRulesFastBuildSpeed.ini");
+//            Check_Required_File("ForceAMrules.ini");
         }
 
         public static void Check_Required_File(string file)

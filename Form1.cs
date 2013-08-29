@@ -825,19 +825,27 @@ namespace RedAlertConfig
         private void but_ok_Click(object sender, EventArgs e)
         {
 
+
+            Save_Settings();
+            Application.Exit();
+        }
+
+
+        private void Save_Settings()
+        {
             if (this.chb_EnableCnCDDraw.Checked == true)
             {
-               this.chb_AllowHardwareFilledBits.Checked = false;
-               Files.RedAlertINI.setBoolValue("Options", "HardwareFills", false);
-               Files.RedAlertINI.setBoolValue("ConfigTool", "UseRAAspectRatio", false);
+                this.chb_AllowHardwareFilledBits.Checked = false;
+                Files.RedAlertINI.setBoolValue("Options", "HardwareFills", false);
+                Files.RedAlertINI.setBoolValue("ConfigTool", "UseRAAspectRatio", false);
 
-             //  Remove_Colour_Registry_Fix();
-             //  Disable_Win95_RA95_Compatibility_Mode();
+                //  Remove_Colour_Registry_Fix();
+                //  Disable_Win95_RA95_Compatibility_Mode();
             }
             else
             {
-             //   Apply_Colour_Registry_Fix();
-             //   Enable_Win95_RA95_Compatibility_Mode();
+                //   Apply_Colour_Registry_Fix();
+                //   Enable_Win95_RA95_Compatibility_Mode();
             }
 
             if (this.radiob_reso640x400.Checked == true)
@@ -1265,11 +1273,11 @@ namespace RedAlertConfig
             int UnitCount = this.cmbox_UnitCount.SelectedIndex;
             Files.RedAlertINI.setIntValue("MultiplayerDefaults", "UnitCount", UnitCount);
 
-            int TechLevel= this.cmbox_TechLevel.SelectedIndex;
-            Files.RedAlertINI.setIntValue("MultiplayerDefaults", "TechLevel", TechLevel+1);
+            int TechLevel = this.cmbox_TechLevel.SelectedIndex;
+            Files.RedAlertINI.setIntValue("MultiplayerDefaults", "TechLevel", TechLevel + 1);
 
             int AIPlayers = this.cmbox_AIPlayers.SelectedIndex;
-            Files.RedAlertINI.setIntValue("MultiplayerDefaults", "AIPlayers", AIPlayers+1);
+            Files.RedAlertINI.setIntValue("MultiplayerDefaults", "AIPlayers", AIPlayers + 1);
 
             int AIDifficulty = this.cmbox_AIDifficulty.SelectedIndex;
             Files.RedAlertINI.setIntValue("MultiplayerDefaults", "AIDifficulty", AIDifficulty);
@@ -1313,8 +1321,7 @@ namespace RedAlertConfig
 
             if (this.chb_EnableCnCDDraw.Checked == true && !File.Exists(Path_ + seperator + "ddraw.dll"))
             {
-                File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ddraw.dll",
-                    Path_ + seperator + "ddraw.dll");
+                File.WriteAllBytes(Path_ + Path.DirectorySeparatorChar + "ddraw.dll", RedAlertConfig.Properties.Resources.ddraw);
             }
             else if (this.chb_EnableCnCDDraw.Checked == false && File.Exists(Path_ + seperator + "ddraw.dll"))
             {
@@ -1332,8 +1339,7 @@ namespace RedAlertConfig
 
             if (this.chb_UseLanPatch.Checked == true && !File.Exists(Path_ + seperator + "wsock32.dll"))
             {
-                File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "wsock32.dll",
-                     Path_ + seperator + "wsock32.dll");
+                File.WriteAllBytes(Path_ + Path.DirectorySeparatorChar + "wsock32.dll", RedAlertConfig.Properties.Resources.wsock32);
             }
             else if (this.chb_UseLanPatch.Checked == false && File.Exists(Path_ + seperator + "wsock32.dll"))
             {
@@ -1417,22 +1423,20 @@ namespace RedAlertConfig
 
                     if (hash != "c165ab92")
                     {
-                         // File exists but with different hash
+                        // File exists but with different hash
                         MessageBox.Show("Force Aftermath expansion is enabled but another rules.ini file has been found, this file has been renamed to ___rules.ini.");
 
                         File.Delete(Path_ + Path.DirectorySeparatorChar + "___rules.ini");
                         File.Move(Path_ + Path.DirectorySeparatorChar + "rules.ini",
                         Path_ + Path.DirectorySeparatorChar + "___rules.ini");
 
-                        File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
-                        Path_ + Path.DirectorySeparatorChar + "rules.ini");
+                        File.WriteAllBytes(Path_ + Path.DirectorySeparatorChar + "rules.ini", RedAlertConfig.Properties.Resources.ForceAMrules);
                     }
                 }
                 else
                 {
-                    File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMrules.ini",
-                    Path_ + seperator + "rules.ini");
-                }              
+                    File.WriteAllBytes(Path_ + Path.DirectorySeparatorChar + "rules.ini", RedAlertConfig.Properties.Resources.ForceAMrules);
+                }
             }
 
             if (this.chb_ForceAftermathOnlineFastBuildSpeed.Checked == true)
@@ -1454,14 +1458,12 @@ namespace RedAlertConfig
                         File.Move(Path_ + Path.DirectorySeparatorChar + "rules.ini",
                         Path_ + Path.DirectorySeparatorChar + "___rules.ini");
 
-                        File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMRulesFastBuildSpeed.ini",
-                        Path_ + Path.DirectorySeparatorChar + "rules.ini");
+                        File.WriteAllBytes(Path_ + Path.DirectorySeparatorChar + "rules.ini", RedAlertConfig.Properties.Resources.ForceAMRulesFastBuildSpeed);
                     }
                 }
                 else
                 {
-                    File.Copy(Path_ + Path.DirectorySeparatorChar + "ConfigToolFiles" + Path.DirectorySeparatorChar + "ForceAMRulesFastBuildSpeed.ini",
-                    Path_ + Path.DirectorySeparatorChar + "rules.ini");
+                    File.WriteAllBytes(Path_ + Path.DirectorySeparatorChar + "rules.ini", RedAlertConfig.Properties.Resources.ForceAMRulesFastBuildSpeed);
                 }
             }
 
@@ -1473,7 +1475,7 @@ namespace RedAlertConfig
             double Contrast = ((double)this.slider_Contrast.Value) / 1000;
             Files.RedAlertINI.setStringValue("Options", "Contrast", Contrast.ToString());
 
-            double Color= ((double)this.slider_Color.Value) / 1000;
+            double Color = ((double)this.slider_Color.Value) / 1000;
             Files.RedAlertINI.setStringValue("Options", "Color", Color.ToString());
 
             double Tint = ((double)this.slider_Tint.Value) / 1000;
@@ -1532,10 +1534,32 @@ namespace RedAlertConfig
             Save_Hotkey_From_Row_Value("KeyTeam10", 49);
             Save_Hotkey_From_Row_Value("KeySidebarToggle", 50);
 
+            try
+            {
+                Files.RedAlertINI.writeIni();
+                Files.DDrawINI.writeIni();
+            }
+            catch
+            {
+                MessageBox.Show("Error occured while trying to save settings, attempting to re-launch application with administrator rights.");
+                Restart_Config();
+            }
+        }
 
-            Files.RedAlertINI.writeIni();
-            Files.DDrawINI.writeIni();
-
+        private void Restart_Config()
+        {
+            ProcessStartInfo proc = new ProcessStartInfo();
+            proc.UseShellExecute = true;
+            proc.WorkingDirectory = Environment.CurrentDirectory;
+            proc.FileName = Application.ExecutablePath;
+            proc.Verb = "runas";
+            try
+            {
+                Process.Start(proc);
+            }
+            catch
+            {
+            }
             Application.Exit();
         }
 

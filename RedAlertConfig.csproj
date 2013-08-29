@@ -90,6 +90,7 @@
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -138,9 +139,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="resources\ForceAMrules.ini" />
+    <None Include="resources\ForceAMRulesFastBuildSpeed.ini" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="rasetup.ico" />
+    <None Include="resources\ddraw.dll" />
+    <None Include="resources\wsock32.dll" />
+    <None Include="resources\ForceAMRulesFastBuildSpeed - Copy.exe" />
+    <None Include="resources\ForceAMrules.dll" />
+    <None Include="resources\ForceAMRulesFastBuildSpeed.dll" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
