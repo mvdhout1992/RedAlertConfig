@@ -139,16 +139,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="resources\ForceAMrules.ini" />
-    <None Include="resources\ForceAMRulesFastBuildSpeed.ini" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="rasetup.ico" />
-    <None Include="resources\ddraw.dll" />
     <None Include="resources\wsock32.dll" />
-    <None Include="resources\ForceAMRulesFastBuildSpeed - Copy.exe" />
     <None Include="resources\ForceAMrules.dll" />
     <None Include="resources\ForceAMRulesFastBuildSpeed.dll" />
+    <None Include="resources\ddraw.dll" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
