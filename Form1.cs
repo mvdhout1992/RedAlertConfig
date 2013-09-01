@@ -161,11 +161,11 @@ namespace RedAlertConfig
 
                 // MessageBox.Show(hash);
 
-                if (hash == "c165ab92")
+                if (hash == "83d7ce4f")
                 {
                     this.chb_ForceAftermathOnline.Checked = true;
                 }
-                if (hash == "adabee0b")
+                if (hash == "d06dbe37")
                 {
                     this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = true;
                 }
@@ -1391,7 +1391,8 @@ namespace RedAlertConfig
                 using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
                     foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
 
-                if (hash == "c165ab92")
+
+                if (hash == "83d7ce4f")
                 {
                     File.Delete(Path_ + seperator + "rules.ini");
                 }
@@ -1405,7 +1406,7 @@ namespace RedAlertConfig
                 using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
                     foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
 
-                if (hash == "adabee0b")
+                if (hash == "d06dbe37")
                 {
                     File.Delete(Path_ + seperator + "rules.ini");
                 }
@@ -1421,7 +1422,7 @@ namespace RedAlertConfig
                     using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
                         foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
 
-                    if (hash != "c165ab92")
+                    if (hash != "83d7ce4f")
                     {
                         // File exists but with different hash
                         MessageBox.Show("Force Aftermath expansion is enabled but another rules.ini file has been found, this file has been renamed to ___rules.ini.");
@@ -1449,7 +1450,7 @@ namespace RedAlertConfig
                     using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
                         foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
 
-                    if (hash != "adabee0b")
+                    if (hash != "d06dbe37")
                     {
                         // File exists but with different hash
                         MessageBox.Show("Force Aftermath with fast build speed expansion is enabled but another rules.ini file has been found, this file has been renamed to ___rules.ini.");
