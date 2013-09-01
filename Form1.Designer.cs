@@ -69,14 +69,9 @@ namespace RedAlertConfig
             this.chb_ShroudRegrows = new System.Windows.Forms.CheckBox();
             this.textb_Credits = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.chb_ForceAftermathOnlineFastBuildSpeed = new System.Windows.Forms.CheckBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
-            this.chb_ForceAftermathOnline = new System.Windows.Forms.CheckBox();
             this.but_RunCnCNetSetup = new System.Windows.Forms.Button();
             this.link_CnCNetSite = new System.Windows.Forms.LinkLabel();
             this.label13 = new System.Windows.Forms.Label();
@@ -170,6 +165,9 @@ namespace RedAlertConfig
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
+            this.chb_RemapCameoIcons = new System.Windows.Forms.CheckBox();
+            this.chb_UseDOSInterfaceMod = new System.Windows.Forms.CheckBox();
             this.label30 = new System.Windows.Forms.Label();
             this.chb_EnableSmallInfantry = new System.Windows.Forms.CheckBox();
             this.chb_UseBetaGunboat = new System.Windows.Forms.CheckBox();
@@ -345,14 +343,9 @@ namespace RedAlertConfig
             this.tabPage3.Controls.Add(this.chb_ShroudRegrows);
             this.tabPage3.Controls.Add(this.textb_Credits);
             this.tabPage3.Controls.Add(this.label42);
-            this.tabPage3.Controls.Add(this.label41);
-            this.tabPage3.Controls.Add(this.chb_ForceAftermathOnlineFastBuildSpeed);
-            this.tabPage3.Controls.Add(this.label19);
             this.tabPage3.Controls.Add(this.label36);
             this.tabPage3.Controls.Add(this.label16);
-            this.tabPage3.Controls.Add(this.label15);
             this.tabPage3.Controls.Add(this.label100);
-            this.tabPage3.Controls.Add(this.chb_ForceAftermathOnline);
             this.tabPage3.Controls.Add(this.but_RunCnCNetSetup);
             this.tabPage3.Controls.Add(this.link_CnCNetSite);
             this.tabPage3.Controls.Add(this.label13);
@@ -381,6 +374,7 @@ namespace RedAlertConfig
             this.label59.TabIndex = 77;
             this.label59.Text = "enabled or you can\'t join games hosted by other people and they can\'t join yours." +
                 "";
+            this.label59.Visible = false;
             // 
             // label58
             // 
@@ -508,7 +502,6 @@ namespace RedAlertConfig
             this.cmbox_UnitCount.Name = "cmbox_UnitCount";
             this.cmbox_UnitCount.Size = new System.Drawing.Size(38, 21);
             this.cmbox_UnitCount.TabIndex = 67;
-            this.cmbox_UnitCount.SelectedIndexChanged += new System.EventHandler(this.cmbox_UnitCount_SelectedIndexChanged);
             // 
             // label54
             // 
@@ -652,33 +645,6 @@ namespace RedAlertConfig
             this.label42.TabIndex = 51;
             this.label42.Text = "Credits:";
             // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(47, 357);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(322, 13);
-            this.label41.TabIndex = 50;
-            this.label41.Text = "Force Aftermath online with fast build speed (also works in skirmish)";
-            // 
-            // chb_ForceAftermathOnlineFastBuildSpeed
-            // 
-            this.chb_ForceAftermathOnlineFastBuildSpeed.AutoSize = true;
-            this.chb_ForceAftermathOnlineFastBuildSpeed.Location = new System.Drawing.Point(32, 357);
-            this.chb_ForceAftermathOnlineFastBuildSpeed.Name = "chb_ForceAftermathOnlineFastBuildSpeed";
-            this.chb_ForceAftermathOnlineFastBuildSpeed.Size = new System.Drawing.Size(15, 14);
-            this.chb_ForceAftermathOnlineFastBuildSpeed.TabIndex = 49;
-            this.chb_ForceAftermathOnlineFastBuildSpeed.UseVisualStyleBackColor = true;
-            this.chb_ForceAftermathOnlineFastBuildSpeed.CheckedChanged += new System.EventHandler(this.chb_ForceAftermathOnlineFastBuildSpeed_CheckedChanged);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(54, 356);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(0, 13);
-            this.label19.TabIndex = 48;
-            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -698,16 +664,7 @@ namespace RedAlertConfig
             this.label16.Size = new System.Drawing.Size(36, 13);
             this.label16.TabIndex = 46;
             this.label16.Text = "Other:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(47, 338);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(113, 13);
-            this.label15.TabIndex = 45;
-            this.label15.Text = "Force Aftermath online";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
+            this.label16.Visible = false;
             // 
             // label100
             // 
@@ -718,17 +675,8 @@ namespace RedAlertConfig
             this.label100.Size = new System.Drawing.Size(383, 13);
             this.label100.TabIndex = 44;
             this.label100.Text = "NOTE: If you use the below options online other players also need to have them";
+            this.label100.Visible = false;
             this.label100.Click += new System.EventHandler(this.label14_Click);
-            // 
-            // chb_ForceAftermathOnline
-            // 
-            this.chb_ForceAftermathOnline.AutoSize = true;
-            this.chb_ForceAftermathOnline.Location = new System.Drawing.Point(32, 338);
-            this.chb_ForceAftermathOnline.Name = "chb_ForceAftermathOnline";
-            this.chb_ForceAftermathOnline.Size = new System.Drawing.Size(15, 14);
-            this.chb_ForceAftermathOnline.TabIndex = 43;
-            this.chb_ForceAftermathOnline.UseVisualStyleBackColor = true;
-            this.chb_ForceAftermathOnline.CheckedChanged += new System.EventHandler(this.chb_ForceAftermathOnline_CheckedChanged);
             // 
             // but_RunCnCNetSetup
             // 
@@ -1760,6 +1708,9 @@ namespace RedAlertConfig
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label15);
+            this.tabPage5.Controls.Add(this.chb_RemapCameoIcons);
+            this.tabPage5.Controls.Add(this.chb_UseDOSInterfaceMod);
             this.tabPage5.Controls.Add(this.label30);
             this.tabPage5.Controls.Add(this.chb_EnableSmallInfantry);
             this.tabPage5.Controls.Add(this.chb_UseBetaGunboat);
@@ -1786,6 +1737,38 @@ namespace RedAlertConfig
             this.tabPage5.TabIndex = 7;
             this.tabPage5.Text = "Extra options";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label15.Location = new System.Drawing.Point(6, 365);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(89, 13);
+            this.label15.TabIndex = 87;
+            this.label15.Text = "Interface options:";
+            // 
+            // chb_RemapCameoIcons
+            // 
+            this.chb_RemapCameoIcons.AutoSize = true;
+            this.chb_RemapCameoIcons.Location = new System.Drawing.Point(160, 389);
+            this.chb_RemapCameoIcons.Name = "chb_RemapCameoIcons";
+            this.chb_RemapCameoIcons.Size = new System.Drawing.Size(223, 17);
+            this.chb_RemapCameoIcons.TabIndex = 86;
+            this.chb_RemapCameoIcons.Text = "Remap cameo icons colors to player color";
+            this.chb_RemapCameoIcons.UseVisualStyleBackColor = true;
+            this.chb_RemapCameoIcons.CheckedChanged += new System.EventHandler(this.chb_RemapCameoIcons_CheckedChanged);
+            // 
+            // chb_UseDOSInterfaceMod
+            // 
+            this.chb_UseDOSInterfaceMod.AutoSize = true;
+            this.chb_UseDOSInterfaceMod.Location = new System.Drawing.Point(21, 389);
+            this.chb_UseDOSInterfaceMod.Name = "chb_UseDOSInterfaceMod";
+            this.chb_UseDOSInterfaceMod.Size = new System.Drawing.Size(138, 17);
+            this.chb_UseDOSInterfaceMod.TabIndex = 85;
+            this.chb_UseDOSInterfaceMod.Text = "Use DOS interface mod";
+            this.chb_UseDOSInterfaceMod.UseVisualStyleBackColor = true;
             // 
             // label30
             // 
@@ -2050,12 +2033,8 @@ namespace RedAlertConfig
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyValue;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label100;
-        private System.Windows.Forms.CheckBox chb_ForceAftermathOnline;
         private System.Windows.Forms.Button but_RunCnCNetSetup;
         private System.Windows.Forms.LinkLabel link_CnCNetSite;
         private System.Windows.Forms.Label label13;
@@ -2143,8 +2122,6 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_EnableCounterstrike;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.CheckBox chb_ForceAftermathOnlineFastBuildSpeed;
         private System.Windows.Forms.TextBox textb_Credits;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label52;
@@ -2172,7 +2149,6 @@ namespace RedAlertConfig
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.CheckBox chb_DisplayOriginalMaps;
         private System.Windows.Forms.CheckBox chb_DeinterlaceVideos;
-        private System.Windows.Forms.Label label59;
         private System.Windows.Forms.CheckBox chb_VideoStretching;
         private System.Windows.Forms.ComboBox cmbox_GameLanguage;
         private System.Windows.Forms.Label label60;
@@ -2197,6 +2173,11 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_UseBetaDestroyer;
         private System.Windows.Forms.CheckBox chb_UseBetaCruiser;
         private System.Windows.Forms.CheckBox chb_UseBetaSubmarine;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.CheckBox chb_RemapCameoIcons;
+        private System.Windows.Forms.CheckBox chb_UseDOSInterfaceMod;
+        private System.Windows.Forms.Label label15;
 
     }
 }

@@ -73,26 +73,6 @@ namespace RedAlertConfig.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ForceAMrules {
-            get {
-                object obj = ResourceManager.GetObject("ForceAMrules", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] ForceAMRulesFastBuildSpeed {
-            get {
-                object obj = ResourceManager.GetObject("ForceAMRulesFastBuildSpeed", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] wsock32 {
             get {
                 object obj = ResourceManager.GetObject("wsock32", resourceCulture);

@@ -143,8 +143,6 @@
   <ItemGroup>
     <Content Include="rasetup.ico" />
     <None Include="resources\wsock32.dll" />
-    <None Include="resources\ForceAMrules.dll" />
-    <None Include="resources\ForceAMRulesFastBuildSpeed.dll" />
     <None Include="resources\ddraw.dll" />
     <Content Include="TODO.txt" />
   </ItemGroup>

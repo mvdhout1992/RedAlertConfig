@@ -33,6 +33,34 @@ namespace RedAlertConfig
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            if (Files.RedAlertINI.getBoolValue("Options", "ColorRemapSidebarIcons", false) == true)
+            {
+                this.chb_RemapCameoIcons.Checked = true;
+            }
+            else
+            {
+                this.chb_RemapCameoIcons.Checked = false;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "UseDOSInterfaceMod", false) == true)
+            {
+                this.chb_UseDOSInterfaceMod.Checked = true;
+            }
+            else
+            {
+                this.chb_UseDOSInterfaceMod.Checked = false;
+            }
+
+            if (Files.RedAlertINI.getBoolValue("Options", "MouseWheelScrolling", false) == true)
+            {
+                this.chb_MouseWheelScrolling.Checked = true;
+            }
+            else
+            {
+                this.chb_MouseWheelScrolling.Checked = false;
+            }
+
             if (Files.RedAlertINI.getBoolValue("Options", "MouseWheelScrolling", false) == true)
             {
                 this.chb_MouseWheelScrolling.Checked = true;
@@ -142,33 +170,6 @@ namespace RedAlertConfig
            else
            {
                this.chb_EnableAftermath.Checked = false;
-               this.chb_ForceAftermathOnline.Checked = false;
-               this.chb_ForceAftermathOnline.Enabled = false;
-               this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = false;
-               this.chb_ForceAftermathOnlineFastBuildSpeed.Enabled = false;
-           }
-
-           this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = false;
-           this.chb_ForceAftermathOnline.Checked = false;
-
-           if (File.Exists(Path_ + seperator + "rules.ini") == true)
-           {
-                Crc32 crc32 = new Crc32();
-                String hash = String.Empty;
-
-                using (FileStream fs = File.Open("rules.ini", FileMode.Open))
-    	        foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
-
-                // MessageBox.Show(hash);
-
-                if (hash == "83d7ce4f")
-                {
-                    this.chb_ForceAftermathOnline.Checked = true;
-                }
-                if (hash == "d06dbe37")
-                {
-                    this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = true;
-                }
            }
 
            if (Files.RedAlertINI.getBoolValue("ConfigTool", "UseRAAspectRatio", false) == true)
@@ -933,6 +934,11 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setBoolValue("Options", "MouseWheelScrolling", false);
             }
 
+            Files.RedAlertINI.setBoolValue("Options", "ColorRemapSidebarIcons", this.chb_RemapCameoIcons.Checked);
+
+            Files.RedAlertINI.setBoolValue("Options", "UseDOSInterfaceMod", this.chb_UseDOSInterfaceMod.Checked);
+
+
             if (chb_PlayIntro.Checked == true)
             {
                 Files.RedAlertINI.setBoolValue("Options", "PlayEnglishIntro", true);
@@ -1383,90 +1389,6 @@ namespace RedAlertConfig
                 Files.RedAlertINI.setBoolValue("Options", "AftermathEnabled", false);
             }
 
-            if (this.chb_ForceAftermathOnline.Checked == false && File.Exists(Path_ + seperator + "rules.ini"))
-            {
-                Crc32 crc32 = new Crc32();
-                String hash = String.Empty;
-
-                using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
-                    foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
-
-
-                if (hash == "83d7ce4f")
-                {
-                    File.Delete(Path_ + seperator + "rules.ini");
-                }
-            }
-
-            if (this.chb_ForceAftermathOnlineFastBuildSpeed.Checked == false && File.Exists(Path_ + seperator + "rules.ini"))
-            {
-                Crc32 crc32 = new Crc32();
-                String hash = String.Empty;
-
-                using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
-                    foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
-
-                if (hash == "d06dbe37")
-                {
-                    File.Delete(Path_ + seperator + "rules.ini");
-                }
-            }
-
-            if (this.chb_ForceAftermathOnline.Checked == true)
-            {
-                if (File.Exists(Path_ + seperator + "rules.ini"))
-                {
-                    Crc32 crc32 = new Crc32();
-                    String hash = String.Empty;
-
-                    using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
-                        foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
-
-                    if (hash != "83d7ce4f")
-                    {
-                        // File exists but with different hash
-                        MessageBox.Show("Force Aftermath expansion is enabled but another rules.ini file has been found, this file has been renamed to ___rules.ini.");
-
-                        File.Delete(Path_ + Path.DirectorySeparatorChar + "___rules.ini");
-                        File.Move(Path_ + Path.DirectorySeparatorChar + "rules.ini",
-                        Path_ + Path.DirectorySeparatorChar + "___rules.ini");
-
-                        File.WriteAllBytes(Path_ + Path.DirectorySeparatorChar + "rules.ini", RedAlertConfig.Properties.Resources.ForceAMrules);
-                    }
-                }
-                else
-                {
-                    File.WriteAllBytes(Path_ + Path.DirectorySeparatorChar + "rules.ini", RedAlertConfig.Properties.Resources.ForceAMrules);
-                }
-            }
-
-            if (this.chb_ForceAftermathOnlineFastBuildSpeed.Checked == true)
-            {
-                if (File.Exists(Path_ + seperator + "rules.ini"))
-                {
-                    Crc32 crc32 = new Crc32();
-                    String hash = String.Empty;
-
-                    using (FileStream fs = File.Open(Path_ + seperator + "rules.ini", FileMode.Open))
-                        foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
-
-                    if (hash != "d06dbe37")
-                    {
-                        // File exists but with different hash
-                        MessageBox.Show("Force Aftermath with fast build speed expansion is enabled but another rules.ini file has been found, this file has been renamed to ___rules.ini.");
-
-                        File.Delete(Path_ + Path.DirectorySeparatorChar + "___rules.ini");
-                        File.Move(Path_ + Path.DirectorySeparatorChar + "rules.ini",
-                        Path_ + Path.DirectorySeparatorChar + "___rules.ini");
-
-                        File.WriteAllBytes(Path_ + Path.DirectorySeparatorChar + "rules.ini", RedAlertConfig.Properties.Resources.ForceAMRulesFastBuildSpeed);
-                    }
-                }
-                else
-                {
-                    File.WriteAllBytes(Path_ + Path.DirectorySeparatorChar + "rules.ini", RedAlertConfig.Properties.Resources.ForceAMRulesFastBuildSpeed);
-                }
-            }
 
             Files.RedAlertINI.setIntValue("ConfigTool", "ConfigToolTab", this.tabControl1.SelectedIndex);
 
@@ -1855,18 +1777,6 @@ namespace RedAlertConfig
 
         private void chb_EnableAftermath_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.chb_EnableAftermath.Checked == false)
-            {
-                this.chb_ForceAftermathOnline.Checked = false;
-                this.chb_ForceAftermathOnline.Enabled = false;
-                this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = false;
-                this.chb_ForceAftermathOnlineFastBuildSpeed.Enabled = false;
-            }
-            else
-            {
-                this.chb_ForceAftermathOnline.Enabled = true;
-                this.chb_ForceAftermathOnlineFastBuildSpeed.Enabled = true;
-            }
         }
 
         private void but_ResetVisualOptions_Click(object sender, EventArgs e)
@@ -2074,25 +1984,11 @@ namespace RedAlertConfig
             System.Diagnostics.Process.Start("https://github.com/Iran/ra303p-iran");
         }
 
-        private void chb_ForceAftermathOnline_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.chb_ForceAftermathOnline.Checked == true)
-            {
-                this.chb_ForceAftermathOnlineFastBuildSpeed.Checked = false;
-            }
-        }
-
-        private void chb_ForceAftermathOnlineFastBuildSpeed_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.chb_ForceAftermathOnlineFastBuildSpeed.Checked == true)
-            {
-                this.chb_ForceAftermathOnline.Checked = false;
-            }
-        }
-
-        private void cmbox_UnitCount_SelectedIndexChanged(object sender, EventArgs e)
+        private void chb_RemapCameoIcons_CheckedChanged(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }
