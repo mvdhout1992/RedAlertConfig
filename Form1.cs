@@ -505,7 +505,10 @@ namespace RedAlertConfig
                 }
             }
 
-            this.cmbox_Color.SelectedIndex = Files.RedAlertINI.getIntValue("MultiPlayer", "Color", 0);
+            int PlayerColor = Files.RedAlertINI.getIntValue("MultiPlayer", "Color", 0);
+            if (PlayerColor > 7) PlayerColor = 0;
+
+            this.cmbox_Color.SelectedIndex = PlayerColor;
 
             String Renderer = Files.DDrawINI.getStringValue("ddraw", "renderer", "opengl");
 
