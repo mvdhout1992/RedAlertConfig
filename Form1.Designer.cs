@@ -42,7 +42,6 @@ namespace RedAlertConfig
             this.ColumnHotkeyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHotkeyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label59 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.chb_DisplayAftermathMaps = new System.Windows.Forms.CheckBox();
             this.label57 = new System.Windows.Forms.Label();
@@ -71,7 +70,6 @@ namespace RedAlertConfig
             this.label42 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label100 = new System.Windows.Forms.Label();
             this.but_RunCnCNetSetup = new System.Windows.Forms.Button();
             this.link_CnCNetSite = new System.Windows.Forms.LinkLabel();
             this.label13 = new System.Windows.Forms.Label();
@@ -187,6 +185,11 @@ namespace RedAlertConfig
             this.chb_MouseWheelScrolling = new System.Windows.Forms.CheckBox();
             this.chb_RandomStartingSong = new System.Windows.Forms.CheckBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.chb_ForceSingleCPUAffinity = new System.Windows.Forms.CheckBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.chb_FastAMBuildSpeed = new System.Windows.Forms.CheckBox();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -316,7 +319,8 @@ namespace RedAlertConfig
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.label59);
+            this.tabPage3.Controls.Add(this.label39);
+            this.tabPage3.Controls.Add(this.chb_FastAMBuildSpeed);
             this.tabPage3.Controls.Add(this.label58);
             this.tabPage3.Controls.Add(this.chb_DisplayAftermathMaps);
             this.tabPage3.Controls.Add(this.label57);
@@ -345,7 +349,6 @@ namespace RedAlertConfig
             this.tabPage3.Controls.Add(this.label42);
             this.tabPage3.Controls.Add(this.label36);
             this.tabPage3.Controls.Add(this.label16);
-            this.tabPage3.Controls.Add(this.label100);
             this.tabPage3.Controls.Add(this.but_RunCnCNetSetup);
             this.tabPage3.Controls.Add(this.link_CnCNetSite);
             this.tabPage3.Controls.Add(this.label13);
@@ -363,18 +366,6 @@ namespace RedAlertConfig
             this.tabPage3.Text = "Multiplayer";
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(27, 316);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(387, 13);
-            this.label59.TabIndex = 77;
-            this.label59.Text = "enabled or you can\'t join games hosted by other people and they can\'t join yours." +
-                "";
-            this.label59.Visible = false;
             // 
             // label58
             // 
@@ -664,19 +655,6 @@ namespace RedAlertConfig
             this.label16.Size = new System.Drawing.Size(36, 13);
             this.label16.TabIndex = 46;
             this.label16.Text = "Other:";
-            this.label16.Visible = false;
-            // 
-            // label100
-            // 
-            this.label100.AutoSize = true;
-            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label100.Location = new System.Drawing.Point(27, 301);
-            this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(383, 13);
-            this.label100.TabIndex = 44;
-            this.label100.Text = "NOTE: If you use the below options online other players also need to have them";
-            this.label100.Visible = false;
-            this.label100.Click += new System.EventHandler(this.label14_Click);
             // 
             // but_RunCnCNetSetup
             // 
@@ -794,6 +772,9 @@ namespace RedAlertConfig
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.label38);
+            this.tabPage1.Controls.Add(this.chb_ForceSingleCPUAffinity);
             this.tabPage1.Controls.Add(this.chb_VideoStretching);
             this.tabPage1.Controls.Add(this.txtb_MaxFPS);
             this.tabPage1.Controls.Add(this.txtb_StretchCustomHeight);
@@ -1965,6 +1946,51 @@ namespace RedAlertConfig
             this.label31.TabIndex = 65;
             this.label31.Text = "General options:";
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(238, 314);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(122, 13);
+            this.label19.TabIndex = 91;
+            this.label19.Text = "Force single CPU affinity";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(238, 327);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(147, 13);
+            this.label38.TabIndex = 90;
+            this.label38.Text = "(disable if mouse cursor jitters)";
+            // 
+            // chb_ForceSingleCPUAffinity
+            // 
+            this.chb_ForceSingleCPUAffinity.AutoSize = true;
+            this.chb_ForceSingleCPUAffinity.Location = new System.Drawing.Point(220, 321);
+            this.chb_ForceSingleCPUAffinity.Name = "chb_ForceSingleCPUAffinity";
+            this.chb_ForceSingleCPUAffinity.Size = new System.Drawing.Size(15, 14);
+            this.chb_ForceSingleCPUAffinity.TabIndex = 89;
+            this.chb_ForceSingleCPUAffinity.UseVisualStyleBackColor = true;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(47, 301);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(298, 13);
+            this.label39.TabIndex = 78;
+            this.label39.Text = "Enable fast Aftermath build speed in single player and skirmish";
+            // 
+            // chb_FastAMBuildSpeed
+            // 
+            this.chb_FastAMBuildSpeed.AutoSize = true;
+            this.chb_FastAMBuildSpeed.Location = new System.Drawing.Point(30, 301);
+            this.chb_FastAMBuildSpeed.Name = "chb_FastAMBuildSpeed";
+            this.chb_FastAMBuildSpeed.Size = new System.Drawing.Size(15, 14);
+            this.chb_FastAMBuildSpeed.TabIndex = 77;
+            this.chb_FastAMBuildSpeed.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AcceptButton = this.but_ok;
@@ -2173,11 +2199,14 @@ namespace RedAlertConfig
         private System.Windows.Forms.CheckBox chb_UseBetaDestroyer;
         private System.Windows.Forms.CheckBox chb_UseBetaCruiser;
         private System.Windows.Forms.CheckBox chb_UseBetaSubmarine;
-        private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.Label label100;
         private System.Windows.Forms.CheckBox chb_RemapCameoIcons;
         private System.Windows.Forms.CheckBox chb_UseDOSInterfaceMod;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.CheckBox chb_ForceSingleCPUAffinity;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.CheckBox chb_FastAMBuildSpeed;
 
     }
 }
