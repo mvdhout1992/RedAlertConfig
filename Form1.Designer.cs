@@ -42,6 +42,8 @@ namespace RedAlertConfig
             this.ColumnHotkeyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHotkeyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label39 = new System.Windows.Forms.Label();
+            this.chb_FastAMBuildSpeed = new System.Windows.Forms.CheckBox();
             this.label58 = new System.Windows.Forms.Label();
             this.chb_DisplayAftermathMaps = new System.Windows.Forms.CheckBox();
             this.label57 = new System.Windows.Forms.Label();
@@ -81,6 +83,9 @@ namespace RedAlertConfig
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.chb_ForceSingleCPUAffinity = new System.Windows.Forms.CheckBox();
             this.chb_VideoStretching = new System.Windows.Forms.CheckBox();
             this.txtb_MaxFPS = new System.Windows.Forms.TextBox();
             this.txtb_StretchCustomHeight = new System.Windows.Forms.TextBox();
@@ -185,11 +190,6 @@ namespace RedAlertConfig
             this.chb_MouseWheelScrolling = new System.Windows.Forms.CheckBox();
             this.chb_RandomStartingSong = new System.Windows.Forms.CheckBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.chb_ForceSingleCPUAffinity = new System.Windows.Forms.CheckBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.chb_FastAMBuildSpeed = new System.Windows.Forms.CheckBox();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HotKeyEditor)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -366,6 +366,24 @@ namespace RedAlertConfig
             this.tabPage3.Text = "Multiplayer";
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(47, 301);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(298, 13);
+            this.label39.TabIndex = 78;
+            this.label39.Text = "Enable fast Aftermath build speed in single player and skirmish";
+            // 
+            // chb_FastAMBuildSpeed
+            // 
+            this.chb_FastAMBuildSpeed.AutoSize = true;
+            this.chb_FastAMBuildSpeed.Location = new System.Drawing.Point(30, 301);
+            this.chb_FastAMBuildSpeed.Name = "chb_FastAMBuildSpeed";
+            this.chb_FastAMBuildSpeed.Size = new System.Drawing.Size(15, 14);
+            this.chb_FastAMBuildSpeed.TabIndex = 77;
+            this.chb_FastAMBuildSpeed.UseVisualStyleBackColor = true;
             // 
             // label58
             // 
@@ -816,10 +834,37 @@ namespace RedAlertConfig
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(238, 74);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(122, 13);
+            this.label19.TabIndex = 91;
+            this.label19.Text = "Force single CPU affinity";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(238, 87);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(147, 13);
+            this.label38.TabIndex = 90;
+            this.label38.Text = "(disable if mouse cursor jitters)";
+            // 
+            // chb_ForceSingleCPUAffinity
+            // 
+            this.chb_ForceSingleCPUAffinity.AutoSize = true;
+            this.chb_ForceSingleCPUAffinity.Location = new System.Drawing.Point(220, 81);
+            this.chb_ForceSingleCPUAffinity.Name = "chb_ForceSingleCPUAffinity";
+            this.chb_ForceSingleCPUAffinity.Size = new System.Drawing.Size(15, 14);
+            this.chb_ForceSingleCPUAffinity.TabIndex = 89;
+            this.chb_ForceSingleCPUAffinity.UseVisualStyleBackColor = true;
+            // 
             // chb_VideoStretching
             // 
             this.chb_VideoStretching.AutoSize = true;
-            this.chb_VideoStretching.Location = new System.Drawing.Point(220, 153);
+            this.chb_VideoStretching.Location = new System.Drawing.Point(220, 178);
             this.chb_VideoStretching.Name = "chb_VideoStretching";
             this.chb_VideoStretching.Size = new System.Drawing.Size(220, 17);
             this.chb_VideoStretching.TabIndex = 88;
@@ -828,7 +873,7 @@ namespace RedAlertConfig
             // 
             // txtb_MaxFPS
             // 
-            this.txtb_MaxFPS.Location = new System.Drawing.Point(373, 242);
+            this.txtb_MaxFPS.Location = new System.Drawing.Point(373, 267);
             this.txtb_MaxFPS.Name = "txtb_MaxFPS";
             this.txtb_MaxFPS.Size = new System.Drawing.Size(33, 20);
             this.txtb_MaxFPS.TabIndex = 87;
@@ -850,7 +895,7 @@ namespace RedAlertConfig
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(217, 242);
+            this.label14.Location = new System.Drawing.Point(217, 267);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(150, 13);
             this.label14.TabIndex = 86;
@@ -1003,7 +1048,7 @@ namespace RedAlertConfig
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(238, 173);
+            this.label34.Location = new System.Drawing.Point(238, 198);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(149, 13);
             this.label34.TabIndex = 82;
@@ -1013,7 +1058,7 @@ namespace RedAlertConfig
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(238, 186);
+            this.label35.Location = new System.Drawing.Point(238, 211);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(76, 13);
             this.label35.TabIndex = 81;
@@ -1022,7 +1067,7 @@ namespace RedAlertConfig
             // chb_UseWindowBoxing
             // 
             this.chb_UseWindowBoxing.AutoSize = true;
-            this.chb_UseWindowBoxing.Location = new System.Drawing.Point(220, 180);
+            this.chb_UseWindowBoxing.Location = new System.Drawing.Point(220, 205);
             this.chb_UseWindowBoxing.Name = "chb_UseWindowBoxing";
             this.chb_UseWindowBoxing.Size = new System.Drawing.Size(15, 14);
             this.chb_UseWindowBoxing.TabIndex = 80;
@@ -1031,7 +1076,7 @@ namespace RedAlertConfig
             // chb_ShowWindowedBorder
             // 
             this.chb_ShowWindowedBorder.AutoSize = true;
-            this.chb_ShowWindowedBorder.Location = new System.Drawing.Point(220, 87);
+            this.chb_ShowWindowedBorder.Location = new System.Drawing.Point(220, 118);
             this.chb_ShowWindowedBorder.Name = "chb_ShowWindowedBorder";
             this.chb_ShowWindowedBorder.Size = new System.Drawing.Size(216, 17);
             this.chb_ShowWindowedBorder.TabIndex = 79;
@@ -1042,7 +1087,7 @@ namespace RedAlertConfig
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(217, 266);
+            this.label33.Location = new System.Drawing.Point(217, 291);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(74, 13);
             this.label33.TabIndex = 78;
@@ -1057,7 +1102,7 @@ namespace RedAlertConfig
             "16",
             "24",
             "32"});
-            this.cmbox_BitsPerPixels.Location = new System.Drawing.Point(223, 287);
+            this.cmbox_BitsPerPixels.Location = new System.Drawing.Point(223, 312);
             this.cmbox_BitsPerPixels.Name = "cmbox_BitsPerPixels";
             this.cmbox_BitsPerPixels.Size = new System.Drawing.Size(153, 21);
             this.cmbox_BitsPerPixels.TabIndex = 77;
@@ -1065,7 +1110,7 @@ namespace RedAlertConfig
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(238, 204);
+            this.label25.Location = new System.Drawing.Point(238, 229);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(134, 13);
             this.label25.TabIndex = 65;
@@ -1074,7 +1119,7 @@ namespace RedAlertConfig
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(238, 217);
+            this.label26.Location = new System.Drawing.Point(238, 242);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(112, 13);
             this.label26.TabIndex = 64;
@@ -1084,7 +1129,7 @@ namespace RedAlertConfig
             // chb_AutoAdjustMouse
             // 
             this.chb_AutoAdjustMouse.AutoSize = true;
-            this.chb_AutoAdjustMouse.Location = new System.Drawing.Point(220, 211);
+            this.chb_AutoAdjustMouse.Location = new System.Drawing.Point(220, 236);
             this.chb_AutoAdjustMouse.Name = "chb_AutoAdjustMouse";
             this.chb_AutoAdjustMouse.Size = new System.Drawing.Size(15, 14);
             this.chb_AutoAdjustMouse.TabIndex = 63;
@@ -1093,7 +1138,7 @@ namespace RedAlertConfig
             // chb_RunWindowed
             // 
             this.chb_RunWindowed.AutoSize = true;
-            this.chb_RunWindowed.Location = new System.Drawing.Point(220, 107);
+            this.chb_RunWindowed.Location = new System.Drawing.Point(220, 138);
             this.chb_RunWindowed.Name = "chb_RunWindowed";
             this.chb_RunWindowed.Size = new System.Drawing.Size(137, 17);
             this.chb_RunWindowed.TabIndex = 62;
@@ -1945,51 +1990,6 @@ namespace RedAlertConfig
             this.label31.Size = new System.Drawing.Size(84, 13);
             this.label31.TabIndex = 65;
             this.label31.Text = "General options:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(238, 314);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(122, 13);
-            this.label19.TabIndex = 91;
-            this.label19.Text = "Force single CPU affinity";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(238, 327);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(147, 13);
-            this.label38.TabIndex = 90;
-            this.label38.Text = "(disable if mouse cursor jitters)";
-            // 
-            // chb_ForceSingleCPUAffinity
-            // 
-            this.chb_ForceSingleCPUAffinity.AutoSize = true;
-            this.chb_ForceSingleCPUAffinity.Location = new System.Drawing.Point(220, 321);
-            this.chb_ForceSingleCPUAffinity.Name = "chb_ForceSingleCPUAffinity";
-            this.chb_ForceSingleCPUAffinity.Size = new System.Drawing.Size(15, 14);
-            this.chb_ForceSingleCPUAffinity.TabIndex = 89;
-            this.chb_ForceSingleCPUAffinity.UseVisualStyleBackColor = true;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(47, 301);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(298, 13);
-            this.label39.TabIndex = 78;
-            this.label39.Text = "Enable fast Aftermath build speed in single player and skirmish";
-            // 
-            // chb_FastAMBuildSpeed
-            // 
-            this.chb_FastAMBuildSpeed.AutoSize = true;
-            this.chb_FastAMBuildSpeed.Location = new System.Drawing.Point(30, 301);
-            this.chb_FastAMBuildSpeed.Name = "chb_FastAMBuildSpeed";
-            this.chb_FastAMBuildSpeed.Size = new System.Drawing.Size(15, 14);
-            this.chb_FastAMBuildSpeed.TabIndex = 77;
-            this.chb_FastAMBuildSpeed.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

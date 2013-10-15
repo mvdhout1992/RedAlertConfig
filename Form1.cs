@@ -33,7 +33,7 @@ namespace RedAlertConfig
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.chb_ForceSingleCPUAffinity.Checked = Files.DDrawINI.getBoolValue("ddraw", "singlecpu", true);
+            this.chb_ForceSingleCPUAffinity.Checked = Files.RedAlertINI.getBoolValue("Options", "ForceSingleCPU", true);
             this.chb_FastAMBuildSpeed.Checked = Files.RedAlertINI.getBoolValue("Options", "FastAMBuildSpeed", false);
 
             if (Files.RedAlertINI.getBoolValue("Options", "ColorRemapSidebarIcons", false) == true)
@@ -928,7 +928,7 @@ namespace RedAlertConfig
                 Files.DDrawINI.setIntValue("ddraw", "width", 0);
             }
 
-            Files.DDrawINI.setBoolValue("ddraw", "singlecpu", this.chb_ForceSingleCPUAffinity.Checked);
+            Files.RedAlertINI.setBoolValue("Options", "ForceSingleCPU", this.chb_ForceSingleCPUAffinity.Checked);
 
             Files.RedAlertINI.setStringValue("MultiPlayer", "Handle", txtb_Handle.Text);
 
@@ -1720,10 +1720,6 @@ namespace RedAlertConfig
                 this.chb_VideoStretching.Visible = false;
                 this.chb_StretchCustom.Checked = false;
 
-                this.chb_ForceSingleCPUAffinity.Visible = false;
-                this.label19.Visible = false;
-                this.label38.Visible = false;
-
             }
             else
             {
@@ -1756,10 +1752,6 @@ namespace RedAlertConfig
                 this.cmbox_BitsPerPixels.Visible = true;
                 this.label25.Visible = true;
                 this.label26.Visible = true;
-
-                this.chb_ForceSingleCPUAffinity.Visible = true;
-                this.label19.Visible = true;
-                this.label38.Visible = true;
             }
         }
 
