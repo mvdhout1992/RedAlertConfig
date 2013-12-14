@@ -70,9 +70,7 @@ namespace RedAlertConfig
             this.chb_ShroudRegrows = new System.Windows.Forms.CheckBox();
             this.textb_Credits = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.but_RunCnCNetSetup = new System.Windows.Forms.Button();
             this.link_CnCNetSite = new System.Windows.Forms.LinkLabel();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbox_Color = new System.Windows.Forms.ComboBox();
@@ -347,9 +345,7 @@ namespace RedAlertConfig
             this.tabPage3.Controls.Add(this.chb_ShroudRegrows);
             this.tabPage3.Controls.Add(this.textb_Credits);
             this.tabPage3.Controls.Add(this.label42);
-            this.tabPage3.Controls.Add(this.label36);
             this.tabPage3.Controls.Add(this.label16);
-            this.tabPage3.Controls.Add(this.but_RunCnCNetSetup);
             this.tabPage3.Controls.Add(this.link_CnCNetSite);
             this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Controls.Add(this.cmbox_Color);
@@ -370,7 +366,7 @@ namespace RedAlertConfig
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(47, 301);
+            this.label39.Location = new System.Drawing.Point(47, 286);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(298, 13);
             this.label39.TabIndex = 78;
@@ -379,7 +375,7 @@ namespace RedAlertConfig
             // chb_FastAMBuildSpeed
             // 
             this.chb_FastAMBuildSpeed.AutoSize = true;
-            this.chb_FastAMBuildSpeed.Location = new System.Drawing.Point(30, 301);
+            this.chb_FastAMBuildSpeed.Location = new System.Drawing.Point(30, 286);
             this.chb_FastAMBuildSpeed.Name = "chb_FastAMBuildSpeed";
             this.chb_FastAMBuildSpeed.Size = new System.Drawing.Size(15, 14);
             this.chb_FastAMBuildSpeed.TabIndex = 77;
@@ -654,41 +650,22 @@ namespace RedAlertConfig
             this.label42.TabIndex = 51;
             this.label42.Text = "Credits:";
             // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(160, 249);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(194, 13);
-            this.label36.TabIndex = 47;
-            this.label36.Text = "Open cncnet.exe to start playing online.";
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label16.Location = new System.Drawing.Point(9, 280);
+            this.label16.Location = new System.Drawing.Point(9, 265);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(36, 13);
             this.label16.TabIndex = 46;
             this.label16.Text = "Other:";
             // 
-            // but_RunCnCNetSetup
-            // 
-            this.but_RunCnCNetSetup.Location = new System.Drawing.Point(32, 244);
-            this.but_RunCnCNetSetup.Name = "but_RunCnCNetSetup";
-            this.but_RunCnCNetSetup.Size = new System.Drawing.Size(111, 23);
-            this.but_RunCnCNetSetup.TabIndex = 42;
-            this.but_RunCnCNetSetup.Text = "Run CnCNet setup";
-            this.but_RunCnCNetSetup.UseVisualStyleBackColor = true;
-            this.but_RunCnCNetSetup.Click += new System.EventHandler(this.button3_Click_1);
-            // 
             // link_CnCNetSite
             // 
             this.link_CnCNetSite.AutoSize = true;
             this.link_CnCNetSite.LinkArea = new System.Windows.Forms.LinkArea(0, 38);
-            this.link_CnCNetSite.Location = new System.Drawing.Point(29, 222);
+            this.link_CnCNetSite.Location = new System.Drawing.Point(29, 224);
             this.link_CnCNetSite.Name = "link_CnCNetSite";
             this.link_CnCNetSite.Size = new System.Drawing.Size(184, 13);
             this.link_CnCNetSite.TabIndex = 41;
@@ -2059,9 +2036,7 @@ namespace RedAlertConfig
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHotkeyValue;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button but_RunCnCNetSetup;
         private System.Windows.Forms.LinkLabel link_CnCNetSite;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbox_Color;
